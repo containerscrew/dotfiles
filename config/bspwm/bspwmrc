@@ -1,0 +1,51 @@
+#! /bin/sh
+
+pgrep -x sxhkd > /dev/null || sxhkd &
+
+for monitor in $(xrandr -q | grep -w 'connected' | cut -d' ' -f1); do
+    bspc monitor "$monitor" -d '1' '2' '3' '4' '5' '6'
+    #bspc monitor "$monitor" -d '' '' '' '' '' ''
+done
+
+bspc config window_gap					6
+bspc config split_ratio					0.51
+bspc config single_monocle				true
+bspc config borderless_monocle			false
+bspc config gapless_monocle				false
+
+bspc config focus_follows_pointer		true
+bspc config pointer_follows_focus		false
+bspc config pointer_motion_interval		5
+bspc config pointer_modifier			mod4
+bspc config pointer_action1				move
+bspc config pointer_action2				resize_side
+bspc config pointer_action3				resize_corner
+
+#bspc wm --adopt-orphans
+bspc rule -a scratch sticky=on state=floating focus=on
+
+# bspc rule -a Gimp desktop='^8' state=floating follow=on
+# bspc rule -a Chromium desktop='^2'
+# bspc rule -a mplayer2 state=floating
+# bspc rule -a Kupfer.py focus=on
+# bspc rule -a Screenkey manage=off
+
+# Autostart applications
+sxhkd &
+
+picom --config $HOME/.config/picom/picom.conf &
+
+# Wallpapers
+feh -z --no-fehbg --bg-fill /usr/share/backgrounds
+
+# Bar
+#pidof -q eww || { eww -c "$HOME"/.config/bspwm/eww daemon & }
+
+dunst &
+
+# Launch polybar using the script
+"$HOME"/.config/polybar/launch.sh
+
+
+# Fix cursor.
+xsetroot -cursor_name left_ptr 
