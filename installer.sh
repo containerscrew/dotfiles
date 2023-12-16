@@ -91,7 +91,7 @@ sudo pacman -Sy --noconfirm --needed base-devel rustup bspwm sxhkd polybar picom
             blueman firefox conky mlocate tor tor-browser ngrep lsd bat \
             ttf-jetbrains-mono ttf-jetbrains-mono-nerd ttf-terminus-nerd ttf-inconsolata ttf-joypixels \
             fzf brightnessctl man webp-pixbuf-loader light-locker \
-            net-tools inetutils
+            net-tools inetutils ttf-nerd-fonts-symbols htop thunar discord
 
 # Security tools
 log_message "info" "Installing security tools..."
@@ -148,7 +148,7 @@ fi
 
 # Install other packages with paru
 log_message "info" "Installing some packages from AUR..."
-paru -S web-greeter-theme-shikai --skipreview --noconfirm --needed
+paru -S web-greeter-theme-shikai ttf-font-awesome --skipreview --noconfirm --needed
 
 # Setup fish shell
 log_message "info" "Setup fish shell..."
@@ -192,7 +192,7 @@ sudo cp /etc/lightdm/lightdm.conf /etc/lightdm/lightdm.conf.bak
 sudo cp /etc/lightdm/web-greeter.yml /etc/lightdm/web-greeter.yml.bak
 sudo sed -i 's/theme: .*/theme: shikai/' /etc/lightdm/web-greeter.yml
 sudo sed -i 's/.*greeter-session=.*/greeter-session=web-greeter/g' /etc/lightdm/lightdm.conf
-sudo sed -i 's/background_images_dir: .*/background_images_dir: \/usr\/share\/web-greeter\/themes\/shikai\/assets\/media\/wallpapers/' /etc/lightdm/web-greeter.yml
+sudo sed -i 's/background_images_dir: .*/background_images_dir: \/usr\/share\/backgrounds/' /etc/lightdm/web-greeter.yml
 sudo sed -i 's/logo_image: .*/logo_image: \/usr\/share\/web-greeter\/themes\/shikai\/assets\/media\/logos/' /etc/lightdm/web-greeter.yml
 
 # Necessary groups for my user

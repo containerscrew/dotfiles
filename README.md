@@ -30,3 +30,6 @@ nmcli device wifi connect SSID_or_BSSID password password
 * rsync -avzh --exclude='.git/' dotfiles/ elliot@192.168.0.30:/home/elliot
 
 
+#  TO DO 
+
+* FIX ICONS
