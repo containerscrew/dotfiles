@@ -1,5 +1,8 @@
 #! /usr/bin/env bash
 
+# Username of your laptop
+USERNAME="elliot"
+
 # Stop script if errors
 set -euo pipefail #x
 
@@ -79,114 +82,126 @@ print_ascii_banner
 # Install base de pendencies
 log_message "info" "Installing system dependencies..."
 
-# For BSPWM 
-# sudo pacman -Sy --noconfirm --needed base-devel rustup bspwm sxhkd polybar picom \
-#             dmenu dunst feh alacritty jq git papirus-icon-theme rofi \
-#             xorg-xprop xorg-xkill xorg-xsetroot xorg-xwininfo xorg-xrandr \
-#             xdg-user-dirs plymouth flameshot neovim vscode mlocate \
-#             bluez bluez-utils fish arandr xorg-server xorg-xinit \
-#             curl wget neofetch lightdm lightdm-gtk-greeter lightdm-webkit2-greeter \
-#             blueman firefox conky
+sudo pacman -Sy --noconfirm --needed base-devel rustup bspwm sxhkd polybar picom \
+            dmenu dunst feh alacritty jq git papirus-icon-theme rofi \
+            xorg-xprop xorg-xkill xorg-xsetroot xorg-xwininfo xorg-xrandr \
+            xdg-user-dirs plymouth flameshot neovim vscode mlocate \
+            bluez bluez-utils fish arandr xorg-server xorg-xinit \
+            curl wget neofetch lightdm lightdm-gtk-greeter lightdm-webkit2-greeter \
+            blueman firefox conky mlocate tor tor-browser ngrep lsd bat \
+            ttf-jetbrains-mono ttf-jetbrains-mono-nerd ttf-terminus-nerd ttf-inconsolata ttf-joypixels \
+            fzf brightnessctl man webp-pixbuf-loader light-locker \
+            net-tools inetutils
 
-# For Gnome
-sudo pacman -Syu --noconfirm --needed base-devel rustup alacritty jq git papirus-icon-theme rofi \
-            flameshot neovim vscode mlocate \
-            fish curl wget neofetch conky gnome-extra gnome gnome-tweaks
+# Security tools
+log_message "info" "Installing security tools..."
+sudo pacman -Sy --noconfirm --needed nmap 
+
+# Installing DevOps tooling
+log_message "info" "Installing DevOps tooling..."
 
 
-# Install gdm 
-sudo systemctl enable gdm --now
-
+# Enable TOR
+sudo systemctl enable tor --now
 
 # Start bluetooth service
+log_message "info" "Starting bluetooh service..."
 sudo systemctl enable bluetooth --now
 
-# # Copy wallpapers 
-# log_message "info" "Copying wallpapers to /usr/share/backgrounds..."
-# sudo mkdir -p /usr/share/backgrounds
-# sudo cp -aR wallpapers/* /usr/share/backgrounds/
+# Copy wallpapers 
+log_message "info" "Copying wallpapers to /usr/share/backgrounds..."
+sudo mkdir -p /usr/share/backgrounds
+sudo cp -aR wallpapers/* /usr/share/backgrounds/
 
-# # Copy config folders
-# # NEED TO IMPLEMENT SOME BACKUP BEFORE INSTALL THAT CUSTOMS FILES
-# cp -R config/* $HOME/.config/
+# Copy config folders
+# NEED TO IMPLEMENT SOME BACKUP BEFORE INSTALL THAT CUSTOMS FILES
+cp -R config/* $HOME/.config/
 
-# # Create default user home directories
-# log_message "info" "Creating default user home directories..."
-# if ! test -f  "$HOME/.config/user-dirs.dirs" ; then
-#     xdg-user-dirs-update
-# else 
-#     log_message "info" "User home directories exists. Skipping creation..."
-# fi
-# sleep 2
+# Create default user home directories
+log_message "info" "Creating default user home directories..."
+if ! test -f  "$HOME/.config/user-dirs.dirs" ; then
+    xdg-user-dirs-update
+else 
+    log_message "info" "User home directories exists. Skipping creation..."
+fi
+sleep 2
 
-# # # Function to clean tmp directories
-# clean(){
-#   log_message "warning" "Cleaning $1"
-#   sudo rm -rf "$1"
-# }
+# # Function to clean tmp directories
+clean(){
+  log_message "warning" "Cleaning $1"
+  sudo rm -rf "$1"
+}
 
-# # Install paru for AUR packages
-# log_message "info" "Installing paru AUR package manaer..."
+# Install paru for AUR packages
+log_message "info" "Installing paru AUR package manaer..."
 
-# if ! command -v "paru" &> /dev/null ; then 
-#     tmpdir=$(mktemp -d)
-#     cd "$tmpdir"
-#     git clone https://aur.archlinux.org/paru-bin.git
-#     cd paru-bin || exit
-#     makepkg -si --noconfirm
-#     clean "$tmpdir"
-# else
-#     log_message "info" "Command exists. Skipping installation..."
-# fi
+if ! command -v "paru" &> /dev/null ; then 
+    tmpdir=$(mktemp -d)
+    cd "$tmpdir"
+    git clone https://aur.archlinux.org/paru-bin.git
+    cd paru-bin || exit
+    makepkg -si --noconfirm
+    clean "$tmpdir"
+else
+    log_message "info" "Command exists. Skipping installation..."
+fi
 
-# # Install other packages with paru
-# log_message "info" "Installing some packages from AUR..."
-# paru -S web-greeter-theme-shikai --skipreview --noconfirm --needed
+# Install other packages with paru
+log_message "info" "Installing some packages from AUR..."
+paru -S web-greeter-theme-shikai --skipreview --noconfirm --needed
 
-# # Setup fish shell
-# log_message "info" "Setup fish shell..."
-# chsh -s "$(which fish)"
-# [ -f "$HOME"/.config/fish/config.fish ] && cp "$HOME"/.config/fish/config.fish "$HOME"/.config/fish/config.fish.bak
-# #cp misc/config.fish "$HOME"/.config/fish/config.fish
-# # Setup oh my fish and plugins
-# ./scripts/fish.sh
-
-
-# log_message "info" "Installing blackarch repository..."
-# if pacman -Slq | grep -q blackarch; then
-#     log_message "info" "Blackarch repository already installed. Skipping installation..."
-# else
-#     tmpdir=$(mktemp -d)
-#     cd "$tmpdir"
-#     curl -O https://blackarch.org/strap.sh
-#     chmod +x strap.sh
-#     sudo ./strap.sh
-#     clean "$tmpdir"
-# fi
-
-# # Install eww
-# if ! command -v "eww" &> /dev/null ; then 
-#     tmpdir=$(mktemp -d)
-#     cd "$tmpdir"
-#     git clone https://github.com/elkowar/eww
-#     cd eww
-#     cargo build --release --no-default-features --features x11
-#     sudo install -m 755 "target/release/eww" -t /usr/bin/
-#     clean "$tmpdir"
-# else
-#     log_message "info" "Command eww exists. Skipping installation..."
-# fi
-
-# # Setup shikai theme
-# log_message "info" "Setting up shikai lightdm theme..."
-# # Backup existing config
-# sudo cp /etc/lightdm/lightdm.conf /etc/lightdm/lightdm.conf.bak
-# sudo cp /etc/lightdm/web-greeter.yml /etc/lightdm/web-greeter.yml.bak
-# sudo sed -i 's/theme: .*/theme: shikai/' /etc/lightdm/web-greeter.yml
-# sudo sed -i 's/.*greeter-session=.*/greeter-session=web-greeter/g' /etc/lightdm/lightdm.conf
-# sudo sed -i 's/background_images_dir: .*/background_images_dir: \/usr\/share\/web-greeter\/themes\/shikai\/assets\/media\/wallpapers/' /etc/lightdm/web-greeter.yml
-# sudo sed -i 's/logo_image: .*/logo_image: \/usr\/share\/web-greeter\/themes\/shikai\/assets\/media\/logos/' /etc/lightdm/web-greeter.yml
+# Setup fish shell
+log_message "info" "Setup fish shell..."
+sudo chsh -s "$(which fish)" "${USERNAME}"
+[ -f "$HOME"/.config/fish/config.fish ] && cp "$HOME"/.config/fish/config.fish "$HOME"/.config/fish/config.fish.bak
+#cp misc/config.fish "$HOME"/.config/fish/config.fish
+[ ! -d "$HOME"/.local/share/omf ] && curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
+# Setup plugins 
+./scripts/fish.sh
 
 
-# # For the end of the script
-# sudo systemctl enable lightdm.service --now
+log_message "info" "Installing blackarch repository..."
+if pacman -Slq | grep -q blackarch; then
+    log_message "info" "Blackarch repository already installed. Skipping installation..."
+else
+    tmpdir=$(mktemp -d)
+    cd "$tmpdir"
+    curl -O https://blackarch.org/strap.sh
+    chmod +x strap.sh
+    sudo ./strap.sh
+    clean "$tmpdir"
+fi
+
+# Install eww
+if ! command -v "eww" &> /dev/null ; then 
+    tmpdir=$(mktemp -d)
+    cd "$tmpdir"
+    git clone https://github.com/elkowar/eww
+    cd eww
+    cargo build --release --no-default-features --features x11
+    sudo install -m 755 "target/release/eww" -t /usr/bin/
+    clean "$tmpdir"
+else
+    log_message "info" "Command eww exists. Skipping installation..."
+fi
+
+# Setup shikai theme
+log_message "info" "Setting up shikai lightdm theme..."
+# Backup existing config
+sudo cp /etc/lightdm/lightdm.conf /etc/lightdm/lightdm.conf.bak
+sudo cp /etc/lightdm/web-greeter.yml /etc/lightdm/web-greeter.yml.bak
+sudo sed -i 's/theme: .*/theme: shikai/' /etc/lightdm/web-greeter.yml
+sudo sed -i 's/.*greeter-session=.*/greeter-session=web-greeter/g' /etc/lightdm/lightdm.conf
+sudo sed -i 's/background_images_dir: .*/background_images_dir: \/usr\/share\/web-greeter\/themes\/shikai\/assets\/media\/wallpapers/' /etc/lightdm/web-greeter.yml
+sudo sed -i 's/logo_image: .*/logo_image: \/usr\/share\/web-greeter\/themes\/shikai\/assets\/media\/logos/' /etc/lightdm/web-greeter.yml
+
+# Necessary groups for my user
+sudo usermod -aG video,input,audio,storage,optical,lp,scanner,users "$USERNAME"
+
+# Hibernation and sleep for autolock
+# /etc/systemd/logind.conf
+# change --> IdleAction
+
+# Setup
+# For the end of the script
+sudo systemctl enable lightdm.service --now

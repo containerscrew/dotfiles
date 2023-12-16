@@ -10,9 +10,14 @@ super + Return
 super + d
 	dmenu_run
 
+# Menu aplicaciones
+super + @space
+	rofi -show drun -theme "$HOME"/.config/rofi/Launcher.rasi
+
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd
+
 
 #
 # bspwm hotkeys
