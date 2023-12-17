@@ -211,6 +211,7 @@ sudo sed -i 's/theme: .*/theme: shikai/' /etc/lightdm/web-greeter.yml
 sudo sed -i 's/.*greeter-session=.*/greeter-session=web-greeter/g' /etc/lightdm/lightdm.conf
 sudo sed -i 's/background_images_dir: .*/background_images_dir: \/usr\/share\/backgrounds/' /etc/lightdm/web-greeter.yml
 sudo sed -i 's/logo_image: .*/logo_image: \/usr\/share\/web-greeter\/themes\/shikai\/assets\/media\/logos/' /etc/lightdm/web-greeter.yml
+cp arch-logo.png "$HOME/.face"
 
 # Necessary groups for my user
 sudo usermod -aG video,input,audio,storage,optical,lp,scanner,users "$USERNAME"
