@@ -32,4 +32,35 @@ nmcli device wifi connect SSID_or_BSSID password password
 
 #  TO DO 
 
-* FIX ICONS
+* Bluetooth
+* loadkeys en
+* mouse natural scrolling
+* Add more shortcuts in sxhkd
+* Install GTK theme
+* Declare good colors for polybar
+* keyboard shortcuts for audio volume
+* grub theme
+* starship prompt
+* install a clipboard
+* setup betterlockscreen and xinit and all the stuff
+* config.fish full aliases and setup
+
+# Connect protonvpn
+
+```shell
+protonvpn-cli connect --fastest --protocol udp
+```
+
+# X11 change keyboard 
+
+sudo nvim /etc/X11/xorg.conf.d/00-keyboard.conf 
+
+
+# Timezone
+
+timedatectl set-timezone Europe/Amsterdam
+timedatectl list-timezones | grep -I "Europe"
+
+# Setup my custom vpn (PROTONVPN) using wireguard protocol
+
+https://protonvpn.com/support/wireguard-manual-linux/

@@ -126,9 +126,13 @@ super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
 
 # Lock screen
-alt + shift + x
+ctrl + alt + l
     dm-tool lock
 
 # Firefox
 super + alt + f
 	firefox
+
+# Screenshot using flameshot
+super + alt + c 
+	flameshot gui

@@ -85,13 +85,15 @@ log_message "info" "Installing system dependencies..."
 sudo pacman -Sy --noconfirm --needed base-devel rustup bspwm sxhkd polybar picom \
             dmenu dunst feh alacritty jq git papirus-icon-theme rofi \
             xorg-xprop xorg-xkill xorg-xsetroot xorg-xwininfo xorg-xrandr \
-            xdg-user-dirs plymouth flameshot neovim vscode mlocate \
+            xdg-user-dirs plymouth neovim vscode mlocate \
             bluez bluez-utils fish arandr xorg-server xorg-xinit \
             curl wget neofetch lightdm lightdm-gtk-greeter lightdm-webkit2-greeter \
             blueman firefox conky mlocate tor tor-browser ngrep lsd bat \
             ttf-jetbrains-mono ttf-jetbrains-mono-nerd ttf-terminus-nerd ttf-inconsolata ttf-joypixels \
             fzf brightnessctl man webp-pixbuf-loader light-locker \
-            net-tools inetutils ttf-nerd-fonts-symbols htop thunar discord
+            net-tools inetutils ttf-nerd-fonts-symbols htop thunar discord openvpn veracrypt \
+            keepass pluma bitwarden pamixer python3 python-pip shutter signal-desktop qpwgraph \
+            pipewire pipewire-pulse pavucontrol xbindkeys ttf-firacode-nerd
 
 # Security tools
 log_message "info" "Installing security tools..."
@@ -148,13 +150,14 @@ fi
 
 # Install other packages with paru
 log_message "info" "Installing some packages from AUR..."
-paru -S web-greeter-theme-shikai ttf-font-awesome --skipreview --noconfirm --needed
+paru -S web-greeter-theme-shikai ttf-font-awesome betterlockscreen simplescreenrecorder --skipreview --noconfirm --needed
 
 # Setup fish shell
 log_message "info" "Setup fish shell..."
 sudo chsh -s "$(which fish)" "${USERNAME}"
 [ -f "$HOME"/.config/fish/config.fish ] && cp "$HOME"/.config/fish/config.fish "$HOME"/.config/fish/config.fish.bak
-#cp misc/config.fish "$HOME"/.config/fish/config.fish
+# Setup fish config
+cp misc/config.fish "$HOME"/.config/fish/config.fish
 [ ! -d "$HOME"/.local/share/omf ] && curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
 # Setup plugins 
 ./scripts/fish.sh
@@ -201,6 +204,9 @@ sudo usermod -aG video,input,audio,storage,optical,lp,scanner,users "$USERNAME"
 # Hibernation and sleep for autolock
 # /etc/systemd/logind.conf
 # change --> IdleAction
+
+# Fc cache
+fc-cache -fv
 
 # Setup
 # For the end of the script
