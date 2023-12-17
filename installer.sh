@@ -49,7 +49,7 @@ print_ascii_banner() {
                 yooooooooo
                yooooooooooo
              .yooooooooooooo 
-            .oooooooooooooooo          Welcome to ohmyarch!
+            .oooooooooooooooo          Welcome to my dotfiles!
            .oooooooarcoooooooo         author: github.com/containerscrew
           .ooooooooo-oooooooooo 
          .ooooooooo-  oooooooooo
@@ -93,15 +93,28 @@ sudo pacman -Sy --noconfirm --needed base-devel rustup bspwm sxhkd polybar picom
             fzf brightnessctl man webp-pixbuf-loader light-locker \
             net-tools inetutils ttf-nerd-fonts-symbols htop thunar discord openvpn veracrypt \
             keepass pluma bitwarden pamixer python3 python-pip shutter signal-desktop qpwgraph \
-            pipewire pipewire-pulse pavucontrol xbindkeys ttf-firacode-nerd
+            pipewire pipewire-pulse pavucontrol xbindkeys ttf-firacode-nerd wireguard-tools \
+            systemd-resolvconf macchanger tcpdump imagemagick
+
+# Enable systemd-resolved.service service necessary for wireguard (wg-quick)
+sudo systemctl enable systemd-resolved.service --now
 
 # Security tools
 log_message "info" "Installing security tools..."
-sudo pacman -Sy --noconfirm --needed nmap 
+sudo pacman -Sy --noconfirm --needed nmap ufw
+
+# Enable firewall
+sudo systemctl enable ufw --now
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+sudo ufw enable
+sudo ufw logging on
+sudo ufw reload
+sudo ufw status verbose
 
 # Installing DevOps tooling
 log_message "info" "Installing DevOps tooling..."
-
+./scripts/devops_tooling_installer.sh
 
 # Enable TOR
 sudo systemctl enable tor --now
@@ -123,6 +136,7 @@ cp -R config/* $HOME/.config/
 log_message "info" "Creating default user home directories..."
 if ! test -f  "$HOME/.config/user-dirs.dirs" ; then
     xdg-user-dirs-update
+    mkdir $HOME/.ssh $HOME/.kube $HOME/.aws
 else 
     log_message "info" "User home directories exists. Skipping creation..."
 fi
@@ -150,7 +164,7 @@ fi
 
 # Install other packages with paru
 log_message "info" "Installing some packages from AUR..."
-paru -S web-greeter-theme-shikai ttf-font-awesome betterlockscreen simplescreenrecorder --skipreview --noconfirm --needed
+paru -S web-greeter-theme-shikai ttf-font-awesome simplescreenrecorder tfenv --skipreview --noconfirm --needed
 
 # Setup fish shell
 log_message "info" "Setup fish shell..."
@@ -160,7 +174,7 @@ sudo chsh -s "$(which fish)" "${USERNAME}"
 cp misc/config.fish "$HOME"/.config/fish/config.fish
 [ ! -d "$HOME"/.local/share/omf ] && curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
 # Setup plugins 
-./scripts/fish.sh
+#./scripts/fish.sh
 
 
 log_message "info" "Installing blackarch repository..."
@@ -207,6 +221,10 @@ sudo usermod -aG video,input,audio,storage,optical,lp,scanner,users "$USERNAME"
 
 # Fc cache
 fc-cache -fv
+
+# Change address
+sudo cp misc/macspoof@.service /etc/systemd/system/macspoof@.service
+sudo systemctl enable macspoof@wlp58s0.service
 
 # Setup
 # For the end of the script

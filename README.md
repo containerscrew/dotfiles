@@ -44,6 +44,14 @@ nmcli device wifi connect SSID_or_BSSID password password
 * install a clipboard
 * setup betterlockscreen and xinit and all the stuff
 * config.fish full aliases and setup
+* pending to install correctly brave browser
+* permanent wg-quick setup
+* permanent macchanger 
+* automatic setup omf plugins (git, kubectl...etc)
+* fix arch logo polybar padding + margin
+
+
+tcpdump wireguard connection: https://www.procustodibus.com/blog/2021/03/wireguard-logs/
 
 # Connect protonvpn
 
@@ -64,3 +72,31 @@ timedatectl list-timezones | grep -I "Europe"
 # Setup my custom vpn (PROTONVPN) using wireguard protocol
 
 https://protonvpn.com/support/wireguard-manual-linux/
+
+download wireguad config
+
+sudo mv X.conf to /etc/wireguard/myconfig.conf
+sudo wg-quick up myconfig
+curl ifconfig.me
+
+# CHange mac address of your interface permanently
+
+Pending to rename iface
+
+https://wiki.archlinux.org/title/Network_configuration
+
+`/etc/systemd/network/10-net0.link`
+
+```
+[Match]
+PermanentMACAddress=2e:62:28:d5:a7:fb
+Name=wlp58s0
+
+
+[Link]
+Name=wlan0
+PermanentMACAddress=82:8d:c4:ce:94:ba
+```
+* remember to change te iface name if needed
+
+By the moment this task was done using macchanger with a custom systemd service

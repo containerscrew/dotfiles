@@ -32,7 +32,6 @@ home_symbol = "~"
 format = "[$path](bold blue)[/](bold purple) "
 
 [character]
-symbol = "󰣇"
 success_symbol = "󰣇"
 error_symbol = "[](bold red)"
 
