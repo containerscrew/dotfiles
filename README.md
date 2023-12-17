@@ -75,8 +75,8 @@ https://protonvpn.com/support/wireguard-manual-linux/
 
 download wireguad config
 
-sudo mv X.conf to /etc/wireguard/myconfig.conf
-sudo wg-quick up myconfig
+sudo mv X.conf to /etc/wireguard/protonvpn.conf
+sudo systemctl enable wg-quick@protonvpn.service --now 
 curl ifconfig.me
 
 # CHange mac address of your interface permanently
