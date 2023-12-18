@@ -129,9 +129,15 @@ super + {Left,Down,Up,Right}
 ctrl + alt + l
     dm-tool lock
 
-# Firefox
+# Browsers
 super + alt + f
 	firefox
+
+super + alt + b
+	brave
+
+super + alt + g
+	google-chrome-stable
 
 # Screenshot using flameshot
 super + alt + c 
