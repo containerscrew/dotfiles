@@ -136,7 +136,7 @@ cp -R config/* $HOME/.config/
 log_message "info" "Creating default user home directories..."
 if ! test -f  "$HOME/.config/user-dirs.dirs" ; then
     xdg-user-dirs-update
-    mkdir $HOME/.ssh $HOME/.kube $HOME/.aws
+    mkdir $HOME/.ssh $HOME/.kube $HOME/.aws $HOME/.themes $HOME/.icons
 else 
     log_message "info" "User home directories exists. Skipping creation..."
 fi
@@ -223,9 +223,17 @@ sudo usermod -aG video,input,audio,storage,optical,lp,scanner,users "$USERNAME"
 # Fc cache
 fc-cache -fv
 
-# Change address
+# Change MAC address
 sudo cp misc/macspoof@.service /etc/systemd/system/macspoof@.service
 sudo systemctl enable macspoof@wlp58s0.service
+
+# GTK theme
+#https://www.gnome-look.org/p/1267246
+cp -R misc/Nordic-darker misc/Nordic-darker-v40 misc/Nordic-Folders "$HOME/.themes"
+gsettings set org.gnome.desktop.interface gtk-theme Nordic-darker
+gsettings set org.gnome.desktop.wm.preferences theme Nordic-darker
+gsettings set org.gnome.shell.extensions.user-theme name "Nordic-darker"
+
 
 # Setup
 # For the end of the script
