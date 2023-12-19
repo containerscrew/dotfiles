@@ -10,6 +10,10 @@ super + Return
 super + d
 	dmenu_run
 
+# Open floating Terminal
+super + alt + Return
+	alacritty --class FloaTerm,Alacritty -o window.dimensions.lines=22 window.dimensions.columns=90
+
 # Menu aplicaciones
 super + @space
 	rofi -show drun -theme "$HOME"/.config/rofi/Launcher.rasi

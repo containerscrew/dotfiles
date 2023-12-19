@@ -42,7 +42,6 @@ nmcli device wifi connect SSID_or_BSSID password password
 * grub theme
 * starship prompt
 * install a clipboard
-* setup betterlockscreen and xinit and all the stuff
 * config.fish full aliases and setup
 * pending to install correctly brave browser
 * permanent wg-quick setup

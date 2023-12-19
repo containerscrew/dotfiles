@@ -35,6 +35,11 @@ format = "[$path](bold blue)[/](bold purple) "
 success_symbol = "󰣇"
 error_symbol = "[](bold red)"
 
+[localip]
+ssh_only = false
+format = '@[$localipv4](bold purple) '
+disabled = false
+
 [git_branch]
 symbol = " "
 style = "bold blue"
