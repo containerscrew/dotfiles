@@ -7,5 +7,5 @@ extensions=(rust-lang.rust-analyzer mvllow.rose-pine naumovs.color-highlight \
 
 for extension in "${extensions[@]}"
 do
-  code --install-extension --force "$extension"
+  code --install-extension "$extension" --force
 done
