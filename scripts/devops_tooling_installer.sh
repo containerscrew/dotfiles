@@ -9,7 +9,7 @@ clean(){
 sudo pacman -Sy --noconfirm --needed podman podman-compose terragrunt aws-cli-v2 kubectl helm go minikube 
 
 #curl -L https://raw.githubusercontent.com/warrensbox/tgswitch/release/install.sh | sudo bash
-paru -S tfenv --skipreview --noconfirm --needed
+paru -S tfenv kubectx --skipreview --noconfirm --needed
 
 # Setup version
 sudo tfenv install 1.5.5 # latest version without BSL

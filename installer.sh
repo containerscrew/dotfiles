@@ -128,19 +128,23 @@ log_message "info" "Copying wallpapers to /usr/share/backgrounds..."
 sudo mkdir -p /usr/share/backgrounds
 sudo cp -aR wallpapers/* /usr/share/backgrounds/
 
-# Copy config folders
-# NEED TO IMPLEMENT SOME BACKUP BEFORE INSTALL THAT CUSTOMS FILES
-cp -R config/* $HOME/.config/
 
 # Create default user home directories
 log_message "info" "Creating default user home directories..."
 if ! test -f  "$HOME/.config/user-dirs.dirs" ; then
     xdg-user-dirs-update
-    mkdir $HOME/.ssh $HOME/.kube $HOME/.aws $HOME/.themes $HOME/.icons
+    mkdir -p $HOME/.ssh $HOME/.kube $HOME/.aws $HOME/.themes $HOME/.icons $HOME/.local/bin
 else 
     log_message "info" "User home directories exists. Skipping creation..."
 fi
 sleep 2
+
+# Copy config folders
+# NEED TO IMPLEMENT SOME BACKUP BEFORE INSTALL THAT CUSTOMS FILES
+cp -R config/* $HOME/.config/
+
+# Copy bin/ scripts/binaries
+cp -R bin/* $HOME/.local/bin
 
 # # Function to clean tmp directories
 clean(){
@@ -213,7 +217,7 @@ sudo sed -i 's/theme: .*/theme: shikai/' /etc/lightdm/web-greeter.yml
 sudo sed -i 's/.*greeter-session=.*/greeter-session=web-greeter/g' /etc/lightdm/lightdm.conf
 sudo sed -i 's/background_images_dir: .*/background_images_dir: \/usr\/share\/backgrounds/' /etc/lightdm/web-greeter.yml
 sudo sed -i 's/logo_image: .*/logo_image: \/usr\/share\/web-greeter\/themes\/shikai\/assets\/media\/logos/' /etc/lightdm/web-greeter.yml
-cp arch-logo.png "$HOME/.face"
+cp assets/arch-logo.png "$HOME/.face"
 
 # Necessary groups for my user
 sudo usermod -aG video,input,audio,storage,optical,lp,scanner,users "$USERNAME"

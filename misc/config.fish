@@ -11,6 +11,9 @@ set -gx PATH "$HOME/go/bin" $PATH;
 # For Rust binaries directly installed using $ cargo install
 set -gx PATH "$HOME/.cargo/bin" $PATH;
 
+# ~/.local/bin for custom bin/scripts
+set -gx PATH "$HOME/.local/bin" $PATH;
+
 # My aliases
 alias ls="lsd"
 alias cat="bat --style=plain --theme='Solarized (dark)'"
