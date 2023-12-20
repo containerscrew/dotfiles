@@ -48,6 +48,7 @@ nmcli device wifi connect SSID_or_BSSID password password
 * permanent macchanger 
 * automatic setup omf plugins (git, kubectl...etc)
 * fix arch logo polybar padding + margin
+* add custom vpn status polybar for company vpn
 
 
 tcpdump wireguard connection: https://www.procustodibus.com/blog/2021/03/wireguard-logs/
@@ -99,3 +100,12 @@ PermanentMACAddress=82:8d:c4:ce:94:ba
 * remember to change te iface name if needed
 
 By the moment this task was done using macchanger with a custom systemd service
+
+
+# Change /etc/systemd/resolved.conf 
+
+Put:
+
+DNS=1.1.1.1
+sudo systemctl restart systemd-resolved
+

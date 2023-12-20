@@ -20,8 +20,14 @@ mkdir /tmp/kubecolor
 curl -L --fail --remote-name-all https://github.com/hidetatz/kubecolor/releases/download/v0.0.25/kubecolor_0.0.25_Linux_x86_64.tar.gz -o /tmp/kubecolor/kubecolor.tar.gz
 cd /tmp/kubecolor && tar -xvf kubecolor.tar.gz 
 sudo install -o root -g root -m 0755 kubecolor /usr/local/bin/kubecolor
+cd "$HOME"
 sudo rm -rvf /tmp/kubecolor
+
+
 
 # Install custom tools I created for terraform, or to fetch ~/.aws/credentials
 curl --proto '=https' --tlsv1.2 -sSfL https://raw.githubusercontent.com/containerscrew/aws-sso-auth/main/scripts/install.sh | bash
 curl --proto '=https' --tlsv1.2 -sSfL https://raw.githubusercontent.com/containerscrew/tftools/main/scripts/install.sh | bash
+
+# Some Golang stuff
+#go install -v golang.org/x/tools/gopls@latest
