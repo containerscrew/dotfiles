@@ -229,11 +229,14 @@ sudo systemctl enable macspoof@wlp58s0.service
 
 # GTK theme
 #https://www.gnome-look.org/p/1267246
-cp -R misc/Nordic-darker misc/Nordic-darker-v40 misc/Nordic-Folders "$HOME/.themes"
-gsettings set org.gnome.desktop.interface gtk-theme Nordic-darker
-gsettings set org.gnome.desktop.wm.preferences theme Nordic-darker
-gsettings set org.gnome.shell.extensions.user-theme name "Nordic-darker"
+# cp -R misc/Nordic-darker misc/Nordic-darker-v40 misc/Nordic-Folders "$HOME/.themes"
+# gsettings set org.gnome.desktop.interface gtk-theme Nordic-darker
+# gsettings set org.gnome.desktop.wm.preferences theme Nordic-darker
+# gsettings set org.gnome.shell.extensions.user-theme name "Nordic-darker"
 
+# VSCODE extensions
+log_message "info" "Installing vscode extensions..."
+./scripts/vscode-extensions.sh
 
 # Setup
 # For the end of the script

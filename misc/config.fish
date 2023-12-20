@@ -15,7 +15,9 @@ set -gx PATH "$HOME/.cargo/bin" $PATH;
 alias ls="lsd"
 alias cat="bat --style=plain --theme='Solarized (dark)'"
 alias kubectl="kubecolor"
-
+alias purge="sudo pacman -Rns $(pacman -Qtdq) ; sudo fstrim -av"
+alias update="paru -Syu --nocombinedupgrade"
+alias maintenance="paru -Sc && sudo pacman -Scc"
 
 
 # Init Starship
