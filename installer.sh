@@ -94,7 +94,7 @@ sudo pacman -Sy --noconfirm --needed base-devel rustup bspwm sxhkd polybar picom
             net-tools inetutils ttf-nerd-fonts-symbols htop thunar discord openvpn veracrypt \
             keepass pluma bitwarden pamixer python3 python-pip shutter signal-desktop qpwgraph \
             pipewire pipewire-pulse pavucontrol xbindkeys ttf-firacode-nerd wireguard-tools \
-            systemd-resolvconf macchanger tcpdump imagemagick
+            systemd-resolvconf macchanger tcpdump imagemagick vpnc
 
 # Enable systemd-resolved.service service necessary for wireguard (wg-quick)
 sudo systemctl enable systemd-resolved.service --now
@@ -164,7 +164,7 @@ fi
 
 # Install other packages with paru
 log_message "info" "Installing some packages from AUR..."
-paru -S web-greeter-theme-shikai ttf-font-awesome simplescreenrecorder tfenv brave-bin google-chrome slack-desktop --skipreview --noconfirm --needed
+paru -S web-greeter-theme-shikai ttf-font-awesome simplescreenrecorder tfenv brave-bin google-chrome slack-desktop gitleaks --skipreview --noconfirm --needed
 
 # Setup fish shell
 log_message "info" "Setup fish shell..."
@@ -172,6 +172,8 @@ sudo chsh -s "$(which fish)" "${USERNAME}"
 [ -f "$HOME"/.config/fish/config.fish ] && cp "$HOME"/.config/fish/config.fish "$HOME"/.config/fish/config.fish.bak
 # Setup fish config
 cp misc/config.fish "$HOME"/.config/fish/config.fish
+cp misc/aws-profile.fish "$HOME/.config/fish/functions/"
+cp misc/tfsum.fish "$HOME/.config/fish/functions/"
 [ ! -d "$HOME"/.local/share/omf ] && curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
 # Setup plugins 
 #./scripts/fish.sh

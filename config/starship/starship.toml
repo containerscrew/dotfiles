@@ -17,13 +17,18 @@ right_format = """$all"""
 disabled = false
 show_always = true
 style_user = "bold white"
-format = "[$user]($style)"
+format = "[dcr]($style)"
 
 [hostname]
 disabled = false
 ssh_only = false
 style = "bold purple"
-format =  "[$hostname]($style)"
+format =  "[dummy]($style)"
+
+[aws]
+format = '[$symbol$profile]($style) '
+style = 'bold #bf5700'
+symbol = '󰸏 '
 
 [directory]
 disabled = false

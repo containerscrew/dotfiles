@@ -10,7 +10,7 @@ offset = 10x92
 indicate_hidden = yes
 shrink = yes
 
-transparency = 0
+transparency = 5
 separator_height = 2
 padding = 8
 horizontal_padding = 11

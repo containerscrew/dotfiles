@@ -22,3 +22,6 @@ cd /tmp/kubecolor && tar -xvf kubecolor.tar.gz
 sudo install -o root -g root -m 0755 kubecolor /usr/local/bin/kubecolor
 sudo rm -rvf /tmp/kubecolor
 
+# Install custom tools I created for terraform, or to fetch ~/.aws/credentials
+curl --proto '=https' --tlsv1.2 -sSfL https://raw.githubusercontent.com/containerscrew/aws-sso-auth/main/scripts/install.sh | bash
+curl --proto '=https' --tlsv1.2 -sSfL https://raw.githubusercontent.com/containerscrew/tftools/main/scripts/install.sh | bash

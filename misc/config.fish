@@ -18,6 +18,7 @@ alias kubectl="kubecolor"
 alias purge="sudo pacman -Rns $(pacman -Qtdq) ; sudo fstrim -av"
 alias update="paru -Syu --nocombinedupgrade"
 alias maintenance="paru -Sc && sudo pacman -Scc"
+alias gitscan="gitleaks detect --source . -v"
 
 
 # Init Starship
