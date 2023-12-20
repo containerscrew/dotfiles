@@ -63,6 +63,7 @@ protonvpn-cli connect --fastest --protocol udp
 
 sudo nvim /etc/X11/xorg.conf.d/00-keyboard.conf 
 
+localectl set-x11-keymap us default intl 
 
 # Timezone
 

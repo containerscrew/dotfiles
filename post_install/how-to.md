@@ -28,3 +28,11 @@ resolvectl domain tun0 foo bar x1 x2 x3
 cp certificate.crt /etc/ca-certificates/trust-source/anchors/
 update-ca-trust
 (close browser to reload certs)
+
+
+# Setup your .ssh/ credentials with private keys
+# Setup your .ssh/config file
+# Chrome, brave or firefox bookmarks and theme
+
+
+# Create new [module/vpn2] for company vpn

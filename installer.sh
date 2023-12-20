@@ -83,7 +83,7 @@ print_ascii_banner
 log_message "info" "Installing system dependencies..."
 
 sudo pacman -Sy --noconfirm --needed base-devel rustup bspwm sxhkd polybar picom \
-            dmenu dunst feh alacritty jq git papirus-icon-theme rofi \
+            dunst feh alacritty jq git papirus-icon-theme rofi \
             xorg-xprop xorg-xkill xorg-xsetroot xorg-xwininfo xorg-xrandr \
             xdg-user-dirs plymouth neovim vscode mlocate \
             bluez bluez-utils fish arandr xorg-server xorg-xinit \
