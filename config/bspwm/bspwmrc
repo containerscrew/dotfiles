@@ -73,6 +73,8 @@ dunst &
 # Launch polybar using the script
 "$HOME"/.config/polybar/launch.sh
 
+# Launch polkit
+pidof -q polkit-gnome-authentication-agent-1 || { /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 & }
 
 # Fix cursor.
 xsetroot -cursor_name left_ptr

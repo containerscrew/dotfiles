@@ -94,7 +94,7 @@ sudo pacman -Sy --noconfirm --needed base-devel rustup bspwm sxhkd polybar picom
             net-tools inetutils ttf-nerd-fonts-symbols htop thunar discord openvpn veracrypt \
             keepass pluma bitwarden pamixer python3 python-pip shutter signal-desktop qpwgraph \
             pipewire pipewire-pulse pavucontrol xbindkeys ttf-firacode-nerd wireguard-tools \
-            systemd-resolvconf macchanger tcpdump imagemagick vpnc
+            systemd-resolvconf macchanger tcpdump imagemagick vpnc polkit-gnome
 
 # Enable systemd-resolved.service service necessary for wireguard (wg-quick)
 sudo systemctl enable systemd-resolved.service --now
