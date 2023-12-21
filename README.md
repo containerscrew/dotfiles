@@ -11,6 +11,7 @@ Setup your archlinux for your day in life
 * https://github.com/ART3MISTICAL/dotfiles/tree/main
 * [The Bible](https://wiki.archlinux.org/)
 * [Polybar Setup](https://www.youtube.com/watch?v=tOBDUBEMAKM)
+* https://github.com/antoniosarosi/dotfiles
 
 # iwd 
 https://wiki.archlinux.org/title/Iwd
