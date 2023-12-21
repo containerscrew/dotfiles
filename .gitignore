@@ -1,2 +1,5 @@
 # Test files
 *.test
+
+# MAC
+.DS_Store
