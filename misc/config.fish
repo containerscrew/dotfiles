@@ -23,6 +23,7 @@ alias update="paru -Syu --nocombinedupgrade"
 alias maintenance="paru -Sc && sudo pacman -Scc"
 alias gitscan="gitleaks detect --source . -v"
 alias kns="kubens"
+alias ps=
 
 
 # Init Starship
