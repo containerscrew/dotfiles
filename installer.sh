@@ -94,7 +94,14 @@ sudo pacman -Sy --noconfirm --needed base-devel rustup bspwm sxhkd polybar picom
             net-tools inetutils ttf-nerd-fonts-symbols htop thunar discord openvpn veracrypt \
             keepass pluma bitwarden pamixer python3 python-pip shutter signal-desktop qpwgraph \
             pipewire pipewire-pulse pavucontrol xbindkeys ttf-firacode-nerd wireguard-tools \
-            systemd-resolvconf macchanger tcpdump imagemagick vpnc whois
+            systemd-resolvconf macchanger tcpdump imagemagick vpnc whois qemu-full virt-manager \
+            dnsmasq
+
+# Cockpit 
+sudo systemctl enable libvirtd.socket --now
+sudo usermod -aG libvirt "$USERNAME"
+sudo virsh net-start default
+sudo systemctl restart libvirtd
 
 # Enable systemd-resolved.service service necessary for wireguard (wg-quick)
 sudo systemctl enable systemd-resolved.service --now
@@ -168,7 +175,7 @@ fi
 
 # Install other packages with paru
 log_message "info" "Installing some packages from AUR..."
-paru -S web-greeter-theme-shikai ttf-font-awesome simplescreenrecorder tfenv brave-bin google-chrome slack-desktop gitleaks procs --skipreview --noconfirm --needed
+paru -Sccd web-greeter-theme-shikai ttf-font-awesome simplescreenrecorder tfenv brave-bin google-chrome slack-desktop gitleaks procs --skipreview --noconfirm --needed
 
 # Setup fish shell
 log_message "info" "Setup fish shell..."
