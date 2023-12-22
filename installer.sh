@@ -95,7 +95,7 @@ sudo pacman -Sy --noconfirm --needed base-devel rustup bspwm sxhkd polybar picom
             keepass pluma bitwarden pamixer python3 python-pip shutter signal-desktop qpwgraph \
             pipewire pipewire-pulse pavucontrol xbindkeys ttf-firacode-nerd wireguard-tools \
             systemd-resolvconf macchanger tcpdump imagemagick vpnc whois qemu-full virt-manager \
-            dnsmasq qtile xorg-xwayland rsync copyq
+            dnsmasq qtile xorg-xwayland rsync copyq python-dbus-next
 
 # Cockpit 
 sudo systemctl enable libvirtd.socket --now
