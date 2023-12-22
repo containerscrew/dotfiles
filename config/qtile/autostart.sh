@@ -27,7 +27,7 @@ done
 
 
 ### AUTOSTART PROGRAMS ###
-picom --config $HOME/.config/picom/picom.conf &
+picom --config "$HOME"/.config/picom/picom.conf &
 copyq &
 dunst &
 # Wallpapers
