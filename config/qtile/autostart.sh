@@ -15,12 +15,11 @@ fi
 
 # Monitors resolution
 for monitor in $(xrandr -q | grep -w 'connected' | cut -d' ' -f1); do
-    if [ "$monitor" = "eDP-1" ] ; then
-        xrandr --output eDP-1 --mode 1920x1080 --rate 60 --rotate normal
-    fi
     if [ "$monitor" = "DP-1" ]; then  
-        xrandr --output "$monitor" --mode 1920x1080 --rate 60 --rotate normal --left-of eDP-1 --output 
-        bspc monitor "$monitor" -d '󰊠' '󰊠' '󰊠' '󰊠' '󰊠' '󰊠'
+        xrandr --output "$monitor" --mode 1920x1080 --rate 60 --rotate normal --left-of eDP-1 --primary
+    fi
+    if [ "$monitor" = "eDP-1" ] ; then
+        xrandr --output eDP-1 --mode 1920x1080 --rate 60 --rotate normal --primary
     fi
     #bspc monitor "$monitor" -d '' '' '' '' '' ''
 done

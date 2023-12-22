@@ -29,12 +29,17 @@ import subprocess
 from libqtile import bar, layout, widget, hook
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
-from libqtile.utils import guess_terminal
+
 
 mod = "mod4"
-terminal = guess_terminal()
+mod1 = "mod1"
+terminal = "alacritty"
 
 keys = [
+    # Custom config
+    Key([mod, "shift"], "space", lazy.spawn("rofi -show drun -theme ~/.config/rofi/Launcher.rasi"), desc='Run applications launcher'),
+    Key(["control", mod1], "l", lazy.spawn("dm-tool lock"), desc='Lock screen'),
+
     # A list of available commands that can be bound to keys can be found
     # at https://docs.qtile.org/en/latest/manual/config/lazy.html
     # Switch between windows
