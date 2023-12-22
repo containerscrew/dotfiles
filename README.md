@@ -12,6 +12,7 @@ Setup your archlinux for your day in life
 * [The Bible](https://wiki.archlinux.org/)
 * [Polybar Setup](https://www.youtube.com/watch?v=tOBDUBEMAKM)
 * https://github.com/antoniosarosi/dotfiles
+* https://gitlab.com/dwt1/dotfiles
 
 # iwd 
 https://wiki.archlinux.org/title/Iwd
