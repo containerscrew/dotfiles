@@ -37,8 +37,11 @@ terminal = "alacritty"
 
 keys = [
     # Custom config
-    Key([mod, "shift"], "space", lazy.spawn("rofi -show drun -theme ~/.config/rofi/Launcher.rasi"), desc='Run applications launcher'),
+    Key([mod], "space", lazy.spawn("rofi -show drun -theme ~/.config/rofi/Launcher.rasi"), desc='Run applications launcher'),
     Key(["control", mod1], "l", lazy.spawn("dm-tool lock"), desc='Lock screen'),
+    Key([mod, mod1], "b", lazy.spawn("brave"), desc='Open brave browser'),
+    Key([mod, mod1], "g", lazy.spawn("google-chrome-stable"), desc='Open chrome browser'),
+    Key([mod, mod1], "f", lazy.spawn("firefox"), desc='Open firefox browser'),
 
     # A list of available commands that can be bound to keys can be found
     # at https://docs.qtile.org/en/latest/manual/config/lazy.html
@@ -47,7 +50,7 @@ keys = [
     Key([mod], "l", lazy.layout.right(), desc="Move focus to right"),
     Key([mod], "j", lazy.layout.down(), desc="Move focus down"),
     Key([mod], "k", lazy.layout.up(), desc="Move focus up"),
-    Key([mod], "space", lazy.layout.next(), desc="Move window focus to other window"),
+    Key([mod, "shift"], "space", lazy.layout.next(), desc="Move window focus to other window"),
     # Move windows between left/right columns or move up/down in current stack.
     # Moving out of range in Columns layout will create new column.
     Key([mod, "shift"], "h", lazy.layout.shuffle_left(), desc="Move window to the left"),
@@ -87,7 +90,9 @@ keys = [
     Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
 ]
 
-groups = [Group(i) for i in "123456789"]
+# Firefox, terminal, vscode (by the moment)
+groups = [Group(i) for i in [
+    "1", "2", "3"]]
 
 for i in groups:
     keys.extend(
@@ -114,13 +119,13 @@ for i in groups:
     )
 
 layouts = [
-    layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=4),
-    layout.Max(),
+    layout.Columns(border_focus_stack=["#1E90FF", "#1E90FF"], border_width=2),
+    #layout.Max(),
     # Try more layouts by unleashing below layouts.
     # layout.Stack(num_stacks=2),
     # layout.Bsp(),
     # layout.Matrix(),
-    # layout.MonadTall(),
+    layout.MonadTall(),
     # layout.MonadWide(),
     # layout.RatioTile(),
     # layout.Tile(),
@@ -130,10 +135,11 @@ layouts = [
 ]
 
 widget_defaults = dict(
-    font="sans",
-    fontsize=12,
-    padding=3,
+    font="JetBrainsMono Nerd Font",
+    fontsize=14,
+    padding=2,
 )
+
 extension_defaults = widget_defaults.copy()
 
 screens = [
@@ -150,8 +156,6 @@ screens = [
                     },
                     name_transform=lambda name: name.upper(),
                 ),
-                widget.TextBox("default config", name="default"),
-                widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
                 # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
                 # widget.StatusNotifier(),
                 widget.Systray(),
