@@ -23,7 +23,6 @@ alias update="paru -Syu --nocombinedupgrade"
 alias maintenance="paru -Sc && sudo pacman -Scc"
 alias gitscan="gitleaks detect --source . -v"
 alias kns="kubens"
-alias ps='procs'
 alias grep='grep --color=auto'
 alias ls='lsd --group-directories-first'
 alias tree='lsd --tree'
