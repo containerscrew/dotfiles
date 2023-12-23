@@ -101,7 +101,7 @@ sudo pacman -Sy --noconfirm --needed base-devel rustup bspwm sxhkd polybar picom
 # Cockpit 
 sudo systemctl enable libvirtd.socket --now
 sudo usermod -aG libvirt "$USERNAME"
-sudo virsh net-start default
+sudo virsh net-autostart default
 sudo systemctl restart libvirtd
 
 # Enable systemd-resolved.service service necessary for wireguard (wg-quick)

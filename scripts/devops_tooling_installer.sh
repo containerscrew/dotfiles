@@ -8,6 +8,9 @@ clean(){
 # Packages from official repos
 sudo pacman -Sy --noconfirm --needed podman podman-compose terragrunt aws-cli-v2 kubectl helm go minikube 
 
+# Enable services
+sudo systemctl enable podman.service --now
+
 #curl -L https://raw.githubusercontent.com/warrensbox/tgswitch/release/install.sh | sudo bash
 paru -Sccd tfenv kubectx --skipreview --noconfirm --needed
 
