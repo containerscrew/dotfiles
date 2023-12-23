@@ -1,0 +1,16 @@
+class Colors:
+    lightgrey = "#1F1F1F"
+    background = "#000000"
+    black = "#000000"
+    disabled = "#707880"
+    blue = "#1E90FF"
+    violet = "#a385dc"
+    white = "#FFFFFF"
+    red = "#FF0000"
+    darkgreen = "#006400"
+    orange = "#ffa500"
+    lightyellow = "#FFFFE0"
+    hotpink = "#FF69B4"
+    darkblue = "#0000FF"
+    purple = "#990099"
+    

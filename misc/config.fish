@@ -26,7 +26,7 @@ alias kns="kubens"
 alias ps='procs'
 alias grep='grep --color=auto'
 alias ls='lsd --group-directories-first'
-alias tree='lsd -T'
+alias tree='lsd --tree'
 
 # Init Starship
 eval "$(starship init fish | source)"
