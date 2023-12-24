@@ -153,6 +153,7 @@ cp -R config/* $HOME/.config/
 
 # Copy bin/ scripts/binaries
 cp -R bin/* $HOME/.local/bin
+chmod +x $HOME/.local/bin/*
 
 # # Function to clean tmp directories
 clean(){

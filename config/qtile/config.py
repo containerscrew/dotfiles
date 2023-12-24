@@ -21,6 +21,7 @@ keys = [
     Key([mod, alt], "f", lazy.spawn("firefox"), desc='Open firefox browser'),
     Key([mod, alt], "s", lazy.spawn("flameshot gui"), desc='Flameshot for desktop screenshots'),
     Key([mod, alt], "c", lazy.spawn("code"), desc='Open IDE vscode'),
+    Key([mod, alt], "w", lazy.spawn("changewallpaper"), desc='Change wallpapers using feh'),
     
     # A list of available commands that can be bound to keys can be found
     # at https://docs.qtile.org/en/latest/manual/config/lazy.html
