@@ -19,7 +19,9 @@ keys = [
     Key([mod, alt], "b", lazy.spawn("brave"), desc='Open brave browser'),
     Key([mod, alt], "g", lazy.spawn("google-chrome-stable"), desc='Open chrome browser'),
     Key([mod, alt], "f", lazy.spawn("firefox"), desc='Open firefox browser'),
-    Key([mod, alt], "c", lazy.spawn("flameshot gui"), desc='Flameshot for desktop screenshots'),
+    Key([mod, alt], "s", lazy.spawn("flameshot gui"), desc='Flameshot for desktop screenshots'),
+    Key([mod, alt], "c", lazy.spawn("code"), desc='Open IDE vscode'),
+    
     # A list of available commands that can be bound to keys can be found
     # at https://docs.qtile.org/en/latest/manual/config/lazy.html
     # Switch between windows
@@ -180,6 +182,22 @@ screens = [
                 # widget.StatusNotifier(),
                 widget.TextBox(
                     background=Colors.background,
+                    foreground=Colors.darkviolet,
+                    text="", # Icon: nf-oct-triangle_left
+                    fontsize=37,
+                    padding=-2
+                ),
+                widget.CheckUpdates(
+                    colour_have_updates=Colors.white,
+                    background=Colors.darkviolet,
+                    colour_no_updates=Colors.white,
+                    no_update_string='󰑓 0',
+                    display_format='󰑓: {updates}',
+                    update_interval=1800,
+                    custom_command='checkupdates',
+                ),
+                widget.TextBox(
+                    background=Colors.darkviolet,
                     foreground=Colors.blue,
                     text="", # Icon: nf-oct-triangle_left
                     fontsize=37,
