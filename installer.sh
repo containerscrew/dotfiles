@@ -186,7 +186,6 @@ sudo chsh -s "$(which fish)" "${USERNAME}"
 cp misc/config.fish "$HOME"/.config/fish/config.fish
 cp misc/aws-profile.fish "$HOME/.config/fish/functions/"
 cp misc/tfsum.fish "$HOME/.config/fish/functions/"
-cp misc/fish-greeting.fish "$HOME/.config/fish/functions/"
 [ ! -d "$HOME"/.local/share/omf ] && curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
 # Setup plugins 
 #./scripts/fish.sh

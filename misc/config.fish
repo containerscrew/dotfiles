@@ -2,6 +2,10 @@ if status is-interactive
     # Commands to run in interactive sessions can go here
 end
 
+function fish_greeting
+    echo "Welcome back $(whoami) 🚀"
+end
+
 # Kubeconfigs
 set -gx KUBECONFIG (string join ":" (find ~/.kube -name '*.yaml'))
 

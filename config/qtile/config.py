@@ -186,7 +186,8 @@ screens = [
                     padding=-2
                 ),
                 widget.Memory(
-                   background=Colors.blue, 
+                   background=Colors.blue,
+                   format='MEM{MemUsed: .0f}{mm}/{MemTotal:.0f}{mm}'
                 ),
                 widget.TextBox(
                     background=Colors.blue,
