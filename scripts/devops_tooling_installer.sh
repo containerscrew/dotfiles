@@ -9,7 +9,12 @@ clean(){
 sudo pacman -Sy --noconfirm --needed podman podman-compose terragrunt aws-cli-v2 kubectl helm go minikube 
 
 # Enable services
-sudo systemctl enable podman.service --now
+sudo systemctl enable --now podman.socket
+sudo systemctl enable --now podman.service #/run/podman/podman.sock 
+
+# Symlinks for docker, better than creating an alias (in scripting alias will not work)
+sudo ln -s $(which podman-compose) /usr/bin/docker-compose
+sudo ln -s $(which podman) /usr/bin/docker
 
 #curl -L https://raw.githubusercontent.com/warrensbox/tgswitch/release/install.sh | sudo bash
 paru -Sccd tfenv kubectx --skipreview --noconfirm --needed
@@ -29,7 +34,6 @@ if ! command -v "kubecolor" &> /dev/null ; then
 fi
 
 
-
 # Install custom tools I created for terraform, or to fetch ~/.aws/credentials
 if ! command -v "aws-sso-auth" &> /dev/null ; then 
   curl --proto '=https' --tlsv1.2 -sSfL https://raw.githubusercontent.com/containerscrew/aws-sso-auth/main/scripts/install.sh | bash
@@ -41,3 +45,10 @@ fi
 
 # Some Golang stuff
 #go install -v golang.org/x/tools/gopls@latest
+
+if ! command -v "goimports" &> /dev/null ; then 
+  go install golang.org/x/tools/cmd/goimports@latest
+fi 
+
+# Golang CI
+curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.55.2

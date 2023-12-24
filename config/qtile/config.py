@@ -9,17 +9,17 @@ from configurations.colors import Colors
 
 
 mod = "mod4"
-mod1 = "mod1"
+alt = "mod1"
 terminal = "alacritty"
 
 keys = [
     # Custom config
     Key([mod], "space", lazy.spawn("rofi -show drun -theme ~/.config/rofi/Launcher.rasi"), desc='Run applications launcher'),
-    Key(["control", mod1], "l", lazy.spawn("dm-tool lock"), desc='Lock screen'),
-    Key([mod, mod1], "b", lazy.spawn("brave"), desc='Open brave browser'),
-    Key([mod, mod1], "g", lazy.spawn("google-chrome-stable"), desc='Open chrome browser'),
-    Key([mod, mod1], "f", lazy.spawn("firefox"), desc='Open firefox browser'),
-    Key([mod, mod1], "c", lazy.spawn("flameshot gui"), desc='Flameshot for desktop screenshots'),
+    Key(["control", alt], "l", lazy.spawn("dm-tool lock"), desc='Lock screen'),
+    Key([mod, alt], "b", lazy.spawn("brave"), desc='Open brave browser'),
+    Key([mod, alt], "g", lazy.spawn("google-chrome-stable"), desc='Open chrome browser'),
+    Key([mod, alt], "f", lazy.spawn("firefox"), desc='Open firefox browser'),
+    Key([mod, alt], "c", lazy.spawn("flameshot gui"), desc='Flameshot for desktop screenshots'),
     # A list of available commands that can be bound to keys can be found
     # at https://docs.qtile.org/en/latest/manual/config/lazy.html
     # Switch between windows
@@ -82,9 +82,10 @@ keys = [
     Key([], "XF86MonBrightnessDown", lazy.spawn("brightnessctl set 10%-")),
 ]
 
+
 # Firefox, terminal, vscode (by the moment)
 groups = [Group(i) for i in [
-    "", "", "󰨞"]]
+    "1", "2", "3", "4", "5", "6" ]]
 
 for i, group in enumerate(groups):
     actual_key = str(i + 1)
@@ -96,50 +97,130 @@ for i, group in enumerate(groups):
     ])
 
 layouts = [
-    #layout.Columns(border_focus_stack=["#1E90FF", "#1E90FF"], border_width=2),
-    #layout.Max(),
-    # Try more layouts by unleashing below layouts.
-    # layout.Stack(num_stacks=2),
-    #layout.Bsp(),
-    # layout.Matrix(),
     layout.MonadTall(border_width=2, border_focus=Colors.blue, margin=8),
-    # layout.MonadWide(),
-    # layout.RatioTile(),
-    # layout.Tile(),
-    # layout.TreeTab(),
-    # layout.VerticalTile(),
-    # layout.Zoomy(),
 ]
 
 widget_defaults = dict(
     font="JetBrainsMono Nerd Font",
-    fontsize=14,
-    padding=2,
+    fontsize=10,
+    padding=6,
 )
 
 extension_defaults = widget_defaults.copy()
 
-
-def icon(fg='text', bg='dark', fontsize=16, text="?"):
-    return widget.TextBox(
-        **base(fg, bg),
-        fontsize=fontsize,
-        text=text,
-        padding=3
-    )
-
 screens = [
     Screen(
         top=bar.Bar(
-            [
-                widget.GroupBox(),
-                widget.Prompt(),
+            [   
+                widget.TextBox(
+                    fontsize= 18,
+                    padding=10, 
+                    foreground=Colors.blue,
+                    mouse_callbacks={'Button1': lazy.spawn('rofi -show drun -theme ~/.config/rofi/Launcher.rasi')},
+                    text = "",
+                ),
+                ### start main apps
+                widget.TextBox(
+                    fontsize= 18,
+                    padding=0,
+                    foreground=Colors.lightviolet, 
+                    text = "|",
+                ),
+                widget.TextBox(
+                    fontsize= 18,
+                    foreground=Colors.orange,
+                    mouse_callbacks={'Button1': lazy.spawn('firefox')},
+                    text = "",
+                ),
+                widget.TextBox(
+                    fontsize= 18,
+                    foreground=Colors.brown,
+                    mouse_callbacks={'Button1': lazy.spawn('alacritty')},
+                    text = "",
+                ),
+                widget.TextBox(
+                    fontsize= 18,
+                    foreground=Colors.hotpink,
+                    mouse_callbacks={'Button1': lazy.spawn('slack')},
+                    text = "󰒱",
+                ),
+                #### end main apps
+                widget.TextBox(
+                    fontsize= 18,
+                    padding=0,
+                    foreground=Colors.lightviolet, 
+                    text = "|",
+                ),
                 widget.WindowName(),
+                widget.Spacer(),
+                widget.GroupBox(
+                    background=Colors.background,
+                    foreground=Colors.white,
+                    fontsize=15,
+                    font="sans",
+                    margin_y=3,
+                    fmt="󰮯",
+                    margin_x=0,
+                    padding=10,
+                    borderwidth=0,
+                    active=Colors.darkblue,
+                    inactive=Colors.lightblue,
+                    rounded=False,
+                    highlight_method='block',
+                    urgent_alert_method='block',
+                    urgent_border=Colors.darkgreen,
+                    this_current_screen_border=Colors.background,
+                    this_screen_border=Colors.background,
+                    other_current_screen_border=Colors.background,
+                    other_screen_border=Colors.background,
+                    disable_drag=True
+                ),
+                widget.Spacer(),
                 # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
                 # widget.StatusNotifier(),
-                widget.Systray(),
-                widget.Wlan(interface="wlp58s0"),
-                widget.Clock(background=Colors.background, foreground=Colors.white, format='%d/%m/%Y - %H:%M '),
+                widget.TextBox(
+                    background=Colors.background,
+                    foreground=Colors.blue,
+                    text="", # Icon: nf-oct-triangle_left
+                    fontsize=37,
+                    padding=-2
+                ),
+                widget.Memory(
+                   background=Colors.blue, 
+                ),
+                widget.TextBox(
+                    background=Colors.blue,
+                    foreground=Colors.lightviolet,
+                    text="", # Icon: nf-oct-triangle_left
+                    fontsize=37,
+                    padding=-2
+                ),
+                widget.CPU(
+                   background=Colors.lightviolet, 
+                ),
+                widget.TextBox(
+                    background=Colors.lightviolet,
+                    foreground=Colors.lightblue,
+                    text="", # Icon: nf-oct-triangle_left
+                    fontsize=37,
+                    padding=-2
+                ),
+                widget.Wlan(
+                    format=" {essid}",
+                    background=Colors.lightblue,
+                    interface="wlp58s0"
+                ),
+                widget.TextBox(
+                    background=Colors.lightblue,
+                    foreground=Colors.darkviolet,
+                    text="", # Icon: nf-oct-triangle_left
+                    fontsize=37,
+                    padding=-2
+                ),
+                widget.Clock(
+                    background=Colors.darkviolet, foreground=Colors.white,
+                    format='󰥔 %d/%m/%Y - %H:%M '
+                ),
                 #widget.QuickExit(),
             ],
             30,

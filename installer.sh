@@ -96,7 +96,7 @@ sudo pacman -Sy --noconfirm --needed base-devel rustup bspwm sxhkd polybar picom
             pipewire pipewire-pulse pavucontrol xbindkeys ttf-firacode-nerd wireguard-tools \
             systemd-resolvconf macchanger tcpdump imagemagick vpnc whois qemu-full virt-manager \
             dnsmasq qtile xorg-xwayland rsync copyq python-dbus-next python-iwlib \
-            traceroute
+            traceroute pre-commit goreleaser noto-fonts-emoji noto-fonts-extra
 
 # Cockpit 
 sudo systemctl enable libvirtd.socket --now
@@ -176,7 +176,7 @@ fi
 
 # Install other packages with paru
 log_message "info" "Installing some packages from AUR..."
-paru -Sccd web-greeter-theme-shikai ttf-font-awesome simplescreenrecorder tfenv brave-bin google-chrome slack-desktop gitleaks procs --skipreview --noconfirm --needed
+paru -Sccd mkdocs mkdocs-rss-plugin mkdocs-material web-greeter-theme-shikai ttf-font-awesome simplescreenrecorder tfenv brave-bin google-chrome slack-desktop gitleaks procs gosec --skipreview --noconfirm --needed
 
 # Setup fish shell
 log_message "info" "Setup fish shell..."
@@ -186,6 +186,7 @@ sudo chsh -s "$(which fish)" "${USERNAME}"
 cp misc/config.fish "$HOME"/.config/fish/config.fish
 cp misc/aws-profile.fish "$HOME/.config/fish/functions/"
 cp misc/tfsum.fish "$HOME/.config/fish/functions/"
+cp misc/fish-greeting.fish "$HOME/.config/fish/functions/"
 [ ! -d "$HOME"/.local/share/omf ] && curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
 # Setup plugins 
 #./scripts/fish.sh
