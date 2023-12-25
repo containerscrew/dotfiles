@@ -50,13 +50,22 @@ screens = [
                     emoji=True,
                     emoji_list=['', '', '', ''],
                 ),
+                # WLAN module
+                widget.Wlan(
+                    **widget_base(),
+                    format=" ",
+                    interface="wlp58s0",
+                    mouse_callbacks={'Button1': lazy.spawn('alacritty --class FloaTerm,Alacritty -o window.dimensions.lines=22 window.dimensions.columns=90 -e nmcli device wifi list')},
+                ),
                 widget.Battery(
                     **widget_base(),
-                    charge_char="1",
-                    full_char="2",
+                    charge_char="",
+                    full_char="",
+                    discharge_char="",
+                    empty_char="",
                     low_foreground=Colors.red,
-                    format="{char}{percent:2.0%}",
-                    update_interval=5,
+                    format="{char}  {percent:2.0%}",
+                    update_interval=1,
                 ),
                 # Custom bluetooth icon
                 # Or you can use built-in bluetooth module
@@ -64,13 +73,6 @@ screens = [
                     **widget_base(),
                     mouse_callbacks={'Button1': lazy.spawn('blueman-manager')},
                     text = "󰂯",
-                ),
-                # WLAN module
-                widget.Wlan(
-                    **widget_base(),
-                    format="",
-                    interface="wlp58s0",
-                    mouse_callbacks={'Button1': lazy.spawn('alacritty --class FloaTerm,Alacritty -o window.dimensions.lines=22 window.dimensions.columns=90 -e nmcli device wifi list')},
                 ),
                 # Launch rofi with app launcher
                 widget.TextBox(
