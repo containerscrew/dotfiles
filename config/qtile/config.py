@@ -21,7 +21,7 @@ keys = [
     Key([mod, alt], "f", lazy.spawn("firefox"), desc='Open firefox browser'),
     Key([mod, alt], "s", lazy.spawn("flameshot gui"), desc='Flameshot for desktop screenshots'),
     Key([mod, alt], "c", lazy.spawn("code"), desc='Open IDE vscode'),
-    Key([mod, alt], "w", lazy.spawn("changewallpaper"), desc='Change wallpapers using feh'),
+    Key([mod, alt], "w", lazy.spawn("bash ~/.local/bin/changewallpaper"), desc='Change wallpapers using feh'),
     
     # A list of available commands that can be bound to keys can be found
     # at https://docs.qtile.org/en/latest/manual/config/lazy.html
@@ -86,7 +86,7 @@ keys = [
 ]
 
 
-# Firefox, terminal, vscode (by the moment)
+# Number of workspaces
 groups = [Group(i) for i in [
     "1", "2", "3", "4", "5", "6" ]]
 
@@ -166,8 +166,8 @@ screens = [
                     margin_x=0,
                     padding=10,
                     borderwidth=0,
-                    active=Colors.darkblue,
-                    inactive=Colors.lightblue,
+                    active=Colors.blue,
+                    inactive=Colors.violet,
                     rounded=False,
                     highlight_method='block',
                     urgent_alert_method='block',
@@ -182,63 +182,68 @@ screens = [
                 # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
                 # widget.StatusNotifier(),
                 widget.TextBox(
-                    background=Colors.background,
-                    foreground=Colors.darkviolet,
+                    background=Colors.black,
+                    foreground=Colors.white,
                     text="", # Icon: nf-oct-triangle_left
                     fontsize=37,
                     padding=-2
                 ),
                 widget.CheckUpdates(
-                    colour_have_updates=Colors.white,
-                    background=Colors.darkviolet,
-                    colour_no_updates=Colors.white,
+                    colour_have_updates=Colors.black,
+                    background=Colors.white,
+                    foreground=Colors.black,
+                    colour_no_updates=Colors.black,
                     no_update_string='󰑓 0',
                     display_format='󰑓: {updates}',
                     update_interval=1800,
                     custom_command='checkupdates',
                 ),
                 widget.TextBox(
-                    background=Colors.darkviolet,
-                    foreground=Colors.blue,
+                    background=Colors.white,
+                    foreground=Colors.black,
                     text="", # Icon: nf-oct-triangle_left
                     fontsize=37,
                     padding=-2
                 ),
                 widget.Memory(
-                   background=Colors.blue,
+                   background=Colors.black,
+                   foreground=Colors.white,
                    format='MEM{MemUsed: .0f}{mm}/{MemTotal:.0f}{mm}'
                 ),
                 widget.TextBox(
-                    background=Colors.blue,
-                    foreground=Colors.lightviolet,
+                    background=Colors.black,
+                    foreground=Colors.white,
                     text="", # Icon: nf-oct-triangle_left
                     fontsize=37,
                     padding=-2
                 ),
                 widget.CPU(
-                   background=Colors.lightviolet, 
+                   background=Colors.white,
+                   foreground=Colors.black, 
                 ),
                 widget.TextBox(
-                    background=Colors.lightviolet,
-                    foreground=Colors.lightblue,
+                    background=Colors.white,
+                    foreground=Colors.black,
                     text="", # Icon: nf-oct-triangle_left
                     fontsize=37,
                     padding=-2
                 ),
                 widget.Wlan(
                     format=" {essid}",
-                    background=Colors.lightblue,
+                    background=Colors.black,
+                    foreground=Colors.white,
                     interface="wlp58s0"
                 ),
                 widget.TextBox(
-                    background=Colors.lightblue,
-                    foreground=Colors.darkviolet,
+                    background=Colors.black,
+                    foreground=Colors.white,
                     text="", # Icon: nf-oct-triangle_left
                     fontsize=37,
                     padding=-2
                 ),
                 widget.Clock(
-                    background=Colors.darkviolet, foreground=Colors.white,
+                    background=Colors.white, 
+                    foreground=Colors.black,
                     format='󰥔 %d/%m/%Y - %H:%M '
                 ),
                 #widget.QuickExit(),

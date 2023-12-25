@@ -21,7 +21,6 @@ for monitor in $(xrandr -q | grep -w 'connected' | cut -d' ' -f1); do
     if [ "$monitor" = "eDP-1" ] ; then
         xrandr --output eDP-1 --mode 1920x1080 --rate 60 --rotate normal --primary
     fi
-    #bspc monitor "$monitor" -d '' '' '' '' '' ''
 done
 
 
@@ -33,3 +32,5 @@ dunst &
 feh -z --no-fehbg --bg-fill /usr/share/backgrounds
 # Launch polkit
 pidof -q polkit-gnome-authentication-agent-1 || { /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 & }
+# EWW widgets
+"$HOME/.config/eww/launch.sh"
