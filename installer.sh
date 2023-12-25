@@ -180,7 +180,7 @@ fi
 
 # Install other packages with paru
 log_message "info" "Installing some packages from AUR..."
-paru -Sccd mkdocs mkdocs-rss-plugin mkdocs-material web-greeter-theme-shikai ttf-font-awesome simplescreenrecorder tfenv brave-bin google-chrome slack-desktop gitleaks procs gosec --skipreview --noconfirm --needed
+paru -Sccd python-pulsectl-asyncio mkdocs mkdocs-rss-plugin mkdocs-material web-greeter-theme-shikai ttf-font-awesome simplescreenrecorder tfenv brave-bin google-chrome slack-desktop gitleaks procs gosec --skipreview --noconfirm --needed
 
 # Setup fish shell
 log_message "info" "Setup fish shell..."

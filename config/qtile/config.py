@@ -15,10 +15,16 @@ layouts = [
     layout.MonadTall(border_width=2, border_focus=Colors.blue, margin=8),
 ]
 
+def widget_base(fontsize=14): 
+    return {
+        'font': "JetBrainsMono Nerd Font",
+        'fontsize': fontsize,
+        'padding': 6
+    }
+
+
 widget_defaults = dict(
-    font="JetBrainsMono Nerd Font",
-    fontsize=10,
-    padding=6,
+    **widget_base(),
     background=Colors.background,
     foreground=Colors.white,
 )
@@ -36,19 +42,47 @@ screens = [
                     #mouse_callbacks={'Button1': lazy.spawn('rofi -show drun -theme ~/.config/rofi/Launcher.rasi')},
                     text = "",
                 ),
+                widget.Spacer(),
+                widget.GroupBox(),
+                widget.Spacer(),
+                widget.PulseVolume(
+                    **widget_base(),
+                    emoji=True,
+                    emoji_list=['', '', '', ''],
+                ),
+                widget.Battery(
+                    **widget_base(),
+                    charge_char="1",
+                    full_char="2",
+                    low_foreground=Colors.red,
+                    format="{char}{percent:2.0%}",
+                    update_interval=5,
+                ),
+                # Custom bluetooth icon
+                # Or you can use built-in bluetooth module
+                widget.TextBox(
+                    **widget_base(),
+                    mouse_callbacks={'Button1': lazy.spawn('blueman-manager')},
+                    text = "󰂯",
+                ),
+                # WLAN module
                 widget.Wlan(
+                    **widget_base(),
                     format="",
                     interface="wlp58s0",
                     mouse_callbacks={'Button1': lazy.spawn('alacritty --class FloaTerm,Alacritty -o window.dimensions.lines=22 window.dimensions.columns=90 -e nmcli device wifi list')},
                 ),
+                # Launch rofi with app launcher
                 widget.TextBox(
-                    fontsize= 12,
+                    **widget_base(),
                     mouse_callbacks={'Button1': lazy.spawn('rofi -show drun -theme ~/.config/rofi/Launcher.rasi')},
                     text = "󰍉",
                 ),
+                # Date with custom format like Mac OSX
                 widget.Clock(
+                    **widget_base(fontsize=11),
                     #https://help.gnome.org/users/gthumb/stable/gthumb-date-formats.html.en
-                    format='%a %d %b %H:%M', 
+                    format='%a %d %b %H:%M',
                     mouse_callbacks={'Button1': lazy.spawn('gnome-calendar')},
                 ),
             ],
