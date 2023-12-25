@@ -3,7 +3,7 @@ class Colors:
     lightgrey = "#1F1F1F"
     background = "#000000"
     black = "#000000"
-    disabled = "#707880"
+    grey = "#707880"
     blue = "#66B2FF"
     darkblue = "#1E90FF"
     lightblue = "#99CCFF"
@@ -21,4 +21,5 @@ class Colors:
     purple = "#990099"
     brown = "#663300"
     yellow = "#FFFF00"
+    lightgrey = "#E0E0E0"
     

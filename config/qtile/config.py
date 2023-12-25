@@ -19,6 +19,8 @@ widget_defaults = dict(
     font="JetBrainsMono Nerd Font",
     fontsize=10,
     padding=6,
+    background=Colors.background,
+    foreground=Colors.white,
 )
 
 extension_defaults = widget_defaults.copy()
@@ -31,147 +33,27 @@ screens = [
                     fontsize= 18,
                     padding=10, 
                     foreground=Colors.blue,
-                    mouse_callbacks={'Button1': lazy.spawn('rofi -show drun -theme ~/.config/rofi/Launcher.rasi')},
+                    #mouse_callbacks={'Button1': lazy.spawn('rofi -show drun -theme ~/.config/rofi/Launcher.rasi')},
                     text = "",
                 ),
-                ### start main apps
-                widget.TextBox(
-                    fontsize= 18,
-                    padding=0,
-                    foreground=Colors.lightviolet, 
-                    text = "|",
-                ),
-                widget.TextBox(
-                    fontsize= 18,
-                    foreground=Colors.orange,
-                    mouse_callbacks={'Button1': lazy.spawn('firefox')},
-                    text = "",
-                ),
-                widget.TextBox(
-                    fontsize= 18,
-                    foreground=Colors.brown,
-                    mouse_callbacks={'Button1': lazy.spawn('alacritty')},
-                    text = "",
-                ),
-                widget.TextBox(
-                    fontsize= 18,
-                    foreground=Colors.hotpink,
-                    mouse_callbacks={'Button1': lazy.spawn('slack')},
-                    text = "󰒱",
-                ),
-                widget.TextBox(
-                    fontsize= 18,
-                    foreground=Colors.darkblue,
-                    mouse_callbacks={'Button1': lazy.spawn('code')},
-                    text = "󰨞",
-                ),
-                widget.TextBox(
-                    fontsize= 18,
-                    foreground=Colors.darkviolet,
-                    mouse_callbacks={'Button1': lazy.spawn('discord')},
-                    text = "󰙯",
-                ),
-                #### end main apps
-                widget.TextBox(
-                    fontsize= 18,
-                    padding=0,
-                    foreground=Colors.lightviolet, 
-                    text = "|",
-                ),
-                widget.WindowName(),
-                widget.Spacer(),
-                widget.GroupBox(
-                    background=Colors.background,
-                    foreground=Colors.white,
-                    fontsize=15,
-                    font="sans",
-                    margin_y=3,
-                    fmt="󰮯",
-                    margin_x=0,
-                    padding=10,
-                    borderwidth=0,
-                    active=Colors.blue,
-                    inactive=Colors.violet,
-                    rounded=False,
-                    highlight_method='block',
-                    urgent_alert_method='block',
-                    urgent_border=Colors.darkgreen,
-                    this_current_screen_border=Colors.background,
-                    this_screen_border=Colors.background,
-                    other_current_screen_border=Colors.background,
-                    other_screen_border=Colors.background,
-                    disable_drag=True
-                ),
-                widget.Spacer(),
-                # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
-                # widget.StatusNotifier(),
-                widget.TextBox(
-                    background=Colors.black,
-                    foreground=Colors.white,
-                    text="", # Icon: nf-oct-triangle_left
-                    fontsize=37,
-                    padding=-2
-                ),
-                widget.CheckUpdates(
-                    colour_have_updates=Colors.black,
-                    background=Colors.white,
-                    foreground=Colors.black,
-                    colour_no_updates=Colors.black,
-                    no_update_string='󰑓 0',
-                    display_format='󰑓: {updates}',
-                    update_interval=1800,
-                    custom_command='checkupdates',
-                ),
-                widget.TextBox(
-                    background=Colors.white,
-                    foreground=Colors.black,
-                    text="", # Icon: nf-oct-triangle_left
-                    fontsize=37,
-                    padding=-2
-                ),
-                widget.Memory(
-                   background=Colors.black,
-                   foreground=Colors.white,
-                   format='MEM{MemUsed: .0f}{mm}/{MemTotal:.0f}{mm}'
-                ),
-                widget.TextBox(
-                    background=Colors.black,
-                    foreground=Colors.white,
-                    text="", # Icon: nf-oct-triangle_left
-                    fontsize=37,
-                    padding=-2
-                ),
-                widget.CPU(
-                   background=Colors.white,
-                   foreground=Colors.black, 
-                ),
-                widget.TextBox(
-                    background=Colors.white,
-                    foreground=Colors.black,
-                    text="", # Icon: nf-oct-triangle_left
-                    fontsize=37,
-                    padding=-2
-                ),
                 widget.Wlan(
-                    format=" {essid}",
-                    background=Colors.black,
-                    foreground=Colors.white,
-                    interface="wlp58s0"
+                    format="",
+                    interface="wlp58s0",
+                    mouse_callbacks={'Button1': lazy.spawn('alacritty --class FloaTerm,Alacritty -o window.dimensions.lines=22 window.dimensions.columns=90 -e nmcli device wifi list')},
                 ),
                 widget.TextBox(
-                    background=Colors.black,
-                    foreground=Colors.white,
-                    text="", # Icon: nf-oct-triangle_left
-                    fontsize=37,
-                    padding=-2
+                    fontsize= 12,
+                    mouse_callbacks={'Button1': lazy.spawn('rofi -show drun -theme ~/.config/rofi/Launcher.rasi')},
+                    text = "󰍉",
                 ),
                 widget.Clock(
-                    background=Colors.white, 
-                    foreground=Colors.black,
-                    format='󰥔 %d/%m/%Y - %H:%M '
+                    #https://help.gnome.org/users/gthumb/stable/gthumb-date-formats.html.en
+                    format='%a %d %b %H:%M', 
+                    mouse_callbacks={'Button1': lazy.spawn('gnome-calendar')},
                 ),
             ],
             30,
+            background=Colors.background,
             # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
             # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
         ),
@@ -205,6 +87,7 @@ floating_layout = layout.Floating(
         Match(wm_class="ssh-askpass"),  # ssh-askpass
         Match(title="branchdialog"),  # gitk
         Match(title="pinentry"),  # GPG key password entry
+        Match(wm_class="FloaTerm"),
     ]
 )
 auto_fullscreen = True
