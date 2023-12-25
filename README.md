@@ -121,3 +121,5 @@ DNSSEC=no
 
 sudo systemctl restart systemd-resolved
 
+# GTK THEME
+material black blueberry: https://www.pling.com/p/1316887/

@@ -34,3 +34,9 @@ feh -z --no-fehbg --bg-fill /usr/share/backgrounds
 pidof -q polkit-gnome-authentication-agent-1 || { /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 & }
 # EWW widgets
 "$HOME/.config/eww/launch.sh"
+
+# Other apps for systray
+#udiskie -t &
+#nm-applet &
+#volumeicon &
+#cbatticon &

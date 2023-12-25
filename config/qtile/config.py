@@ -7,7 +7,7 @@ from libqtile import bar, layout, widget, hook
 from libqtile.config import Click, Drag, Match, Screen
 from libqtile.lazy import lazy
 from configurations.colors import Colors
-from configurations.keys import keys
+from configurations.keys import keys, mod
 from configurations.groups import groups
 
 
@@ -170,7 +170,6 @@ screens = [
                     foreground=Colors.black,
                     format='󰥔 %d/%m/%Y - %H:%M '
                 ),
-                #widget.QuickExit(),
             ],
             30,
             # border_width=[2, 0, 2, 0],  # Draw top and bottom borders

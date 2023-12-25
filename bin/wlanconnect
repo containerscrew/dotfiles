@@ -1,0 +1,17 @@
+#! /usr/bin/env bash
+
+# First, list endpoints
+echo -en "Listing available endpoints. Wait...\n"
+nmcli device wifi list
+echo -en "\n"
+
+read -ep "Endpoint SSID or BSSID: " endpoint_name
+read -s -p "Endpoint password: " endpoint_password
+
+# Connect
+echo -en "\nConnecting to $endpoint_name...\n"
+nmcli device wifi connect $endpoint_name password $endpoint_password
+
+# Since I'm always using a daemon with my custom vpn (protonvpn)
+# Maybe I will need to restart
+echo -en "Check custom vpn daemon if needed. $ systemctl restart wg-quick@protonvpn.service"
