@@ -96,7 +96,8 @@ sudo pacman -Sy --noconfirm --needed base-devel rustup bspwm sxhkd polybar picom
             pipewire pipewire-pulse pavucontrol xbindkeys ttf-firacode-nerd wireguard-tools \
             systemd-resolvconf macchanger tcpdump imagemagick vpnc whois qemu-full virt-manager \
             dnsmasq qtile xorg-xwayland rsync copyq python-dbus-next python-iwlib \
-            traceroute pre-commit goreleaser noto-fonts-emoji noto-fonts-extra
+            traceroute pre-commit goreleaser noto-fonts-emoji noto-fonts-extra \
+            nyx
 
 # Cockpit 
 sudo systemctl enable libvirtd.socket --now

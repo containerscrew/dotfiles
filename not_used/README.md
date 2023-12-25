@@ -1,0 +1,1 @@
+# Some initial experiments with bspwm (before going to Qtile)

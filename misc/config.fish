@@ -20,7 +20,7 @@ set -gx PATH "$HOME/.local/bin" $PATH;
 
 # My aliases
 alias ls="lsd"
-alias cat="bat --style=plain --theme='Solarized (dark)'"
+alias cat="bat"
 alias kubectl="kubecolor"
 alias purge="sudo pacman -Rns $(pacman -Qtdq) ; sudo fstrim -av"
 alias update="paru -Syu --nocombinedupgrade"

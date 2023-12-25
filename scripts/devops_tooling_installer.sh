@@ -17,7 +17,7 @@ sudo ln -s $(which podman-compose) /usr/bin/docker-compose
 sudo ln -s $(which podman) /usr/bin/docker
 
 #curl -L https://raw.githubusercontent.com/warrensbox/tgswitch/release/install.sh | sudo bash
-paru -Sccd tfenv kubectx --skipreview --noconfirm --needed
+paru -Sccd golangci-lint tfenv kubectx --skipreview --noconfirm --needed
 
 # Setup version
 sudo tfenv install 1.5.5 # latest version without BSL
@@ -50,5 +50,3 @@ if ! command -v "goimports" &> /dev/null ; then
   go install golang.org/x/tools/cmd/goimports@latest
 fi 
 
-# Golang CI
-curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.55.2
