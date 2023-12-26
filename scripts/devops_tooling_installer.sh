@@ -6,11 +6,26 @@ clean(){
 }
 
 # Packages from official repos
-sudo pacman -Sy --noconfirm --needed podman podman-compose terragrunt aws-cli-v2 kubectl helm go minikube 
+sudo pacman -Sy --noconfirm --needed podman-docker fuse-overlayfs cni-plugins netavark podman podman-compose terragrunt aws-cli-v2 kubectl helm go minikube 
 
 # Enable services
-sudo systemctl enable --now podman.socket
-sudo systemctl enable --now podman.service #/run/podman/podman.sock 
+#sudo systemctl enable --now podman.socket
+
+# rootless: export DOCKER_HOST=unix:///run/user/$UID/podman/podman.sock
+# systemctl --user enable --now podman.socket
+# $XDG_RUNTIME_DIR/podman/podman.sock:/var/run/docker.sock
+
+# IMPORTANT. Resolving problems with DNS resolutions:
+#$ podman info | grep network
+#  networkBackend: netavark
+
+# Add your registries to unquialified-search-registries, in /etc/containers/registries.conf
+# Edit /etc/containers/containers.conf if needed to add the correct network
+# [network]
+
+# Explicitly use netavark. See https://github.com/containers/podman-compose/issues/455
+# network_backend = "netavark"
+#podman system reset --force
 
 # Symlinks for docker, better than creating an alias (in scripting alias will not work)
 sudo ln -s $(which podman-compose) /usr/bin/docker-compose

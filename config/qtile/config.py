@@ -84,12 +84,13 @@ screens = [
                 widget.Clock(
                     **widget_base(fontsize=11),
                     #https://help.gnome.org/users/gthumb/stable/gthumb-date-formats.html.en
-                    format='%a %d %b %H:%M',
+                    format='%a %d %b %H:%M ',
                     mouse_callbacks={'Button1': lazy.spawn('gnome-calendar')},
                 ),
             ],
             30,
             background=Colors.background,
+            margin = [8,20,0,20],
             # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
             # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
         ),
@@ -126,6 +127,7 @@ floating_layout = layout.Floating(
         Match(wm_class="FloaTerm"),
     ]
 )
+
 auto_fullscreen = True
 focus_on_window_activation = "smart"
 reconfigure_screens = True
