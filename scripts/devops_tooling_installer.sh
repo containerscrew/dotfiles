@@ -6,7 +6,7 @@ clean(){
 }
 
 # Packages from official repos
-sudo pacman -Sy --noconfirm --needed podman-docker fuse-overlayfs cni-plugins netavark podman podman-compose terragrunt aws-cli-v2 kubectl helm go minikube 
+sudo pacman -Sy --noconfirm --needed podman-dnsname podman-docker aardvark-dns netavark podman podman-compose terragrunt aws-cli-v2 kubectl helm go minikube 
 
 # Enable services
 #sudo systemctl enable --now podman.socket
