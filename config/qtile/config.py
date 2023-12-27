@@ -9,6 +9,7 @@ from libqtile.lazy import lazy
 from configurations.colors import Colors
 from configurations.keys import keys, mod
 from configurations.groups import groups
+from configurations.widgets import MyWidgets
 
 
 layouts = [
@@ -22,12 +23,16 @@ def widget_base(fontsize=14):
         'padding': 6
     }
 
+def sep():
+    return 
 
 widget_defaults = dict(
     **widget_base(),
     background=Colors.background,
     foreground=Colors.white,
 )
+
+my_widgets = MyWidgets()
 
 extension_defaults = widget_defaults.copy()
 
@@ -43,13 +48,8 @@ screens = [
                     text = "",
                 ),
                 widget.Spacer(),
-                widget.GroupBox(),
+                my_widgets.group_box(),
                 widget.Spacer(),
-                widget.PulseVolume(
-                    **widget_base(),
-                    emoji=True,
-                    emoji_list=['', '', '', ''],
-                ),
                 # WLAN module
                 widget.Wlan(
                     **widget_base(),
@@ -81,12 +81,7 @@ screens = [
                     text = "󰍉",
                 ),
                 # Date with custom format like Mac OSX
-                widget.Clock(
-                    **widget_base(fontsize=11),
-                    #https://help.gnome.org/users/gthumb/stable/gthumb-date-formats.html.en
-                    format='%a %d %b %H:%M ',
-                    mouse_callbacks={'Button1': lazy.spawn('gnome-calendar')},
-                ),
+                my_widgets.clock(),
             ],
             30,
             background=Colors.background,
