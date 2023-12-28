@@ -14,7 +14,7 @@ keys = [
     Key([mod, alt], "f", lazy.spawn("firefox"), desc='Open firefox browser'),
     Key([mod, alt], "s", lazy.spawn("flameshot gui"), desc='Flameshot for desktop screenshots'),
     Key([mod, alt], "c", lazy.spawn("code"), desc='Open IDE vscode'),
-    Key([mod, alt], "w", lazy.spawn("bash ~/.local/bin/changewallpaper"), desc='Change wallpapers using feh'),
+    Key([mod, alt], "p", lazy.spawn("feh -z --no-fehbg --bg-fill /usr/share/backgrounds"), desc='Change wallpapers using feh'),
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
     Key([mod, alt], "Return", lazy.spawn("alacritty --class FloaTerm,Alacritty -o window.dimensions.lines=22 window.dimensions.columns=90"), desc="Launch floatterminal"), #Floatting terminal
 

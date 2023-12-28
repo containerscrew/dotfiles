@@ -9,7 +9,7 @@ from libqtile.lazy import lazy
 from configurations.colors import Colors
 from configurations.keys import keys, mod
 from configurations.groups import groups
-from configurations.widgets import MyWidgets
+from configurations.widgets import MyWidgets, sep
 
 
 layouts = [
@@ -22,9 +22,6 @@ def widget_base(fontsize=14):
         'fontsize': fontsize,
         'padding': 6
     }
-
-def sep():
-    return 
 
 widget_defaults = dict(
     **widget_base(),
@@ -59,28 +56,18 @@ screens = [
                 ),
                 widget.Battery(
                     **widget_base(),
-                    charge_char="",
-                    full_char="",
-                    discharge_char="",
-                    empty_char="",
+                    # charge_char="",
+                    # full_char="",
+                    # discharge_char="",
+                    # empty_char="",
+                    format="󰂄 {percent:2.0%}",
+                    show_short_text=False,
                     low_foreground=Colors.red,
-                    format="{char}  {percent:2.0%}",
                     update_interval=1,
                 ),
-                # Custom bluetooth icon
-                # Or you can use built-in bluetooth module
-                widget.TextBox(
-                    **widget_base(),
-                    mouse_callbacks={'Button1': lazy.spawn('blueman-manager')},
-                    text = "󰂯",
-                ),
-                # Launch rofi with app launcher
-                widget.TextBox(
-                    **widget_base(),
-                    mouse_callbacks={'Button1': lazy.spawn('rofi -show drun -theme ~/.config/rofi/Launcher.rasi')},
-                    text = "󰍉",
-                ),
-                # Date with custom format like Mac OSX
+                my_widgets.bluetooth(),
+                sep(fg=Colors.blue, bg=Colors.background),
+                my_widgets.launcher(),
                 my_widgets.clock(),
             ],
             30,
