@@ -37,6 +37,10 @@ class MyWidgets:
                     mouse_callbacks={'Button1': lazy.spawn('eww open --toggle profilecard --duration 5s')},
                     text = "",
         )
+    
+    def window_name(self):
+        return widget.WindowName(**widget_base(fs=10,p=5))
+    
     def group_box(self):
         return  widget.GroupBox(
                     **widget_base(f="FontAwesome"),
@@ -44,12 +48,12 @@ class MyWidgets:
                     #fmt="󰮯",
                     margin_x=0,
                     borderwidth=0,
-                    active=Colors.blue,
-                    inactive=Colors.violet,
+                    active=Colors.darkviolet,
+                    inactive=Colors.lightblue,
                     rounded=False,
                     highlight_method='block',
                     urgent_alert_method='block',
-                    urgent_border=Colors.darkgreen,
+                    urgent_border=Colors.background,
                     this_current_screen_border=Colors.background,
                     this_screen_border=Colors.background,
                     other_current_screen_border=Colors.background,
@@ -76,7 +80,7 @@ class MyWidgets:
                     text_open="󰴽",
                     widgets=[
                         widget.GenPollCommand(
-                            **widget_base(fg=Colors.darkgreen),
+                            **widget_base(),
                             cmd="systemctl is-active wg-quick@protonvpn.service",
                             shell=True,
                             fmt="ProtonVPN: {}",
@@ -89,14 +93,14 @@ class MyWidgets:
 
     def volume(self):
         return widget.PulseVolume(
-            **widget_base(f="FontAwesome"),
+            **widget_base(bg=Colors.violet, fg=Colors.background, f="FontAwesome"),
             emoji=True,
             emoji_list=['', '', '', '']
         )
 
     def wlan(self):
         return widget.Wlan(
-                    **widget_base(),
+                    **widget_base(bg=Colors.violet, fg=Colors.background),
                     format=" ",
                     interface="wlp58s0",
                     mouse_callbacks={'Button1': lazy.spawn('alacritty --class FloaTerm,Alacritty -o window.dimensions.lines=22 window.dimensions.columns=90 -e nmcli device wifi list')},
@@ -104,7 +108,7 @@ class MyWidgets:
             
     def battery(self):
         return  widget.Battery(
-                    **widget_base(),
+                    **widget_base(bg=Colors.violet, fg=Colors.background),
                     # charge_char="",
                     # full_char="",
                     # discharge_char="",
@@ -117,7 +121,7 @@ class MyWidgets:
 
     def bluetooth(self):
         return  widget.TextBox(
-                    **widget_base(),
+                    **widget_base(bg=Colors.violet, fg=Colors.background),
                     mouse_callbacks={'Button1': lazy.spawn('blueman-manager')},
                     text = "󰂯",
                 )
@@ -131,7 +135,7 @@ class MyWidgets:
 
     def clock(self):
         return  widget.Clock(
-                    **widget_base(fs=11,bg=Colors.blue, fg=Colors.black),
+                    **widget_base(fs=11,bg=Colors.blue, fg=Colors.background),
                     #https://help.gnome.org/users/gthumb/stable/gthumb-date-formats.html.en
                     format='%a %d %b %H:%M ',
                     mouse_callbacks={'Button1': lazy.spawn('gnome-calendar')},

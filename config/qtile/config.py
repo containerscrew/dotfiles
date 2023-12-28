@@ -13,41 +13,35 @@ from configurations.widgets import MyWidgets, sep
 
 
 layouts = [
-    layout.MonadTall(border_width=2, border_focus=Colors.blue, margin=8),
+    layout.MonadTall(border_width=3, border_focus=Colors.blue, margin=8),
 ]
 
-def widget_base(fontsize=14): 
-    return {
-        'font': "JetBrainsMono Nerd Font",
-        'fontsize': fontsize,
-        'padding': 6
-    }
-
-widget_defaults = dict(
-    **widget_base(),
-    background=Colors.background,
-    foreground=Colors.white,
-)
-
+# Custom widget class
 my_widgets = MyWidgets()
 
-extension_defaults = widget_defaults.copy()
 
 screens = [
     Screen(
         top=bar.Bar(
             [   
                 my_widgets.system_logo(),
+                widget.Sep(
+                    size_percent=60,
+                    foreground=Colors.white,
+                    padding=10,
+                ),
+                my_widgets.window_name(),
                 widget.Spacer(),
                 my_widgets.group_box(),
                 widget.Spacer(),
                 my_widgets.notifications(),
                 my_widgets.vpns(),
+                sep(fg=Colors.violet, bg=Colors.background),
                 my_widgets.volume(),
                 my_widgets.wlan(),
                 my_widgets.battery(),
                 my_widgets.bluetooth(),
-                sep(fg=Colors.blue, bg=Colors.background),
+                sep(fg=Colors.blue, bg=Colors.violet),
                 my_widgets.launcher(),
                 my_widgets.clock(),
                 my_widgets.power(),
@@ -55,13 +49,7 @@ screens = [
             30,
             background=Colors.background,
             margin = [8,20,0,20],
-            # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
-            # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
         ),
-        # You can uncomment this variable if you see that on X11 floating resize/moving is laggy
-        # By default we handle these events delayed to already improve performance, however your system might still be struggling
-        # This variable is set to None (no cap) by default, but you can set it to 60 to indicate that you limit it to 60 events per second
-        # x11_drag_polling_rate = 60,
     ),
 ]
 
