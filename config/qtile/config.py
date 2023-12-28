@@ -37,34 +37,12 @@ screens = [
     Screen(
         top=bar.Bar(
             [   
-                widget.TextBox(
-                    fontsize= 18,
-                    padding=10, 
-                    foreground=Colors.blue,
-                    #mouse_callbacks={'Button1': lazy.spawn('rofi -show drun -theme ~/.config/rofi/Launcher.rasi')},
-                    text = "",
-                ),
+                my_widgets.system_logo(),
                 widget.Spacer(),
                 my_widgets.group_box(),
                 widget.Spacer(),
-                # WLAN module
-                widget.Wlan(
-                    **widget_base(),
-                    format=" ",
-                    interface="wlp58s0",
-                    mouse_callbacks={'Button1': lazy.spawn('alacritty --class FloaTerm,Alacritty -o window.dimensions.lines=22 window.dimensions.columns=90 -e nmcli device wifi list')},
-                ),
-                widget.Battery(
-                    **widget_base(),
-                    # charge_char="",
-                    # full_char="",
-                    # discharge_char="",
-                    # empty_char="",
-                    format="󰂄 {percent:2.0%}",
-                    show_short_text=False,
-                    low_foreground=Colors.red,
-                    update_interval=1,
-                ),
+                my_widgets.wlan(),
+                my_widgets.battery(),
                 my_widgets.bluetooth(),
                 sep(fg=Colors.blue, bg=Colors.background),
                 my_widgets.launcher(),

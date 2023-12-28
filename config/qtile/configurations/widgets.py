@@ -30,6 +30,14 @@ class MyWidgets:
     def __init__(self) -> None:
         # Declare some default values
         pass
+
+    def system_logo(self):
+        return widget.TextBox(
+                     **widget_base(fs=18, p=10,fg=Colors.blue),
+                    #mouse_callbacks={'Button1': lazy.spawn('rofi -show drun -theme ~/.config/rofi/Launcher.rasi')},
+                    text = "",
+        )
+
     def group_box(self):
         return  widget.GroupBox(
                     **widget_base(f="FontAwesome"),
@@ -48,6 +56,27 @@ class MyWidgets:
                     other_current_screen_border=Colors.background,
                     other_screen_border=Colors.background,
                     disable_drag=True
+                )
+
+    def wlan(self):
+        return widget.Wlan(
+                    **widget_base(),
+                    format=" ",
+                    interface="wlp58s0",
+                    mouse_callbacks={'Button1': lazy.spawn('alacritty --class FloaTerm,Alacritty -o window.dimensions.lines=22 window.dimensions.columns=90 -e nmcli device wifi list')},
+                )
+            
+    def battery(self):
+        return  widget.Battery(
+                    **widget_base(),
+                    # charge_char="",
+                    # full_char="",
+                    # discharge_char="",
+                    # empty_char="",
+                    format="󰂄 {percent:2.0%}",
+                    show_short_text=False,
+                    low_foreground=Colors.red,
+                    update_interval=1,
                 )
 
     def bluetooth(self):
