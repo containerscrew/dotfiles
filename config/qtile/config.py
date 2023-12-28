@@ -13,7 +13,7 @@ from configurations.widgets import MyWidgets, sep
 
 
 layouts = [
-    layout.MonadTall(border_width=3, border_focus=Colors.white, margin=8, border_normal=Colors.blue),
+    layout.MonadTall(border_width=3, border_focus=Colors.violet, margin=8, border_normal=Colors.white),
 ]
 
 # Custom widget class
