@@ -18,15 +18,20 @@ def sep(bg, fg):
                 padding=-2
             )
 
+
+
 widget_defaults = dict(
     **widget_base(),
     background=Colors.background,
     foreground=Colors.white,
 )
 
+
 class MyWidgets:
     def __init__(self) -> None:
         # Declare some default values
+        pass
+    def left_apps(self):
         pass
     def group_box(self):
         return  widget.GroupBox(
@@ -47,6 +52,7 @@ class MyWidgets:
                     other_screen_border=Colors.background,
                     disable_drag=True
                 )
+
     def clock(self):
         return  widget.Clock(
                     **widget_base(fs=11),

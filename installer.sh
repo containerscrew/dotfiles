@@ -98,7 +98,7 @@ sudo pacman -Sy --noconfirm --needed base-devel rustup bspwm sxhkd polybar picom
             dnsmasq qtile xorg-xwayland rsync copyq python-dbus-next python-iwlib \
             traceroute pre-commit goreleaser noto-fonts-emoji noto-fonts-extra \
             nyx udiskie ntfs-3g network-manager-applet volumeicon cbatticon \
-            gnome-calendar
+            gnome-calendar spotify-launcher libpwquality
 
 
 # Cockpit 
