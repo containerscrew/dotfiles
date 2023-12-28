@@ -69,6 +69,24 @@ class MyWidgets:
                     ]
                 )
 
+    def vpns(self):
+        return widget.WidgetBox(
+                    **widget_base(fg=Colors.blue),
+                    text_closed="󱘖",
+                    text_open="󰴽",
+                    widgets=[
+                        widget.GenPollCommand(
+                            **widget_base(fg=Colors.darkgreen),
+                            cmd="systemctl is-active wg-quick@protonvpn.service",
+                            shell=True,
+                            fmt="ProtonVPN: {}",
+                            update_interval=2,
+                            mouse_callbacks={'Button1': lazy.spawn('alacritty --class FloaTerm,Alacritty -o window.dimensions.lines=22 window.dimensions.columns=90 -e systemctl start wg-quick@protonvpn.service'),
+                            'Button3': lazy.spawn('alacritty --class FloaTerm,Alacritty -o window.dimensions.lines=22 window.dimensions.columns=90 -e systemctl stop wg-quick@protonvpn.service') },
+                        ),
+                    ]
+                )
+
     def volume(self):
         return widget.PulseVolume(
             **widget_base(f="FontAwesome"),

@@ -42,6 +42,7 @@ screens = [
                 my_widgets.group_box(),
                 widget.Spacer(),
                 my_widgets.notifications(),
+                my_widgets.vpns(),
                 my_widgets.volume(),
                 my_widgets.wlan(),
                 my_widgets.battery(),
