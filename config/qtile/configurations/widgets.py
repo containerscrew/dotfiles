@@ -16,8 +16,8 @@ def sep(bg=Colors.background, fg=Colors.white, text=""):
                 background=bg,
                 foreground=fg,
                 text=text, # nf-oct-triangle_left
-                fontsize=37,
-                padding=-2
+                fontsize=40,
+                padding=-4
             )
 
 
