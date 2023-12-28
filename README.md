@@ -45,6 +45,8 @@ nmcli device wifi connect SSID_or_BSSID password password
 * permanent wg-quick setup
 * automatic setup omf plugins (git, kubectl...etc)
 * some widgets using eww 
+* tmux config
+* neovim configuration and plugins
 
 tcpdump wireguard connection: https://www.procustodibus.com/blog/2021/03/wireguard-logs/
 

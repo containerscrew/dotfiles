@@ -1,9 +1,9 @@
-add_newline = true
+add_newline = false
 
-format = """
-($username)[@](bold white)($hostname)
-($directory) ($character)
-"""
+# format = """
+# ($username)[@](bold white)($hostname)
+# ($directory) ($character)
+# """
 
 # My curstom format
 # format = '''
@@ -11,70 +11,75 @@ format = """
 # [│]($directory) 
 # [└─>]($character) '''
 
-right_format = """$all"""
+right_format = """
+$aws\
+$kubernetes\
+$golang\
+$rust\
+"""
 
 [username]
 disabled = false
 show_always = true
 style_user = "bold white"
-format = "[$user]($style)"
+style_root= "bold red"
+format = "[╭─$user]($style)@"
 
 [hostname]
 disabled = false
 ssh_only = false
 style = "bold purple"
-format =  "[$hostname]($style)"
+format =  "[$hostname]($style) in "
+trim_at = "-"
 
+[directory]
+disabled = false
+truncate_to_repo = true
+truncation_length = 0
+# truncation_symbol = "repo: "
+home_symbol = "~"
+format = "[$path](bold blue)[/](bold purple) "
+
+[character]
+error_symbol = "[╰─ 󰊠](bold red)"
+success_symbol = "[╰─ 󰣇](bold purple)"
+
+
+[git_status]
+ahead = "⇡${count}"
+behind = "⇣${count}"
+deleted = "x"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+style = "white"
+
+[cmd_duration]
+disabled = true
+style = "bold purple"
+format = "took [$duration]($style)"
+min_time = 1
+
+# Tools
 [aws]
 format = '[$symbol$profile]($style) '
 style = 'bold #bf5700'
 symbol = '󰸏 '
 
-[directory]
-disabled = false
-truncation_length = 1
-home_symbol = "~"
-format = "[$path](bold blue)[/](bold purple) "
-
-[character]
-success_symbol = "󰣇"
-error_symbol = "[](bold red)"
-
-[localip]
-ssh_only = false
-format = '@[$localipv4](bold purple) '
-disabled = false
-
-[git_branch]
-symbol = " "
-style = "bold blue"
-
-[git_commit]
-commit_hash_length = 4
-tag_symbol = "🔖 "
-
-[git_state]
-format = '[\($state( $progress_current of $progress_total)\)]($style) '
-cherry_pick = "[🍒 PICKING](bold red)"
-
-[git_metrics]
-added_style = "bold blue"
-format = '[+$added]($added_style)/[-$deleted]($deleted_style) '
-
-[git_status]
-format = '([\[$all_status$ahead_behind\]]($style) )'
-style = "bold cyan"
-conflicted = "= "
-ahead = "⇡ ${count} "
-behind = "⇣ ${count} "
-diverged = "⇕ "
-up_to_date = ""
-untracked = "? "
-stashed = "$ "
-modified = "! "
-staged = '[++\($count\)](green)'
-renamed = "» "
-deleted = " "
-
-[cmd_duration]
+[status]
 disabled = true
+format = "[$symbol $status]($style) "
+not_found_symbol = "X"
+not_executable_symbol = "X"
+sigint_symbol = "ﭦ"
+map_symbol = true
+
+[golang]
+style="bold blue"
+format = "[$symbol($version )]($style)"
+symbol = " "
+
+[rust]
+format = "[$symbol($version )]($style)"
+
+[kubernetes]
+disabled = false
+format = '[$symbol$context( \($namespace\))]($style) in '
