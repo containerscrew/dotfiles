@@ -163,7 +163,7 @@
 									 :text packages)
 							  (label :class "wm-text"
 									 :halign "start"
-									 :text "Bspwm"))))))
+									 :text "Qtile"))))))
 									 
 (defwidget weather[] 
   (box :orientation "h" :class "weatherboxfull" :space-evenly false

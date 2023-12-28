@@ -37,21 +37,14 @@ nmcli device wifi connect SSID_or_BSSID password password
 * Bluetooth
 * loadkeys en
 * mouse natural scrolling
-* Add more shortcuts in sxhkd
 * Install GTK theme
-* Declare good colors for polybar
-* keyboard shortcuts for audio volume
 * grub theme
 * starship prompt
 * install a clipboard
 * config.fish full aliases and setup
-* pending to install correctly brave browser
 * permanent wg-quick setup
-* permanent macchanger 
 * automatic setup omf plugins (git, kubectl...etc)
-* fix arch logo polybar padding + margin
-* add custom vpn status polybar for company vpn
-
+* some widgets using eww 
 
 tcpdump wireguard connection: https://www.procustodibus.com/blog/2021/03/wireguard-logs/
 

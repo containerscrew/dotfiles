@@ -31,8 +31,11 @@ alias grep='grep --color=auto'
 alias ls='lsd --group-directories-first'
 alias tree='lsd --tree'
 
+# Setup Starship custom prompt
+export STARSHIP_CONFIG=$HOME/.config/starship/starship.toml
+
 # Init Starship
 eval "$(starship init fish | source)"
 
-# Setup Starship custom prompt
-export STARSHIP_CONFIG=$HOME/.config/starship/starship.toml
+# Neofetch
+neofetch
