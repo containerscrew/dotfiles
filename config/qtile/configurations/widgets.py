@@ -37,7 +37,6 @@ class MyWidgets:
                     mouse_callbacks={'Button1': lazy.spawn('eww open --toggle profilecard --duration 5s')},
                     text = "",
         )
-
     def group_box(self):
         return  widget.GroupBox(
                     **widget_base(f="FontAwesome"),
@@ -57,6 +56,25 @@ class MyWidgets:
                     other_screen_border=Colors.background,
                     disable_drag=True
                 )
+
+    def notifications(self):
+        return widget.WidgetBox(
+                    **widget_base(fg=Colors.blue),
+                    text_closed="󰮯",
+                    text_open="󰊠",
+                    widgets=[
+                            widget.StatusNotifier(
+                            icon_theme="Papirus-Dark"
+                        ),
+                    ]
+                )
+
+    def volume(self):
+        return widget.PulseVolume(
+            **widget_base(f="FontAwesome"),
+            emoji=True,
+            emoji_list=['', '', '', '']
+        )
 
     def wlan(self):
         return widget.Wlan(
