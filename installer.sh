@@ -82,7 +82,7 @@ print_ascii_banner
 # Install base de pendencies
 log_message "info" "Installing system dependencies..."
 
-sudo pacman -Sy --noconfirm --needed base-devel rustup bspwm sxhkd polybar picom \
+sudo pacman -Syu --noconfirm --needed base-devel rustup bspwm sxhkd polybar picom \
             dunst feh alacritty jq git papirus-icon-theme rofi \
             xorg-xprop xorg-xkill xorg-xsetroot xorg-xwininfo xorg-xrandr \
             xdg-user-dirs plymouth neovim vscode mlocate \
@@ -256,6 +256,10 @@ sudo systemctl enable macspoof@wlp58s0.service
 # VSCODE extensions
 log_message "info" "Installing vscode extensions..."
 ./scripts/vscode-extensions.sh
+
+# Security
+sudo cp /etc/pam.d/passwd /etc/pam.d/passwd."$(date +"%Y%m%d_%H%M")".backup
+sudo cp misc/passwd /etc/pam.d/passwd
 
 # Setup
 # For the end of the script

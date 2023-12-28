@@ -82,4 +82,6 @@ format = "[$symbol($version )]($style)"
 
 [kubernetes]
 disabled = false
-format = '[$symbol$context( \($namespace\))]($style) in '
+format = '[$symbol$context( \($namespace\))]($style) in'
+
+[terraform]
