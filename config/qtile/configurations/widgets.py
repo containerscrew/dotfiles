@@ -2,22 +2,21 @@ from libqtile import widget
 from configurations.colors import Colors
 from libqtile.lazy import lazy
 
-def widget_base(fs=14): 
+def widget_base(fs=14, f="JetBrainsMono Nerd Font", p=6): 
     return {
-        'font': "JetBrainsMono Nerd Font",
+        'font': f,
         'fontsize': fs,
-        'padding': 6
+        'padding': p
     }
 
-def sep(bg, fg):
+def sep(bg=Colors.background, fg=Colors.white, text=""):
     return  widget.TextBox(
                 background=bg,
                 foreground=fg,
-                text="", # Icon: nf-oct-triangle_left
+                text=text, # nf-oct-triangle_left
                 #fontsize=37,
                 padding=-2
             )
-
 
 
 widget_defaults = dict(
@@ -35,9 +34,9 @@ class MyWidgets:
         pass
     def group_box(self):
         return  widget.GroupBox(
-                    **widget_base(),
+                    **widget_base(f="FontAwesome"),
                     margin_y=3,
-                    fmt="󰮯",
+                    #fmt="󰮯",
                     margin_x=0,
                     borderwidth=0,
                     active=Colors.blue,
@@ -60,10 +59,6 @@ class MyWidgets:
                     format='%a %d %b %H:%M ',
                     mouse_callbacks={'Button1': lazy.spawn('gnome-calendar')},
                 )
-
-
-
-
 
 
 extension_defaults = widget_defaults.copy()

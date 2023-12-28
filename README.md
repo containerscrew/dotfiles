@@ -123,3 +123,7 @@ sudo systemctl restart systemd-resolved
 
 # GTK THEME
 material black blueberry: https://www.pling.com/p/1316887/
+
+
+# Setup EBPF tools
+https://aya-rs.dev/book/start/development/#ebpf-program-constraints

@@ -5,9 +5,10 @@ from libqtile.config import Key, Group
 from libqtile.command import lazy
 from .keys import mod, alt, keys
 
-# Number of workspaces
+# Workspaces
+# Brave, Chrome, Slack, Terminal, Code, Signal, Discord, Spotify, Workspace for other stuff
 groups = [Group(i) for i in [
-    "1", "2", "3", "4", "5", "6" ]]
+    "", "", "", "", "", "", "", "", ""]]
 
 for i, group in enumerate(groups):
     actual_key = str(i + 1)
