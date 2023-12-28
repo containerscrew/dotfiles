@@ -11,14 +11,9 @@
 		 :spacing 10
     (eventbox :cursor "pointer"
 		(button :class "powermenu lock" 
-				:onclick "physlock -d"
+				:onclick "dm-tool lock"
 				:tooltip "Lock session"
 				""))
-    (eventbox :cursor "pointer"
-		(button :class "powermenu exit" 
-				:onclick "bspc quit" 
-				:tooltip "Logout bspwm"
-				""))
     (eventbox :cursor "pointer"
 		(button :class "powermenu reboot" 
 				:onclick "systemctl reboot"
@@ -36,6 +31,6 @@
 (defwindow powermenu
     :geometry (geometry :x "0%"
                         :y "0%"
-                        :anchor "center bottom")
+                        :anchor "center right")
     :wm-ignore false
     (powermenu))

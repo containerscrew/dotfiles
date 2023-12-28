@@ -47,6 +47,7 @@ screens = [
                 sep(fg=Colors.blue, bg=Colors.background),
                 my_widgets.launcher(),
                 my_widgets.clock(),
+                my_widgets.power(),
             ],
             30,
             background=Colors.background,

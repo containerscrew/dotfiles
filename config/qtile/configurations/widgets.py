@@ -34,7 +34,7 @@ class MyWidgets:
     def system_logo(self):
         return widget.TextBox(
                      **widget_base(fs=18, p=10,fg=Colors.blue),
-                    #mouse_callbacks={'Button1': lazy.spawn('rofi -show drun -theme ~/.config/rofi/Launcher.rasi')},
+                    mouse_callbacks={'Button1': lazy.spawn('eww open --toggle profilecard --duration 5s')},
                     text = "",
         )
 
@@ -99,6 +99,13 @@ class MyWidgets:
                     #https://help.gnome.org/users/gthumb/stable/gthumb-date-formats.html.en
                     format='%a %d %b %H:%M ',
                     mouse_callbacks={'Button1': lazy.spawn('gnome-calendar')},
+                )
+    
+    def power(self):
+        return widget.TextBox(
+                    **widget_base(bg=Colors.background, fg=Colors.red,p=10),
+                    mouse_callbacks={'Button1': lazy.spawn('eww open --toggle powermenu --duration 3s')},
+                    text = "󰐥",
                 )
 
 
