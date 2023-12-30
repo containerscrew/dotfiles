@@ -73,6 +73,7 @@ keys = [
     
 
     # Volume
+    # $ xmodmap -pke | grep Audio
     Key([], "XF86AudioLowerVolume", lazy.spawn(
         "pactl set-sink-volume @DEFAULT_SINK@ -5%"
     )),
@@ -82,6 +83,9 @@ keys = [
     Key([], "XF86AudioMute", lazy.spawn(
         "pactl set-sink-mute @DEFAULT_SINK@ toggle"
     )),
+    # Key([], "XF86AudioNext", lazy.spawn(
+    #     "pactl set-sink-mute @DEFAULT_SINK@ toggle"
+    # )),
 
     # Brightness
     Key([], "XF86MonBrightnessUp", lazy.spawn("brightnessctl set +10%")),
