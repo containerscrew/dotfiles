@@ -261,6 +261,9 @@ log_message "info" "Installing vscode extensions..."
 sudo cp /etc/pam.d/passwd /etc/pam.d/passwd."$(date +"%Y%m%d_%H%M")".backup
 sudo cp misc/passwd /etc/pam.d/passwd
 
+# Etc hosts
+#sudo echo "127.0.0.1    localhost \n::1     localhost" >> /etc/hosts
+
 # Setup
 # For the end of the script
 sudo systemctl enable lightdm.service --now
