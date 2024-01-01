@@ -1,6 +1,14 @@
 from libqtile import widget
 from configurations.colors import Colors
 from libqtile.lazy import lazy
+from qtile_extras import widget
+from qtile_extras.widget.decorations import RectDecoration
+
+decoration_group = {
+    "decorations": [
+        RectDecoration(colour="#708491", radius=10, filled=True,group=True, padding_y=4)
+    ],
+}
 
 def widget_base(fs=14, f="JetBrainsMono Nerd Font", p=6, bg=Colors.background, fg=Colors.white): 
     return {
@@ -39,7 +47,7 @@ class MyWidgets:
         )
     
     def window_name(self):
-        return widget.WindowName(**widget_base(fs=10,p=5))
+        return widget.WindowName(**widget_base(fs=10,p=5), max_chars = 40)
     
     def group_box(self):
         return  widget.GroupBox(
@@ -59,7 +67,7 @@ class MyWidgets:
                     other_current_screen_border=Colors.background,
                     other_screen_border=Colors.background,
                     disable_drag=True
-                )
+        )
 
     def notifications(self):
         return widget.WidgetBox(
@@ -95,7 +103,7 @@ class MyWidgets:
         return widget.PulseVolume(
             **widget_base(bg=Colors.violet, fg=Colors.background, f="FontAwesome"),
             emoji=True,
-            emoji_list=['', '', '', '']
+            emoji_list=['', '', '', ''],
         )
 
     def wlan(self):

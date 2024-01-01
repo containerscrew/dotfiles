@@ -98,8 +98,11 @@ sudo pacman -Syu --noconfirm --needed base-devel rustup bspwm sxhkd polybar pico
             dnsmasq qtile xorg-xwayland rsync copyq python-dbus-next python-iwlib \
             traceroute pre-commit goreleaser noto-fonts-emoji noto-fonts-extra \
             nyx udiskie ntfs-3g network-manager-applet volumeicon cbatticon \
-            gnome-calendar spotify-launcher libpwquality dnsutils mpd mpc
-
+            gnome-calendar spotify-launcher libpwquality dnsutils cryptsetup \
+            gparted gnome-disk-utility
+            
+# To be added
+#mpd mpc 
 
 # Enable mpd service
 sudo systemctl enable --now mpd.service
@@ -183,7 +186,7 @@ fi
 
 # Install other packages with paru
 log_message "info" "Installing some packages from AUR..."
-paru -Sccd qtile-extras python-pulsectl-asyncio mkdocs mkdocs-rss-plugin mkdocs-material web-greeter-theme-shikai ttf-font-awesome simplescreenrecorder tfenv brave-bin google-chrome slack-desktop gitleaks procs gosec --skipreview --noconfirm --needed
+paru -Sccd coreimage qtile-extras python-pulsectl-asyncio mkdocs mkdocs-rss-plugin mkdocs-material web-greeter-theme-shikai ttf-font-awesome simplescreenrecorder tfenv brave-bin google-chrome slack-desktop gitleaks procs gosec --skipreview --noconfirm --needed
 
 # Setup fish shell
 log_message "info" "Setup fish shell..."
