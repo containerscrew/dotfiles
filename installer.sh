@@ -99,7 +99,9 @@ sudo pacman -Syu --noconfirm --needed base-devel rustup bspwm sxhkd polybar pico
             traceroute pre-commit goreleaser noto-fonts-emoji noto-fonts-extra \
             nyx udiskie ntfs-3g network-manager-applet volumeicon cbatticon \
             gnome-calendar spotify-launcher libpwquality dnsutils cryptsetup \
-            gparted gnome-disk-utility torbrowser-launcher starship unzip
+            gparted gnome-disk-utility tumbler vlc ffmpeg torbrowser-launcher \
+            starship unzip
+
             
 # To be added
 #mpd mpc 

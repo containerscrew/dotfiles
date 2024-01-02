@@ -115,6 +115,7 @@ FallbackDNS=1.1.1.1#cloudflare-dns.com 9.9.9.9#dns.quad9.net 8.8.8.8#dns.google 
 DNSSEC=no
 
 sudo systemctl restart systemd-resolved
+# ln -sf ../run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
 
 # GTK THEME
 material black blueberry: https://www.pling.com/p/1316887/
@@ -122,3 +123,7 @@ material black blueberry: https://www.pling.com/p/1316887/
 
 # Setup EBPF tools
 https://aya-rs.dev/book/start/development/#ebpf-program-constraints
+
+
+# Setup touchpad
+https://wiki.archlinux.org/title/Libinput

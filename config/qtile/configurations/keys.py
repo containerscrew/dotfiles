@@ -83,7 +83,8 @@ keys = [
     Key([], "XF86AudioMute", lazy.spawn(
         "pactl set-sink-mute @DEFAULT_SINK@ toggle"
     )),
-    # Key([], "XF86AudioNext", lazy.spawn(
+pwd
+latest    # Key([], "XF86AudioNext", lazy.spawn(
     #     "pactl set-sink-mute @DEFAULT_SINK@ toggle"
     # )),
 
