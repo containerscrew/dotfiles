@@ -88,7 +88,7 @@ sudo pacman -Syu --noconfirm --needed base-devel rustup bspwm sxhkd polybar pico
             xdg-user-dirs plymouth neovim vscode mlocate \
             bluez bluez-utils fish arandr xorg-server xorg-xinit \
             curl wget neofetch lightdm lightdm-gtk-greeter lightdm-webkit2-greeter \
-            blueman firefox conky mlocate tor tor-browser ngrep lsd bat \
+            blueman firefox conky mlocate ngrep lsd bat \
             ttf-jetbrains-mono ttf-jetbrains-mono-nerd ttf-terminus-nerd ttf-inconsolata ttf-joypixels \
             fzf brightnessctl man webp-pixbuf-loader light-locker \
             net-tools inetutils ttf-nerd-fonts-symbols htop thunar discord openvpn veracrypt \
@@ -99,13 +99,13 @@ sudo pacman -Syu --noconfirm --needed base-devel rustup bspwm sxhkd polybar pico
             traceroute pre-commit goreleaser noto-fonts-emoji noto-fonts-extra \
             nyx udiskie ntfs-3g network-manager-applet volumeicon cbatticon \
             gnome-calendar spotify-launcher libpwquality dnsutils cryptsetup \
-            gparted gnome-disk-utility
+            gparted gnome-disk-utility torbrowser-launcher starship unzip
             
 # To be added
 #mpd mpc 
 
 # Enable mpd service
-sudo systemctl enable --now mpd.service
+#sudo systemctl enable --now mpd.service
 
 # Cockpit 
 sudo systemctl enable libvirtd.socket --now
@@ -121,20 +121,20 @@ log_message "info" "Installing security tools..."
 sudo pacman -Sy --noconfirm --needed nmap ufw
 
 # Enable firewall
-sudo systemctl enable ufw --now
-sudo ufw default deny incoming
-sudo ufw default allow outgoing
-sudo ufw enable
-sudo ufw logging on
-sudo ufw reload
-sudo ufw status verbose
+# sudo systemctl enable ufw --now
+# sudo ufw default deny incoming
+# sudo ufw default allow outgoing
+# #sudo ufw logging on
+# sudo ufw enable
+# sudo ufw reload
+# sudo ufw status verbose
 
 # Installing DevOps tooling
 log_message "info" "Installing DevOps tooling..."
 ./scripts/devops_tooling_installer.sh
 
 # Enable TOR
-sudo systemctl enable tor --now
+sudo systemctl enable tor.service --now
 
 # Start bluetooth service
 log_message "info" "Starting bluetooh service..."
@@ -191,6 +191,8 @@ paru -Sccd coreimage qtile-extras python-pulsectl-asyncio mkdocs mkdocs-rss-plug
 # Setup fish shell
 log_message "info" "Setup fish shell..."
 sudo chsh -s "$(which fish)" "${USERNAME}"
+mkdir -p "$HOME/.config/fish"
+mkdir -p "$HOME/.config/fish/functions"
 [ -f "$HOME"/.config/fish/config.fish ] && cp "$HOME"/.config/fish/config.fish "$HOME"/.config/fish/config.fish.bak
 # Setup fish config
 cp misc/config.fish "$HOME"/.config/fish/config.fish
