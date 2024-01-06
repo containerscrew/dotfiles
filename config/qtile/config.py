@@ -11,7 +11,6 @@ from configurations.keys import keys, mod
 from configurations.groups import groups
 from configurations.widgets import MyWidgets, sep
 
-
 layouts = [
     layout.MonadTall(border_width=3, border_focus=Colors.violet, margin=8, border_normal=Colors.white),
 ]
@@ -19,11 +18,10 @@ layouts = [
 # Custom widget class
 my_widgets = MyWidgets()
 
-
 screens = [
     Screen(
         top=bar.Bar(
-            [   
+            [
                 my_widgets.system_logo(),
                 widget.Sep(
                     size_percent=60,
@@ -48,7 +46,7 @@ screens = [
             ],
             30,
             background=Colors.background,
-            margin = [8,20,0,20],
+            margin=[8, 20, 0, 20],
         ),
     ),
 ]

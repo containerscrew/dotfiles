@@ -1,6 +1,8 @@
+# Containers Crew
+# https://github.com/containerscrew
+
 #https://www.rapidtables.com/web/color/RGB_Color.html
 class Colors:
-    #lightgrey = "#1F1F1F"
     background = "#000000"
     black = "#000000"
     grey = "#707880"
