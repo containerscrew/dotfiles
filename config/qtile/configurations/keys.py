@@ -25,6 +25,7 @@ keys = [
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
     Key([mod, alt], "Return", lazy.spawn("alacritty --class FloaTerm,Alacritty -o window.dimensions.lines=22 window.dimensions.columns=90"), desc="Launch floatterminal"), #Floatting terminal
 
+
     # https://docs.qtile.org/en/latest/manual/config/lazy.html
     # Windows
     Key([mod, "shift"], "m", minimize_all(), desc="Toggle hide/show all windows on current group"),
@@ -38,6 +39,7 @@ keys = [
     Key([mod, "shift"], "l", lazy.layout.shuffle_right(), desc="Move window to the right"),
     Key([mod, "shift"], "j", lazy.layout.shuffle_down(), desc="Move window down"),
     Key([mod, "shift"], "k", lazy.layout.shuffle_up(), desc="Move window up"),
+    Key([mod], "Tab", lazy.screen.toggle_group(), desc="Switch window focus to previous window in group"),
 
     # Grow windows. If current window is on the edge of screen and direction
     # will be to screen edge - window would shrink.
@@ -57,7 +59,7 @@ keys = [
         desc="Toggle between split and unsplit sides of stack",
     ),
     # Toggle between different layouts as defined below
-    Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
+    # Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
     Key(
         [mod],
         "f",
@@ -70,7 +72,7 @@ keys = [
     Key([mod, "control"], "r", lazy.restart(), desc="Restart Qtile"),
     Key([mod, alt], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
-    
+
 
     # Volume
     # $ xmodmap -pke | grep Audio

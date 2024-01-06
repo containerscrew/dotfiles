@@ -3,3 +3,6 @@
 
 # MAC
 .DS_Store
+
+# Jetbrains
+.idea
