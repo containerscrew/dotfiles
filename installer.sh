@@ -100,7 +100,7 @@ sudo pacman -Syu --noconfirm --needed base-devel rustup bspwm sxhkd polybar pico
             nyx udiskie ntfs-3g network-manager-applet volumeicon cbatticon \
             gnome-calendar spotify-launcher libpwquality dnsutils cryptsetup \
             gparted gnome-disk-utility tumbler vlc ffmpeg torbrowser-launcher \
-            starship unzip
+            starship unzip vi
 
             
 # To be added
