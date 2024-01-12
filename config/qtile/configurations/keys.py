@@ -24,6 +24,8 @@ keys = [
     Key([mod, alt], "p", lazy.spawn("feh -z --no-fehbg --bg-fill /usr/share/backgrounds"), desc='Change wallpapers using feh'),
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
     Key([mod, alt], "Return", lazy.spawn("alacritty --class FloaTerm,Alacritty -o window.dimensions.lines=22 window.dimensions.columns=90"), desc="Launch floatterminal"), #Floatting terminal
+    #Key([mod, alt], "n", lazy.spawn(""), desc="Launch floatterminal"), #Floatting terminal
+
 
 
     # https://docs.qtile.org/en/latest/manual/config/lazy.html

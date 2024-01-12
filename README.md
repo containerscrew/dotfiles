@@ -1,5 +1,36 @@
-# archordie
-Setup your archlinux for your day in life
+# Containerscrew DOTFILES
+
+My dotfiles in Arch Linux.
+
+![desktop](./assets/desktop.png)
+
+# Disclaimer ⚠️
+
+It is my personal setup, the way I like it, with configurations that are comfortable for me, applications... etc. Use it if you want as a template, as a guide. I will update it as I need to add new packages, configs...etc. Don't use [installer.sh](./installer.sh) every time as it can break your current setup.
+
+# Arch Linux installation
+
+The installation of Arch Linux has been carried out using [archinstall](https://wiki.archlinux.org/title/archinstall). 
+The [official installation page](https://wiki.archlinux.org/title/Installation_guide) is also very complete, everything and that using archinstall is more comfortable and makes the process easier.
+
+## Before installation using archinstall 
+
+Pre-flight checks 🚀
+
+## Connect to the internet
+
+Once the usb is booted, connect the laptop to your local network (if not using ethernet cable).
+
+```shell
+iwctl station wlan0 get-networks # change wlan0 interface if needed. Type `$ ip a` if you don't know the name 
+iwctl stations wlan0 connect SSID # put the SSID/BSSID with your corresponding local network
+ping -c 1 1.1.1.1 # test connectivity
+archinstall # start installation 
+```
+
+## Considerations
+
+
 
 
 # Credits

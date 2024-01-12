@@ -2,7 +2,7 @@
 
 1. Setup private VPN using VPNC (CISCO VPN)
 
-`/etc/vpnc/company.conf`
+`/etc/vpnc/work.conf`
 
 ```
 IPSec gateway XXX
@@ -13,11 +13,27 @@ Xauth password XXXX
 Local Port 5050
 ```
 
-`sudo vpnc company`
+`sudo vpnc work`
 
 Enable service:
 
-sudo systemctl enable vpnc@company.service --now
+sudo systemctl enable vpnc@work.service --now
+
+```shell
+   1   # https://linux.die.net/man/8/vpnc
+   2   [Unit]
+   3   Description=VPNC connection to %i
+   4   After=network.target
+   5
+   6   [Service]
+   7   Type=forking
+   8   ExecStart=/usr/bin/vpnc --pid-file=/run/vpnc@%i.pid /etc/vpnc/%i.conf --ifname tun1
+   9   PIDFile=/run/vpnc@%i.pid
+  10   Restart=always
+  11
+  12   [Install]
+  13   WantedBy=multi-user.target
+```
 
 resolvectl
 
@@ -34,5 +50,3 @@ update-ca-trust
 # Setup your .ssh/config file
 # Chrome, brave or firefox bookmarks and theme
 
-
-# Create new [module/vpn2] for company vpn

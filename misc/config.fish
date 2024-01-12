@@ -26,6 +26,10 @@ alias kns="kubens"
 alias grep='grep --color=auto'
 alias ls='lsd --group-directories-first'
 alias tree='lsd --tree'
+alias pbcopy='xclip -sel clip'
+alias mycode='cd $HOME/Documents/Code'
+alias work='cd $HOME/Documents/Code/Work'
+alias personal='cd $HOME/Documents/Code/Personal'
 
 # Setup Starship custom prompt
 export STARSHIP_CONFIG=$HOME/.config/starship/starship.toml

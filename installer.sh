@@ -100,7 +100,7 @@ sudo pacman -Syu --noconfirm --needed base-devel rustup bspwm sxhkd polybar pico
             nyx udiskie ntfs-3g network-manager-applet volumeicon cbatticon \
             gnome-calendar spotify-launcher libpwquality dnsutils cryptsetup \
             gparted gnome-disk-utility tumbler vlc ffmpeg torbrowser-launcher \
-            starship unzip vi
+            starship unzip vi gtk4
 
             
 # To be added
@@ -152,7 +152,8 @@ sudo cp -aR wallpapers/* /usr/share/backgrounds/
 log_message "info" "Creating default user home directories..."
 if ! test -f  "$HOME/.config/user-dirs.dirs" ; then
     xdg-user-dirs-update
-    mkdir -p $HOME/.ssh $HOME/.kube $HOME/.aws $HOME/.themes $HOME/.icons $HOME/.local/bin
+    mkdir -p $HOME/.ssh $HOME/.kube $HOME/.aws $HOME/.themes $HOME/.icons $HOME/.local/bin $HOME/Documents/Code \
+            $HOME/Documents/Code/Work $HOME/Documents/Code/Personal
 else 
     log_message "info" "User home directories exists. Skipping creation..."
 fi
@@ -173,7 +174,7 @@ clean(){
 }
 
 # Install paru for AUR packages
-log_message "info" "Installing paru AUR package manaer..."
+log_message "info" "Installing paru AUR package manager..."
 
 if ! command -v "paru" &> /dev/null ; then 
     tmpdir=$(mktemp -d)

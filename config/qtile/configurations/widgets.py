@@ -78,6 +78,15 @@ class MyWidgets:
                             widget.StatusNotifier(
                             icon_theme="Papirus-Dark"
                         ),
+                        widget.GenPollCommand(
+                            **widget_base(),
+                            cmd="dunstctl is-paused",
+                            shell=True,
+                            fmt="Notifications Paused: {}",
+                            update_interval=2,
+                            mouse_callbacks={'Button1': lazy.spawn('dunstctl set-paused true'),
+                                             'Button3': lazy.spawn('dunstctl set-paused false')},
+                        ),
                     ]
                 )
 

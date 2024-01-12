@@ -1,0 +1,11 @@
+#! /usr/bin/env bash
+
+# Stop personal VPN ProtonVPN
+sudo systemctl stop wg-quick@protonvpn.service
+sudo systemctl start vpnc@work.service
+# Start personal VPN again
+# To do it correctly, maybe you need to edit persoanl wg-quick service configuration
+#[Unit]
+#Description=My Service
+#After=vpnc@work.service
+sudo systemctl start wg-quick@protonvpn.service
