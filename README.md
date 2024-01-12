@@ -8,6 +8,8 @@ My dotfiles in Arch Linux.
 
 It is my personal setup, the way I like it, with configurations that are comfortable for me, applications... etc. Use it if you want as a template, as a guide. I will update it as I need to add new packages, configs...etc. Don't use [installer.sh](./installer.sh) every time as it can break your current setup.
 
+And yes... all my commits in this repo you will see that they are called **Wip** 😀
+
 # Arch Linux installation
 
 The installation of Arch Linux has been carried out using [archinstall](https://wiki.archlinux.org/title/archinstall). 
