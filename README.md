@@ -1,6 +1,6 @@
-# Containerscrew DOTFILES
+# Containers Crew dotfiles
 
-My dotfiles in Arch Linux.
+My dotfiles using Arch Linux.
 
 ![desktop](./assets/desktop.png)
 
@@ -25,13 +25,28 @@ Once the usb is booted, connect the laptop to your local network (if not using e
 
 ```shell
 iwctl station wlan0 get-networks # change wlan0 interface if needed. Type `$ ip a` if you don't know the name 
-iwctl stations wlan0 connect SSID # put the SSID/BSSID with your corresponding local network
+iwctl station wlan0 connect SSID # put the SSID/BSSID with your corresponding local network
 ping -c 1 1.1.1.1 # test connectivity
 archinstall # start installation 
 ```
 
-## Considerations
+## Considerations in archinstall
 
+| Setting         | Configuration |
+|-----------------|---------------|
+| Locales/Language/Mirros         |US           |
+| Bootloader      | Grub          | 
+| Disk Encryption | ALWAYS        |
+| Disk Filesystem | BTRFS         |
+| Swap            | True          |
+| Profile         | Minimal       |
+| User sudoer     | Yes           |
+| Audio           | Pipewire          |
+| Kernels         | Linux          |
+| Additional packages | rsync,openssh         |
+| Network         | NetworkManager          |
+| UTC             | Europe/Amsterdam          |
+| Optional repos  | multilib          |
 
 
 
