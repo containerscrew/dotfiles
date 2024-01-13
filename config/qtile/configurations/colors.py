@@ -24,4 +24,3 @@ class Colors:
     brown = "#663300"
     yellow = "#FFFF00"
     lightgrey = "#E0E0E0"
-    

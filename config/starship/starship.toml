@@ -8,7 +8,7 @@ add_newline = false
 # My curstom format
 # format = '''
 # [┌──────────>]($username)[@]($hostname)
-# [│]($directory) 
+# [│]($directory)
 # [└─>]($character) '''
 
 right_format = """

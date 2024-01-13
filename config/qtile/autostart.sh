@@ -1,4 +1,4 @@
-#!/usr/bin/env bash 
+#!/usr/bin/env bash
 
 ### CHECKS IF VIRTUAL MACHINE ###
 # If so, this sets an appropriate screen resolution.
@@ -15,7 +15,7 @@ fi
 
 # Monitors resolution
 for monitor in $(xrandr -q | grep -w 'connected' | cut -d' ' -f1); do
-    if [ "$monitor" = "DP-1" ]; then  
+    if [ "$monitor" = "DP-1" ]; then
         xrandr --output "$monitor" --mode 1920x1080 --rate 60 --rotate normal --left-of eDP-1 --primary
     fi
     if [ "$monitor" = "eDP-1" ] ; then

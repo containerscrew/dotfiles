@@ -12,4 +12,3 @@ function tfsum
         if test -f "plan.tfplan"; rm plan.tfplan; end
     end
 end
-

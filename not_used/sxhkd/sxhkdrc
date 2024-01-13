@@ -140,5 +140,5 @@ super + alt + g
 	google-chrome-stable
 
 # Screenshot using flameshot
-super + alt + c 
+super + alt + c
 	flameshot gui

@@ -10,7 +10,7 @@ decoration_group = {
     ],
 }
 
-def widget_base(fs=14, f="JetBrainsMono Nerd Font", p=6, bg=Colors.background, fg=Colors.white): 
+def widget_base(fs=14, f="JetBrainsMono Nerd Font", p=6, bg=Colors.background, fg=Colors.white):
     return {
         'font': f,
         'fontsize': fs,
@@ -45,10 +45,10 @@ class MyWidgets:
                     mouse_callbacks={'Button1': lazy.spawn('eww open --toggle profilecard --duration 5s')},
                     text = "",
         )
-    
+
     def window_name(self):
         return widget.WindowName(**widget_base(fs=10,p=5), max_chars = 40)
-    
+
     def group_box(self):
         return  widget.GroupBox(
                     **widget_base(f="FontAwesome"),
@@ -122,7 +122,7 @@ class MyWidgets:
                     interface="wlp58s0",
                     mouse_callbacks={'Button1': lazy.spawn('alacritty --class FloaTerm,Alacritty -o window.dimensions.lines=22 window.dimensions.columns=90 -e nmcli device wifi list')},
                 )
-            
+
     def battery(self):
         return  widget.Battery(
                     **widget_base(bg=Colors.violet, fg=Colors.background),
@@ -157,7 +157,7 @@ class MyWidgets:
                     format='%a %d %b %H:%M ',
                     mouse_callbacks={'Button1': lazy.spawn('gnome-calendar')},
                 )
-    
+
     def power(self):
         return widget.TextBox(
                     **widget_base(bg=Colors.background, fg=Colors.red,p=10),

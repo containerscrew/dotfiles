@@ -11,7 +11,7 @@ RED='\033[0;31m'
 YELLOW='\033[1;33m'
 GREEN='\033[0;32m'
 BLUE='\033[0;34m'
-NC='\033[0m' 
+NC='\033[0m'
 
 # Logger
 log_message() {
@@ -43,15 +43,15 @@ log_message() {
 print_ascii_banner() {
     echo -e "${BLUE}
                     /-
-                   ooo: 
+                   ooo:
                   yoooo/
                  yooooooo
                 yooooooooo
                yooooooooooo
-             .yooooooooooooo 
+             .yooooooooooooo
             .oooooooooooooooo          Welcome to my dotfiles!
            .oooooooarcoooooooo         author: github.com/containerscrew
-          .ooooooooo-oooooooooo 
+          .ooooooooo-oooooooooo
          .ooooooooo-  oooooooooo
         :ooooooooo.    :ooooooooo
        :ooooooooo.      :ooooooooo
@@ -72,7 +72,7 @@ if [ "$(id -u)" = 0 ]; then
 fi
 
 # Sudo is needed
-if ! command -v "sudo" &> /dev/null ; then 
+if ! command -v "sudo" &> /dev/null ; then
     log_message "error" "Sudo is needed! Install it: pacman -S sudo and add the corresponding user to the sudo group. $ usermod -aG sudo USERNAME"
     exit 1
 fi
@@ -102,14 +102,14 @@ sudo pacman -Syu --noconfirm --needed base-devel rustup bspwm sxhkd polybar pico
             gparted gnome-disk-utility tumbler vlc ffmpeg torbrowser-launcher \
             starship unzip vi gtk4
 
-            
+
 # To be added
-#mpd mpc 
+#mpd mpc
 
 # Enable mpd service
 #sudo systemctl enable --now mpd.service
 
-# Cockpit 
+# Cockpit
 sudo systemctl enable libvirtd.socket --now
 sudo usermod -aG libvirt "$USERNAME"
 sudo virsh net-autostart default
@@ -142,7 +142,7 @@ sudo systemctl enable tor.service --now
 log_message "info" "Starting bluetooh service..."
 sudo systemctl enable bluetooth --now
 
-# Copy wallpapers 
+# Copy wallpapers
 log_message "info" "Copying wallpapers to /usr/share/backgrounds..."
 sudo mkdir -p /usr/share/backgrounds
 sudo cp -aR wallpapers/* /usr/share/backgrounds/
@@ -154,7 +154,7 @@ if ! test -f  "$HOME/.config/user-dirs.dirs" ; then
     xdg-user-dirs-update
     mkdir -p $HOME/.ssh $HOME/.kube $HOME/.aws $HOME/.themes $HOME/.icons $HOME/.local/bin $HOME/Documents/Code \
             $HOME/Documents/Code/Work $HOME/Documents/Code/Personal
-else 
+else
     log_message "info" "User home directories exists. Skipping creation..."
 fi
 sleep 2
@@ -176,7 +176,7 @@ clean(){
 # Install paru for AUR packages
 log_message "info" "Installing paru AUR package manager..."
 
-if ! command -v "paru" &> /dev/null ; then 
+if ! command -v "paru" &> /dev/null ; then
     tmpdir=$(mktemp -d)
     cd "$tmpdir"
     git clone https://aur.archlinux.org/paru-bin.git
@@ -203,7 +203,7 @@ cp misc/aws-profile.fish "$HOME/.config/fish/functions/"
 cp misc/tfsum.fish "$HOME/.config/fish/functions/"
 cp misc/fish_variables "$HOME/.config/fish/fish_variables"
 [ ! -d "$HOME"/.local/share/omf ] && curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
-# Setup plugins 
+# Setup plugins
 #./scripts/fish.sh
 
 
@@ -220,7 +220,7 @@ else
 fi
 
 # Install eww
-if ! command -v "eww" &> /dev/null ; then 
+if ! command -v "eww" &> /dev/null ; then
     tmpdir=$(mktemp -d)
     cd "$tmpdir"
     git clone https://github.com/elkowar/eww

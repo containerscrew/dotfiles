@@ -26,10 +26,10 @@ extension_defaults = widget_defaults.copy()
 screens = [
     Screen(
         top=bar.Bar(
-            [   
+            [
                 widget.TextBox(
                     fontsize= 18,
-                    padding=10, 
+                    padding=10,
                     foreground=Colors.blue,
                     mouse_callbacks={'Button1': lazy.spawn('rofi -show drun -theme ~/.config/rofi/Launcher.rasi')},
                     text = "",
@@ -38,7 +38,7 @@ screens = [
                 widget.TextBox(
                     fontsize= 18,
                     padding=0,
-                    foreground=Colors.lightviolet, 
+                    foreground=Colors.lightviolet,
                     text = "|",
                 ),
                 widget.TextBox(
@@ -75,7 +75,7 @@ screens = [
                 widget.TextBox(
                     fontsize= 18,
                     padding=0,
-                    foreground=Colors.lightviolet, 
+                    foreground=Colors.lightviolet,
                     text = "|",
                 ),
                 widget.WindowName(),
@@ -143,7 +143,7 @@ screens = [
                 ),
                 widget.CPU(
                    background=Colors.white,
-                   foreground=Colors.black, 
+                   foreground=Colors.black,
                 ),
                 widget.TextBox(
                     background=Colors.white,
@@ -166,7 +166,7 @@ screens = [
                     padding=-2
                 ),
                 widget.Clock(
-                    background=Colors.white, 
+                    background=Colors.white,
                     foreground=Colors.black,
                     format='󰥔  %d/%m - %H:%M ',
                     font="monacle",

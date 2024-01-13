@@ -1,3 +1,15 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+- [Setup some things for company](#setup-some-things-for-company)
+- [Custom certificates for internal endpoints](#custom-certificates-for-internal-endpoints)
+- [Setup your .ssh/ credentials with private keys](#setup-your-ssh-credentials-with-private-keys)
+- [Setup your .ssh/config file](#setup-your-sshconfig-file)
+- [Chrome, brave or firefox bookmarks and theme](#chrome-brave-or-firefox-bookmarks-and-theme)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # Setup some things for company
 
 1. Setup private VPN using VPNC (CISCO VPN)
@@ -49,4 +61,3 @@ update-ca-trust
 # Setup your .ssh/ credentials with private keys
 # Setup your .ssh/config file
 # Chrome, brave or firefox bookmarks and theme
-

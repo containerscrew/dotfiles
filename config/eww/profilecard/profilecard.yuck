@@ -35,7 +35,7 @@
           ;;(sysinfo)
           (system)
           (apps)))
-          
+
 (defwidget divider []
   (box :class "divider"
        :orientation "v"
@@ -101,7 +101,7 @@
 				   (button :class "btn-info" :tooltip "Logout BSPWM" :onclick "bspc quit" "󰍃")))
 		)
 	)
-)	  
+)
 (defwidget iuse []
 	(box :orientation "v"
 		 :space-evenly "false"
@@ -111,7 +111,7 @@
 				:xalign 0.5
 				:limit-width 30
 				:text "I use Arch btw..")))
-                 
+
 (defwidget infoarch []
           (box :orientation "h"
 	           :space-evenly "false"
@@ -135,13 +135,13 @@
 					(label :class "arch-icon"
 						   :halign "start"
 						   :text "󰣇")
-					(box 
+					(box
 						 :space-evenly "false"
 						 (box :orientation "v"
 							  :spacing 3
 							  :halign "end"
 							  :style "margin-left: 10px;"
-							  (label :class "os-icon" 
+							  (label :class "os-icon"
 									 :halign "start"
 									 :text "󰣇")
 							  (label :class "pkgs-icon"
@@ -150,7 +150,7 @@
 							  (label :class "wm-icon"
 									 :halign "start"
 									 :text "󱪳")))
-					(box 
+					(box
 						 :space-evenly "false"
 						 (box :orientation "v"
 							  :spacing 3
@@ -164,8 +164,8 @@
 							  (label :class "wm-text"
 									 :halign "start"
 									 :text "Qtile"))))))
-									 
-(defwidget weather[] 
+
+(defwidget weather[]
   (box :orientation "h" :class "weatherboxfull" :space-evenly false
 	(box :orientation "v" :class "weatherbox" :hexpand true :space-evenly false
       (box :orientation "h" :class "weathertop" :space-evenly false
@@ -181,9 +181,9 @@
   )
 )
 
-(defwidget system_progress [data icon css tip] 
-  (box 
-    :class "progress" 
+(defwidget system_progress [data icon css tip]
+  (box
+    :class "progress"
     (circular-progress
       :class css
       :value data
@@ -191,8 +191,8 @@
       :tooltip tip
       (overlay
         :valign "center"
-        (label 
-          :class "icon" 
+        (label
+          :class "icon"
           :text icon
         )
       )
@@ -200,16 +200,16 @@
   )
 )
 
-(defwidget cpu [] 
+(defwidget cpu []
   (system_progress
     :css "cpu"
     :tip "CPU ${round(EWW_CPU.avg,0)}%"
-    :data {round(EWW_CPU.avg, 0)} 
+    :data {round(EWW_CPU.avg, 0)}
     :icon ""
   )
 )
 
-(defwidget ram [] 
+(defwidget ram []
   (system_progress
     :css "ram"
     :tip "RAM ${round(EWW_RAM.used_mem / 1048576, 2)}MB"
@@ -218,7 +218,7 @@
   )
 )
 
-(defwidget disk [] 
+(defwidget disk []
   (system_progress
     :css "disk"
     :tip "SSD ${round(EWW_DISK["/"].used_perc, 2)}%"
@@ -227,7 +227,7 @@
   )
 )
 
-(defwidget temp [] 
+(defwidget temp []
   (system_progress
     :css "temp"
     :tip "Cpu temperature ${temp}°C"
@@ -237,7 +237,7 @@
 )
 
 (defwidget system []
-  (box 
+  (box
     :class "system"
     :spacing 8
     (cpu)
@@ -281,7 +281,7 @@
                        :onclick "OpenApps --editor"
                        :tooltip "Editor"
                        "󰷈")))))
-                       
+
 ;; Windows ;;
 
 (defwindow profilecard

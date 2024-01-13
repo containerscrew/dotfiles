@@ -10,20 +10,20 @@
 		 :orientation "v"
 		 :spacing 10
     (eventbox :cursor "pointer"
-		(button :class "powermenu lock" 
+		(button :class "powermenu lock"
 				:onclick "dm-tool lock"
 				:tooltip "Lock session"
 				""))
     (eventbox :cursor "pointer"
-		(button :class "powermenu reboot" 
+		(button :class "powermenu reboot"
 				:onclick "systemctl reboot"
 				:tooltip "Restart"
 				""))
     (eventbox :cursor "pointer"
-		(button :class "powermenu shutdown" 
+		(button :class "powermenu shutdown"
 				:onclick "systemctl poweroff"
 				:tooltip "Shutdown"
-				""))     
+				""))
   )
 )
 
