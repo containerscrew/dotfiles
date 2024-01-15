@@ -286,9 +286,6 @@ FallbackDNS=1.1.1.1#cloudflare-dns.com 9.9.9.9#dns.quad9.net 8.8.8.8#dns.google 
 #Domains=
 DNSSEC=no
 
-sudo systemctl restart systemd-resolved
-# ln -sf ../run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
-
 # GTK THEME
 material black blueberry: https://www.pling.com/p/1316887/
 

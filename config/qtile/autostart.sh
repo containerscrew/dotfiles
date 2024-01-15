@@ -3,14 +3,14 @@
 ### CHECKS IF VIRTUAL MACHINE ###
 # If so, this sets an appropriate screen resolution.
 # This is needed as part of DTOS.
-if [[ $(systemd-detect-virt) = "none" ]]; then
-    echo "Not running in a Virtual Machine";
-elif xrandr | grep "1366x768"; then
-    xrandr -s 1366x768 || echo "Cannot set 1366x768 resolution.";
-elif xrandr | grep "1920x1080"; then
-    xrandr -s 1920x1080 || echo "Cannot set 1920x1080 resolution.";
-else echo "Could not set a resolution."
-fi
+# if [[ $(systemd-detect-virt) = "none" ]]; then
+#     echo "Not running in a Virtual Machine";
+# elif xrandr | grep "1366x768"; then
+#     xrandr -s 1366x768 || echo "Cannot set 1366x768 resolution.";
+# elif xrandr | grep "1920x1080"; then
+#     xrandr -s 1920x1080 || echo "Cannot set 1920x1080 resolution.";
+# else echo "Could not set a resolution."
+# fi
 
 
 # Monitors resolution
@@ -26,12 +26,19 @@ done
 
 ### AUTOSTART PROGRAMS ###
 picom --config "$HOME"/.config/picom/picom.conf &
+
+# Clipboard manager
 copyq &
+
+# Notifications
 dunst &
+
 # Wallpapers
 feh -z --no-fehbg --bg-fill /usr/share/backgrounds
+
 # Launch polkit
 pidof -q polkit-gnome-authentication-agent-1 || { /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 & }
+
 # EWW widgets
 "$HOME/.config/eww/launch.sh"
 

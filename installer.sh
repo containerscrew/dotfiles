@@ -106,6 +106,10 @@ sudo pacman -Syu --noconfirm --needed base-devel rustup picom \
             starship unzip vi gtk4
 
 
+# DNS settings
+sudo ln -sf ../run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
+sudo systemctl restart systemd-resolved
+
 # To be added
 #mpd mpc
 
@@ -208,9 +212,9 @@ cp misc/config.fish "$HOME"/.config/fish/config.fish
 cp misc/aws-profile.fish "$HOME/.config/fish/functions/"
 cp misc/tfsum.fish "$HOME/.config/fish/functions/"
 cp misc/fish_variables "$HOME/.config/fish/fish_variables"
-#[ ! -d "$HOME"/.local/share/omf ] && curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
-# Setup plugins
-#./scripts/fish.sh
+if [ ! -f "$HOME/.config/fish/functions/git-containerscrew.fish" ]; then cp misc/git-containerscrew.fish "$HOME/.config/fish/functions/git-containerscrew.fish"; fi
+if [ ! -f "$HOME/.config/fish/functions/git-work.fish" ]; then cp misc/git-work.fish "$HOME/.config/fish/functions/git-work.fish"; fi
+
 
 
 log_message "info" "Installing blackarch repository..."
@@ -261,7 +265,8 @@ fc-cache -fv
 
 # Change MAC address
 sudo cp misc/macspoof@.service /etc/systemd/system/macspoof@.service
-sudo systemctl enable macspoof@wlp58s0.service
+interface_name=$(ip link show | grep wl | awk '{print $2}' | sed 's/.$//')
+sudo systemctl enable macspoof@$interface_name.service
 
 # GTK theme
 #https://www.gnome-look.org/p/1267246
@@ -271,8 +276,8 @@ sudo systemctl enable macspoof@wlp58s0.service
 # gsettings set org.gnome.shell.extensions.user-theme name "Nordic-darker"
 
 # VSCODE extensions
-# log_message "info" "Installing vscode extensions..."
-# ./scripts/vscode-extensions.sh
+log_message "info" "Installing vscode extensions..."
+./scripts/vscode-extensions.sh
 
 # Security
 # sudo cp /etc/pam.d/passwd /etc/pam.d/passwd."$(date +"%Y%m%d_%H%M")".backup
