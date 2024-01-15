@@ -23,13 +23,10 @@ My dotfiles using Arch Linux.
   - [Run installer.sh](#run-installersh)
 - [Post install](#post-install)
 - [BIOS settings](#bios-settings)
+- [Tips](#tips)
+- [Links](#links)
 - [Credits](#credits)
-- [iwd](#iwd)
-- [First steps after installation](#first-steps-after-installation)
-- [TO DO](#to-do)
-- [Connect protonvpn](#connect-protonvpn)
-- [X11 change keyboard](#x11-change-keyboard)
-- [Timezone](#timezone)
+- [License](#license)
 - [Setup my custom vpn (PROTONVPN) using wireguard protocol](#setup-my-custom-vpn-protonvpn-using-wireguard-protocol)
 - [CHange mac address of your interface permanently](#change-mac-address-of-your-interface-permanently)
 - [Change /etc/systemd/resolved.conf](#change-etcsystemdresolvedconf)
@@ -165,13 +162,23 @@ $ ip link
 
 Post intallation setps. Some work settings, and other stuff.
 
-See [postinstall.md]()
+See [postinstall.md](./docs/postinstall.md)
 
 
 # BIOS settings
 
 Pending to write documentation of BIOS settings. By the moment, protect BIOS settings with admin password.
 
+
+# Tips
+
+Some tips about archlinux configurations.
+
+[Tips](./docs/tips.md) documentation
+
+# Links
+
+* [wireguard logs](https://www.procustodibus.com/blog/2021/03/wireguard-logs/)
 
 
 # Credits
@@ -186,58 +193,10 @@ Pending to write documentation of BIOS settings. By the moment, protect BIOS set
 * https://github.com/antoniosarosi/dotfiles
 * https://gitlab.com/dwt1/dotfiles
 
-# iwd
-https://wiki.archlinux.org/title/Iwd
+# License
 
-iwctl station wlan0 get-networks
-iwctl stations wlan0 connect SSID
-pacman -S openssh neovim
-archinstall
-nmcli device wifi connect SSID_or_BSSID password password
+[LICENSE](./LICENSE)
 
-
-
-# First steps after installation
-
-* nmcli device wifi connect SSID_or_BSSID password password
-* sudo pacman -S rsync
-* rsync -avzh --exclude='.git/' dotfiles/ elliot@192.168.0.30:/home/elliot
-
-
-#  TO DO
-
-* Bluetooth
-* loadkeys en
-* mouse natural scrolling
-* Install GTK theme
-* grub theme
-* starship prompt
-* install a clipboard
-* config.fish full aliases and setup
-* permanent wg-quick setup
-* automatic setup omf plugins (git, kubectl...etc)
-* some widgets using eww
-* tmux config
-* neovim configuration and plugins
-
-tcpdump wireguard connection: https://www.procustodibus.com/blog/2021/03/wireguard-logs/
-
-# Connect protonvpn
-
-```shell
-protonvpn-cli connect --fastest --protocol udp
-```
-
-# X11 change keyboard
-
-sudo nvim /etc/X11/xorg.conf.d/00-keyboard.conf
-
-localectl set-x11-keymap us default intl
-
-# Timezone
-
-timedatectl set-timezone Europe/Amsterdam
-timedatectl list-timezones | grep -I "Europe"
 
 # Setup my custom vpn (PROTONVPN) using wireguard protocol
 
