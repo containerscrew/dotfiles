@@ -4,6 +4,7 @@
 
 - [X11 change keyboard](#x11-change-keyboard)
 - [Timezone](#timezone)
+- [DNS configuration](#dns-configuration)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -19,4 +20,18 @@ $ localectl set-x11-keymap us default intl
 ```shell
 $ timedatectl list-timezones | grep -I "Europe"
 $ timedatectl set-timezone Europe/Amsterdam
+```
+
+# DNS configuration
+
+Edit `/etc/systemd/resolved.conf`:
+
+
+```
+[Resolve]
+
+DNS=1.1.1.1
+FallbackDNS=1.1.1.1#cloudflare-dns.com 9.9.9.9#dns.quad9.net 8.8.8.8#dns.google 2606:4700:4700::1111#cloudflare-dns.com 2620:fe::9#dns.quad9.net 2001:4860:4860::8888#dns.google
+#Domains=
+DNSSEC=no
 ```

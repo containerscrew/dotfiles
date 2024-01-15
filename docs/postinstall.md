@@ -2,12 +2,15 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
+- [Personal VPN (ProtonVPN using wireguard)](#personal-vpn-protonvpn-using-wireguard)
 - [Work VPN](#work-vpn)
   - [Start connection](#start-connection)
   - [Add dommains to search](#add-dommains-to-search)
 - [Certificates](#certificates)
 - [SSH KEYS AND CONFIGS](#ssh-keys-and-configs)
 - [Browsers](#browsers)
+- [Custom git configs](#custom-git-configs)
+- [Oh my fish and plugins](#oh-my-fish-and-plugins)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -16,7 +19,7 @@
 
 Privacy first. I don't really like protonvpn client (gui or cli) of protonvpn. I prefer to download wireguard conf file.
 
-* [Official manual](https://protonvpn.com/support/wireguard-manual-linux/)  
+* [Official manual](https://protonvpn.com/support/wireguard-manual-linux/)
 * Download wireguard conf file from [here](https://account.protonvpn.com/downloads)
 
 After download wireguard config:

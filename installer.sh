@@ -103,7 +103,7 @@ sudo pacman -Syu --noconfirm --needed base-devel rustup picom \
             nyx udiskie ntfs-3g network-manager-applet volumeicon cbatticon \
             gnome-calendar spotify-launcher libpwquality dnsutils cryptsetup \
             gparted gnome-disk-utility tumbler vlc ffmpeg torbrowser-launcher \
-            starship unzip vi gtk4
+            starship unzip vi gtk4 npm
 
 
 # DNS settings
@@ -286,6 +286,9 @@ log_message "info" "Installing vscode extensions..."
 # Etc hosts
 # log_message "info" "Setup /etc/hosts file..."
 # printf "127.0.0.1    localhost \n::1     localhost" | sudo tee -a /etc/hosts
+
+# Some npm packages
+sudo npm install -g doctoc
 
 # Setup
 # For the end of the script

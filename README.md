@@ -1,6 +1,6 @@
 # containerscrew dotfiles
 
-My dotfiles using Arch Linux.
+My dotfiles using Arch Linux. Just for the time it takes to document this repository and configurations, this repo deserves one star!
 
 ![desktop](./assets/desktop.png)
 
@@ -24,20 +24,10 @@ My dotfiles using Arch Linux.
 - [Post install](#post-install)
 - [BIOS settings](#bios-settings)
 - [Tips](#tips)
+- [MISC configuration](#misc-configuration)
 - [Links](#links)
 - [Credits](#credits)
 - [License](#license)
-- [Setup my custom vpn (PROTONVPN) using wireguard protocol](#setup-my-custom-vpn-protonvpn-using-wireguard-protocol)
-- [CHange mac address of your interface permanently](#change-mac-address-of-your-interface-permanently)
-- [Change /etc/systemd/resolved.conf](#change-etcsystemdresolvedconf)
-- [Some examples of DNS servers which may be used for DNS= and FallbackDNS=:](#some-examples-of-dns-servers-which-may-be-used-for-dns-and-fallbackdns)
-- [Cloudflare: 1.1.1.1#cloudflare-dns.com 1.0.0.1#cloudflare-dns.com 2606:4700:4700::1111#cloudflare-dns.com 2606:4700:4700::1001#cloudflare-dns.com](#cloudflare-1111cloudflare-dnscom-1001cloudflare-dnscom-2606470047001111cloudflare-dnscom-2606470047001001cloudflare-dnscom)
-- [Google:     8.8.8.8#dns.google 8.8.4.4#dns.google 2001:4860:4860::8888#dns.google 2001:4860:4860::8844#dns.google](#google-----8888dnsgoogle-8844dnsgoogle-2001486048608888dnsgoogle-2001486048608844dnsgoogle)
-- [Quad9:      9.9.9.9#dns.quad9.net 149.112.112.112#dns.quad9.net 2620:fe::fe#dns.quad9.net 2620:fe::9#dns.quad9.net](#quad9------9999dnsquad9net-149112112112dnsquad9net-2620fefednsquad9net-2620fe9dnsquad9net)
-- [ln -sf ../run/systemd/resolve/stub-resolv.conf /etc/resolv.conf](#ln--sf-runsystemdresolvestub-resolvconf-etcresolvconf)
-- [GTK THEME](#gtk-theme)
-- [Setup EBPF tools](#setup-ebpf-tools)
-- [Setup touchpad](#setup-touchpad)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -179,9 +169,15 @@ Some tips about archlinux configurations.
 
 [Tips](./docs/tips.md) documentation
 
+# MISC configuration
+
+[Misc documentation]()
+
 # Links
 
 * [wireguard logs](https://www.procustodibus.com/blog/2021/03/wireguard-logs/)
+* [change mac address without macspoof](https://wiki.archlinux.org/title/Network_configuration)
+* [touchpad configuration](https://wiki.archlinux.org/title/Libinput)
 
 
 # Credits
@@ -199,48 +195,3 @@ Some tips about archlinux configurations.
 # License
 
 [LICENSE](./LICENSE)
-
-
-# Setup my custom vpn (PROTONVPN) using wireguard protocol
-
-https://protonvpn.com/support/wireguard-manual-linux/
-
-download wireguad config
-
-sudo mv X.conf to /etc/wireguard/protonvpn.conf
-sudo systemctl enable wg-quick@protonvpn.service --now
-curl ifconfig.me
-
-# CHange mac address of your interface permanently
-
-Pending to rename iface
-
-https://wiki.archlinux.org/title/Network_configuration
-
-`/etc/systemd/network/10-net0.link`
-
-```
-[Match]
-PermanentMACAddress=2e:62:28:d5:a7:fb
-Name=wlp58s0
-
-
-[Link]
-Name=wlan0
-PermanentMACAddress=82:8d:c4:ce:94:ba
-```
-* remember to change te iface name if needed
-
-By the moment this task was done using macchanger with a custom systemd service
-
-
-# GTK THEME
-material black blueberry: https://www.pling.com/p/1316887/
-
-
-# Setup EBPF tools
-https://aya-rs.dev/book/start/development/#ebpf-program-constraints
-
-
-# Setup touchpad
-https://wiki.archlinux.org/title/Libinput
