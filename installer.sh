@@ -1,7 +1,12 @@
 #! /usr/bin/env bash
 
-# Username of your laptop
-USERNAME="elliot"
+# Don't run this script as root
+if [ "$(id -u)" = 0 ]; then
+    echo "This script MUST NOT be run as root user."
+    exit 1
+fi
+
+# Initial dir
 
 # Stop script if errors
 set -euo pipefail #x
@@ -65,11 +70,6 @@ ooooooooo.                     -ooooooooo
 ${NC}"
 }
 
-# Don't run this script as root
-if [ "$(id -u)" = 0 ]; then
-    echo "This script MUST NOT be run as root user."
-    exit 1
-fi
 
 # Sudo is needed
 if ! command -v "sudo" &> /dev/null ; then
@@ -79,10 +79,13 @@ fi
 
 print_ascii_banner
 
+# Username of your laptop
+USERNAME=$(whoami)
+
 # Install base de pendencies
 log_message "info" "Installing system dependencies..."
 
-sudo pacman -Syu --noconfirm --needed base-devel rustup bspwm sxhkd polybar picom \
+sudo pacman -Syu --noconfirm --needed base-devel rustup picom \
             dunst feh alacritty jq git papirus-icon-theme rofi \
             xorg-xprop xorg-xkill xorg-xsetroot xorg-xwininfo xorg-xrandr \
             xdg-user-dirs plymouth neovim vscode mlocate \
@@ -123,13 +126,13 @@ log_message "info" "Installing security tools..."
 sudo pacman -Sy --noconfirm --needed nmap ufw
 
 # Enable firewall
-# sudo systemctl enable ufw --now
-# sudo ufw default deny incoming
-# sudo ufw default allow outgoing
-# #sudo ufw logging on
-# sudo ufw enable
-# sudo ufw reload
-# sudo ufw status verbose
+sudo systemctl enable ufw --now
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+#sudo ufw logging on
+sudo ufw enable
+#sudo ufw reload
+#sudo ufw status verbose
 
 # Installing DevOps tooling
 log_message "info" "Installing DevOps tooling..."
@@ -189,7 +192,10 @@ fi
 
 # Install other packages with paru
 log_message "info" "Installing some packages from AUR..."
-paru -Sccd jetbrains-toolbox coreimage qtile-extras python-pulsectl-asyncio mkdocs mkdocs-rss-plugin mkdocs-material web-greeter-theme-shikai ttf-font-awesome simplescreenrecorder tfenv brave-bin google-chrome slack-desktop gitleaks procs gosec --skipreview --noconfirm --needed
+# paru -Sccd
+paru -S jetbrains-toolbox coreimage qtile-extras python-pulsectl-asyncio mkdocs mkdocs-rss-plugin mkdocs-material \
+        web-greeter-theme-shikai ttf-font-awesome brave-bin google-chrome \
+        slack-desktop gitleaks procs gosec --skipreview --noconfirm --needed
 
 # Setup fish shell
 log_message "info" "Setup fish shell..."
@@ -202,7 +208,7 @@ cp misc/config.fish "$HOME"/.config/fish/config.fish
 cp misc/aws-profile.fish "$HOME/.config/fish/functions/"
 cp misc/tfsum.fish "$HOME/.config/fish/functions/"
 cp misc/fish_variables "$HOME/.config/fish/fish_variables"
-[ ! -d "$HOME"/.local/share/omf ] && curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
+#[ ! -d "$HOME"/.local/share/omf ] && curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
 # Setup plugins
 #./scripts/fish.sh
 
@@ -233,15 +239,15 @@ else
 fi
 
 # Setup shikai theme
-log_message "info" "Setting up shikai lightdm theme..."
-# Backup existing config
-sudo cp /etc/lightdm/lightdm.conf /etc/lightdm/lightdm.conf.bak
-sudo cp /etc/lightdm/web-greeter.yml /etc/lightdm/web-greeter.yml.bak
-sudo sed -i 's/theme: .*/theme: shikai/' /etc/lightdm/web-greeter.yml
-sudo sed -i 's/.*greeter-session=.*/greeter-session=web-greeter/g' /etc/lightdm/lightdm.conf
-sudo sed -i 's/background_images_dir: .*/background_images_dir: \/usr\/share\/backgrounds/' /etc/lightdm/web-greeter.yml
-sudo sed -i 's/logo_image: .*/logo_image: \/usr\/share\/web-greeter\/themes\/shikai\/assets\/media\/logos/' /etc/lightdm/web-greeter.yml
-cp assets/arch-logo.png "$HOME/.face"
+# log_message "info" "Setting up shikai lightdm theme..."
+# # Backup existing config
+# sudo cp /etc/lightdm/lightdm.conf /etc/lightdm/lightdm.conf.bak
+# sudo cp /etc/lightdm/web-greeter.yml /etc/lightdm/web-greeter.yml.bak
+# sudo sed -i 's/theme: .*/theme: shikai/' /etc/lightdm/web-greeter.yml
+# sudo sed -i 's/.*greeter-session=.*/greeter-session=web-greeter/g' /etc/lightdm/lightdm.conf
+# sudo sed -i 's/background_images_dir: .*/background_images_dir: \/usr\/share\/backgrounds/' /etc/lightdm/web-greeter.yml
+# sudo sed -i 's/logo_image: .*/logo_image: \/usr\/share\/web-greeter\/themes\/shikai\/assets\/media\/logos/' /etc/lightdm/web-greeter.yml
+# cp assets/arch-logo.png "$HOME/.face"
 
 # Necessary groups for my user
 sudo usermod -aG video,input,audio,storage,optical,lp,scanner,users "$USERNAME"
@@ -265,15 +271,16 @@ sudo systemctl enable macspoof@wlp58s0.service
 # gsettings set org.gnome.shell.extensions.user-theme name "Nordic-darker"
 
 # VSCODE extensions
-log_message "info" "Installing vscode extensions..."
-./scripts/vscode-extensions.sh
+# log_message "info" "Installing vscode extensions..."
+# ./scripts/vscode-extensions.sh
 
 # Security
-sudo cp /etc/pam.d/passwd /etc/pam.d/passwd."$(date +"%Y%m%d_%H%M")".backup
-sudo cp misc/passwd /etc/pam.d/passwd
+# sudo cp /etc/pam.d/passwd /etc/pam.d/passwd."$(date +"%Y%m%d_%H%M")".backup
+# sudo cp misc/passwd /etc/pam.d/passwd
 
 # Etc hosts
-#sudo echo "127.0.0.1    localhost \n::1     localhost" >> /etc/hosts
+log_message "info" "Setup /etc/hosts file..."
+printf "127.0.0.1    localhost \n::1     localhost" | sudo tee -a /etc/hosts
 
 # Setup
 # For the end of the script

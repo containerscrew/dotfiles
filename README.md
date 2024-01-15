@@ -107,10 +107,10 @@ $ sudo pacman -Syu openssh rsync neovim --noconfirm
 ### Option 1: Download dotfiles from git
 
 ```shell
-cd /tmp
-git clone https://github.com/containerscrew/dotfiles.git
-cd dotfiles
-./installer.sh
+$ cd /tmp
+$ git clone https://github.com/containerscrew/dotfiles.git
+$ cd dotfiles
+$ ./installer.sh
 ```
 
 ### Option 2: Copy dotfiles from another computer
@@ -118,7 +118,8 @@ cd dotfiles
 ```shell
 # Clone first the repo dotfiles from your other laptop.
 # Then, copy the folder dotfiles to the remote laptop
-rsync -avzh --exclude='.git/' dotfiles/ username@192.168.X.X:/tmp/
+$ sudo systemctl start sshd
+$ rsync -avzh --exclude='.git/' dotfiles/ username@192.168.X.X:/tmp/
 ```
 
 
