@@ -163,6 +163,10 @@ $ ip link
 
 # Post install
 
+Post intallation setps. Some work settings, and other stuff.
+
+See [postinstall.md]()
+
 
 # BIOS settings
 

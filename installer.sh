@@ -239,15 +239,15 @@ else
 fi
 
 # Setup shikai theme
-# log_message "info" "Setting up shikai lightdm theme..."
+log_message "info" "Setting up shikai lightdm theme..."
 # # Backup existing config
-# sudo cp /etc/lightdm/lightdm.conf /etc/lightdm/lightdm.conf.bak
-# sudo cp /etc/lightdm/web-greeter.yml /etc/lightdm/web-greeter.yml.bak
-# sudo sed -i 's/theme: .*/theme: shikai/' /etc/lightdm/web-greeter.yml
-# sudo sed -i 's/.*greeter-session=.*/greeter-session=web-greeter/g' /etc/lightdm/lightdm.conf
-# sudo sed -i 's/background_images_dir: .*/background_images_dir: \/usr\/share\/backgrounds/' /etc/lightdm/web-greeter.yml
-# sudo sed -i 's/logo_image: .*/logo_image: \/usr\/share\/web-greeter\/themes\/shikai\/assets\/media\/logos/' /etc/lightdm/web-greeter.yml
-# cp assets/arch-logo.png "$HOME/.face"
+sudo cp /etc/lightdm/lightdm.conf /etc/lightdm/lightdm.conf.bak
+sudo cp /etc/lightdm/web-greeter.yml /etc/lightdm/web-greeter.yml.bak
+sudo sed -i 's/theme: .*/theme: shikai/' /etc/lightdm/web-greeter.yml
+sudo sed -i 's/.*greeter-session=.*/greeter-session=web-greeter/g' /etc/lightdm/lightdm.conf
+sudo sed -i 's/background_images_dir: .*/background_images_dir: \/usr\/share\/backgrounds/' /etc/lightdm/web-greeter.yml
+sudo sed -i 's/logo_image: .*/logo_image: \/usr\/share\/web-greeter\/themes\/shikai\/assets\/media\/logos/' /etc/lightdm/web-greeter.yml
+cp assets/arch-logo.png "$HOME/.face"
 
 # Necessary groups for my user
 sudo usermod -aG video,input,audio,storage,optical,lp,scanner,users "$USERNAME"
