@@ -23,6 +23,7 @@ My dotfiles using Arch Linux. Just for the time it takes to document this reposi
   - [Run installer.sh](#run-installersh)
 - [Post install](#post-install)
 - [BIOS settings](#bios-settings)
+- [Shortcuts](#shortcuts)
 - [Tips](#tips)
 - [MISC documentation](#misc-documentation)
 - [Links](#links)
@@ -162,6 +163,9 @@ See [postinstall.md](./docs/postinstall.md)
 
 Pending to write documentation of BIOS settings. By the moment, protect BIOS settings with admin password.
 
+# Shortcuts
+
+See [shortcuts](./docs/shortcuts.md) documentation.
 
 # Tips
 

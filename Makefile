@@ -6,3 +6,6 @@ help: ## this help
 
 doctoc: ## Create table of contents with doctoc
 	doctoc .
+
+gitleaks: ## Run gitleaks
+	gitleaks detect -v .
