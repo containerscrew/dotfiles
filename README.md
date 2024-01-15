@@ -95,6 +95,13 @@ First setps after installation. Remove the usb from your computer and restart. G
 
 ```shell
 $ nmcli device wifi connect SSID_or_BSSID password SSID/BSSID-PASSWORD
+$ history -c
+```
+
+### Install initial packages
+
+```shell
+$ sudo pacman -Syu openssh rsync neovim --noconfirm
 ```
 
 ### Option 1: Download dotfiles from git
@@ -114,6 +121,10 @@ cd dotfiles
 rsync -avzh --exclude='.git/' dotfiles/ username@192.168.X.X:/tmp/
 ```
 
+
+# BIOS settings
+
+Pending to write documentation of BIOS settings. By the moment, protect BIOS settings with admin password.
 
 
 
