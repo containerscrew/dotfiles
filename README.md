@@ -2,7 +2,7 @@
 
 My dotfiles using Arch Linux. Just for the time it takes to document this repository and configurations, **this repo deserves one star!**
 
-![desktop](./assets/desktop.png)
+![demo](./assets/demo.gif)
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->

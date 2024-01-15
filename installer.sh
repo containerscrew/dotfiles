@@ -103,7 +103,7 @@ sudo pacman -Syu --noconfirm --needed base-devel rustup picom \
             nyx udiskie ntfs-3g network-manager-applet volumeicon cbatticon \
             gnome-calendar spotify-launcher libpwquality dnsutils cryptsetup \
             gparted gnome-disk-utility tumbler vlc ffmpeg torbrowser-launcher \
-            starship unzip vi gtk4 npm
+            starship unzip vi gtk4 npm peek vlc
 
 
 # DNS settings
