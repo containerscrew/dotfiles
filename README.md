@@ -1,6 +1,6 @@
 # containerscrew dotfiles
 
-My dotfiles using Arch Linux. Just for the time it takes to document this repository and configurations, this repo deserves one star!
+My dotfiles using Arch Linux. Just for the time it takes to document this repository and configurations, **this repo deserves one star!**
 
 ![desktop](./assets/desktop.png)
 
@@ -24,7 +24,7 @@ My dotfiles using Arch Linux. Just for the time it takes to document this reposi
 - [Post install](#post-install)
 - [BIOS settings](#bios-settings)
 - [Tips](#tips)
-- [MISC configuration](#misc-configuration)
+- [MISC documentation](#misc-documentation)
 - [Links](#links)
 - [Credits](#credits)
 - [License](#license)
@@ -169,9 +169,9 @@ Some tips about archlinux configurations.
 
 [Tips](./docs/tips.md) documentation
 
-# MISC configuration
+# MISC documentation
 
-[Misc documentation]()
+[Misc documentation](./docs/misc.md)
 
 # Links
 
