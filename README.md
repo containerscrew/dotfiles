@@ -46,6 +46,9 @@ My dotfiles using Arch Linux.
 
 It is my personal setup, the way I like it, with configurations that are comfortable for me, applications... etc. Use it if you want as a template, as a guide. I will update it as I need to add new packages, configs...etc. Don't use [installer.sh](./installer.sh) every time as it can break your current setup.
 
+> [!IMPORTANT]
+> There are still many things to configure, I will do it as I go. Mouse, trackpad, eww widgets... etc
+
 And yes... all my commits in this repo you will see that they are called **Wip** 😀
 
 # Arch Linux installation
@@ -230,20 +233,6 @@ PermanentMACAddress=82:8d:c4:ce:94:ba
 
 By the moment this task was done using macchanger with a custom systemd service
 
-
-# Change /etc/systemd/resolved.conf
-
-Put:
-
-[Resolve]
-# Some examples of DNS servers which may be used for DNS= and FallbackDNS=:
-# Cloudflare: 1.1.1.1#cloudflare-dns.com 1.0.0.1#cloudflare-dns.com 2606:4700:4700::1111#cloudflare-dns.com 2606:4700:4700::1001#cloudflare-dns.com
-# Google:     8.8.8.8#dns.google 8.8.4.4#dns.google 2001:4860:4860::8888#dns.google 2001:4860:4860::8844#dns.google
-# Quad9:      9.9.9.9#dns.quad9.net 149.112.112.112#dns.quad9.net 2620:fe::fe#dns.quad9.net 2620:fe::9#dns.quad9.net
-DNS=1.1.1.1
-FallbackDNS=1.1.1.1#cloudflare-dns.com 9.9.9.9#dns.quad9.net 8.8.8.8#dns.google 2606:4700:4700::1111#cloudflare-dns.com 2620:fe::9#dns.quad9.net 2001:4860:4860::8888#dns.google
-#Domains=
-DNSSEC=no
 
 # GTK THEME
 material black blueberry: https://www.pling.com/p/1316887/
