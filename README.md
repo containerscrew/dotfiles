@@ -15,8 +15,14 @@ My dotfiles using Arch Linux.
     - [Considerations in archinstall](#considerations-in-archinstall)
   - [After installation](#after-installation)
     - [Connect the computer to the internet](#connect-the-computer-to-the-internet)
+    - [Install initial packages](#install-initial-packages)
     - [Option 1: Download dotfiles from git](#option-1-download-dotfiles-from-git)
     - [Option 2: Copy dotfiles from another computer](#option-2-copy-dotfiles-from-another-computer)
+- [DOTFILES installation](#dotfiles-installation)
+  - [Change wlan interface in QTILE config](#change-wlan-interface-in-qtile-config)
+  - [Run installer.sh](#run-installersh)
+- [Post install](#post-install)
+- [BIOS settings](#bios-settings)
 - [Credits](#credits)
 - [iwd](#iwd)
 - [First steps after installation](#first-steps-after-installation)
@@ -121,6 +127,41 @@ $ ./installer.sh
 $ sudo systemctl start sshd
 $ rsync -avzh --exclude='.git/' dotfiles/ username@192.168.X.X:/tmp/
 ```
+
+# DOTFILES installation
+
+Let's install all **my necessary packages and configs**
+
+## Change wlan interface in QTILE config
+
+Inside [widgets.py](./config/qtile/configurations/widgets.py).
+
+```python
+def wlan(self):
+    return widget.Wlan(
+                **widget_base(bg=Colors.violet, fg=Colors.background),
+                format=" ",
+                interface="wlp2s0", # change here
+                mouse_callbacks={'Button1': lazy.spawn('alacritty --class FloaTerm,Alacritty -o window.dimensions.lines=22 window.dimensions.columns=90 -e nmcli device wifi list')},
+            )
+```
+
+Check your interface name:
+
+```shell
+$ ip link
+```
+
+> [!NOTE]
+> You can automate this process for sure using python code (checking wlan interface name). Well, wlan or ethernet. At the end I'm using a laptop using wifi.
+
+
+## Run installer.sh
+
+[installer.sh](./installer.sh) will install main packages using `pacman` and `paru`. Also will copy all config files in user home, will set some basic configs like `firewall` `lightdm` theme...etc Take a look!
+
+
+# Post install
 
 
 # BIOS settings

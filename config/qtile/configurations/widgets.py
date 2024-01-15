@@ -119,7 +119,7 @@ class MyWidgets:
         return widget.Wlan(
                     **widget_base(bg=Colors.violet, fg=Colors.background),
                     format=" ",
-                    interface="wlp58s0",
+                    interface="wlp2s0",
                     mouse_callbacks={'Button1': lazy.spawn('alacritty --class FloaTerm,Alacritty -o window.dimensions.lines=22 window.dimensions.columns=90 -e nmcli device wifi list')},
                 )
 

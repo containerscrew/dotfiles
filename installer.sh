@@ -279,8 +279,8 @@ sudo systemctl enable macspoof@wlp58s0.service
 # sudo cp misc/passwd /etc/pam.d/passwd
 
 # Etc hosts
-log_message "info" "Setup /etc/hosts file..."
-printf "127.0.0.1    localhost \n::1     localhost" | sudo tee -a /etc/hosts
+# log_message "info" "Setup /etc/hosts file..."
+# printf "127.0.0.1    localhost \n::1     localhost" | sudo tee -a /etc/hosts
 
 # Setup
 # For the end of the script
