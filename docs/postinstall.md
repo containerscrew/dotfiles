@@ -5,13 +5,18 @@
 - [Personal VPN (ProtonVPN using wireguard)](#personal-vpn-protonvpn-using-wireguard)
 - [Work VPN](#work-vpn)
   - [Start connection](#start-connection)
-  - [Add dommains to search](#add-dommains-to-search)
+    - [Only once](#only-once)
+    - [Automatic start when boot](#automatic-start-when-boot)
+    - [Add dommains to search using systemd-resolved](#add-dommains-to-search-using-systemd-resolved)
+    - [Make it permanent](#make-it-permanent)
+  - [Stop connection](#stop-connection)
 - [Certificates](#certificates)
 - [SSH KEYS AND CONFIGS](#ssh-keys-and-configs)
 - [Browsers](#browsers)
 - [Custom git configs](#custom-git-configs)
 - [Oh my fish and plugins](#oh-my-fish-and-plugins)
 - [Sign in](#sign-in)
+- [Create some work scripts or binaries in ~/.local/bin/](#create-some-work-scripts-or-binaries-in-localbin)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -44,22 +49,43 @@ IPSec secret XXXX
 Xauth username XXXX
 Xauth password XXXX
 Local Port 5050
-```
-
-```shell
-$ sudo vpnc work
+Interface name tun1
 ```
 
 ## Start connection
 
+### Only once
+
 ```shell
-$ sudo systemctl start vpnc@work.service
+$ sudo chmod 700 /etc/vpnc/work.conf
+$ sudo vpnc work
 ```
-## Add dommains to search
 
+### Automatic start when boot
 
 ```shell
-resolvectl domain tun0 mydomain1.custom mycompany.internal hello.test
+$ sudo systemctl enable vpnc@work.service --now
+```
+
+### Add dommains to search using systemd-resolved
+
+```shell
+sudo resolvectl domain tun1 mydomain1.custom mycompany.internal hello.test # change interface name if needed
+```
+
+### Make it permanent
+
+```shell
+$ echo "sudo resolvectl domain tun1 mydomain1.custom mycompany.internal hello.test" >> ~/.local/bin/work-vpn
+$ sudo work-vpn
+```
+
+> `work-vpn` is a [custom script](../bin/work-vpn)
+
+## Stop connection
+
+```shell
+sudo vpnc-disconnect
 ```
 
 # Certificates
@@ -73,8 +99,8 @@ sudo update-ca-trust
 
 # SSH KEYS AND CONFIGS
 
-1. Setup your `$HOME/.ssh/` credentials with private keys
-2. Setup your `$HOME/.ssh/config` file
+1. Set up your `$HOME/.ssh/` credentials with private keys
+2. Set up your `$HOME/.ssh/config` file
 
 # Browsers
 
@@ -112,3 +138,7 @@ Run [fish-plugins.sh](./scripts/fish-plugins.sh) script.
 * Signal desktop
 * Discord
 * Other apps
+
+# Create some work scripts or binaries in ~/.local/bin/
+
+I can't paste this for security and privacy reasons of my company :) Just as a reminder.

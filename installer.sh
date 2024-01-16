@@ -103,7 +103,7 @@ sudo pacman -Syu --noconfirm --needed base-devel rustup picom \
             nyx udiskie ntfs-3g network-manager-applet volumeicon cbatticon \
             gnome-calendar spotify-launcher libpwquality dnsutils cryptsetup \
             gparted gnome-disk-utility tumbler vlc ffmpeg torbrowser-launcher \
-            starship unzip vi gtk4 npm peek vlc flameshot
+            starship unzip vi gtk4 npm peek vlc flameshot python-boto3
 
 
 # DNS settings
@@ -199,6 +199,7 @@ log_message "info" "Installing some packages from AUR..."
 # paru -Sccd
 paru -S jetbrains-toolbox coreimage qtile-extras python-pulsectl-asyncio mkdocs mkdocs-rss-plugin mkdocs-material \
         web-greeter-theme-shikai ttf-font-awesome brave-bin google-chrome \
+        insomnia \
         slack-desktop gitleaks procs gosec --skipreview --noconfirm --needed
 
 # Setup fish shell
@@ -288,7 +289,9 @@ sudo systemctl enable macspoof@$interface_name.service
 # printf "127.0.0.1    localhost \n::1     localhost" | sudo tee -a /etc/hosts
 
 # Some npm packages
-sudo npm install -g doctoc
+if ! command -v "doctoc" &> /dev/null ; then
+  sudo npm install -g doctoc
+fi
 
 # Setup
 # For the end of the script

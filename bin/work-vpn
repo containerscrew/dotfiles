@@ -1,11 +1,10 @@
 #! /usr/bin/env bash
 
-# Stop personal VPN ProtonVPN
+# First stop private vpn (ProtonVPN)
 sudo systemctl stop wg-quick@protonvpn.service
-sudo systemctl start vpnc@work.service
-# Start personal VPN again
-# To do it correctly, maybe you need to edit persoanl wg-quick service configuration
-#[Unit]
-#Description=My Service
-#After=vpnc@work.service
+# Connect work vpn
+sudo vpnc work
+# Start again private VPN
 sudo systemctl start wg-quick@protonvpn.service
+# For custom domains to search using you work vpn (search internal endpoints)
+# echo "sudo resolvectl domain tun1 mydomain1.custom mycompany.internal hello.test" >> ~/.local/bin/work-vpn
