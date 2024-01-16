@@ -103,7 +103,7 @@ sudo pacman -Syu --noconfirm --needed base-devel rustup picom \
             nyx udiskie ntfs-3g network-manager-applet volumeicon cbatticon \
             gnome-calendar spotify-launcher libpwquality dnsutils cryptsetup \
             gparted gnome-disk-utility tumbler vlc ffmpeg torbrowser-launcher \
-            starship unzip vi gtk4 npm peek vlc
+            starship unzip vi gtk4 npm peek vlc flameshot
 
 
 # DNS settings
@@ -276,8 +276,8 @@ sudo systemctl enable macspoof@$interface_name.service
 # gsettings set org.gnome.shell.extensions.user-theme name "Nordic-darker"
 
 # VSCODE extensions
-log_message "info" "Installing vscode extensions..."
-./scripts/vscode-extensions.sh
+#log_message "info" "Installing vscode extensions..."
+#./scripts/vscode-extensions.sh
 
 # Security
 # sudo cp /etc/pam.d/passwd /etc/pam.d/passwd."$(date +"%Y%m%d_%H%M")".backup

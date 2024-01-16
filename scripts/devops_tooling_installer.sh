@@ -6,7 +6,7 @@ clean(){
 }
 
 # Packages from official repos
-sudo pacman -Sy --noconfirm --needed podman-dnsname podman-docker aardvark-dns netavark podman podman-compose terragrunt aws-cli-v2 kubectl helm go minikube terraform
+sudo pacman -Sy --noconfirm --needed podman-dnsname podman-docker aardvark-dns netavark podman podman-compose terragrunt aws-cli-v2 kubectl helm go minikube
 
 # Enable services
 #sudo systemctl enable --now podman.socket
@@ -35,7 +35,8 @@ sudo ln -s $(which podman) /usr/bin/docker
 #paru -Scc
 paru -S golangci-lint tfenv kubectx --skipreview --noconfirm --needed
 
-# Setup version
+# Setup tfenv
+sudo usermod -aG tfenv ${USER}
 sudo tfenv install 1.5.5 # latest version without BSL
 sudo tfenv use 1.5.5
 

@@ -11,13 +11,14 @@
 - [Browsers](#browsers)
 - [Custom git configs](#custom-git-configs)
 - [Oh my fish and plugins](#oh-my-fish-and-plugins)
+- [Sign in](#sign-in)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 
 # Personal VPN (ProtonVPN using wireguard)
 
-Privacy first. I don't really like protonvpn client (gui or cli) of protonvpn. I prefer to download wireguard conf file.
+Privacy first. I don't really like protonvpn client (gui or cli). I prefer to download wireguard conf file.
 
 * [Official manual](https://protonvpn.com/support/wireguard-manual-linux/)
 * Download wireguard conf file from [here](https://account.protonvpn.com/downloads)
@@ -65,8 +66,8 @@ resolvectl domain tun0 mydomain1.custom mycompany.internal hello.test
 
 ```shell
 # Download first certificates
-cp certificate.crt /etc/ca-certificates/trust-source/anchors/
-update-ca-trust
+sudo cp certificate.crt /etc/ca-certificates/trust-source/anchors/
+sudo update-ca-trust
 # Close browser to reload certs
 ```
 
@@ -89,7 +90,7 @@ update-ca-trust
 
 I have a lot of configs for git. For example, git config for work, 2 personal github accounts...etc I have a custom function to set the git config when I'm in a repository (insead of using a global).
 
-Edit file located in `~/.config/fish/functions/git-work.fish` and replace `user.name` or `user-email` for each configuration. Same for `git-containerscrew.fish`, in this case replace the name `git-containerscrew` with your personal github account.
+Edit file located in `~/.config/fish/functions/git-work.fish` and replace `user.name` or `user.email` for each configuration. Same for `git-containerscrew.fish`, in this case replace the name `git-containerscrew` with your personal github account.
 
 # Oh my fish and plugins
 
@@ -102,3 +103,12 @@ curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install 
 Install `omf` plugins:
 
 Run [fish-plugins.sh](./scripts/fish-plugins.sh) script.
+
+# Sign in
+
+* Jetbrains toolbox: download your favourite IDE. In my case, I use Goland, Pycharm Professional and Rustover (I have license).
+* Bitwarden
+* Spotify launcher
+* Signal desktop
+* Discord
+* Other apps
