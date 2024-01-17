@@ -101,6 +101,9 @@ sudo update-ca-trust
 
 1. Set up your `$HOME/.ssh/` credentials with private keys
 2. Set up your `$HOME/.ssh/config` file
+3. `ssh-add` your keys if needed for `ssh-agent`. SSH agent will be started in `fish config`.
+
+https://github.com/ivakyb/fish_ssh_agent
 
 # Browsers
 

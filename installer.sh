@@ -294,7 +294,7 @@ sudo systemctl enable macspoof@$interface_name.service
 # printf "127.0.0.1    localhost \n::1     localhost" | sudo tee -a /etc/hosts
 
 # SSH agent
-systemctl --user enable ssh-agent.service --now
+#systemctl --user enable ssh-agent.service --now
 
 # Podman
 sudo cp ./misc/podman-config.conf /etc/containers/registries.conf.d/podman-config.conf
@@ -303,6 +303,9 @@ sudo cp ./misc/podman-config.conf /etc/containers/registries.conf.d/podman-confi
 if ! command -v "doctoc" &> /dev/null ; then
   sudo npm install -g doctoc
 fi
+
+# Fish ssh-agent
+if [ ! -f "$HOME/.config/fish/functions/fish_ssh_agent.fish" ]; then wget https://gitlab.com/kyb/fish_ssh_agent/raw/master/functions/fish_ssh_agent.fish -P ~/.config/fish/functions/; fi
 
 # Setup
 # For the end of the script

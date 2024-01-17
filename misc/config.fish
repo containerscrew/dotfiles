@@ -14,9 +14,8 @@ set -gx PATH "$HOME/.cargo/bin" $PATH;
 # ~/.local/bin for custom bin/scripts
 set -gx PATH "$HOME/.local/bin" $PATH;
 
-# SSH_AUTH_SOCK
-# systemctl --user status ssh-agent.service
-set SSH_AUTH_SOCK /run/user/1000/ssh-agent.socket
+# SSH AGENT
+fish_ssh_agent
 
 # My aliases
 alias ls="lsd"

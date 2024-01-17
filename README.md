@@ -182,6 +182,7 @@ Some tips about archlinux configurations.
 * [wireguard logs](https://www.procustodibus.com/blog/2021/03/wireguard-logs/)
 * [change mac address without macspoof](https://wiki.archlinux.org/title/Network_configuration)
 * [touchpad configuration](https://wiki.archlinux.org/title/Libinput)
+* [fish ssh agent](https://github.com/ivakyb/fish_ssh_agent)
 
 
 # Credits
