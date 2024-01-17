@@ -103,7 +103,8 @@ sudo pacman -Syu --noconfirm --needed base-devel rustup picom \
             nyx udiskie ntfs-3g network-manager-applet volumeicon cbatticon \
             gnome-calendar spotify-launcher libpwquality dnsutils cryptsetup \
             gparted gnome-disk-utility tumbler vlc ffmpeg torbrowser-launcher \
-            starship unzip vi gtk4 npm peek vlc flameshot python-boto3
+            starship unzip vi gtk4 npm peek vlc flameshot python-boto3 \
+            tmux xclip
 
 
 # DNS settings
@@ -168,6 +169,11 @@ sleep 2
 
 # Copy config folders
 # NEED TO IMPLEMENT SOME BACKUP BEFORE INSTALL THAT CUSTOMS FILES
+
+## IMPORTANTTTTT
+## BEFORE EXECUTE CP, execute a diff
+## You cant to continue? There are changes from your config in git and your local!!! :)
+## DO you want to create a backup?
 cp -R config/* $HOME/.config/
 
 # Copy bin/ scripts/binaries
@@ -197,10 +203,9 @@ fi
 # Install other packages with paru
 log_message "info" "Installing some packages from AUR..."
 # paru -Sccd
-paru -S jetbrains-toolbox coreimage qtile-extras python-pulsectl-asyncio mkdocs mkdocs-rss-plugin mkdocs-material \
-        web-greeter-theme-shikai ttf-font-awesome brave-bin google-chrome \
-        insomnia \
-        slack-desktop gitleaks procs gosec --skipreview --noconfirm --needed
+paru -Sccd jetbrains-toolbox coreimage qtile-extras python-pulsectl-asyncio mkdocs mkdocs-rss-plugin mkdocs-material \
+        web-greeter-theme-shikai ttf-font-awesome brave-bin google-chrome insomnia \
+        slack-desktop gitleaks procs gosec aws-session-manager-plugin --skipreview --noconfirm --needed
 
 # Setup fish shell
 log_message "info" "Setup fish shell..."
@@ -287,6 +292,12 @@ sudo systemctl enable macspoof@$interface_name.service
 # Etc hosts
 # log_message "info" "Setup /etc/hosts file..."
 # printf "127.0.0.1    localhost \n::1     localhost" | sudo tee -a /etc/hosts
+
+# SSH agent
+systemctl --user enable ssh-agent.service --now
+
+# Podman
+sudo cp ./misc/podman-config.conf /etc/containers/registries.conf.d/podman-config.conf
 
 # Some npm packages
 if ! command -v "doctoc" &> /dev/null ; then
