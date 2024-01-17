@@ -17,6 +17,7 @@
 - [Oh my fish and plugins](#oh-my-fish-and-plugins)
 - [Sign in](#sign-in)
 - [Create some work scripts or binaries in ~/.local/bin/](#create-some-work-scripts-or-binaries-in-localbin)
+- [/etc/systemd/logind.conf](#etcsystemdlogindconf)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -145,3 +146,10 @@ Run [fish-plugins.sh](./scripts/fish-plugins.sh) script.
 # Create some work scripts or binaries in ~/.local/bin/
 
 I can't paste this for security and privacy reasons of my company :) Just as a reminder.
+
+# /etc/systemd/logind.conf
+
+Parameters to change (can be automated with sed command):
+
+* **IdleAction=lock**
+* others...
