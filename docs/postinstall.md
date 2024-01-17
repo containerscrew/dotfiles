@@ -152,4 +152,9 @@ I can't paste this for security and privacy reasons of my company :) Just as a r
 Parameters to change (can be automated with sed command):
 
 * **IdleAction=lock**
+* **HandleLidSwitch=ignore**
 * others...
+
+```shell
+sudo systemctl restart systemd-logind
+```

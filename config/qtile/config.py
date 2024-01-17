@@ -8,7 +8,6 @@ from libqtile.config import Click, Drag, Match, Screen
 from libqtile.lazy import lazy
 from configurations.colors import Colors
 from configurations.keys import keys, mod
-from configurations.groups import groups
 from configurations.widgets import MyWidgets, sep
 
 layouts = [
@@ -75,7 +74,6 @@ floating_layout = layout.Floating(
         Match(title="branchdialog"),  # gitk
         Match(title="pinentry"),  # GPG key password entry
         Match(wm_class="FloaTerm"),
-        #Match(wm_class='bitwarden-desktop'),
     ]
 )
 

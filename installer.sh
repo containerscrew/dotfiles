@@ -104,7 +104,7 @@ sudo pacman -Syu --noconfirm --needed base-devel rustup picom \
             gnome-calendar spotify-launcher libpwquality dnsutils cryptsetup \
             gparted gnome-disk-utility tumbler vlc ffmpeg torbrowser-launcher \
             starship unzip vi gtk4 npm peek vlc flameshot python-boto3 \
-            tmux xclip
+            tmux xclip xfce4-power-manager
 
 
 # DNS settings

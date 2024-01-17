@@ -1,27 +1,24 @@
 #!/usr/bin/env bash
 
-### CHECKS IF VIRTUAL MACHINE ###
-# If so, this sets an appropriate screen resolution.
-# This is needed as part of DTOS.
-# if [[ $(systemd-detect-virt) = "none" ]]; then
-#     echo "Not running in a Virtual Machine";
-# elif xrandr | grep "1366x768"; then
-#     xrandr -s 1366x768 || echo "Cannot set 1366x768 resolution.";
-# elif xrandr | grep "1920x1080"; then
-#     xrandr -s 1920x1080 || echo "Cannot set 1920x1080 resolution.";
-# else echo "Could not set a resolution."
-# fi
+# Check if laptop screen is closed
+lid_state=$(cat /proc/acpi/button/lid/LID0/state | awk '{print $2}')
 
+# My logic is: at home I always close laptop screen. I only use 2 monitors, one horizontal and the other vertical (right position)
+# At work, I use 3 monitors, laptop screen, and 2 more. Both in horizontal mode.
+
+# So, if laptop screen is closed, apply home config, if not, apply work config :)
+# For temporal configurations (you are sharing your laptop in a talk or something like that, use arandr (xrandr GUI))
+if [ "$lid_state" == "closed" ]; then
+    xrandr --output eDP-1 --off --output DP-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output DP-2 --mode 1920x1080 --pos 1920x0 --rotate right
+else
+    echo "Pending to add"
+    #xrandr --output eDP-1 --off --output DP-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output DP-2 --mode 1920x1080 --pos 1920x0 --rotate right --output DP-3 --off
+fi
 
 # Monitors resolution
-for monitor in $(xrandr -q | grep -w 'connected' | cut -d' ' -f1); do
-    if [ "$monitor" = "DP-1" ]; then
-        xrandr --output "$monitor" --mode 1920x1080 --rate 60 --rotate normal --left-of eDP-1 --primary
-    fi
-    if [ "$monitor" = "eDP-1" ] ; then
-        xrandr --output eDP-1 --mode 1920x1080 --rate 60 --rotate normal --primary
-    fi
-done
+#for monitor in $(xrandr -q | grep -w 'connected' | cut -d' ' -f1); do
+#  echo "test"
+#done
 
 
 ### AUTOSTART PROGRAMS ###
