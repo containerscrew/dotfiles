@@ -13,7 +13,7 @@ add_newline = false
 
 right_format = """
 $aws\
-$kubernetes\
+$helm \
 $golang\
 $rust\
 """
@@ -31,6 +31,14 @@ ssh_only = false
 style = "bold purple"
 format =  "[$hostname]($style) in "
 trim_at = "-"
+
+[status]
+disabled = true
+format = "[$symbol $status]($style) "
+not_found_symbol = "X"
+not_executable_symbol = "X"
+sigint_symbol = "ﭦ"
+map_symbol = true
 
 [directory]
 disabled = false
@@ -51,6 +59,19 @@ behind = "⇣${count}"
 deleted = "x"
 diverged = "⇕⇡${ahead_count}⇣${behind_count}"
 style = "white"
+disabled = true
+
+[git_commit]
+commit_hash_length = 10
+format = '[\($hash$tag\)]($style) '
+
+[git_metrics]
+disabled = false
+format = '([+$added]($added_style) )([-$deleted]($deleted_style) )'
+
+[git_branch]
+always_show_remote = false
+format = 'on [$symbol$branch(:$remote_branch)]($style) '
 
 [cmd_duration]
 disabled = true
@@ -64,14 +85,6 @@ format = '[$symbol$profile]($style) '
 style = 'bold #bf5700'
 symbol = '󰸏 '
 
-[status]
-disabled = true
-format = "[$symbol $status]($style) "
-not_found_symbol = "X"
-not_executable_symbol = "X"
-sigint_symbol = "ﭦ"
-map_symbol = true
-
 [golang]
 style="bold blue"
 format = "[$symbol($version )]($style)"
@@ -80,8 +93,14 @@ symbol = " "
 [rust]
 format = "[$symbol($version )]($style)"
 
+[helm]
+format = "helm [⎈ $version](bold blue) "
+
 [kubernetes]
+symbol = "☸️  "
+style = "green"
 disabled = false
-format = '[$symbol$context( \($namespace\))]($style) in'
 
 [terraform]
+symbol = '󱁢'
+format = '[🏎💨 $version $symbol]($style)'
