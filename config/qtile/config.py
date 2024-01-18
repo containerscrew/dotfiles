@@ -8,6 +8,7 @@ from libqtile.config import Click, Drag, Match, Screen
 from libqtile.lazy import lazy
 from configurations.colors import Colors
 from configurations.keys import keys, mod
+from configurations.groups import groups
 from configurations.widgets import MyWidgets, sep
 
 layouts = [
@@ -89,6 +90,14 @@ auto_minimize = True
 wl_input_rules = None
 
 
+# Script for displays position, always execute if you reload QTILE config
+@hook.subscribe.startup
+def start_once():
+    home = os.path.expanduser('~')
+    subprocess.call([home + '/.config/qtile/displays.sh'])
+
+
+# Only start once, even if you restart QTILE config
 @hook.subscribe.startup_once
 def start_once():
     home = os.path.expanduser('~')
