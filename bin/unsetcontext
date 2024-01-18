@@ -1,0 +1,5 @@
+#! /usr/bin/env bash
+
+current_context=$(kubectl config current-context)
+kubectl config unset current-context
+echo -e "\e[32mContext $current_context unset successfully\e[0m"
