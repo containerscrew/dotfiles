@@ -104,7 +104,7 @@ sudo pacman -Syu --noconfirm --needed base-devel rustup picom \
             gnome-calendar spotify-launcher libpwquality dnsutils cryptsetup \
             gparted gnome-disk-utility tumbler vlc ffmpeg torbrowser-launcher \
             starship unzip vi gtk4 npm peek vlc flameshot python-boto3 \
-            tmux xclip xfce4-power-manager
+            tmux xclip xfce4-power-manager pass okular geeqie
 
 
 # DNS settings
@@ -161,7 +161,8 @@ log_message "info" "Creating default user home directories..."
 if ! test -f  "$HOME/.config/user-dirs.dirs" ; then
     xdg-user-dirs-update
     mkdir -p $HOME/.ssh $HOME/.kube $HOME/.aws $HOME/.themes $HOME/.icons $HOME/.local/bin $HOME/Documents/Code \
-            $HOME/Documents/Code/Work $HOME/Documents/Code/Personal
+            $HOME/Documents/Code/Work $HOME/Documents/Code/Personal $HOME/Documents/Code/Work $HOME/Documents/Private \
+            $HOME/Documents/Code/Work $HOME/Documents/Books
 else
     log_message "info" "User home directories exists. Skipping creation..."
 fi
@@ -218,9 +219,9 @@ cp misc/config.fish "$HOME"/.config/fish/config.fish
 cp misc/aws-profile.fish "$HOME/.config/fish/functions/"
 cp misc/tfsum.fish "$HOME/.config/fish/functions/"
 cp misc/fish_variables "$HOME/.config/fish/fish_variables"
+cp misc/batdiff.fish "$HOME/.config/fish/functions/"
 if [ ! -f "$HOME/.config/fish/functions/git-containerscrew.fish" ]; then cp misc/git-containerscrew.fish "$HOME/.config/fish/functions/git-containerscrew.fish"; fi
 if [ ! -f "$HOME/.config/fish/functions/git-work.fish" ]; then cp misc/git-work.fish "$HOME/.config/fish/functions/git-work.fish"; fi
-
 
 
 log_message "info" "Installing blackarch repository..."

@@ -18,6 +18,7 @@
 - [Sign in](#sign-in)
 - [Create some work scripts or binaries in ~/.local/bin/](#create-some-work-scripts-or-binaries-in-localbin)
 - [/etc/systemd/logind.conf](#etcsystemdlogindconf)
+- [Pass store](#pass-store)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -158,3 +159,7 @@ Parameters to change (can be automated with sed command):
 ```shell
 sudo systemctl restart systemd-logind
 ```
+
+# Pass store
+
+Setup [pass](https://wiki.archlinux.org/title/Pass) store if needed.

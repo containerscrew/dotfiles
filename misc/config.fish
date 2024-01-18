@@ -3,7 +3,8 @@ if status is-interactive
 end
 
 # Kubeconfigs
-set -gx KUBECONFIG (string join ":" (find ~/.kube -name '*.yaml'))
+# THIS NOT WORKS WITH KUBECTX
+# set -gx KUBECONFIG (string join ":" (find ~/.kube -name '*.yaml'))
 
 # For Go binaries directly intalled using $ go install
 set -gx PATH "$HOME/go/bin" $PATH;
