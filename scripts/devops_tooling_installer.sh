@@ -28,8 +28,8 @@ sudo pacman -Sy --noconfirm --needed podman-dnsname podman-docker aardvark-dns n
 #podman system reset --force
 
 # Symlinks for docker, better than creating an alias (in scripting alias will not work)
-sudo ln -s $(which podman-compose) /usr/bin/docker-compose
-sudo ln -s $(which podman) /usr/bin/docker
+#sudo ln -s $(which podman-compose) /usr/bin/docker-compose
+#sudo ln -s $(which podman) /usr/bin/docker
 
 #curl -L https://raw.githubusercontent.com/warrensbox/tgswitch/release/install.sh | sudo bash
 #paru -Scc

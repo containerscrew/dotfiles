@@ -107,7 +107,6 @@ class MyWidgets:
                         ),
                     ]
                 )
-
     def volume(self):
         return widget.PulseVolume(
             **widget_base(bg=Colors.violet, fg=Colors.background, f="FontAwesome"),
