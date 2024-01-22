@@ -308,6 +308,18 @@ fi
 # Fish ssh-agent
 if [ ! -f "$HOME/.config/fish/functions/fish_ssh_agent.fish" ]; then wget https://gitlab.com/kyb/fish_ssh_agent/raw/master/functions/fish_ssh_agent.fish -P ~/.config/fish/functions/; fi
 
+# Install oh my tmux
+if [ ! -d "$HOME/.tmux" ]; then
+  cd "$HOME"
+  git clone https://github.com/gpakosz/.tmux.git
+  ln -s "$HOME/.tmux/.tmux.conf" "$HOME/.config/tmux/tmux.conf"
+  cp config/tmux/tmux.conf.local "$HOME/.config/tmux/tmux.conf.local"
+else
+  cp config/tmux/tmux.conf.local "$HOME/.config/tmux/tmux.conf.local"
+fi
+#cp "$HOME/.tmux/.tmux.conf.local" "$HOME/.config/tmux/tmux.conf.local"
+
+
 # Setup
 # For the end of the script
 sudo systemctl enable lightdm.service --now

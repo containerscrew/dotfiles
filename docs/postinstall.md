@@ -131,6 +131,12 @@ Install oh my fish:
 curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
 ```
 
+Also install fisher as a plugin manager:
+
+```shell
+curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
+```
+
 Install `omf` plugins:
 
 Run [fish-plugins.sh](./scripts/fish-plugins.sh) script.
