@@ -196,6 +196,7 @@ Some tips about archlinux configurations.
 * [Polybar Setup](https://www.youtube.com/watch?v=tOBDUBEMAKM)
 * https://github.com/antoniosarosi/dotfiles
 * https://gitlab.com/dwt1/dotfiles
+* https://github.com/newmanls/rofi-themes-collection
 
 # License
 

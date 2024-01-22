@@ -73,6 +73,7 @@ inputbar {
     orientation:                 horizontal;
     children:                    [ "textbox-prompt-colon", "entry" ];
 }
+
 textbox-prompt-colon {
     enabled:                     true;
     expand:                      false;

@@ -9,22 +9,24 @@
 
 # QTILE main shortcuts
 
-> The mod key is the "typical windows key"
+> The mod key is the "typical windows Super key"
 
-| Key                | Action                           |
-|--------------------|----------------------------------|
-| mod + return       | Open alacritty terminal          |
-| mod + alt + return | Open floatting terminal          |
-| mod + alt + f      | Open firefox                     |
-| mod + alt + g      | Open google chrome               |
-| mod + alt + b      | Open brave                       |
-| mod + alt + s      | Take screenshot using flameshot  |
-| mod + tab          | Previous window                  |
-| mod + alt + p      | Change wallpapers                |
-| mod + alt + r      | Reload Qtile configuration       |
-| cntrol + mod + r   | Restart Qtile                    |
-| cntrol + alt + l   | Lock screen using lightdm        |
-| cntrol + t         | Make the actual window floating |
+| Key               | Action                          |
+|-------------------|---------------------------------|
+| mod + return      | Open alacritty terminal         |
+| mod + alt + return | Open floatting terminal         |
+| mod + alt + f     | Open firefox                    |
+| mod + alt + g     | Open google chrome              |
+| mod + alt + b     | Open brave                      |
+| mod + alt + s     | Take screenshot using flameshot |
+| mod + shift + tab | Previous window                 |
+| mod + tab  | Window selector                 |
+| mod + alt + p     | Change wallpapers               |
+| mod + alt + r     | Reload Qtile configuration      |
+| cntrol + mod + r  | Restart Qtile                   |
+| cntrol + alt + l  | Lock screen using lightdm       |
+| cntrol + t        | Make the actual window floating |
+| mod + space       | Open app launcher with rofi     |
 
 
 You can find more shortcuts or customize new ones [here](../config/qtile/configurations/keys.py)

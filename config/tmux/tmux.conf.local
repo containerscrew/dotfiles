@@ -5,6 +5,7 @@
 #         Copyright 2012— Gregory Pakosz (@gpakosz).
 
 
+
 # -- session creation ----------------------------------------------------------
 
 # prompt for session name when creating a new session, possible values are:
@@ -356,7 +357,7 @@ tmux_conf_copy_to_os_clipboard=false
 #set -g history-limit 10000
 
 # start with mouse mode enabled
-#set -g mouse on
+set -g mouse on
 
 # force Vi mode
 #   really you should export VISUAL or EDITOR environment variable, see manual
@@ -374,7 +375,7 @@ tmux_conf_copy_to_os_clipboard=false
 # bind c new-window -c '#{pane_current_path}' #!important
 
 # move status line to top
-#set -g status-position top
+set -g status-position top
 
 
 # -- tpm -----------------------------------------------------------------------

@@ -66,3 +66,9 @@ fi
 if ! command -v "goimports" &> /dev/null ; then
   go install golang.org/x/tools/cmd/goimports@latest
 fi
+
+# Install hey (ALB load testing)
+if ! command -v "hey" &> /dev/null ; then
+  sudo wget https://hey-release.s3.us-east-2.amazonaws.com/hey_linux_amd64 -O /usr/local/bin/hey
+  sudo chmod +x /usr/local/bin/hey
+fi
