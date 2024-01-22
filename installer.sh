@@ -104,7 +104,7 @@ sudo pacman -Syu --noconfirm --needed base-devel rustup picom \
             gnome-calendar spotify-launcher libpwquality dnsutils cryptsetup \
             gparted gnome-disk-utility tumbler vlc ffmpeg torbrowser-launcher \
             starship unzip vi gtk4 npm peek vlc flameshot python-boto3 \
-            tmux xclip xfce4-power-manager pass okular geeqie
+            tmux xclip xfce4-power-manager pass okular geeqie websocat
 
 
 # DNS settings
@@ -246,7 +246,7 @@ if ! command -v "eww" &> /dev/null ; then
     sudo install -m 755 "target/release/eww" -t /usr/bin/
     clean "$tmpdir"
 else
-    log_message "info" "Command eww exists. Skipping installation..."
+    log_message "info" "Command eww exists. Skipping installation...":
 fi
 
 # Setup shikai theme
