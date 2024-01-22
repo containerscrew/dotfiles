@@ -9,7 +9,25 @@
 
 # QTILE main shortcuts
 
-Pending to add
+> The mod key is the "typical windows key"
+
+| Key                | Action                           |
+|--------------------|----------------------------------|
+| mod + return       | Open alacritty terminal          |
+| mod + alt + return | Open floatting terminal          |
+| mod + alt + f      | Open firefox                     |
+| mod + alt + g      | Open google chrome               |
+| mod + alt + b      | Open brave                       |
+| mod + alt + s      | Take screenshot using flameshot  |
+| mod + tab          | Previous window                  |
+| mod + alt + p      | Change wallpapers                |
+| mod + alt + r      | Reload Qtile configuration       |
+| cntrol + mod + r   | Restart Qtile                    |
+| cntrol + alt + l   | Lock screen using lightdm        |
+| cntrol + t         | Make the actual window floating |
+
+
+You can find more shortcuts or customize new ones [here](../config/qtile/configurations/keys.py)
 
 # CopyQ clipboard manager
 
