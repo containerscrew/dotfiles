@@ -205,7 +205,7 @@ fi
 log_message "info" "Installing some packages from AUR..."
 # paru -Sccd
 paru -Sccd jetbrains-toolbox coreimage qtile-extras python-pulsectl-asyncio mkdocs mkdocs-rss-plugin mkdocs-material \
-        web-greeter-theme-shikai ttf-font-awesome brave-bin google-chrome insomnia \
+        web-greeter-theme-shikai ttf-font-awesome brave-bin insomnia \
         slack-desktop gitleaks procs gosec aws-session-manager-plugin --skipreview --noconfirm --needed
 
 # Setup fish shell
