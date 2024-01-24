@@ -9,3 +9,9 @@ doctoc: ## Create table of contents with doctoc
 
 gitleaks: ## Run gitleaks
 	gitleaks detect -v .
+
+ansible-playbook: ## Run ansible playbook
+	sudo ansible-playbook -i inventory.inid playbook.yml
+
+ansible-tag: ## Run specific tag
+	sudo ansible-playbook -i inventory.ini playbook.yml --tags pacman

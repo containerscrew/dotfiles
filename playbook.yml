@@ -3,6 +3,7 @@
   hosts: desktop
   become: true
   vars:
-    packages_file: "packages.txt"
+    package_file: "packages.txt"
+    package_list: "{{ lookup('file', package_file) | split('\n') }}"
   roles:
     - packages
