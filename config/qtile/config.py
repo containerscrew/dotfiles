@@ -46,7 +46,8 @@ screens = [
             ],
             30,
             background=Colors.background,
-            margin=[8, 20, 0, 20],
+            #margin=[8, 20, 0, 20],
+            margin=[0, 0, 0, 0],
         ),
     ),
 ]

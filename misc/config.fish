@@ -42,11 +42,10 @@ export STARSHIP_CONFIG=$HOME/.config/starship/starship.toml
 eval "$(starship init fish | source)"
 
 # Tmux config
-if tmux has-session -t "workspace" >/dev/null 2>&1
-    # If the session already exists, attach to it
-    tmux attach-session -t "workspace"
-else
-    # If it doesn't exist, create a new session named "workspace"
-    tmux new-session -d -s "workspace"
-    tmux attach-session -t "workspace"
-end
+#if tmux has-session -t "workspace" >/dev/null 2>&1
+#    # If the session already exists, attach to it
+#    tmux attach-session -t "workspace"
+#else
+#    # If it doesn't exist, create a new session named "workspace"
+#    tmux new -s "workspace"
+#end

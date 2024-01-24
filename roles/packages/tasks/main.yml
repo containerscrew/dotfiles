@@ -1,0 +1,20 @@
+- name: Run the equivalent of "pacman -Syu" as a separate step
+  community.general.pacman:
+    update_cache: true
+    upgrade: true
+
+- name: Read package list from file
+  slurp:
+    path: "{{ packages_file }}"
+  register: packages_content
+
+- name: Convert package list to list variable
+  set_fact:
+    packages_to_install: "{{ packages_content['content'] | b64decode | splitlines }}"
+
+- name: Install base packages
+  pacman:
+    name: "{{ packages_to_install }}"
+    state: present
+    update_cache: true
+  become: true

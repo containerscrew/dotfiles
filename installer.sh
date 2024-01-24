@@ -90,7 +90,7 @@ sudo pacman -Syu --noconfirm --needed base-devel rustup picom \
             xorg-xprop xorg-xkill xorg-xsetroot xorg-xwininfo xorg-xrandr \
             xdg-user-dirs plymouth neovim vscode mlocate \
             bluez bluez-utils fish arandr xorg-server xorg-xinit \
-            curl wget neofetch lightdm lightdm-gtk-greeter lightdm-webkit2-greeter \
+            curl wget neofetch libappindicator-gtk3 \
             blueman firefox conky mlocate ngrep lsd bat \
             ttf-jetbrains-mono ttf-jetbrains-mono-nerd ttf-terminus-nerd ttf-inconsolata ttf-joypixels \
             fzf brightnessctl man webp-pixbuf-loader light-locker \
@@ -104,8 +104,12 @@ sudo pacman -Syu --noconfirm --needed base-devel rustup picom \
             gnome-calendar spotify-launcher libpwquality dnsutils cryptsetup \
             gparted gnome-disk-utility tumbler vlc ffmpeg torbrowser-launcher \
             starship unzip vi gtk4 npm peek vlc flameshot python-boto3 \
-            tmux xclip xfce4-power-manager pass okular geeqie websocat
+            tmux xclip xfce4-power-manager pass okular geeqie websocat \
+            pipewire sddm libappindicator-gtk3
 
+# sudo systemctl disable lightdm
+# sudo pacman -Rns lightdm lightdm-gtk-greeter lightdm-webkit2-greeter
+sudo systemctl enable sddm.service
 
 # DNS settings
 sudo ln -sf ../run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
@@ -205,8 +209,10 @@ fi
 log_message "info" "Installing some packages from AUR..."
 # paru -Sccd
 paru -Sccd jetbrains-toolbox coreimage qtile-extras python-pulsectl-asyncio mkdocs mkdocs-rss-plugin mkdocs-material \
-        web-greeter-theme-shikai ttf-font-awesome brave-bin insomnia \
+        ttf-font-awesome brave-bin insomnia archlinux-themes-sddm sddm-conf \
         slack-desktop gitleaks procs gosec aws-session-manager-plugin --skipreview --noconfirm --needed
+
+# web-greeter-theme-shikai
 
 # Setup fish shell
 log_message "info" "Setup fish shell..."
@@ -250,15 +256,15 @@ else
 fi
 
 # Setup shikai theme
-log_message "info" "Setting up shikai lightdm theme..."
+#log_message "info" "Setting up shikai lightdm theme..."
 # # Backup existing config
-sudo cp /etc/lightdm/lightdm.conf /etc/lightdm/lightdm.conf.bak
-sudo cp /etc/lightdm/web-greeter.yml /etc/lightdm/web-greeter.yml.bak
-sudo sed -i 's/theme: .*/theme: shikai/' /etc/lightdm/web-greeter.yml
-sudo sed -i 's/.*greeter-session=.*/greeter-session=web-greeter/g' /etc/lightdm/lightdm.conf
-sudo sed -i 's/background_images_dir: .*/background_images_dir: \/usr\/share\/backgrounds/' /etc/lightdm/web-greeter.yml
-sudo sed -i 's/logo_image: .*/logo_image: \/usr\/share\/web-greeter\/themes\/shikai\/assets\/media\/logos/' /etc/lightdm/web-greeter.yml
-cp assets/arch-logo.png "$HOME/.face"
+#sudo cp /etc/lightdm/lightdm.conf /etc/lightdm/lightdm.conf.bak
+#sudo cp /etc/lightdm/web-greeter.yml /etc/lightdm/web-greeter.yml.bak
+#sudo sed -i 's/theme: .*/theme: shikai/' /etc/lightdm/web-greeter.yml
+#sudo sed -i 's/.*greeter-session=.*/greeter-session=web-greeter/g' /etc/lightdm/lightdm.conf
+#sudo sed -i 's/background_images_dir: .*/background_images_dir: \/usr\/share\/backgrounds/' /etc/lightdm/web-greeter.yml
+#sudo sed -i 's/logo_image: .*/logo_image: \/usr\/share\/web-greeter\/themes\/shikai\/assets\/media\/logos/' /etc/lightdm/web-greeter.yml
+#cp assets/arch-logo.png "$HOME/.face"
 
 # Necessary groups for my user
 sudo usermod -aG video,input,audio,storage,optical,lp,scanner,users "$USERNAME"
@@ -322,4 +328,7 @@ fi
 
 # Setup
 # For the end of the script
-sudo systemctl enable lightdm.service --now
+#sudo systemctl enable lightdm.service --now
+# https://wiki.archlinux.org/title/SDDM
+mkdir -p /etc/sddm.conf.d/
+cp /usr/lib/sddm/sddm.conf.d/default.conf /etc/sddm.conf.d/

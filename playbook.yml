@@ -1,0 +1,8 @@
+---
+- name: Provision Desktop Environment
+  hosts: desktop
+  become: true
+  vars:
+    packages_file: "packages.txt"
+  roles:
+    - packages
