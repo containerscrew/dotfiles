@@ -1,31 +1,6 @@
-# Install base packages and others
-- name:  Install all packages in {{ package_file }} through pacman
-  community.general.pacman:
-    name: "{{ package_list }}"
-    state: present
-    update_cache: true
-  become: true
-  tags:
-    - packages
-    - pacman
+# Import tasks
+- name: "Pacman packages"
+  import_tasks: pacman.yml
 
-# Install paru from git
-- name: Check if paru exists in PATH
-  command: which paru
-  ignore_errors: true
-  register: package_stat
-
-- name: Clone paru official repository
-  git:
-    repo: https://aur.archlinux.org/paru-bin.git
-    dest: /tmp/paru-bin
-  when: package_stat.stat.exists == False
-  tags:
-    - packages
-    - paru
-
-- name: Build and install the package using makepkg
-  command: chdir=/tmp/paru-bin makepkg -si --noconfirm
-  tags:
-    - packages
-    - paru
+- name: "Paru packages"
+  import_tasks: paru.yml
