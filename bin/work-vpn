@@ -1,4 +1,4 @@
-#! /usr/bin/env bash
+#! /usr/env/bin bash
 
 # First stop private vpn (ProtonVPN)
 sudo systemctl stop wg-quick@protonvpn.service

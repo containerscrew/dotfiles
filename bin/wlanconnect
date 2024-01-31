@@ -1,4 +1,4 @@
-#!/bin/bash
+#! /usr/env/bin/bash
 
 # First, list endpoints
 echo -en "Listing available endpoints. Wait...\n"

@@ -1,0 +1,6 @@
+#! /usr/bin/env bash
+
+current_context=$(kubectl config current-context)
+echo -e "\e[31mDeleting kubeconfig $current_context\e[0m"
+sleep 2
+kubectl config delete-context "$current_context"
