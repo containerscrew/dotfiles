@@ -138,3 +138,9 @@ libreoffice-still
 lightdm
 lightdm-gtk-greeter
 lightdm-webkit2-greeter
+piper
+pulumi
+librsvg
+ipcalc
+polkit
+lxqt-policykit

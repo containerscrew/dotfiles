@@ -15,8 +15,9 @@ feh -z --no-fehbg --bg-fill /usr/share/backgrounds
 # EWW widgets
 "$HOME/.config/eww/launch.sh"
 
-# Test
-echo "test" >> /tmp/test.txt
+# Launch polkit
+pidof -q polkitd || { /usr/bin/lxqt-policykit-agent & }
+
 
 # Other apps for systray
 #udiskie -t &

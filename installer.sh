@@ -210,7 +210,7 @@ fi
 log_message "info" "Installing some packages from AUR..."
 # paru -Sccd
 paru -Sccd jetbrains-toolbox coreimage qtile-extras python-pulsectl-asyncio mkdocs mkdocs-rss-plugin mkdocs-material \
-        ttf-font-awesome brave-bin insomnia archlinux-themes-sddm sddm-conf ttf-gentium-basic \
+        ttf-font-awesome brave-bin insomnia archlinux-themes-sddm sddm-conf ttf-gentium-basic balena-etcher \
         slack-desktop gitleaks procs gosec aws-session-manager-plugin --skipreview --noconfirm --needed
 
 # web-greeter-theme-shikai
