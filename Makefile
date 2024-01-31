@@ -11,7 +11,7 @@ gitleaks: ## Run gitleaks
 	gitleaks detect -v .
 
 ansible-playbook: ## Run ansible playbook
-	sudo ansible-playbook -i inventory.inid playbook.yml
+	ansible-playbook -i inventory.ini playbook.yml --ask-become-pass
 
-ansible-tag: ## Run specific tag
-	sudo ansible-playbook -i inventory.ini playbook.yml --tags pacman
+ansible-playbook-tag: ## Run specific tag
+	ansible-playbook -i inventory.ini playbook.yml --tags ${TAGS} --ask-become-pass

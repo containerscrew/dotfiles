@@ -11,3 +11,10 @@ python3-xcffib
 python3-cairocffi
 python3-cffi
 libwlroots-dev
+sshpass
+alacritty
+rofi
+nmap
+ufw
+podman
+podman-compose

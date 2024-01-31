@@ -5,5 +5,7 @@
   vars:
     apt_package_file: "apt_packages.txt"
     apt_package_list: "{{ lookup('file', apt_package_file) | split('\n') }}"
+    user_home_dir: "{{ lookup('env', 'HOME') }}"
   roles:
-    - packages
+    - core
+    - configurations

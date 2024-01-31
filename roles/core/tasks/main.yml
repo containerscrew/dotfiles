@@ -1,3 +1,3 @@
 # Import tasks
-- name: "Pacman packages"
+- name: "Apt packages"
   import_tasks: apt.yml

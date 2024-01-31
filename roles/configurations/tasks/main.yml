@@ -1,0 +1,61 @@
+## Linux services
+
+- name: Verify user-dirs.dirs exists
+  ansible.builtin.stat:
+    path: "{{ user_home_dir }}/.config/user-dirs.dirs"
+  register: user_dirs_file
+  tags:
+    - configurations
+    - directories
+
+- name: Run xdg-user-dirs-update if the file does not exist
+  ansible.builtin.command:
+    cmd: xdg-user-dirs-update
+  when: not user_dirs_file.stat.exists
+  tags:
+   - configurations
+   - directories
+
+- name: User directories
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: directory
+  with_items:
+    - "{{ user_home_dir }}/.local/src"
+    - "{{ user_home_dir }}/.aws"
+    - "{{ user_home_dir }}/.kube"
+    - "{{ user_home_dir }}/.themes"
+    - "{{ user_home_dir }}/.icons"
+    - "{{ user_home_dir }}/.local/bin"
+    - "{{ user_home_dir }}/Documents/Code"
+  tags:
+   - configurations
+   - directories
+
+- name: Copy dir config to $HOME/.config/
+  ansible.builtin.copy:
+    src: config/
+    dest: "{{ user_home_dir }}/.config/"
+    remote_src: false
+    backup: yes
+  tags:
+   - configurations
+   - dotconfig
+
+- name: Copy wallpapers to /usr/share/backgrounds/
+  ansible.builtin.copy:
+    src: wallpapers/
+    dest: "/usr/share/backgrounds/"
+    remote_src: false
+    #backup: yes
+  tags:
+   - configurations
+   - wallpapers
+
+# The latest
+# - name: Enable SDDM service for display manager
+#  ansible.builtin.systemd_service:
+#    state: restarted
+#    daemon_reload: true
+#    name: sddm
+#    enabled: true

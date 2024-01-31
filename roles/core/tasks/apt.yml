@@ -1,0 +1,19 @@
+# Install base packages and others
+- name:  Install the following packages {{ apt_package_list }} through apt
+  ansible.builtin.apt:
+    name: "{{ apt_package_list }}"
+    state: present
+    update_cache: true
+  become: true
+  tags:
+    - core
+    - packages
+
+- name: Apt clean
+  ansible.builtin.apt:
+    autoclean: yes
+    clean: yes
+  become: true
+  tags:
+    - core
+    - packages
