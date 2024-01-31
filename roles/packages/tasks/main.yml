@@ -1,6 +1,3 @@
 # Import tasks
 - name: "Pacman packages"
-  import_tasks: pacman.yml
-
-- name: "Paru packages"
-  import_tasks: paru.yml
+  import_tasks: apt.yml

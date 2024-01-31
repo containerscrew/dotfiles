@@ -1,0 +1,9 @@
+# Install base packages and others
+- name:  Install the following packages {{ pacman_package_list }} through apt
+  ansible.builtin.apt:
+    name: "{{ pacman_package_list }}"
+    state: present
+    update_cache: true
+  become: true
+  tags:
+    - packages

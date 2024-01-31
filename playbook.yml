@@ -1,11 +1,9 @@
 ---
 - name: Provision Desktop Environment
-  hosts: desktop
+  hosts: virtual-machine
   become: true
   vars:
-    pacman_package_file: "pacman_packages.txt"
-    pacman_package_list: "{{ lookup('file', pacman_package_file) | split('\n') }}"
-    #paru_package_file: "paru_packages.txt"
-    #paru_package_list: "{{ lookup('file', paru_package_file) | split('\n') }}"
+    apt_package_file: "apt_packages.txt"
+    apt_package_list: "{{ lookup('file', apt_package_file) | split('\n') }}"
   roles:
     - packages

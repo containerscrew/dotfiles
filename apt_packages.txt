@@ -1,0 +1,13 @@
+git
+lightdm
+sudo
+git
+python3-full
+xorg
+xserver-xorg
+xinit
+libpangocairo-1.0-0
+python3-xcffib
+python3-cairocffi
+python3-cffi
+libwlroots-dev
