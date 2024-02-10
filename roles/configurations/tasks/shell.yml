@@ -1,0 +1,28 @@
+# Change default shell
+- name: Change user shell
+  user:
+    name: "{{ user_name }}"
+    shell: /usr/bin/fish
+  tags:
+    - configurations
+    - shell
+
+- name: Copy fish functions
+  ansible.builtin.copy:
+    src: config/fish/functions
+    dest: "{{ user_home_dir }}/.config/fish/functions"
+    remote_src: false
+    owner: "{{ user_name }}"
+    group: "{{ user_name }}"
+    mode: '0755'
+  tags:
+   - configurations
+   - shell
+
+- name: Install Starship prompt
+  become: yes
+  become_user: root
+  command: "curl -sS https://starship.rs/install.sh | sh"
+  tags:
+    - configurations
+    - shell

@@ -32,8 +32,6 @@ def sep(bg=Colors.background, fg=Colors.white, text=""):
 widget_defaults = dict(
     **widget_base(),
 )
-
-
 class MyWidgets:
     def __init__(self) -> None:
         # Declare some default values
@@ -43,7 +41,7 @@ class MyWidgets:
         return widget.TextBox(
                      **widget_base(fs=18, p=10,fg=Colors.blue),
                     mouse_callbacks={'Button1': lazy.spawn('eww open --toggle profilecard --duration 5s')},
-                    text = "",
+                    text = "",
         )
 
     def window_name(self):
@@ -118,7 +116,7 @@ class MyWidgets:
         return widget.Wlan(
                     **widget_base(bg=Colors.violet, fg=Colors.background),
                     format=" ",
-                    interface="wlp2s0",
+                    interface="wlp58s0",
                     mouse_callbacks={'Button1': lazy.spawn('alacritty --class FloaTerm,Alacritty -o window.dimensions.lines=22 window.dimensions.columns=90 -e nmcli device wifi list')},
                 )
 

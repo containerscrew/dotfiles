@@ -1,5 +1,4 @@
 ## Linux services
-
 - name: Verify user-dirs.dirs exists
   ansible.builtin.stat:
     path: "{{ user_home_dir }}/.config/user-dirs.dirs"
@@ -20,6 +19,9 @@
   ansible.builtin.file:
     path: "{{ item }}"
     state: directory
+    owner: "{{ user_name }}"
+    group: "{{ user_name }}"
+    mode: '0755'
   with_items:
     - "{{ user_home_dir }}/.local/src"
     - "{{ user_home_dir }}/.aws"
@@ -37,7 +39,10 @@
     src: config/
     dest: "{{ user_home_dir }}/.config/"
     remote_src: false
-    backup: yes
+    owner: "{{ user_name }}"
+    group: "{{ user_name }}"
+    mode: '0755'
+    #backup: yes
   tags:
    - configurations
    - dotconfig
@@ -52,10 +57,50 @@
    - configurations
    - wallpapers
 
-# The latest
-# - name: Enable SDDM service for display manager
-#  ansible.builtin.systemd_service:
-#    state: restarted
-#    daemon_reload: true
-#    name: sddm
-#    enabled: true
+- name: Delete unnecessary files
+  file:
+    path: "{{ item }}"
+    state: absent
+  with_items:
+    - /usr/lib/python3.11/EXTERNALLY-MANAGED
+
+- name: Install pip3 packages
+  ansible.builtin.pip:
+    name: "{{ item }}"
+  with_items:
+    - qtile
+    - qtile_extras
+    - iwlib
+    - pulsectl-asyncio
+  tags:
+    - configurations
+    - qtile
+
+- name: Copy Qtile xsession config
+  ansible.builtin.copy:
+    src: qtile.desktop
+    dest: "/usr/share/xsessions/qtile.desktop"
+    remote_src: false
+  tags:
+   - configurations
+   - qtile
+
+- name: Download Nerd Fonts
+  ansible.builtin.unarchive:
+    src: https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/JetBrainsMono.zip
+    dest: "/usr/local/share/fonts/"
+    remote_src: yes
+  tags:
+    - configurations
+    - fonts
+
+- name: "User shell"
+  import_tasks: shell.yml
+
+
+- name: Enable lightdm service for display manager
+  ansible.builtin.systemd_service:
+   state: restarted
+   daemon_reload: true
+   name: lightdm
+   enabled: true

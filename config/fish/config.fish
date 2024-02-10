@@ -16,15 +16,15 @@ set -gx PATH "$HOME/.cargo/bin" $PATH;
 set -gx PATH "$HOME/.local/bin" $PATH;
 
 # SSH AGENT
-fish_ssh_agent
+#fish_ssh_agent
 
 # My aliases
 alias ls="lsd"
 alias cat="bat --style=plain --theme='Solarized (dark)'"
 alias kubectl="kubecolor"
-alias purge="sudo pacman -Rns $(pacman -Qtdq) ; sudo fstrim -av"
-alias update="paru -Syu --nocombinedupgrade"
-alias maintenance="paru -Sc && sudo pacman -Scc"
+#alias purge="sudo pacman -Rns $(pacman -Qtdq) ; sudo fstrim -av"
+#alias update="paru -Syu --nocombinedupgrade"
+#alias maintenance="paru -Sc && sudo pacman -Scc"
 alias gitscan="gitleaks detect --source . -v"
 alias kns="kubens"
 alias grep='grep --color=auto'
