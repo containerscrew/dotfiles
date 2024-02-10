@@ -215,6 +215,7 @@ paru -Sccd jetbrains-toolbox coreimage qtile-extras python-pulsectl-asyncio mkdo
 # web-greeter-theme-shikai
 
 # Setup fish shell
+# Ansible OK
 log_message "info" "Setup fish shell..."
 sudo chsh -s "$(which fish)" "${USERNAME}"
 mkdir -p "$HOME/.config/fish"

@@ -19,10 +19,10 @@
    - configurations
    - shell
 
-- name: Install Starship prompt
-  become: yes
-  become_user: root
-  command: "curl -sS https://starship.rs/install.sh | sh"
-  tags:
-    - configurations
-    - shell
+#- name: Install Starship prompt
+#  ansible.builtin.command:
+#    cmd:
+#      - "curl -sS https://starship.rs/install.sh | sh -s -- -b {{ user_home_dir }}/.local/bin -y"
+#  tags:
+#    - configurations
+#    - shell

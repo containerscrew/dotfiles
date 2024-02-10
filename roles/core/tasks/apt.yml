@@ -1,8 +1,27 @@
 # Install base packages and others
+- name: Google chrome gpg signing key
+  ansible.builtin.apt_key:
+    url: "https://dl.google.com/linux/linux_signing_key.pub"
+    state: present
+  tags:
+    - core
+    - packages
+
+- name: Adding google chrome repository
+  ansible.builtin.apt_repository:
+    repo: "deb [arch=amd64] https://dl.google.com/linux/chrome/deb/ stable main"
+    state: "present"
+    filename: "google-chrome"
+    update_cache: yes
+  tags:
+    - core
+    - packages
+
 - name:  Install the following packages {{ apt_package_list }} through apt
   ansible.builtin.apt:
     name: "{{ apt_package_list }}"
     state: present
+    force_apt_get: yes
     update_cache: true
   become: true
   tags:

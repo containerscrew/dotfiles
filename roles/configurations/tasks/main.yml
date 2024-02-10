@@ -47,6 +47,19 @@
    - configurations
    - dotconfig
 
+- name: Copy custom binaries to ~/.local/bin
+  ansible.builtin.copy:
+    src: bin/
+    dest: "{{ user_home_dir }}/.local/bin/"
+    remote_src: false
+    owner: "{{ user_name }}"
+    group: "{{ user_name }}"
+    mode: '0755'
+    #backup: yes
+  tags:
+   - configurations
+   - binaries
+
 - name: Copy wallpapers to /usr/share/backgrounds/
   ansible.builtin.copy:
     src: wallpapers/
