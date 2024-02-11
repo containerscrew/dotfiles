@@ -110,10 +110,8 @@
 - name: "User shell"
   import_tasks: shell.yml
 
+- name: "Setup lightdm"
+  import_tasks: lightdm.yml
 
-- name: Enable lightdm service for display manager
-  ansible.builtin.systemd_service:
-   state: restarted
-   daemon_reload: true
-   name: lightdm
-   enabled: true
+- name: "Setup podman"
+  import_tasks: podman.yml

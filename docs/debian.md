@@ -17,7 +17,6 @@ systemctl start sshd
 ```
 
 
-
 ```
 
 # Links
@@ -26,3 +25,12 @@ https://www.reddit.com/r/qtile/comments/1699j3o/installing_qtile_on_debian_12_bo
 
 
 sudo rm /usr/lib/python3.11/EXTERNALLY-MANAGED
+
+
+```
+sudo systemctl unmask sleep.target suspend.target hibernate.target hybrid-sleep.target
+
+```
+
+https://wiki.debian.org/Suspend
+https://wiki.debian.org/ScreenLockingOnSleep

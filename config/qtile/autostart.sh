@@ -16,7 +16,7 @@ feh -z --no-fehbg --bg-fill /usr/share/backgrounds
 "$HOME/.config/eww/launch.sh"
 
 # Launch polkit
-pidof -q polkitd || { /usr/bin/lxqt-policykit-agent & }
+#pidof -q polkitd || { /usr/bin/lxqt-policykit-agent & }
 
 
 # Other apps for systray

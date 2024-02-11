@@ -1,3 +1,12 @@
 # Import tasks
 - name: "Apt packages"
   import_tasks: apt.yml
+
+- name: "Npm packages"
+  import_tasks: npm.yml
+
+- name: "Ufw core configuration"
+  import_tasks: ufw.yml
+
+- name: "Rust installation"
+  import_tasks: rust.yml

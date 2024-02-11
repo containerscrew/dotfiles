@@ -1,4 +1,4 @@
-# Install base packages and others
+### Chrome
 - name: Google chrome gpg signing key
   ansible.builtin.apt_key:
     url: "https://dl.google.com/linux/linux_signing_key.pub"
@@ -17,22 +17,48 @@
     - core
     - packages
 
+### Brave
+- name: Check if keyring exists
+  ansible.builtin.stat:
+    path: /usr/share/keyrings/brave-browser-archive-keyring.gpg
+  register: brave_keyring_file
+  tags:
+    - core
+    - packages
+
+- name: Get keyring file
+  ansible.builtin.get_url:
+    url: https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
+    dest: "/usr/share/keyrings/brave-browser-archive-keyring.gpg"
+    mode: "0644"
+  when: not brave_keyring_file.stat.exists
+  become: true
+  tags:
+    - core
+    - packages
+
+- name: Add Brave repository to list of repositories
+  become: true
+  ansible.builtin.copy:
+    dest: /etc/apt/sources.list.d/brave-browser-release.list
+    content: |
+      deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main
+    mode: "0644"
+  tags:
+    - core
+    - packages
+
+## Core packages
 - name:  Install the following packages {{ apt_package_list }} through apt
   ansible.builtin.apt:
     name: "{{ apt_package_list }}"
     state: present
     force_apt_get: yes
     update_cache: true
-  become: true
-  tags:
-    - core
-    - packages
-
-- name: Apt clean
-  ansible.builtin.apt:
     autoclean: yes
     clean: yes
   become: true
   tags:
     - core
     - packages
+    - apt

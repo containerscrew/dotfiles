@@ -39,7 +39,7 @@ class MyWidgets:
 
     def system_logo(self):
         return widget.TextBox(
-                     **widget_base(fs=18, p=10,fg=Colors.blue),
+                     **widget_base(fs=18, p=10,fg=Colors.purple),
                     mouse_callbacks={'Button1': lazy.spawn('eww open --toggle profilecard --duration 5s')},
                     text = "",
         )

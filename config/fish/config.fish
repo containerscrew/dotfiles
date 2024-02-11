@@ -6,6 +6,8 @@ end
 # THIS NOT WORKS WITH KUBECTX
 # set -gx KUBECONFIG (string join ":" (find ~/.kube -name '*.yaml'))
 
+SETUVAR fish_greeting:
+
 # For Go binaries directly intalled using $ go install
 set -gx PATH "$HOME/go/bin" $PATH;
 
@@ -20,7 +22,7 @@ set -gx PATH "$HOME/.local/bin" $PATH;
 
 # My aliases
 alias ls="lsd"
-alias cat="bat --style=plain --theme='Solarized (dark)'"
+alias cat="batcat --style=plain --theme='Solarized (dark)'"
 alias kubectl="kubecolor"
 #alias purge="sudo pacman -Rns $(pacman -Qtdq) ; sudo fstrim -av"
 #alias update="paru -Syu --nocombinedupgrade"

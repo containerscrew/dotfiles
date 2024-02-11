@@ -60,3 +60,10 @@ wireless-tools
 libiw-dev
 fonts-font-awesome
 google-chrome-stable
+tmux
+lightdm-gtk-greeter-settings
+brave-browser
+nodejs
+npm
+slack
+xscreensaver
