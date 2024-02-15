@@ -10,3 +10,6 @@
 
 - name: "Rust installation"
   import_tasks: rust.yml
+
+- name: "Snapd installation"
+  import_tasks: snapd.yml

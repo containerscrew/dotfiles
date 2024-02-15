@@ -20,7 +20,7 @@ my_widgets = MyWidgets()
 
 screens = [
     Screen(
-        top=bar.Bar(
+        bottom=bar.Bar(
             [
                 my_widgets.system_logo(),
                 widget.Sep(
@@ -44,7 +44,7 @@ screens = [
                 my_widgets.clock(),
                 my_widgets.power(),
             ],
-            30,
+            25,
             background=Colors.background,
             #margin=[8, 20, 0, 20],
             margin=[0, 0, 0, 0],

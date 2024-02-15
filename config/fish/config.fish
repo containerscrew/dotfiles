@@ -6,8 +6,6 @@ end
 # THIS NOT WORKS WITH KUBECTX
 # set -gx KUBECONFIG (string join ":" (find ~/.kube -name '*.yaml'))
 
-SETUVAR fish_greeting:
-
 # For Go binaries directly intalled using $ go install
 set -gx PATH "$HOME/go/bin" $PATH;
 
@@ -16,6 +14,9 @@ set -gx PATH "$HOME/.cargo/bin" $PATH;
 
 # ~/.local/bin for custom bin/scripts
 set -gx PATH "$HOME/.local/bin" $PATH;
+
+# Snap binaries
+set -gx PATH "/snap/bin" $PATH;
 
 # SSH AGENT
 #fish_ssh_agent

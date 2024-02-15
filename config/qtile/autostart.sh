@@ -15,6 +15,9 @@ feh -z --no-fehbg --bg-fill /usr/share/backgrounds
 # EWW widgets
 "$HOME/.config/eww/launch.sh"
 
+# Light locker
+light-locker &
+
 # Launch polkit
 #pidof -q polkitd || { /usr/bin/lxqt-policykit-agent & }
 

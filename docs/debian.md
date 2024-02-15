@@ -29,8 +29,20 @@ sudo rm /usr/lib/python3.11/EXTERNALLY-MANAGED
 
 ```
 sudo systemctl unmask sleep.target suspend.target hibernate.target hybrid-sleep.target
+```
 
+```
+mkdir -p ~/.config/autostart
+cp /etc/xdg/autostart/light-locker.desktop ~/.config/autostart
 ```
 
 https://wiki.debian.org/Suspend
 https://wiki.debian.org/ScreenLockingOnSleep
+https://manpages.debian.org/unstable/xscreensaver/xscreensaver.1.en.html
+
+add this:
+
+```
+deb https://deb.debian.org/debian testing main
+deb https://deb.debian.org/debian unstable main
+```
