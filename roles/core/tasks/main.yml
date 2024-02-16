@@ -5,6 +5,9 @@
 - name: "Npm packages"
   import_tasks: npm.yml
 
+- name: "DNS configurations"
+  import_tasks: dns.yml
+
 - name: "Ufw core configuration"
   import_tasks: ufw.yml
 
@@ -13,3 +16,9 @@
 
 - name: "Snapd installation"
   import_tasks: snapd.yml
+
+- name: "Manual installations"
+  import_tasks: manual.yml
+
+- name: "VPN configurations"
+  import_tasks: vpn.yml

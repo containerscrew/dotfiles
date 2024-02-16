@@ -1,16 +1,22 @@
 ## Linux services
-- name: Verify user-dirs.dirs exists
-  ansible.builtin.stat:
-    path: "{{ user_home_dir }}/.config/user-dirs.dirs"
-  register: user_dirs_file
+- name: Set timezone to Europe/Amsterdam
+  community.general.timezone:
+    name: EUrope/Amsterdam
   tags:
-    - configurations
-    - directories
+  - configurations
+
+# - name: Verify user-dirs.dirs exists
+#   ansible.builtin.stat:
+#     path: "{{ user_home_dir }}/.config/user-dirs.dirs"
+#   register: user_dirs_file
+#   tags:
+#     - configurations
+#     - directories
 
 - name: Run xdg-user-dirs-update if the file does not exist
   ansible.builtin.command:
     cmd: xdg-user-dirs-update
-  when: not user_dirs_file.stat.exists
+  #when: not user_dirs_file.stat.exists
   tags:
    - configurations
    - directories
@@ -30,6 +36,8 @@
     - "{{ user_home_dir }}/.icons"
     - "{{ user_home_dir }}/.local/bin"
     - "{{ user_home_dir }}/Documents/Code"
+    - "{{ user_home_dir }}/Documents/Code/Personal"
+    - "{{ user_home_dir }}/Documents/Code/Work"
   tags:
    - configurations
    - directories
@@ -41,7 +49,7 @@
     remote_src: false
     owner: "{{ user_name }}"
     group: "{{ user_name }}"
-    mode: '0755'
+    #mode: '0755'
     #backup: yes
   tags:
    - configurations

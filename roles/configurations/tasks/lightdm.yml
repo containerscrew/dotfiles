@@ -10,7 +10,7 @@
 - name: Change lightdm background image
   ansible.builtin.lineinfile:
     path: /etc/lightdm/lightdm-gtk-greeter.conf
-    regexp: '^background='
+    regexp: '^#background='
     line: background=/usr/share/backgrounds/09.webp
   tags:
     - configurations
@@ -19,7 +19,7 @@
 - name: Change lightdm background image
   ansible.builtin.lineinfile:
     path: /etc/lightdm/lightdm-gtk-greeter.conf
-    regexp: '^theme-name='
+    regexp: '^#theme-name='
     line: theme-name=Adwaita-dark
   tags:
     - configurations
@@ -28,7 +28,7 @@
 - name: Change lightdm background image
   ansible.builtin.lineinfile:
     path: /etc/lightdm/lightdm-gtk-greeter.conf
-    regexp: '^icon-theme-name='
+    regexp: '^#icon-theme-name='
     line: icon-theme-name=ePapirus-Dark
   tags:
     - configurations
@@ -37,7 +37,7 @@
 - name: Change lightdm background image
   ansible.builtin.lineinfile:
     path: /etc/lightdm/lightdm-gtk-greeter.conf
-    regexp: '^font-name='
+    regexp: '^#font-name='
     line: font-name=JetBrainsMonoNL Nerd Font Propo Ultra-Bold Italic 10
   tags:
     - configurations
@@ -46,7 +46,7 @@
 - name: Change lightdm background image
   ansible.builtin.lineinfile:
     path: /etc/lightdm/lightdm-gtk-greeter.conf
-    regexp: '^default-user-image='
+    regexp: '^#default-user-image='
     line: default-user-image=/usr/share/icons/tux.png
   tags:
     - configurations
@@ -72,7 +72,7 @@
 
 - name: Enable lightdm service for display manager
   ansible.builtin.systemd_service:
-   state: restarted
+   state: started
    daemon_reload: true
    name: lightdm
    enabled: true

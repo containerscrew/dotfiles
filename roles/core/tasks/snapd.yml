@@ -9,7 +9,7 @@
     - packages
     - snapd
 
-- name: Snap install packages
+- name: Snap install packages stable
   community.general.snap:
     name: "{{ item }}"
     channel: latest/stable
@@ -19,7 +19,19 @@
     - snap-store
     - bitwarden
     - code
-    - slack
+  tags:
+    - core
+    - packages
+    - snapd
+
+
+- name: Span install packages edge
+  community.general.snap:
+    name: "{{ item }}"
+    channel: latest/edge
+    classic: true
+  with_items:
+    - starship
   tags:
     - core
     - packages

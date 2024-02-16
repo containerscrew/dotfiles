@@ -1,0 +1,9 @@
+# Work VPN
+- name: Copy work vpnc config
+  ansible.builtin.copy:
+    src: misc/work.conf
+    dest: "/etc/vpnc/work.conf"
+    remote_src: false
+  tags:
+   - core
+   - vpn

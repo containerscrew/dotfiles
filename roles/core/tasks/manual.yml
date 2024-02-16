@@ -1,0 +1,36 @@
+# Install slack
+- name: Check if slack is installed
+  shell: command -v slack
+  register: slack_exists
+  ignore_errors: yes
+  tags:
+    - core
+    - packages
+    - manual
+
+- name: Download slack 
+  when: slack_exists is failed
+  ansible.builtin.get_url:
+    url: https://downloads.slack-edge.com/releases/linux/4.36.140/prod/x64/slack-desktop-4.36.140-amd64.deb
+    dest: /tmp/slack-desktop-4.36.140-amd64.deb
+  tags:
+    - core
+    - packages
+    - manual
+
+- name: Install slack .deb package
+  ansible.builtin.apt:
+    deb: /tmp/slack-desktop-4.36.140-amd64.deb
+  tags:
+    - core
+    - packages
+    - manual
+
+- name: Remove slack package from /tmp
+  ansible.builtin.file:
+    path: /tmp/slack-desktop-4.36.140-amd64.deb
+    state: absent
+  tags:
+    - core
+    - packages
+    - manual

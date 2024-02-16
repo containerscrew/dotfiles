@@ -1,6 +1,6 @@
 ---
 - name: Provision Desktop Environment
-  hosts: remote-machine
+  hosts: local
   become: true
   vars:
     apt_package_file: "apt_packages.txt"

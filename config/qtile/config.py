@@ -20,7 +20,7 @@ my_widgets = MyWidgets()
 
 screens = [
     Screen(
-        bottom=bar.Bar(
+        top=bar.Bar(
             [
                 my_widgets.system_logo(),
                 widget.Sep(

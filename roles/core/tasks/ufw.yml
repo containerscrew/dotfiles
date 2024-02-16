@@ -13,10 +13,10 @@
     - core
     - firewall
 
-- name: Allow OpenSSH
-  community.general.ufw:
-    rule: allow
-    name: OpenSSH
-  tags:
-    - core
-    - firewall
+# - name: Allow OpenSSH
+#   community.general.ufw:
+#     rule: deny
+#     name: OpenSSH
+#   tags:
+#     - core
+#     - firewall
