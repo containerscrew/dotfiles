@@ -1,6 +1,6 @@
 # Install slack
-- name: Check if slack is installed
-  shell: command -v slack
+- name: Check if slack-desktop is installed
+  command: dpkg-query -l slack-desktop
   register: slack_exists
   ignore_errors: yes
   tags:
@@ -19,6 +19,7 @@
     - manual
 
 - name: Install slack .deb package
+  when: slack_exists is failed
   ansible.builtin.apt:
     deb: /tmp/slack-desktop-4.36.140-amd64.deb
   tags:
@@ -27,6 +28,7 @@
     - manual
 
 - name: Remove slack package from /tmp
+  when: slack_exists is failed
   ansible.builtin.file:
     path: /tmp/slack-desktop-4.36.140-amd64.deb
     state: absent
@@ -34,3 +36,20 @@
     - core
     - packages
     - manual
+
+## check if starshiop exists in .local/bin
+## Download script
+## Install
+## curl -sS https://starship.rs/install.sh | sh -s -- -b ~/.local/bin -y
+
+- name: Download starship installer
+  when: cargo_exists is failed
+  become: true
+  become_user: "{{ user_name }}"
+  get_url:
+    url: https://sh.rustup.rs
+    dest: /tmp/sh.rustup.rs
+  tags:
+    - core
+    - packages
+    - rust

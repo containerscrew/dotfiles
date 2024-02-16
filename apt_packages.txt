@@ -85,3 +85,5 @@ tumbler
 vlc
 ffmpeg
 gdebi
+cmake
+awscli

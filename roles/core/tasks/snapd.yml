@@ -24,18 +24,17 @@
     - packages
     - snapd
 
-
-- name: Span install packages edge
-  community.general.snap:
-    name: "{{ item }}"
-    channel: latest/edge
-    classic: true
-  with_items:
-    - starship
-  tags:
-    - core
-    - packages
-    - snapd
+# - name: Snap install packages edge
+#   community.general.snap:
+#     name: "{{ item }}"
+#     channel: latest/edge
+#     classic: true
+#   with_items:
+#     - starship
+#   tags:
+#     - core
+#     - packages
+#     - snapd
 
 # System app launcher icons
 - name: Create symbolic link

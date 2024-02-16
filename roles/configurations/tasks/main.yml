@@ -1,7 +1,7 @@
 ## Linux services
 - name: Set timezone to Europe/Amsterdam
   community.general.timezone:
-    name: EUrope/Amsterdam
+    name: Europe/Amsterdam
   tags:
   - configurations
 
@@ -49,7 +49,7 @@
     remote_src: false
     owner: "{{ user_name }}"
     group: "{{ user_name }}"
-    #mode: '0755'
+    mode: '0644'
     #backup: yes
   tags:
    - configurations

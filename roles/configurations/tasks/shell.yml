@@ -19,7 +19,6 @@
    - configurations
    - shell
 
-
 - name: Check if oh-my-fish is installed
   stat:
     path: '/etc/omf.installed'
@@ -100,11 +99,3 @@
   tags:
    - configurations
    - shell
-
-# - name: Install Starship prompt
-#   ansible.builtin.command:
-#     cmd:
-#       - "curl -sS https://starship.rs/install.sh | sh -s -- -b {{ user_home_dir }}/.local/bin -y"
-#   tags:
-#     - configurations
-#     - shell
