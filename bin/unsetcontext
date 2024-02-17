@@ -1,4 +1,4 @@
-#! /usr/env/bin bash
+#! /bin/bash
 
 current_context=$(kubectl config current-context)
 kubectl config unset current-context

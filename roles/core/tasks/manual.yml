@@ -43,13 +43,23 @@
 ## curl -sS https://starship.rs/install.sh | sh -s -- -b ~/.local/bin -y
 
 - name: Download starship installer
-  when: cargo_exists is failed
   become: true
   become_user: "{{ user_name }}"
   get_url:
-    url: https://sh.rustup.rs
-    dest: /tmp/sh.rustup.rs
+    url: https://starship.rs/install.sh
+    dest: /tmp/starship_install.sh
   tags:
     - core
     - packages
-    - rust
+    - manual
+
+- name: Install starship
+  become: yes
+  become_user: "{{ user_name }}"
+  shell:
+    cmd: "cat /tmp/starship_install.sh | sh -s -- -b ~/.local/bin -y"
+    executable: /usr/bin/sh
+  tags:
+    - core
+    - packages
+    - manual

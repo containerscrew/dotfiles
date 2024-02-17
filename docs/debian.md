@@ -46,3 +46,6 @@ add this:
 deb https://deb.debian.org/debian testing main
 deb https://deb.debian.org/debian unstable main
 ```
+
+# Setup network manager and restart wpa_supplicant
+https://wiki.debian.org/NetworkManager
