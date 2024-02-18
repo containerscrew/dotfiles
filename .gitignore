@@ -6,3 +6,6 @@
 
 # Jetbrains
 .idea
+
+# Vars file
+#vars.yml
