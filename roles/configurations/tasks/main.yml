@@ -55,6 +55,20 @@
    - configurations
    - dotconfig
 
+
+- name: Copy configurations file that will be edited locally (avoid overwrite)
+  ansible.builtin.copy:
+    src: config/
+    dest: "{{ user_home_dir }}/.config/"
+    remote_src: false
+    owner: "{{ user_name }}"
+    group: "{{ user_name }}"
+    mode: '0755'
+    #backup: yes
+  tags:
+   - configurations
+   - dotconfig
+
 - name: Copy custom binaries to ~/.local/bin
   ansible.builtin.copy:
     src: bin/

@@ -1,4 +1,4 @@
-# Install slack
+### SLACK INSTALLATION ###
 - name: Check if slack-desktop is installed
   command: dpkg-query -l slack-desktop
   register: slack_exists
@@ -10,6 +10,8 @@
 
 - name: Download slack 
   when: slack_exists is failed
+  become: true
+  become_user: "{{ user_name }}"
   ansible.builtin.get_url:
     url: https://downloads.slack-edge.com/releases/linux/4.36.140/prod/x64/slack-desktop-4.36.140-amd64.deb
     dest: /tmp/slack-desktop-4.36.140-amd64.deb
@@ -27,23 +29,65 @@
     - packages
     - manual
 
-- name: Remove slack package from /tmp
-  when: slack_exists is failed
-  ansible.builtin.file:
-    path: /tmp/slack-desktop-4.36.140-amd64.deb
-    state: absent
+### BITWARDEN INSTALLATION ###
+- name: Check if bitwarden is installed
+  command: dpkg-query -l bitwarden
+  register: bitwarden_exists
+  ignore_errors: yes
   tags:
     - core
     - packages
     - manual
 
-## check if starshiop exists in .local/bin
-## Download script
-## Install
-## curl -sS https://starship.rs/install.sh | sh -s -- -b ~/.local/bin -y
+- name: Download bitwarden
+  when: bitwarden_exists is failed
+  become: true
+  become_user: "{{ user_name }}"
+  ansible.builtin.get_url:
+    url: https://vault.bitwarden.com/download/?app=desktop&platform=linux&variant=deb
+    dest: /tmp/bitwarden_latest.deb
+  tags:
+    - core
+    - packages
+    - manual
+
+- name: Install bitwarden .deb package
+  become: true
+  become_user: "{{ user_name }}"
+  when: bitwarden_exists is failed
+  ansible.builtin.apt:
+    deb: /tmp/bitwarden_latest.deb
+  tags:
+    - core
+    - packages
+    - manual
+
+# - name: Remove packages from /tmp
+#   when: slack_exists is failed
+#   ansible.builtin.file:
+#     path: "/tmp/{{ item }}"
+#     state: absent
+#   with_items:
+#     - slack-desktop-4.36.140-amd64.deb
+#   tags:
+#     - core
+#     - packages
+#     - manual
+
+
+### STARSHIP INSTALLATION ###
+- name: Verify if starship is installed
+  ansible.builtin.stat:
+    path: "{{ user_home_dir }}/.local/bin/starship"
+  register: starship_bin_exists
+  tags:
+    - core
+    - packages
+    - manual
 
 - name: Download starship installer
   become: true
+  when: not starship_bin_exists.stat.exists
   become_user: "{{ user_name }}"
   get_url:
     url: https://starship.rs/install.sh
@@ -54,6 +98,7 @@
     - manual
 
 - name: Install starship
+  when: not starship_bin_exists.stat.exists
   become: yes
   become_user: "{{ user_name }}"
   shell:

@@ -87,3 +87,6 @@ ffmpeg
 gdebi
 cmake
 awscli
+blueman
+wireguard
+wireguard-tools
