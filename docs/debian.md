@@ -51,3 +51,10 @@ deb https://deb.debian.org/debian unstable main
 https://wiki.debian.org/NetworkManager
 
 # CONTROL FILES THAT DON'T NEED TO BE OVERWRITEN
+
+
+# Get certificate from private endpoint
+
+```shell
+openssl s_client -connect ejemplo.com:443 -showcerts </dev/null 2>/dev/null | openssl x509 -outform PEM > servidor.crt
+```

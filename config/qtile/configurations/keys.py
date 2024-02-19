@@ -43,6 +43,7 @@ keys = [
     Key([mod, "shift"], "k", lazy.layout.shuffle_up(), desc="Move window up"),
     Key([mod], "Tab", lazy.screen.toggle_group(), desc="Switch window focus to previous window in group"),
     Key([mod, "shift"], "Tab", lazy.spawn("rofi -show window"), desc='Switch opened windows'),
+    Key(["control", "alt"], "h", lazy.spawn("diodon"), desc='Open clipboard manager'),
 
     # Grow windows. If current window is on the edge of screen and direction
     # will be to screen edge - window would shrink.

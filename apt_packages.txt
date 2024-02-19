@@ -92,3 +92,7 @@ wireguard
 wireguard-tools
 macchanger
 7zip
+ipcalc
+gnome-calculator
+network-manager-gnome
+diodon

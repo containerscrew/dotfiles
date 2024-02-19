@@ -38,6 +38,7 @@
     - "{{ user_home_dir }}/Documents/Code"
     - "{{ user_home_dir }}/Documents/Code/Personal"
     - "{{ user_home_dir }}/Documents/Code/Work"
+    - "{{ user_home_dir }}/Documents/Private"
   tags:
    - configurations
    - directories
@@ -50,7 +51,8 @@
     owner: "{{ user_name }}"
     group: "{{ user_name }}"
     mode: '0755'
-    #backup: yes
+    diff: yes
+    backup: yes
   tags:
    - configurations
    - dotconfig

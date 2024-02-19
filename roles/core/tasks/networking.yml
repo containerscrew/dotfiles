@@ -15,12 +15,6 @@
     - core
     - networking
 
-# - name: Display interface name
-#   debug:
-#     var: interface_name
-#   tags:
-#     - core
-#     - networking
 
 ### Copy macchanger systemd service ###
 - name: Copy macchanger systemd service
