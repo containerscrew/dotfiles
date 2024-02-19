@@ -91,3 +91,4 @@ blueman
 wireguard
 wireguard-tools
 macchanger
+7zip

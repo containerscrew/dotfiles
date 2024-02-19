@@ -17,8 +17,9 @@
   with_items:
     - core
     - snap-store
-    - bitwarden
     - code
+    - discord
+    - spotify
   tags:
     - core
     - packages
