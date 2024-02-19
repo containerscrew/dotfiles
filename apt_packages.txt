@@ -96,3 +96,5 @@ ipcalc
 gnome-calculator
 network-manager-gnome
 diodon
+grub-theme-breeze
+grub2-common

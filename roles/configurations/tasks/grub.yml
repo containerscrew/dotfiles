@@ -1,0 +1,17 @@
+- name: MOdify /etc/default/grub
+  ansible.builtin.lineinfile:
+    path: /etc/default/grub
+    regexp: '^GRUB_THEME=='
+    line: 'GRUB_THEME="/usr/share/grub/themes/breeze/theme.txt"'
+  tags:
+    - configurations
+    - grub
+
+- name: Ejecutar update-grub
+  ansible.builtin.command:
+    cmd: update-grub
+  tags:
+   - configurations
+   - grub
+
+

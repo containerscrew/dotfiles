@@ -139,3 +139,6 @@
 
 - name: "Setup podman"
   import_tasks: podman.yml
+
+- name: "Setup grub theme and other configurations"
+  import_tasks: grub.yml
