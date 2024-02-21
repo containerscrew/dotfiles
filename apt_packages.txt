@@ -77,7 +77,6 @@ libayatana-appindicator3-1
 vpnc
 gnome-calendar
 flameshot
-systemd-resolved
 exfat-fuse
 gparted 
 gnome-disk-utility
@@ -98,3 +97,15 @@ network-manager-gnome
 diodon
 grub-theme-breeze
 grub2-common
+autorandr
+libevdev-dev
+libudev-dev
+libconfig++-dev
+fonts-noto-color-emoji
+logiops
+libglib2.0-dev
+dnsutils
+whois
+keepass2
+systemd-resolved
+caffeine

@@ -1,17 +1,26 @@
-- name: MOdify /etc/default/grub
+- name: Modify /etc/default/grub theme
   ansible.builtin.lineinfile:
     path: /etc/default/grub
-    regexp: '^GRUB_THEME=='
-    line: 'GRUB_THEME="/usr/share/grub/themes/breeze/theme.txt"'
+    regexp: '^GRUB_THEME='
+    line: '#GRUB_THEME="/boot/efi/grub/themes/starfield/theme.txt"'
   tags:
     - configurations
     - grub
 
-- name: Ejecutar update-grub
+- name: Modify /etc/default/grub cmd_linux_default
+  ansible.builtin.lineinfile:
+    path: /etc/default/grub
+    regexp: '^GRUB_CMDLINE_LINUX_DEFAULT='
+    line: 'GRUB_CMDLINE_LINUX_DEFAULT="quiet"' #splash
+  tags:
+    - configurations
+    - grub
+
+#GRUB_GFXMODE=1280x800
+
+- name: Run update-grub
   ansible.builtin.command:
     cmd: update-grub
   tags:
    - configurations
    - grub
-
-

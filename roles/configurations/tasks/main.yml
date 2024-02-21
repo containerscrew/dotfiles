@@ -65,11 +65,13 @@
     remote_src: false
     owner: "{{ user_name }}"
     group: "{{ user_name }}"
+    exclude: "{{ user_home_dir }}/.config/fish/functions"
     mode: '0755'
     #backup: yes
   tags:
    - configurations
    - dotconfig
+
 
 - name: Copy custom binaries to ~/.local/bin
   ansible.builtin.copy:

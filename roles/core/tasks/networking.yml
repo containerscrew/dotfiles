@@ -35,6 +35,7 @@
    - networking
 
 ### Setup network-manager ###
+### Connection will be lost ###
 - name: Modify network manager
   replace:
     path: /etc/NetworkManager/NetworkManager.conf
@@ -49,6 +50,8 @@
     src: misc/interfaces
     dest: "/etc/network/interfaces"
     remote_src: false
+    backup: true
+  no_log: true
   tags:
    - core
    - networking

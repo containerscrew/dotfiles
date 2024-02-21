@@ -10,10 +10,8 @@
 
 ```shell
 su -
-apt-get update
-apt-get install sudo openssh-server -y
-usermod -aG sudo dcr
-systemctl start sshd
+apt-get install sshpass sudo binutils build-essential dnsutils -y
+usermod -aG sudo USER_NAME
 ```
 
 
