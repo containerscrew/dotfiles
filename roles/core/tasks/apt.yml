@@ -1,3 +1,16 @@
+### Add backports repo to sources.list
+- name: Add source repository into sources list
+  ansible.builtin.apt_repository:
+    repo: "{{ item }}"
+    state: present
+    filename: bookworm-additional
+  with_items:
+    - deb http://deb.debian.org/debian bullseye-backports main contrib non-free
+    - deb-src http://deb.debian.org/debian bullseye-backports main contrib non-free
+  tags:
+    - core
+    - packages
+
 ### Chrome
 - name: Google chrome gpg signing key
   ansible.builtin.apt_key:
@@ -47,6 +60,34 @@
   tags:
     - core
     - packages
+
+### Hashicorp
+# - name: Download Hashicorp GPG key
+#   ansible.builtin.get_url:
+#     url: https://apt.releases.hashicorp.com/gpg
+#     dest: /tmp/hashicorp-archive-keyring.gpg
+#   tags:
+#     - core
+#     - packages
+
+# - name: Import Hashicorp GPG key
+#   ansible.builtin.shell: 
+#     cmd: "sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg /tmp/hashicorp-archive-keyring.gpg"
+#     creates: /usr/share/keyrings/hashicorp-archive-keyring.gpg
+#   tags:
+#     - core
+#     - packages
+
+# - name: Add Hashicorp
+#   ansible.builtin.lineinfile:
+#     path: /etc/apt/sources.list.d/hashicorp.list
+#     line: "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com {{ ansible_distribution_release }} main"
+#     create: yes
+#     state: present
+#   tags:
+#     - core
+#     - packages
+
 
 ## Core packages
 - name:  Install the following packages {{ apt_package_list }} through apt

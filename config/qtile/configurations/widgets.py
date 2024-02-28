@@ -73,6 +73,7 @@ class MyWidgets:
                     text_closed="󰮯",
                     text_open="󰊠",
                     widgets=[
+                        widget.Systray(),
                             widget.StatusNotifier(
                             icon_theme="Papirus-Dark"
                         ),
@@ -106,7 +107,7 @@ class MyWidgets:
                     ]
                 )
     def volume(self):
-        return widget.PulseVolume(
+        return widget.Volume(
             **widget_base(bg=Colors.violet, fg=Colors.background, f="FontAwesome"),
             emoji=True,
             emoji_list=['', '', '', ''],

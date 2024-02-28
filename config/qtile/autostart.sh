@@ -24,6 +24,6 @@ light-locker &
 
 # Other apps for systray
 #udiskie -t &
-#nm-applet &
+nm-applet &
 #volumeicon &
 #cbatticon &

@@ -109,3 +109,13 @@ whois
 keepass2
 systemd-resolved
 caffeine
+golang-1.21
+kubectx
+kubecolor
+kubetail
+kubernetes-client
+terraform=1.3.3
+terraform-ls
+pre-commit
+qtpass
+acpid

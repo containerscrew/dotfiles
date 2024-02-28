@@ -2,8 +2,8 @@
 - name: "Apt packages"
   import_tasks: apt.yml
 
-- name: "Networking"
-  import_tasks: networking.yml
+# - name: "Networking"
+#   import_tasks: networking.yml
 
 - name: "Npm packages"
   import_tasks: npm.yml

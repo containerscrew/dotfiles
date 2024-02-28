@@ -51,8 +51,7 @@
     owner: "{{ user_name }}"
     group: "{{ user_name }}"
     mode: '0755'
-    diff: yes
-    backup: yes
+    #backup: yes
   tags:
    - configurations
    - dotconfig

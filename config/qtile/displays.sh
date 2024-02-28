@@ -9,7 +9,6 @@ lid_state=$(cat /proc/acpi/button/lid/LID0/state | awk '{print $2}')
 echo "Laptop screen is $lid_state"
 
 case $lid_state in
-
   closed)
     xrandr --output eDP-1 --off --output DP-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output DP-2 --mode 1920x1080 --pos 1920x0 --rotate right
     ;;

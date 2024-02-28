@@ -20,6 +20,9 @@
     - code
     - discord
     - spotify
+    - signal-desktop
+    - kubectl
+    - zoom-client
   tags:
     - core
     - packages

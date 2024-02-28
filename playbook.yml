@@ -1,6 +1,6 @@
 ---
 - name: Provision Desktop Environment
-  hosts: remote-machine
+  hosts: local
   become: true
   vars_files:
     - vars.yml
