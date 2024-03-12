@@ -39,9 +39,9 @@ class MyWidgets:
 
     def system_logo(self):
         return widget.TextBox(
-                     **widget_base(fs=18, p=10,fg=Colors.purple),
+                     **widget_base(fs=18, p=10,fg=Colors.lightblue),
                     mouse_callbacks={'Button1': lazy.spawn('eww open --toggle profilecard --duration 5s')},
-                    text = "",
+                    text = "󰣇",
         )
 
     def window_name(self):
@@ -107,7 +107,7 @@ class MyWidgets:
                     ]
                 )
     def volume(self):
-        return widget.Volume(
+        return widget.PulseVolume(
             **widget_base(bg=Colors.violet, fg=Colors.background, f="FontAwesome"),
             emoji=True,
             emoji_list=['', '', '', ''],

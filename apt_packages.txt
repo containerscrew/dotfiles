@@ -43,7 +43,6 @@ fzf
 brightnessctl
 webp-pixbuf-loader
 net-tools
-thunar
 htop
 xclip
 pass
@@ -119,3 +118,16 @@ terraform-ls
 pre-commit
 qtpass
 acpid
+nautilus
+libsqlite3-dev
+sqlitebrowser
+ruby
+libcurl4-openssl-dev
+libxml2
+libxml2-dev
+libxslt1-dev
+ruby-dev
+libgmp-dev
+zlib1g-dev
+torbrowser-launcher
+lxpolkit

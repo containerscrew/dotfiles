@@ -93,6 +93,8 @@ First setps after installation. Remove the usb from your computer and restart. G
 
 ```shell
 $ nmcli device wifi connect SSID_or_BSSID password SSID/BSSID-PASSWORD
+# or use
+$ nmcli device wifi connect -a
 $ history -c
 ```
 
@@ -120,10 +122,10 @@ $ ansible-playbook -i inventory.ini playbook.yml
 ### Option 2: Copy dotfiles from another computer
 
 ```shell
-# Clone first the repo dotfiles from your other laptop.
-# Then, copy the folder dotfiles to the remote laptop
-$ sudo systemctl start sshd
-$ rsync -avzh --exclude='.git/' dotfiles/ username@192.168.X.X:/tmp/
+$ cd /tmp
+$ git clone https://github.com/containerscrew/dotfiles.git
+$ sudo systemctl start sshd # destination laptop
+$ rsync -avzh --exclude='.git/' dotfiles/ username@192.168.X.X:/tmp/dotfiles/
 ```
 
 # DOTFILES installation

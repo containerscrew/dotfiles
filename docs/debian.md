@@ -56,3 +56,19 @@ https://wiki.debian.org/NetworkManager
 ```shell
 openssl s_client -connect ejemplo.com:443 -showcerts </dev/null 2>/dev/null | openssl x509 -outform PEM > servidor.crt
 ```
+
+# Metasploit 
+
+```shell
+curl -fsSL https://apt.metasploit.com/metasploit-framework.gpg.key | sudo gpg --dearmor | sudo tee /usr/share/keyrings/metasploit.gpg > /dev/null
+echo "deb [signed-by=/usr/share/keyrings/metasploit.gpg] https://apt.metasploit.com/ buster main" | sudo tee /etc/apt/sources.list.d/metasploit.list
+sudo apt update
+sudo apt install metasploit-framework
+```
+
+# Install kali sources list
+
+```shell
+deb http://http.kali.org/kali kali-rolling main contrib non-free in /etc/apt/sources.list
+
+```

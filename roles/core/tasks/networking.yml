@@ -15,7 +15,6 @@
     - core
     - networking
 
-
 ### Copy macchanger systemd service ###
 - name: Copy macchanger systemd service
   ansible.builtin.copy:

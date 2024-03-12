@@ -7,3 +7,5 @@
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 # Some initial experiments with bspwm (before going to Qtile)
+
+# Some ansible tasks (not finished) for debian12 using qtile too

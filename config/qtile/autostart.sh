@@ -21,6 +21,8 @@ light-locker &
 # Launch polkit
 #pidof -q polkitd || { /usr/bin/lxqt-policykit-agent & }
 
+# Debian 12
+lxpolkit &
 
 # Other apps for systray
 #udiskie -t &
