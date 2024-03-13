@@ -2,8 +2,10 @@
 
 # First stop private vpn (ProtonVPN)
 sudo systemctl stop wg-quick@protonvpn.service
+sleep 1
 # Connect work vpn
 sudo vpnc work
+sleep 1
 # Start again private VPN
 sudo systemctl start wg-quick@protonvpn.service
 # For custom domains to search using you work vpn (search internal endpoints)

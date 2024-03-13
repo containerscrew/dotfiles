@@ -1,4 +1,4 @@
-#! /usr/bin/env bash
+#! /bin/bash
 
 # Don't run this script as root
 if [ "$(id -u)" = 0 ]; then
@@ -9,117 +9,41 @@ fi
 # Stop script if errors
 set -euo pipefail #x
 
-# Define ANSI colors
-RED='\033[0;31m'
-YELLOW='\033[1;33m'
-GREEN='\033[0;32m'
-BLUE='\033[0;34m'
-NC='\033[0m'
+############### SOURCE FILES ###############
+source installation/banner.sh
+source installation/logger.sh
+############### SOURCE FILES ###############
 
-# Logger
-log_message() {
-    local color=""
-    local message_type="$1"
-    local message="$2"
-
-    case "$message_type" in
-        "error")
-            color="$RED"
-            ;;
-        "warning")
-            color="$YELLOW"
-            ;;
-        "info")
-            color="$GREEN"
-            ;;
-        *)
-            echo "Unknown message type: $message_type"
-            return 1
-            ;;
-    esac
-
-    echo -e "[${color}${message_type}]${NC} $message"
-}
-
-
-# Banner
-print_ascii_banner() {
-    echo -e "${BLUE}
-                    /-
-                   ooo:
-                  yoooo/
-                 yooooooo
-                yooooooooo
-               yooooooooooo
-             .yooooooooooooo
-            .oooooooooooooooo          Welcome to my dotfiles!
-           .oooooooarcoooooooo         author: github.com/containerscrew
-          .ooooooooo-oooooooooo
-         .ooooooooo-  oooooooooo
-        :ooooooooo.    :ooooooooo
-       :ooooooooo.      :ooooooooo
-      :oooarcooo         .oooarcooo
-     :ooooooooy           .ooooooooo
-    :ooooooooo   /ooooooooooooooooooo
-   :ooooooooo      .-ooooooooooooooooo.
-  ooooooooo-             -ooooooooooooo.
- ooooooooo-                 .-oooooooooo.
-ooooooooo.                     -ooooooooo
-${NC}"
-}
-
+############### BANNER ###############
 print_ascii_banner
-
-#################### CUSTOM FUNCTIONS ####################
-# This function checks if binary exists in the system
-check_binary() {
-    binary="$1"
-    if ! command -v "$binary" &> /dev/null; then
-        log_message "error" "$binary not found in system, install it!"
-        return 1
-    else
-        log_message "info" "Command $binary exists. Skipping installation..."
-        return 0
-    fi
-}
-
-clean(){
-  log_message "warning" "Cleaning $1"
-  sudo rm -rf "$1"
-}
-#################### CUSTOM FUNCTIONS ####################
-
-# Sudo is needed
-# pacman -S sudo and add the corresponding user to the sudo group. $ usermod -aG sudo USERNAME
-check_binary "sudo"
-
-# Username of your laptop
-#username=$(whoami)
+############### BANNER ###############
 
 ############### SYSTEM PACKAGES ###############
-log_message "info" "Installing pacman packages..."
-# Paru for AUR packages
-if ! check_binary "paru"; then
-    tmpdir=$(mktemp -d)
-    cd "$tmpdir"
-    git clone https://aur.archlinux.org/paru-bin.git
-    cd paru-bin || exit
-    makepkg -si --noconfirm
-    clean "$tmpdir"
-fi
-./installation/install_packages.sh
+log_message "info" "Installing packages..."
+./installation/packages.sh
 ############### SYSTEM PACKAGES ###############
 
+############### USER CONFIG ###############
+log_message "info" "User configurations..."
+./installation/user_config.sh
+############### USER CONFIG ###############
+
+############### POWER CONFIG ###############
+./installation/power_config.sh
+############### POWER CONFIG ###############
+
+############### DISPLAY MANAGER ###############
+log_message "info" "Setup display manager..."
+sudo systemctl enable lightdm.service --now
+############### DISPLAY MANAGER ###############
+
+############### NETWORKING, DNS, FIREWALL ###############
+log_message "info" "Setup networking, dns, firewall..."
+./installation/networking.sh
+############### NETWORKING, DNS, FIREWALL ###############
 
 
 
-
-
-
-## sudo systemctl disable lightdm
-## sudo pacman -Rns lightdm lightdm-gtk-greeter lightdm-webkit2-greeter
-#sudo systemctl enable sddm.service
-#
 ## DNS settings
 #sudo ln -sf ../run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
 #sudo systemctl restart systemd-resolved
@@ -139,18 +63,6 @@ fi
 ## Enable systemd-resolved.service service necessary for wireguard (wg-quick)
 #sudo systemctl enable systemd-resolved.service --now
 #
-## Security tools
-#log_message "info" "Installing security tools..."
-#sudo pacman -Sy --noconfirm --needed nmap ufw
-#
-## Enable firewall
-#sudo systemctl enable ufw --now
-#sudo ufw default deny incoming
-#sudo ufw default allow outgoing
-##sudo ufw logging on
-#sudo ufw enable
-##sudo ufw reload
-##sudo ufw status verbose
 #
 ## Installing DevOps tooling
 #log_message "info" "Installing DevOps tooling..."
@@ -189,30 +101,8 @@ fi
 ### You cant to continue? There are changes from your config in git and your local!!! :)
 ### DO you want to create a backup?
 #cp -R config/* $HOME/.config/
-#
-## Copy bin/ scripts/binaries
-#cp -R bin/* $HOME/.local/bin
-#chmod +x $HOME/.local/bin/*
-#
-## # Function to clean tmp directories
-#clean(){
-#  log_message "warning" "Cleaning $1"
-#  sudo rm -rf "$1"
-#}
-#
-## Install paru for AUR packages
-#log_message "info" "Installing paru AUR package manager..."
-#
-#if ! command -v "paru" &> /dev/null ; then
-#    tmpdir=$(mktemp -d)
-#    cd "$tmpdir"
-#    git clone https://aur.archlinux.org/paru-bin.git
-#    cd paru-bin || exit
-#    makepkg -si --noconfirm
-#    clean "$tmpdir"
-#else
-#    log_message "info" "Command exists. Skipping installation..."
-#fi
+
+
 #
 ## Install other packages with paru
 #log_message "info" "Installing some packages from AUR..."
@@ -239,18 +129,6 @@ fi
 #if [ ! -f "$HOME/.config/fish/functions/git-containerscrew.fish" ]; then cp misc/git-containerscrew.fish "$HOME/.config/fish/functions/git-containerscrew.fish"; fi
 #if [ ! -f "$HOME/.config/fish/functions/git-work.fish" ]; then cp misc/git-work.fish "$HOME/.config/fish/functions/git-work.fish"; fi
 #
-#
-#log_message "info" "Installing blackarch repository..."
-#if pacman -Slq | grep -q blackarch; then
-#    log_message "info" "Blackarch repository already installed. Skipping installation..."
-#else
-#    tmpdir=$(mktemp -d)
-#    cd "$tmpdir"
-#    curl -O https://blackarch.org/strap.sh
-#    chmod +x strap.sh
-#    sudo ./strap.sh
-#    clean "$tmpdir"
-#fi
 #
 ## Install eww
 #if ! command -v "eww" &> /dev/null ; then
@@ -285,11 +163,7 @@ fi
 #
 ## Fc cache
 #fc-cache -fv
-#
-## Change MAC address
-#sudo cp misc/macspoof@.service /etc/systemd/system/macspoof@.service
-#interface_name=$(ip link show | grep wl | awk '{print $2}' | sed 's/.$//')
-#sudo systemctl enable macspoof@$interface_name.service
+
 #
 ## GTK theme
 ##https://www.gnome-look.org/p/1267246

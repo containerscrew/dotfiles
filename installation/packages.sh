@@ -1,7 +1,25 @@
 #! /bin/bash
 
 set -euo pipefail
+source installation/logger.sh
 
+check_binary() {
+    binary="$1"
+    if ! command -v "$binary" &> /dev/null; then
+        log_message "error" "$binary not found in system, install it!"
+        return 1
+    else
+        log_message "info" "Command $binary exists. Skipping installation..."
+        return 0
+    fi
+}
+
+clean(){
+  log_message "warning" "Cleaning $1"
+  sudo rm -rf "$1"
+}
+
+log_message "info" "Installing pacman packages..."
 sudo pacman -Syu --noconfirm --needed base-devel rustup picom \
             dunst feh alacritty jq git papirus-icon-theme rofi \
             xorg-xprop xorg-xkill xorg-xsetroot xorg-xwininfo xorg-xrandr \
@@ -22,9 +40,33 @@ sudo pacman -Syu --noconfirm --needed base-devel rustup picom \
             gparted gnome-disk-utility tumbler vlc ffmpeg torbrowser-launcher \
             starship unzip vi gtk4 peek vlc flameshot python-boto3 \
             tmux xclip xfce4-power-manager pass okular geeqie websocat \
-            npm
+            npm ufw nmap acpid
 
+# Paru for AUR packages
+if ! check_binary "paru"; then
+    tmpdir=$(mktemp -d)
+    cd "$tmpdir"
+    git clone https://aur.archlinux.org/paru-bin.git
+    cd paru-bin || exit
+    makepkg -si --noconfirm
+    clean "$tmpdir"
+fi
+
+log_message "info" "Installing paru packages..."
 #-Sccd --skipreview --noconfirm
 paru -S --skipreview --noconfirm --needed jetbrains-toolbox coreimage qtile-extras python-pulsectl-asyncio mkdocs \
         mkdocs-rss-plugin mkdocs-material slack-desktop gitleaks procs gosec aws-session-manager-plugin  \
         ttf-font-awesome brave-bin insomnia ttf-gentium-basic
+
+
+log_message "info" "Installing blackarch repository..."
+if pacman -Slq | grep -q blackarch; then
+    log_message "info" "Blackarch repository already installed. Skipping installation..."
+else
+    tmpdir=$(mktemp -d)
+    cd "$tmpdir"
+    curl -O https://blackarch.org/strap.sh
+    chmod +x strap.sh
+    sudo ./strap.sh
+    clean "$tmpdir"
+fi
