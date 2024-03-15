@@ -10,8 +10,8 @@ fi
 set -euo pipefail #x
 
 ############### SOURCE FILES ###############
-source installation/banner.sh
-source installation/logger.sh
+source installers/banner.sh
+source installers/logger.sh
 ############### SOURCE FILES ###############
 
 ############### BANNER ###############
@@ -19,28 +19,33 @@ print_ascii_banner
 ############### BANNER ###############
 
 ############### SYSTEM PACKAGES ###############
-log_message "info" "Installing packages..."
-./installation/packages.sh
+log_message "info" "Installing packages"
+./installers/packages.sh
 ############### SYSTEM PACKAGES ###############
 
 ############### USER CONFIG ###############
-log_message "info" "User configurations..."
-./installation/user_config.sh
+log_message "info" "User configurations"
+./installers/user_config.sh
 ############### USER CONFIG ###############
 
 ############### POWER CONFIG ###############
-./installation/power_config.sh
+./installers/power_config.sh
 ############### POWER CONFIG ###############
 
 ############### DISPLAY MANAGER ###############
-log_message "info" "Setup display manager..."
+log_message "info" "Setup display manager"
 sudo systemctl enable lightdm.service --now
 ############### DISPLAY MANAGER ###############
 
 ############### NETWORKING, DNS, FIREWALL ###############
-log_message "info" "Setup networking, dns, firewall..."
-./installation/networking.sh
+log_message "info" "Setup networking, dns, firewall"
+./installers/networking.sh
 ############### NETWORKING, DNS, FIREWALL ###############
+
+############### RESTART DISPLAY MANAGER ###############
+sudo systemctl restart lightdm
+############### RESTART DISPLAY MANAGER ###############
+
 
 
 
@@ -75,10 +80,6 @@ log_message "info" "Setup networking, dns, firewall..."
 #log_message "info" "Starting bluetooh service..."
 #sudo systemctl enable bluetooth --now
 #
-## Copy wallpapers
-#log_message "info" "Copying wallpapers to /usr/share/backgrounds..."
-#sudo mkdir -p /usr/share/backgrounds
-#sudo cp -aR wallpapers/* /usr/share/backgrounds/
 #
 #
 ## Create default user home directories

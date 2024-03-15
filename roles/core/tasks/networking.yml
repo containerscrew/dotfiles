@@ -75,7 +75,7 @@
    - core
    - networking
 
-- name: Configurar la red inalámbrica con nmcli
+- name: Setup nmcli
   become: true
   become_user: "{{ user_name }}"
   command: "nmcli device wifi connect '{{ wpa_ssid }}' password '{{ wpa_psk }}'"

@@ -95,7 +95,7 @@ wl_input_rules = None
 @hook.subscribe.startup
 def start_once():
     home = os.path.expanduser('~')
-    subprocess.call([home + '/.config/qtile/displays.sh'])
+    subprocess.call([home + '/.local/bin/autoarrange.sh'])
 
 
 # Only start once, even if you restart QTILE config

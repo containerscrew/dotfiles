@@ -1,0 +1,6 @@
+Host XXXXX XXXXXX
+  #HostName XXXXXX
+  User git
+  Port 22
+  AddKeysToAgent yes
+  IdentityFile ~/.ssh/work/work.pem
