@@ -6,10 +6,21 @@ source installers/logger.sh
 check_binary() {
     binary="$1"
     if ! command -v "$binary" &> /dev/null; then
-        log_message "error" "$binary not found in system, install it!"
+        log_message "warning" "$binary not found in system, will be installed!"
         return 1
     else
-        log_message "info" "Command $binary exists. Skipping installation"
+        log_message "warning" "Binary $binary exists. Do you want to reinstall it? [y/n] (default n)"
+        read answer
+
+        if [ -z "$answer" ]; then
+          answer="n"
+        fi
+
+        if [ "$answer" == "y" ]; then
+          return 1
+        else
+          log_message "info" "Skipping installation of $binary"
+        fi
         return 0
     fi
 }
@@ -40,7 +51,9 @@ sudo pacman -Syu --noconfirm --needed base-devel rustup picom \
             gparted gnome-disk-utility tumbler vlc ffmpeg torbrowser-launcher \
             starship unzip vi gtk4 peek vlc flameshot python-boto3 \
             tmux xclip xfce4-power-manager pass okular geeqie websocat \
-            npm ufw nmap acpid terminator
+            npm ufw nmap acpid terminator podman-docker \
+            aardvark-dns netavark podman podman-compose aws-cli-v2 \
+            kubectl helm go minikube
 
 # Paru for AUR packages
 if ! check_binary "paru"; then
@@ -53,11 +66,13 @@ if ! check_binary "paru"; then
 fi
 
 log_message "info" "Installing paru packages"
-#-Sccd --skipreview --noconfirm
-paru -Sccd --skipreview --noconfirm --needed jetbrains-toolbox coreimage qtile-extras python-pulsectl-asyncio mkdocs \
+#paru -Sccd --skipreview --noconfirm
+paru -S --skipreview --noconfirm --needed jetbrains-toolbox coreimage qtile-extras python-pulsectl-asyncio mkdocs \
         mkdocs-rss-plugin mkdocs-material slack-desktop gitleaks procs gosec aws-session-manager-plugin  \
-        ttf-font-awesome brave-bin insomnia ttf-gentium-basic
+        ttf-font-awesome brave-bin insomnia ttf-gentium-basic golangci-lint kubectx terraform-docs \
+        podman-dnsname
 
+#terragrunt tfenv <--- conflicting
 
 log_message "info" "Installing blackarch repository"
 if pacman -Slq | grep -q blackarch; then
@@ -68,5 +83,16 @@ else
     curl -O https://blackarch.org/strap.sh
     chmod +x strap.sh
     sudo ./strap.sh
+    clean "$tmpdir"
+fi
+
+# EWW for widgets
+if ! check_binary "eww"; then
+    tmpdir=$(mktemp -d)
+    cd "$tmpdir"
+    git clone https://github.com/elkowar/eww
+    cd eww
+    cargo build --release --no-default-features --features x11
+    sudo install -m 755 "target/release/eww" -t /usr/bin/
     clean "$tmpdir"
 fi

@@ -43,6 +43,7 @@ log_message "info" "Setup networking, dns, firewall"
 ############### NETWORKING, DNS, FIREWALL ###############
 
 ############### RESTART DISPLAY MANAGER ###############
+log_message "info" "Restarting lightdm service. Bye!"
 sudo systemctl restart lightdm
 ############### RESTART DISPLAY MANAGER ###############
 
@@ -131,19 +132,7 @@ sudo systemctl restart lightdm
 #if [ ! -f "$HOME/.config/fish/functions/git-work.fish" ]; then cp misc/git-work.fish "$HOME/.config/fish/functions/git-work.fish"; fi
 #
 #
-## Install eww
-#if ! command -v "eww" &> /dev/null ; then
-#    tmpdir=$(mktemp -d)
-#    cd "$tmpdir"
-#    git clone https://github.com/elkowar/eww
-#    cd eww
-#    cargo build --release --no-default-features --features x11
-#    sudo install -m 755 "target/release/eww" -t /usr/bin/
-#    clean "$tmpdir"
-#else
-#    log_message "info" "Command eww exists. Skipping installation...":
-#fi
-#
+
 ## Setup shikai theme
 ##log_message "info" "Setting up shikai lightdm theme..."
 ## # Backup existing config
