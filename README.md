@@ -128,6 +128,15 @@ $ sudo systemctl start sshd # destination laptop
 $ rsync -avzh --exclude='.git/' dotfiles/ username@192.168.X.X:/tmp/dotfiles/
 ```
 
+### Only copy ~/.config files
+
+```shell
+cd dotfiles/
+rsync -avzhu config/* username@192.168.X.X:/home/username/.config/
+# Or locally
+rsync -avzhu config/* /home/username/.config/
+```
+
 # DOTFILES installation
 
 Let's install all **my necessary packages and configs**

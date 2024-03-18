@@ -36,11 +36,8 @@ chmod +x "$HOME"/.local/bin/*
 log_message "info" "Adding new custom path file to /etc/profile.d/"
 sudo cp etc/profile.d/custom-path.sh /etc/profile.d/custom-path.sh
 
-#log_message "info" "Diff ~/.config files..."
-#diff -qr config/ "$HOME"/.config/ >/dev/null 2>&1 | sort
-
 log_message "info" "Copying ~/.config files"
-cp -r config/* "$HOME"/.config/
+sudo rsync -avzhu --backup --suffix="$(date +'.%F_%H-%M')" config/* "$HOME"/.config/
 
 log_message "info" "Setup fish shell as a default shell for user $USER"
 sudo chsh -s "$(which fish)" "$USER"

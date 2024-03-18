@@ -23,6 +23,11 @@ log_message "info" "Installing packages"
 ./installers/packages.sh
 ############### SYSTEM PACKAGES ###############
 
+############### CORE CONFIG ###############
+log_message "info" "Installing packages"
+./installers/core_config.sh
+############### CORE CONFIG ###############
+
 ############### USER CONFIG ###############
 log_message "info" "User configurations"
 ./installers/user_config.sh
@@ -32,22 +37,15 @@ log_message "info" "User configurations"
 ./installers/power_config.sh
 ############### POWER CONFIG ###############
 
-############### DISPLAY MANAGER ###############
-log_message "info" "Setup display manager"
-sudo systemctl enable lightdm.service --now
-############### DISPLAY MANAGER ###############
-
 ############### NETWORKING, DNS, FIREWALL ###############
 log_message "info" "Setup networking, dns, firewall"
 ./installers/networking.sh
 ############### NETWORKING, DNS, FIREWALL ###############
 
-############### RESTART DISPLAY MANAGER ###############
-log_message "info" "Restarting lightdm service. Bye!"
-sudo systemctl restart lightdm
-############### RESTART DISPLAY MANAGER ###############
-
-
+############### DISPLAY MANAGER ###############
+log_message "info" "Setup display manager"
+./installers/display-manager.sh
+############### DISPLAY MANAGER ###############
 
 
 ## DNS settings
@@ -77,73 +75,7 @@ sudo systemctl restart lightdm
 ## Enable TOR
 #sudo systemctl enable tor.service --now
 #
-## Start bluetooth service
-#log_message "info" "Starting bluetooh service..."
-#sudo systemctl enable bluetooth --now
-#
-#
-#
-## Create default user home directories
-#log_message "info" "Creating default user home directories..."
-#if ! test -f  "$HOME/.config/user-dirs.dirs" ; then
-#    xdg-user-dirs-update
-#    mkdir -p $HOME/.ssh $HOME/.kube $HOME/.aws $HOME/.themes $HOME/.icons $HOME/.local/bin $HOME/Documents/Code \
-#            $HOME/Documents/Code/Work $HOME/Documents/Code/Personal $HOME/Documents/Code/Work $HOME/Documents/Private \
-#            $HOME/Documents/Code/Work $HOME/Documents/Books
-#else
-#    log_message "info" "User home directories exists. Skipping creation..."
-#fi
-#sleep 2
-#
-## Copy config folders
-## NEED TO IMPLEMENT SOME BACKUP BEFORE INSTALL THAT CUSTOMS FILES
-#
-### IMPORTANTTTTT
-### BEFORE EXECUTE CP, execute a diff
-### You cant to continue? There are changes from your config in git and your local!!! :)
-### DO you want to create a backup?
-#cp -R config/* $HOME/.config/
 
-
-#
-## Install other packages with paru
-#log_message "info" "Installing some packages from AUR..."
-## paru -Sccd
-#paru -Sccd jetbrains-toolbox coreimage qtile-extras python-pulsectl-asyncio mkdocs mkdocs-rss-plugin mkdocs-material \
-#        ttf-font-awesome brave-bin insomnia archlinux-themes-sddm sddm-conf ttf-gentium-basic balena-etcher \
-#        slack-desktop gitleaks procs gosec aws-session-manager-plugin --skipreview --noconfirm --needed
-#
-## web-greeter-theme-shikai
-#
-## Setup fish shell
-## Ansible OK
-#log_message "info" "Setup fish shell..."
-#sudo chsh -s "$(which fish)" "${USERNAME}"
-#mkdir -p "$HOME/.config/fish"
-#mkdir -p "$HOME/.config/fish/functions"
-#[ -f "$HOME"/.config/fish/config.fish ] && cp "$HOME"/.config/fish/config.fish "$HOME"/.config/fish/config.fish.bak
-## Setup fish config
-#cp misc/config.fish "$HOME"/.config/fish/config.fish
-#cp misc/aws-profile.fish "$HOME/.config/fish/functions/"
-#cp misc/tfsum.fish "$HOME/.config/fish/functions/"
-#cp misc/fish_variables "$HOME/.config/fish/fish_variables"
-#cp misc/batdiff.fish "$HOME/.config/fish/functions/"
-#if [ ! -f "$HOME/.config/fish/functions/git-containerscrew.fish" ]; then cp misc/git-containerscrew.fish "$HOME/.config/fish/functions/git-containerscrew.fish"; fi
-#if [ ! -f "$HOME/.config/fish/functions/git-work.fish" ]; then cp misc/git-work.fish "$HOME/.config/fish/functions/git-work.fish"; fi
-#
-#
-
-## Setup shikai theme
-##log_message "info" "Setting up shikai lightdm theme..."
-## # Backup existing config
-##sudo cp /etc/lightdm/lightdm.conf /etc/lightdm/lightdm.conf.bak
-##sudo cp /etc/lightdm/web-greeter.yml /etc/lightdm/web-greeter.yml.bak
-##sudo sed -i 's/theme: .*/theme: shikai/' /etc/lightdm/web-greeter.yml
-##sudo sed -i 's/.*greeter-session=.*/greeter-session=web-greeter/g' /etc/lightdm/lightdm.conf
-##sudo sed -i 's/background_images_dir: .*/background_images_dir: \/usr\/share\/backgrounds/' /etc/lightdm/web-greeter.yml
-##sudo sed -i 's/logo_image: .*/logo_image: \/usr\/share\/web-greeter\/themes\/shikai\/assets\/media\/logos/' /etc/lightdm/web-greeter.yml
-##cp assets/arch-logo.png "$HOME/.face"
-#
 ## Necessary groups for my user
 #sudo usermod -aG video,input,audio,storage,optical,lp,scanner,users "$USERNAME"
 #
@@ -165,15 +97,8 @@ sudo systemctl restart lightdm
 ## VSCODE extensions
 ##log_message "info" "Installing vscode extensions..."
 ##./scripts/vscode-extensions.sh
-#
-## Security
-## sudo cp /etc/pam.d/passwd /etc/pam.d/passwd."$(date +"%Y%m%d_%H%M")".backup
-## sudo cp misc/passwd /etc/pam.d/passwd
-#
-## Etc hosts
-## log_message "info" "Setup /etc/hosts file..."
-## printf "127.0.0.1    localhost \n::1     localhost" | sudo tee -a /etc/hosts
-#
+
+
 ## SSH agent
 ##systemctl --user enable ssh-agent.service --now
 #

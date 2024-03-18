@@ -53,7 +53,7 @@ sudo pacman -Syu --noconfirm --needed base-devel rustup picom \
             tmux xclip xfce4-power-manager pass okular geeqie websocat \
             npm ufw nmap acpid terminator podman-docker \
             aardvark-dns netavark podman podman-compose aws-cli-v2 \
-            kubectl helm go minikube
+            kubectl helm go minikube xorg-server-xephyr
 
 # Paru for AUR packages
 if ! check_binary "paru"; then
@@ -70,9 +70,15 @@ log_message "info" "Installing paru packages"
 paru -S --skipreview --noconfirm --needed jetbrains-toolbox coreimage qtile-extras python-pulsectl-asyncio mkdocs \
         mkdocs-rss-plugin mkdocs-material slack-desktop gitleaks procs gosec aws-session-manager-plugin  \
         ttf-font-awesome brave-bin insomnia ttf-gentium-basic golangci-lint kubectx terraform-docs \
-        podman-dnsname
+        podman-dnsname tfenv web-greeter-theme-shikai
 
-#terragrunt tfenv <--- conflicting
+log_message "info" "Setup tfenv"
+sudo usermod -aG tfenv "${USER}"
+sudo tfenv install 1.5.5
+sudo tfenv use 1.5.5
+
+log_message "info" "Install terragrunt"
+paru -S --skipreview --noconfirm --needed terragrunt
 
 log_message "info" "Installing blackarch repository"
 if pacman -Slq | grep -q blackarch; then
