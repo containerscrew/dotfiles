@@ -40,6 +40,7 @@ screens = [
                 my_widgets.battery(),
                 my_widgets.bluetooth(),
                 sep(fg=Colors.blue, bg=Colors.violet),
+                my_widgets.rfkill_block(),
                 my_widgets.launcher(),
                 my_widgets.clock(),
                 my_widgets.power(),

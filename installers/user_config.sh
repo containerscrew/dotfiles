@@ -17,6 +17,9 @@ user_dirs=(
 "Documents/Books"
 )
 
+log_message "info" "Adding $USER to some groups"
+sudo usermod -aG video,input,audio,storage,optical,lp,scanner,users "$USER"
+
 log_message "info" "Creating default user home directories"
 if ! test -f  "$HOME/.config/user-dirs.dirs" ; then
     xdg-user-dirs-update
@@ -45,3 +48,6 @@ sudo chsh -s "$(which fish)" "$USER"
 log_message "info" "Copying wallpapers to /usr/share/backgrounds..."
 sudo mkdir -p /usr/share/backgrounds
 sudo cp -ar wallpapers/* /usr/share/backgrounds/
+
+log_message "info" "FC cache"
+fc-cache -fv

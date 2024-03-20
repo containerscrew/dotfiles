@@ -1,3 +1,4 @@
+import netifaces as ni
 from libqtile import widget
 from configurations.colors import Colors
 from libqtile.lazy import lazy
@@ -9,6 +10,15 @@ decoration_group = {
         RectDecoration(colour="#708491", radius=10, filled=True, group=True, padding_y=4)
     ],
 }
+
+wlan_interface = None
+
+# Get the name of the wlan interface
+interfaces = ni.interfaces()
+for iface in interfaces:
+    if iface.startswith('wl'):
+        wlan_interface = iface
+        break
 
 
 def widget_base(fs=14, f="JetBrainsMono Nerd Font", p=6, bg=Colors.background, fg=Colors.white):
@@ -124,7 +134,7 @@ class MyWidgets:
         return widget.Wlan(
             **widget_base(bg=Colors.violet, fg=Colors.background),
             format=" ",
-            interface="wlp2s0",
+            interface=wlan_interface,
             mouse_callbacks={'Button1': lazy.spawn(
                 'alacritty --class FloaTerm,Alacritty -o window.dimensions.lines=22 window.dimensions.columns=90 -e nmcli device wifi list')},
         )

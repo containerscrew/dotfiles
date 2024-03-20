@@ -9,8 +9,8 @@ check_binary() {
         log_message "warning" "$binary not found in system, will be installed!"
         return 1
     else
-        log_message "warning" "Binary $binary exists. Do you want to reinstall it? [y/n] (default n)"
-        read answer
+        log_message "warning" "Binary $binary exists. Do you want to reinstall it? [y/n] (default n with 3s of timeout)"
+        read -t 3 answer
 
         if [ -z "$answer" ]; then
           answer="n"
@@ -53,7 +53,8 @@ sudo pacman -Syu --noconfirm --needed base-devel rustup picom \
             tmux xclip xfce4-power-manager pass okular geeqie websocat \
             npm ufw nmap acpid terminator podman-docker \
             aardvark-dns netavark podman podman-compose aws-cli-v2 \
-            kubectl helm go minikube xorg-server-xephyr
+            kubectl helm go minikube xorg-server-xephyr python-netifaces \
+            chromium
 
 # Paru for AUR packages
 if ! check_binary "paru"; then
@@ -70,7 +71,7 @@ log_message "info" "Installing paru packages"
 paru -S --skipreview --noconfirm --needed jetbrains-toolbox coreimage qtile-extras python-pulsectl-asyncio mkdocs \
         mkdocs-rss-plugin mkdocs-material slack-desktop gitleaks procs gosec aws-session-manager-plugin  \
         ttf-font-awesome brave-bin insomnia ttf-gentium-basic golangci-lint kubectx terraform-docs \
-        podman-dnsname tfenv web-greeter-theme-shikai
+        podman-dnsname tfenv web-greeter-theme-shikai kubecolor
 
 log_message "info" "Setup tfenv"
 sudo usermod -aG tfenv "${USER}"
@@ -102,3 +103,37 @@ if ! check_binary "eww"; then
     sudo install -m 755 "target/release/eww" -t /usr/bin/
     clean "$tmpdir"
 fi
+
+# NPM packages
+if ! check_binary "doctoc"; then
+  sudo npm install -g doctoc
+fi
+
+# Custom tools
+if ! check_binary "aws-sso-auth"; then
+  curl --proto '=https' --tlsv1.2 -sSfL https://raw.githubusercontent.com/containerscrew/aws-sso-auth/main/scripts/install.sh | bash
+fi
+
+if ! check_binary "tftools"; then
+  curl --proto '=https' --tlsv1.2 -sSfL https://raw.githubusercontent.com/containerscrew/tftools/main/scripts/install.sh | bash
+fi
+
+if ! check_binary "hey"; then
+  sudo wget https://hey-release.s3.us-east-2.amazonaws.com/hey_linux_amd64 -O /usr/local/bin/hey
+  sudo chmod +x /usr/local/bin/hey
+fi
+
+# Fish
+#if ! check_binary "omf"; then
+#  curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install > /tmp/install
+#  fish /tmp/install
+#fi
+#
+#if ! check_binary "fisher"; then
+#  curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
+#fi
+
+# Plugins
+#omf install https://github.com/jhillyerd/plugin-git
+#omf install https://github.com/blackjid/plugin-kubectl
+#fisher install PatrickF1/fzf.fish

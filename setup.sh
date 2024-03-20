@@ -47,14 +47,6 @@ log_message "info" "Setup display manager"
 ./installers/display-manager.sh
 ############### DISPLAY MANAGER ###############
 
-
-## DNS settings
-#sudo ln -sf ../run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
-#sudo systemctl restart systemd-resolved
-#
-## To be added
-##mpd mpc
-#
 ## Enable mpd service
 ##sudo systemctl enable --now mpd.service
 #
@@ -64,10 +56,7 @@ log_message "info" "Setup display manager"
 #sudo virsh net-autostart default
 #sudo systemctl restart libvirtd
 #
-## Enable systemd-resolved.service service necessary for wireguard (wg-quick)
-#sudo systemctl enable systemd-resolved.service --now
-#
-#
+
 ## Installing DevOps tooling
 #log_message "info" "Installing DevOps tooling..."
 #./scripts/devops_tooling_installer.sh
@@ -76,35 +65,14 @@ log_message "info" "Setup display manager"
 #sudo systemctl enable tor.service --now
 #
 
-## Necessary groups for my user
-#sudo usermod -aG video,input,audio,storage,optical,lp,scanner,users "$USERNAME"
-#
 ## Hibernation and sleep for autolock
 ## /etc/systemd/logind.conf
 ## change --> IdleAction
-#
-## Fc cache
-#fc-cache -fv
-
-#
-## GTK theme
-##https://www.gnome-look.org/p/1267246
-## cp -R misc/Nordic-darker misc/Nordic-darker-v40 misc/Nordic-Folders "$HOME/.themes"
-## gsettings set org.gnome.desktop.interface gtk-theme Nordic-darker
-## gsettings set org.gnome.desktop.wm.preferences theme Nordic-darker
-## gsettings set org.gnome.shell.extensions.user-theme name "Nordic-darker"
-#
-## VSCODE extensions
-##log_message "info" "Installing vscode extensions..."
-##./scripts/vscode-extensions.sh
 
 
 ## SSH agent
 ##systemctl --user enable ssh-agent.service --now
-#
-## Podman
-#sudo cp ./misc/podman-config.conf /etc/containers/registries.conf.d/podman-config.conf
-#
+
 ## Some npm packages
 #if ! command -v "doctoc" &> /dev/null ; then
 #  sudo npm install -g doctoc

@@ -19,4 +19,7 @@ log_message "info" "Setup podman container runtime"
 sudo cp -a misc/podman-config.conf /etc/containers/registries.conf.d/podman-config.conf
 sudo systemctl enable podman
 sudo systemctl restart podman
+# Symlinks for docker, better than creating an alias (in scripting alias will not work)
+sudo ln -fs "$(which podman-compose)" /usr/bin/docker-compose
+sudo ln -fs "$(which podman)" /usr/bin/docker
 ############### PODMAN CONTAINER RUNTIME ###############
