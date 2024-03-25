@@ -73,11 +73,6 @@ log_message "info" "Setup display manager"
 ## SSH agent
 ##systemctl --user enable ssh-agent.service --now
 
-## Some npm packages
-#if ! command -v "doctoc" &> /dev/null ; then
-#  sudo npm install -g doctoc
-#fi
-#
 ## Fish ssh-agent
 #if [ ! -f "$HOME/.config/fish/functions/fish_ssh_agent.fish" ]; then wget https://gitlab.com/kyb/fish_ssh_agent/raw/master/functions/fish_ssh_agent.fish -P ~/.config/fish/functions/; fi
 #
@@ -91,11 +86,3 @@ log_message "info" "Setup display manager"
 #  cp config/tmux/tmux.conf.local "$HOME/.config/tmux/tmux.conf.local"
 #fi
 ##cp "$HOME/.tmux/.tmux.conf.local" "$HOME/.config/tmux/tmux.conf.local"
-#
-#
-## Setup
-## For the end of the script
-##sudo systemctl enable lightdm.service --now
-## https://wiki.archlinux.org/title/SDDM
-#mkdir -p /etc/sddm.conf.d/
-#cp /usr/lib/sddm/sddm.conf.d/default.conf /etc/sddm.conf.d/

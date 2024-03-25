@@ -36,7 +36,7 @@ My dotfiles using Arch Linux. Just for the time it takes to document this reposi
 
 # Disclaimer ⚠️
 
-It is my personal setup, the way I like it, with configurations that are comfortable for me, applications... etc. Use it if you want as a template, as a guide. I will update it as I need to add new packages, configs...etc. Don't use [installer.sh](./installer.sh) every time as it can break your current setup.
+It is my personal setup, the way I like it, with configurations that are comfortable for me, applications... etc. Use it if you want as a template, as a guide. I will update it as I need to add new packages, configs...etc.
 
 > [!IMPORTANT]
 > There are still many things to configure, I will do it as I go. Mouse, trackpad, eww widgets... etc
@@ -67,22 +67,25 @@ archinstall # start installation
 
 ### Considerations in archinstall
 
-| Setting         | Configuration |
-|-----------------|---------------|
-| Locales/Language/Mirros         |US           |
-| Bootloader      | Grub          |
-| Disk Encryption | ALWAYS        |
-| Disk Filesystem | BTRFS         |
-| Swap            | True          |
-| Profile         | Minimal       |
-| User sudoer     | Yes           |
-| Audio           | Pipewire          |
-| Kernels         | Linux          |
-| Additional packages | rsync,openssh,neovim        |
-| Network         | NetworkManager          |
-| UTC             | Europe/Amsterdam          |
-| Optional repos  | None          |
+| Setting                   | Configuration                 |
+|---------------------------|-------------------------------|
+| Locales/Language/Keyboard | US                            |
+| Mirrors                   | Netherlands                   |
+| Bootloader                | Grub                          |
+| Disk Encryption           | ALWAYS                        |
+| Disk Filesystem           | BTRFS                         |
+| Swap                      | True                          |
+| Profile                   | Minimal                       |
+| Root password             | Yes                           |
+| User sudoer               | Yes                           |
+| Audio                     | Pipewire                      |
+| Kernels                   | Linux                         |
+| Additional packages       | rsync,openssh,neovim,curl,git |
+| Network                   | NetworkManager                |
+| UTC                       | Europe/Amsterdam              |
+| Optional repos            | multilib                      |
 
+> The installer will ask if you want to chroot into the system. Type yes and enable ssh (for rsync). `systemctl enable sshd`
 
 ## After installation
 
@@ -98,25 +101,13 @@ $ nmcli device wifi connect -a
 $ history -c
 ```
 
-### Install initial packages
-
-```shell
-$ sudo pacman -Syu openssh rsync neovim ansible ansible-lint --noconfirm
-```
-
 ### Option 1: Download dotfiles from git
 
 ```shell
 $ cd /tmp
 $ git clone https://github.com/containerscrew/dotfiles.git
 $ cd dotfiles
-$ ./installer.sh
-```
-
-## Run ansible
-
-```shell
-$ ansible-playbook -i inventory.ini playbook.yml
+$ bash setup.sh
 ```
 
 ### Option 2: Copy dotfiles from another computer
@@ -124,9 +115,9 @@ $ ansible-playbook -i inventory.ini playbook.yml
 ```shell
 $ cd /tmp
 $ git clone https://github.com/containerscrew/dotfiles.git
-$ sudo systemctl start sshd # destination laptop
 $ rsync -avzh --exclude='.git/' dotfiles/ username@192.168.X.X:/tmp/dotfiles/
 ```
+> openssh must be enabled
 
 ### Only copy ~/.config files
 
@@ -137,37 +128,9 @@ rsync -avzhu config/* username@192.168.X.X:/home/username/.config/
 rsync -avzhu config/* /home/username/.config/
 ```
 
-# DOTFILES installation
+# Run setup.sh
 
-Let's install all **my necessary packages and configs**
-
-## Change wlan interface in QTILE config
-
-Inside [widgets.py](./config/qtile/configurations/widgets.py).
-
-```python
-def wlan(self):
-    return widget.Wlan(
-                **widget_base(bg=Colors.violet, fg=Colors.background),
-                format=" ",
-                interface="wlp2s0", # change here
-                mouse_callbacks={'Button1': lazy.spawn('alacritty --class FloaTerm,Alacritty -o window.dimensions.lines=22 window.dimensions.columns=90 -e nmcli device wifi list')},
-            )
-```
-
-Check your interface name:
-
-```shell
-$ ip link
-```
-
-> [!NOTE]
-> You can automate this process for sure using python code (checking wlan interface name). Well, wlan or ethernet. At the end I'm using a laptop using wifi.
-
-
-## Run installer.sh
-
-[installer.sh](./installer.sh) will install main packages using `pacman` and `paru`. Also will copy all config files in user home, will set some basic configs like `firewall` `lightdm` theme...etc Take a look!
+[setup.sh](./installer.sh) will install main packages using `pacman` and `paru`. Also, will copy all config files in user home, will set some basic configs like `firewall`, `lightdm` theme...etc. Take a look!
 
 
 # Post install
