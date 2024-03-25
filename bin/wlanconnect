@@ -1,4 +1,4 @@
-#!/bin/bash
+#! /bin/bash
 
 # First, list endpoints
 echo -en "Listing available endpoints. Wait...\n"
@@ -10,7 +10,7 @@ read -s -p "Endpoint password: " endpoint_password
 
 # Connect
 echo -en "\nConnecting to $endpoint_name...\n"
-nmcli device wifi connect $endpoint_name password $endpoint_password
+nmcli device wifi connect -a
 
 # Since I'm always using a daemon with my custom vpn (protonvpn)
 # Maybe I will need to restart

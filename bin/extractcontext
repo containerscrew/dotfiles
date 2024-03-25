@@ -1,4 +1,4 @@
-#! /usr/bin/env bash
+#! /bin/bash
 
 current_context=$(kubectl config current-context)
 echo -e "\e[32mExtracting context from $current_context\e[0m"

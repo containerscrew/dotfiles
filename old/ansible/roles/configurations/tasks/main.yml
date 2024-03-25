@@ -1,0 +1,145 @@
+## Linux services
+- name: Set timezone to Europe/Amsterdam
+  community.general.timezone:
+    name: Europe/Amsterdam
+  tags:
+  - configurations
+
+# - name: Verify user-dirs.dirs exists
+#   ansible.builtin.stat:
+#     path: "{{ user_home_dir }}/.config/user-dirs.dirs"
+#   register: user_dirs_file
+#   tags:
+#     - configurations
+#     - directories
+
+- name: Run xdg-user-dirs-update if the file does not exist
+  ansible.builtin.command:
+    cmd: xdg-user-dirs-update
+  #when: not user_dirs_file.stat.exists
+  tags:
+   - configurations
+   - directories
+
+- name: User directories
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: directory
+    owner: "{{ user_name }}"
+    group: "{{ user_name }}"
+    mode: '0755'
+  with_items:
+    - "{{ user_home_dir }}/.local/src"
+    - "{{ user_home_dir }}/.aws"
+    - "{{ user_home_dir }}/.kube"
+    - "{{ user_home_dir }}/.themes"
+    - "{{ user_home_dir }}/.icons"
+    - "{{ user_home_dir }}/.local/bin"
+    - "{{ user_home_dir }}/Documents/Code"
+    - "{{ user_home_dir }}/Documents/Code/Personal"
+    - "{{ user_home_dir }}/Documents/Code/Work"
+    - "{{ user_home_dir }}/Documents/Private"
+  tags:
+   - configurations
+   - directories
+
+- name: Copy dir config to $HOME/.config/
+  ansible.builtin.copy:
+    src: config/
+    dest: "{{ user_home_dir }}/.config/"
+    remote_src: false
+    owner: "{{ user_name }}"
+    group: "{{ user_name }}"
+    mode: '0755'
+    #backup: yes
+  tags:
+   - configurations
+   - dotconfig
+
+
+- name: Copy configurations file that will be edited locally (avoid overwrite)
+  ansible.builtin.copy:
+    src: config/
+    dest: "{{ user_home_dir }}/.config/"
+    remote_src: false
+    owner: "{{ user_name }}"
+    group: "{{ user_name }}"
+    exclude: "{{ user_home_dir }}/.config/fish/functions"
+    mode: '0755'
+    #backup: yes
+  tags:
+   - configurations
+   - dotconfig
+
+
+- name: Copy custom binaries to ~/.local/bin
+  ansible.builtin.copy:
+    src: bin/
+    dest: "{{ user_home_dir }}/.local/bin/"
+    remote_src: false
+    owner: "{{ user_name }}"
+    group: "{{ user_name }}"
+    mode: '0755'
+    #backup: yes
+  tags:
+   - configurations
+   - binaries
+
+- name: Copy wallpapers to /usr/share/backgrounds/
+  ansible.builtin.copy:
+    src: wallpapers/
+    dest: "/usr/share/backgrounds/"
+    remote_src: false
+    #backup: yes
+  tags:
+   - configurations
+   - wallpapers
+
+- name: Delete unnecessary files
+  file:
+    path: "{{ item }}"
+    state: absent
+  with_items:
+    - /usr/lib/python3.11/EXTERNALLY-MANAGED
+
+- name: Install pip3 packages
+  ansible.builtin.pip:
+    name: "{{ item }}"
+  with_items:
+    - qtile
+    - qtile_extras
+    - iwlib
+    - pulsectl-asyncio
+  tags:
+    - configurations
+    - qtile
+
+- name: Copy Qtile xsession config
+  ansible.builtin.copy:
+    src: qtile.desktop
+    dest: "/usr/share/xsessions/qtile.desktop"
+    remote_src: false
+  tags:
+   - configurations
+   - qtile
+
+- name: Download Nerd Fonts
+  ansible.builtin.unarchive:
+    src: https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/JetBrainsMono.zip
+    dest: "/usr/local/share/fonts/"
+    remote_src: yes
+  tags:
+    - configurations
+    - fonts
+
+- name: "User shell"
+  import_tasks: shell.yml
+
+- name: "Setup lightdm"
+  import_tasks: lightdm.yml
+
+- name: "Setup podman"
+  import_tasks: podman.yml
+
+- name: "Setup grub theme and other configurations"
+  import_tasks: grub.yml

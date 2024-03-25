@@ -1,0 +1,5 @@
+Host github.com-containerscrew
+  HostName github.com
+  User containerscrew
+  Port 22
+  IdentityFile ~/.ssh/github-containerscrew/containerscrew.pem

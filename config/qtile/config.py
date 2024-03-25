@@ -40,13 +40,15 @@ screens = [
                 my_widgets.battery(),
                 my_widgets.bluetooth(),
                 sep(fg=Colors.blue, bg=Colors.violet),
+                my_widgets.rfkill_block(),
                 my_widgets.launcher(),
                 my_widgets.clock(),
                 my_widgets.power(),
             ],
-            30,
+            25,
             background=Colors.background,
-            margin=[8, 20, 0, 20],
+            #margin=[8, 20, 0, 20],
+            margin=[0, 0, 0, 0],
         ),
     ),
 ]
@@ -94,7 +96,7 @@ wl_input_rules = None
 @hook.subscribe.startup
 def start_once():
     home = os.path.expanduser('~')
-    subprocess.call([home + '/.config/qtile/displays.sh'])
+    subprocess.call([home + '/.local/bin/autoarrange.sh'])
 
 
 # Only start once, even if you restart QTILE config

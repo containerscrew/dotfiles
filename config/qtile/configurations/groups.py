@@ -8,7 +8,7 @@ from .keys import mod, alt, keys
 # Workspaces
 # Brave, Firefox, Slack, Terminal, Code, Signal, Discord, Spotify, Workspace for other stuff
 groups = [Group(i) for i in [
-    "", "", "", "", "", "", "", "", ""]]
+    "", "", "", "", "", "", "", "", "󰊠"]]
 
 for i, group in enumerate(groups):
     actual_key = str(i + 1)

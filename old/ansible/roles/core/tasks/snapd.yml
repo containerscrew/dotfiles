@@ -1,0 +1,52 @@
+- name: Enable snapd service
+  ansible.builtin.systemd_service:
+   state: started
+   daemon_reload: true
+   name: snapd
+   enabled: true
+  tags:
+    - core
+    - packages
+    - snapd
+
+- name: Snap install packages stable
+  community.general.snap:
+    name: "{{ item }}"
+    channel: latest/stable
+    classic: true
+  with_items:
+    - core
+    - snap-store
+    - code
+    - discord
+    - spotify
+    - signal-desktop
+    - kubectl
+    - zoom-client
+  tags:
+    - core
+    - packages
+    - snapd
+
+# - name: Snap install packages edge
+#   community.general.snap:
+#     name: "{{ item }}"
+#     channel: latest/edge
+#     classic: true
+#   with_items:
+#     - starship
+#   tags:
+#     - core
+#     - packages
+#     - snapd
+
+# System app launcher icons
+- name: Create symbolic link
+  file:
+    src: "/etc/profile.d/apps-bin-path.sh"
+    dest: "/etc/X11/Xsession.d/99snap"
+    state: link
+  tags:
+    - core
+    - packages
+    - snapd

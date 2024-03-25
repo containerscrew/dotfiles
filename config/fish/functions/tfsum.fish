@@ -7,7 +7,7 @@ function tfsum
         # If you don't want full plan output: $argv[1] plan -out plan.tfplan > /dev/null
         $argv[1] plan -out plan.tfplan
         echo -e "\n"
-        $argv[1] show -json plan.tfplan | tftools summarize
+        $argv[1] show -json plan.tfplan | tftools summarize --show-tags
         # Delete plan out file to avoid git tracking (although is included in .gitignore)
         if test -f "plan.tfplan"; rm plan.tfplan; end
     end

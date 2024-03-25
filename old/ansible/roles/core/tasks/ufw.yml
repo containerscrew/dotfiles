@@ -1,0 +1,22 @@
+- name: Deny everything and enable UFW
+  community.general.ufw:
+    state: enabled
+    default: deny
+  tags:
+    - core
+    - firewall
+
+- name: Set logging
+  community.general.ufw:
+    logging: 'on'
+  tags:
+    - core
+    - firewall
+
+# - name: Allow OpenSSH
+#   community.general.ufw:
+#     rule: deny
+#     name: OpenSSH
+#   tags:
+#     - core
+#     - firewall

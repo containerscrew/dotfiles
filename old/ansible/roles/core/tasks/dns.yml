@@ -1,0 +1,39 @@
+# Edit file
+# Creatre symlink
+# REstart and enable service
+# - name: Systemd-resolved - edit DNS
+#   ansible.builtin.lineinfile:
+#     path: /etc/systemd/resolved.conf
+#     regexp: '^#DNS='
+#     line: DNS=1.1.1.1
+#   tags:
+#     - core
+#     - dns
+
+# - name: Systemd-resolved - edit FallbackDNS
+#   ansible.builtin.lineinfile:
+#     path: /etc/systemd/resolved.conf
+#     regexp: '^#FallbackDNS='
+#     line: FallbackDNS=1.1.1.1
+#   tags:
+#     - core
+#     - dns
+
+- name: Systemd-resolved - Symlink to resolv.conf
+  file:
+    src: "../run/systemd/resolve/stub-resolv.conf"
+    dest: "/etc/resolv.conf"
+    state: link
+  tags:
+    - core
+    - dns
+
+- name: Enable/start systemd-resolved
+  ansible.builtin.systemd_service:
+   state: restarted 
+   daemon_reload: true
+   name: systemd-resolved
+   enabled: true
+  tags:
+    - core
+    - dns

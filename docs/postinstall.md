@@ -19,6 +19,7 @@
 - [Create some work scripts or binaries in ~/.local/bin/](#create-some-work-scripts-or-binaries-in-localbin)
 - [/etc/systemd/logind.conf](#etcsystemdlogindconf)
 - [Pass store](#pass-store)
+- [Install your SDDM theme](#install-your-sddm-theme)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -169,3 +170,9 @@ sudo systemctl restart systemd-logind
 # Pass store
 
 Setup [pass](https://wiki.archlinux.org/title/Pass) store if needed.
+
+# Install your SDDM theme
+
+https://store.kde.org/s/KDE%20Store/p/1312658
+
+cp your-theme/ `/usr/share/sddm/themes/`

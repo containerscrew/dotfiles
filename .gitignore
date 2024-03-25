@@ -6,3 +6,6 @@
 
 # Jetbrains
 .idea
+
+# Vars file (sensitive credentials)
+vars.yml

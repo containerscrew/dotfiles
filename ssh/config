@@ -1,0 +1,6 @@
+Host *
+    PubkeyAcceptedKeyTypes=+ssh-rsa
+    HostKeyAlgorithms=+ssh-rsa
+
+Include ~/.ssh/github-containerscrew/config
+Include ~/.ssh/work/config

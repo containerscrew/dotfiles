@@ -17,6 +17,7 @@ My dotfiles using Arch Linux. Just for the time it takes to document this reposi
     - [Connect the computer to the internet](#connect-the-computer-to-the-internet)
     - [Install initial packages](#install-initial-packages)
     - [Option 1: Download dotfiles from git](#option-1-download-dotfiles-from-git)
+  - [Run ansible](#run-ansible)
     - [Option 2: Copy dotfiles from another computer](#option-2-copy-dotfiles-from-another-computer)
 - [DOTFILES installation](#dotfiles-installation)
   - [Change wlan interface in QTILE config](#change-wlan-interface-in-qtile-config)
@@ -92,13 +93,15 @@ First setps after installation. Remove the usb from your computer and restart. G
 
 ```shell
 $ nmcli device wifi connect SSID_or_BSSID password SSID/BSSID-PASSWORD
+# or use
+$ nmcli device wifi connect -a
 $ history -c
 ```
 
 ### Install initial packages
 
 ```shell
-$ sudo pacman -Syu openssh rsync neovim --noconfirm
+$ sudo pacman -Syu openssh rsync neovim ansible ansible-lint --noconfirm
 ```
 
 ### Option 1: Download dotfiles from git
@@ -110,13 +113,28 @@ $ cd dotfiles
 $ ./installer.sh
 ```
 
+## Run ansible
+
+```shell
+$ ansible-playbook -i inventory.ini playbook.yml
+```
+
 ### Option 2: Copy dotfiles from another computer
 
 ```shell
-# Clone first the repo dotfiles from your other laptop.
-# Then, copy the folder dotfiles to the remote laptop
-$ sudo systemctl start sshd
-$ rsync -avzh --exclude='.git/' dotfiles/ username@192.168.X.X:/tmp/
+$ cd /tmp
+$ git clone https://github.com/containerscrew/dotfiles.git
+$ sudo systemctl start sshd # destination laptop
+$ rsync -avzh --exclude='.git/' dotfiles/ username@192.168.X.X:/tmp/dotfiles/
+```
+
+### Only copy ~/.config files
+
+```shell
+cd dotfiles/
+rsync -avzhu config/* username@192.168.X.X:/home/username/.config/
+# Or locally
+rsync -avzhu config/* /home/username/.config/
 ```
 
 # DOTFILES installation

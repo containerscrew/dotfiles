@@ -1,0 +1,137 @@
+### SLACK INSTALLATION ###
+- name: Check if slack-desktop is installed
+  command: dpkg-query -l slack-desktop
+  register: slack_exists
+  ignore_errors: yes
+  tags:
+    - core
+    - packages
+    - manual
+
+- name: Download slack 
+  when: slack_exists is failed
+  become: true
+  become_user: "{{ user_name }}"
+  ansible.builtin.get_url:
+    url: https://downloads.slack-edge.com/releases/linux/4.36.140/prod/x64/slack-desktop-4.36.140-amd64.deb
+    dest: /tmp/slack-desktop-4.36.140-amd64.deb
+  tags:
+    - core
+    - packages
+    - manual
+
+- name: Install slack .deb package
+  when: slack_exists is failed
+  ansible.builtin.apt:
+    deb: /tmp/slack-desktop-4.36.140-amd64.deb
+  tags:
+    - core
+    - packages
+    - manual
+
+### BITWARDEN INSTALLATION ###
+- name: Check if bitwarden is installed
+  command: dpkg-query -l bitwarden
+  register: bitwarden_exists
+  ignore_errors: yes
+  tags:
+    - core
+    - packages
+    - manual
+
+- name: Download bitwarden
+  when: bitwarden_exists is failed
+  become: true
+  become_user: "{{ user_name }}"
+  ansible.builtin.get_url:
+    url: https://vault.bitwarden.com/download/?app=desktop&platform=linux&variant=deb
+    dest: /tmp/bitwarden_latest.deb
+  tags:
+    - core
+    - packages
+    - manual
+
+- name: Install bitwarden .deb package
+  become: true
+  become_user: "{{ user_name }}"
+  when: bitwarden_exists is failed
+  ansible.builtin.apt:
+    deb: /tmp/bitwarden_latest.deb
+  tags:
+    - core
+    - packages
+    - manual
+
+# - name: Remove packages from /tmp
+#   when: slack_exists is failed
+#   ansible.builtin.file:
+#     path: "/tmp/{{ item }}"
+#     state: absent
+#   with_items:
+#     - slack-desktop-4.36.140-amd64.deb
+#   tags:
+#     - core
+#     - packages
+#     - manual
+
+
+### STARSHIP INSTALLATION ###
+- name: Verify if starship is installed
+  ansible.builtin.stat:
+    path: "{{ user_home_dir }}/.local/bin/starship"
+  register: starship_bin_exists
+  tags:
+    - core
+    - packages
+    - manual
+
+- name: Download starship installer
+  become: true
+  when: not starship_bin_exists.stat.exists
+  become_user: "{{ user_name }}"
+  get_url:
+    url: https://starship.rs/install.sh
+    dest: /tmp/starship_install.sh
+  tags:
+    - core
+    - packages
+    - manual
+
+- name: Install starship
+  when: not starship_bin_exists.stat.exists
+  become: yes
+  become_user: "{{ user_name }}"
+  shell:
+    cmd: "cat /tmp/starship_install.sh | sh -s -- -b ~/.local/bin -y"
+    executable: /usr/bin/sh
+  tags:
+    - core
+    - packages
+    - manual
+
+- name: Install helm if not exists
+  unarchive:
+    src: https://get.helm.sh/helm-v3.11.0-linux-amd64.tar.gz
+    dest: /usr/local/bin
+    extra_opts: "--strip-components=1"
+    owner: root
+    group: root
+    mode: 0755
+    remote_src: true
+  args:
+    creates: /usr/local/bin/helm
+  tags:
+    - core
+    - packages
+    - manual
+
+## DevOps tooling
+## Kubectl, terraform, terragrunt, kubecolor, tfenv, etc
+#https://github.com/gruntwork-io/terragrunt/releases/download/v0.55.5/terragrunt_linux_amd64
+
+
+#jetbrains toolbox
+# curl -s https://s3.eu-central-1.amazonaws.com/jetbrains-ppa/0xA6E8698A.pub.asc | gpg --dearmor | sudo tee /usr/share/keyrings/jetbrains-ppa-archive-keyring.gpg > /dev/null
+# echo "deb [signed-by=/usr/share/keyrings/jetbrains-ppa-archive-keyring.gpg] http://jetbrains-ppa.s3-website.eu-central-1.amazonaws.com any main" | sudo tee /etc/apt/sources.list.d/jetbrains-ppa.list > /dev/null
+# sudo apt update
+# sudo apt install pycharm-community
