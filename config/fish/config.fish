@@ -29,6 +29,9 @@ alias personal='cd $HOME/Documents/Code/Personal'
 # Setup Starship custom prompt
 export STARSHIP_CONFIG=$HOME/.config/starship/starship.toml
 
+# Colorscript
+colorscript -e elfman
+
 # Init Starship
 eval "$(starship init fish | source)"
 

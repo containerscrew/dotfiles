@@ -54,7 +54,7 @@ sudo pacman -Syu --noconfirm --needed base-devel rustup picom \
             npm ufw nmap acpid terminator podman-docker \
             aardvark-dns netavark podman podman-compose aws-cli-v2 \
             kubectl helm go minikube xorg-server-xephyr python-netifaces \
-            chromium
+            chromium github-cli
 
 # Paru for AUR packages
 if ! check_binary "paru"; then
@@ -73,10 +73,10 @@ paru -S --skipreview --noconfirm --needed jetbrains-toolbox coreimage qtile-extr
         ttf-font-awesome brave-bin insomnia ttf-gentium-basic golangci-lint kubectx terraform-docs \
         podman-dnsname tfenv web-greeter-theme-shikai kubecolor
 
-log_message "info" "Setup tfenv"
-sudo usermod -aG tfenv "${USER}"
-sudo tfenv install 1.5.5
-sudo tfenv use 1.5.5
+#log_message "info" "Setup tfenv"
+#sudo usermod -aG tfenv "${USER}"
+#sudo tfenv install 1.5.5
+#sudo tfenv use 1.5.5
 
 log_message "info" "Install terragrunt"
 paru -S --skipreview --noconfirm --needed terragrunt
@@ -109,7 +109,7 @@ if ! check_binary "doctoc"; then
   sudo npm install -g doctoc
 fi
 
-# Custom tools
+########## Custom tools ##########
 if ! check_binary "aws-sso-auth"; then
   curl --proto '=https' --tlsv1.2 -sSfL https://raw.githubusercontent.com/containerscrew/aws-sso-auth/main/scripts/install.sh | bash
 fi
@@ -122,6 +122,16 @@ if ! check_binary "hey"; then
   sudo wget https://hey-release.s3.us-east-2.amazonaws.com/hey_linux_amd64 -O /usr/local/bin/hey
   sudo chmod +x /usr/local/bin/hey
 fi
+
+if ! check_binary "colorscript"; then
+    tmpdir=$(mktemp -d)
+    cd "$tmpdir"
+    git clone https://gitlab.com/dwt1/shell-color-scripts.git
+    cd shell-color-scripts
+    sudo make install
+    clean "$tmpdir"
+fi
+########## Custom tools ##########
 
 # Fish
 #if ! check_binary "omf"; then
