@@ -9,3 +9,7 @@
 # EBPF tool using Rust
 
 https://aya-rs.dev/book/start/development/#ebpf-program-constraints
+
+# Starship
+
+* https://dev.to/therubberduckiee/how-to-configure-starship-to-look-exactly-like-p10k-zsh-warp-h9h

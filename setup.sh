@@ -47,8 +47,6 @@ log_message "info" "Setup display manager"
 ./installers/display-manager.sh
 ############### DISPLAY MANAGER ###############
 
-
-
 ## Enable mpd service
 ##sudo systemctl enable --now mpd.service
 #

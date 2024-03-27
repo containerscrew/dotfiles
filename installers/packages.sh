@@ -131,7 +131,11 @@ if ! check_binary "colorscript"; then
     sudo make install
     clean "$tmpdir"
 fi
+
+#https://github.com/aws/amazon-ec2-instance-selector/releases/tag/v2.4.1
 ########## Custom tools ##########
+
+
 
 # Fish
 #if ! check_binary "omf"; then
