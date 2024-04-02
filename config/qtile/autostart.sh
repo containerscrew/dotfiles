@@ -19,7 +19,7 @@ feh -z --no-fehbg --bg-fill /usr/share/backgrounds
 light-locker &
 
 # Launch polkit
-#pidof -q polkitd || { /usr/bin/lxqt-policykit-agent & }
+pidof -q polkitd || /usr/bin/lxqt-policykit-agent &
 
 # Debian 12
 lxpolkit &

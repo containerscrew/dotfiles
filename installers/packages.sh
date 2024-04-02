@@ -3,6 +3,8 @@
 set -euo pipefail
 source installers/logger.sh
 
+origin_dir="$PWD"
+
 check_binary() {
     binary="$1"
     if ! command -v "$binary" &> /dev/null; then
@@ -35,7 +37,7 @@ sudo pacman -Syu --noconfirm --needed base-devel rustup picom \
             dunst feh alacritty jq git papirus-icon-theme rofi \
             xorg-xprop xorg-xkill xorg-xsetroot xorg-xwininfo xorg-xrandr \
             xdg-user-dirs plymouth neovim vscode mlocate \
-            bluez bluez-utils fish arandr xorg-server xorg-xinit \
+            bluez bluez-utils zsh arandr xorg-server xorg-xinit \
             curl wget neofetch lightdm lightdm-gtk-greeter lightdm-webkit2-greeter \
             blueman firefox conky mlocate ngrep lsd bat \
             ttf-jetbrains-mono ttf-jetbrains-mono-nerd ttf-terminus-nerd ttf-inconsolata ttf-joypixels \
@@ -54,7 +56,7 @@ sudo pacman -Syu --noconfirm --needed base-devel rustup picom \
             npm ufw nmap acpid terminator podman-docker \
             aardvark-dns netavark podman podman-compose aws-cli-v2 \
             kubectl helm go minikube xorg-server-xephyr python-netifaces \
-            chromium github-cli
+            chromium github-cli grub-customizer xorg-xhost lxqt-policykit
 
 # Paru for AUR packages
 if ! check_binary "paru"; then
@@ -72,6 +74,9 @@ paru -S --skipreview --noconfirm --needed jetbrains-toolbox coreimage qtile-extr
         mkdocs-rss-plugin mkdocs-material slack-desktop gitleaks procs gosec aws-session-manager-plugin  \
         ttf-font-awesome brave-bin insomnia ttf-gentium-basic golangci-lint kubectx terraform-docs \
         podman-dnsname tfenv web-greeter-theme-shikai kubecolor
+
+# Clean paru cache
+paru -Sccd --skipreview --noconfirm
 
 #log_message "info" "Setup tfenv"
 #sudo usermod -aG tfenv "${USER}"
@@ -106,6 +111,7 @@ fi
 
 # NPM packages
 if ! check_binary "doctoc"; then
+  cd "$origin_dir"
   sudo npm install -g doctoc
 fi
 
@@ -130,24 +136,12 @@ if ! check_binary "colorscript"; then
     cd shell-color-scripts
     sudo make install
     clean "$tmpdir"
+    cd "$origin_dir"
+fi
+
+if ! check_binary "hadolint"; then
+    sudo wget -O /usr/local/bin/hadolint https://github.com/hadolint/hadolint/releases/download/v2.12.0/hadolint-Linux-x86_64
 fi
 
 #https://github.com/aws/amazon-ec2-instance-selector/releases/tag/v2.4.1
 ########## Custom tools ##########
-
-
-
-# Fish
-#if ! check_binary "omf"; then
-#  curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install > /tmp/install
-#  fish /tmp/install
-#fi
-#
-#if ! check_binary "fisher"; then
-#  curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
-#fi
-
-# Plugins
-#omf install https://github.com/jhillyerd/plugin-git
-#omf install https://github.com/blackjid/plugin-kubectl
-#fisher install PatrickF1/fzf.fish

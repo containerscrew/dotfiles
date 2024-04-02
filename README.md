@@ -178,6 +178,7 @@ Some tips about archlinux configurations.
 * https://github.com/antoniosarosi/dotfiles
 * https://gitlab.com/dwt1/dotfiles
 * https://github.com/newmanls/rofi-themes-collection
+* [Grub theme](https://www.gnome-look.org/p/2076542)
 
 # License
 

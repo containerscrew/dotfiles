@@ -1,0 +1,14 @@
+# Fish
+#if ! check_binary "omf"; then
+#  curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install > /tmp/install
+#  fish /tmp/install
+#fi
+#
+#if ! check_binary "fisher"; then
+#  curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
+#fi
+
+# Plugins
+#omf install https://github.com/jhillyerd/plugin-git
+#omf install https://github.com/blackjid/plugin-kubectl
+#fisher install PatrickF1/fzf.fish

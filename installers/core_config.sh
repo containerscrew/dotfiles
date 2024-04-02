@@ -23,3 +23,12 @@ sudo systemctl restart podman
 sudo ln -fs "$(which podman-compose)" /usr/bin/docker-compose
 sudo ln -fs "$(which podman)" /usr/bin/docker
 ############### PODMAN CONTAINER RUNTIME ###############
+
+############### GRUB ###############
+#### NOT WORKING!!
+tar -xvf misc/BlackSwan.tar.gz -C /tmp/
+sudo cp -r /tmp/BlackSwan /usr/share/grub/themes/
+rm -rf /tmp/BlackSwan*
+sudo sed -i 's/^#GRUB_THEME=.*/GRUB_THEME="\/usr\/share\/grub\/themes\/BlackSwan\/theme.txt"/' /etc/default/grub
+sudo grub-mkconfig -o /boot/grub/grub.cfg
+############### GRUB ###############
