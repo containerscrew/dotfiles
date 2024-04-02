@@ -1,0 +1,55 @@
+#!/bin/sh
+
+# Desactivar el screen lock
+#xset s off
+#xset -dpms
+#
+## Tu código o comandos adicionales aquí...
+#
+## Volver a activar el screen lock (opcional)
+## xset s on
+## xset +dpms
+
+
+# Function to display help text
+usage() {
+    echo "Usage: $0 [-a] [-d] [-i] [-h]"
+    echo "Options:"
+    echo "  -a           Activate screen lock"
+    echo "  -d           Deactivate screen lock"
+    echo "  -i           Xset info"
+    echo "  -h           Display the help message"
+}
+
+# Parse options using getopts
+while getopts ":adih" option; do
+    case "${option}" in
+        a)  # Activate screen lock
+            echo "Screen lock activated. Screen will be locked!"
+            xset s on
+            xset +dpms
+            ;;
+        d)  # Deactivate screen lock
+            echo "Screen lock deactivated. Screen will not be locked!"
+            xset s off
+            xset -dpms
+            ;;
+        i)  # xset info
+            xset -q
+            ;;
+        h)  # Help option
+            usage
+            exit 0
+            ;;
+        \?) # Invalid option
+            echo "Invalid option: -${OPTARG}"
+            usage
+            exit 1
+            ;;
+    esac
+done
+
+# If no flags, by default print usage
+if [ $# -eq 0 ]; then
+    usage
+fi

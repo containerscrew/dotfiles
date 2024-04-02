@@ -1,2 +1,3 @@
 (include "powermenu/powermenu.yuck")
 (include "profilecard/profilecard.yuck")
+(include "bar/bar.yuck")

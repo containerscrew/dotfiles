@@ -70,7 +70,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions kubectl terraform ssh-agent zsh-syntax-highlighting)
+plugins=(git zsh-autosuggestions kubectl terraform zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -82,11 +82,11 @@ source $ZSH/oh-my-zsh.sh
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='nvim'
+else
+  export EDITOR='mvim'
+fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -115,7 +115,7 @@ alias work='cd $HOME/Documents/Code/Work'
 alias personal='cd $HOME/Documents/Code/Personal'
 
 # Functions
-autoload -Uz
+#autoload -Uz
 
 aws-profile() {
     local AWS_PROFILES

@@ -11,8 +11,8 @@ check_binary() {
         log_message "warning" "$binary not found in system, will be installed!"
         return 1
     else
-        log_message "warning" "Binary $binary exists. Do you want to reinstall it? [y/n] (default n with 3s of timeout)"
-        read -t 3 answer
+        log_message "warning" "Binary $binary exists. Do you want to reinstall it? [y/n] (default n with 2s of timeout)"
+        read -t 2 answer
 
         if [ -z "$answer" ]; then
           answer="n"
@@ -69,7 +69,6 @@ if ! check_binary "paru"; then
 fi
 
 log_message "info" "Installing paru packages"
-#paru -Sccd --skipreview --noconfirm
 paru -S --skipreview --noconfirm --needed jetbrains-toolbox coreimage qtile-extras python-pulsectl-asyncio mkdocs \
         mkdocs-rss-plugin mkdocs-material slack-desktop gitleaks procs gosec aws-session-manager-plugin  \
         ttf-font-awesome brave-bin insomnia ttf-gentium-basic golangci-lint kubectx terraform-docs \

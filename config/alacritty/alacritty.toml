@@ -23,7 +23,7 @@ family = "monospace"
 style = "Regular"
 
 [shell]
-program = "/usr/bin/fish"
+program = "/usr/bin/zsh"
 
 [window]
 decorations = "full"
