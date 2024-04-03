@@ -2,11 +2,14 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
-- [Some initial experiments with bspwm (before going to Qtile)](#some-initial-experiments-with-bspwm-before-going-to-qtile)
-- [Some ansible tasks (not finished) for debian12 using qtile too](#some-ansible-tasks-not-finished-for-debian12-using-qtile-too)
+- [Tested tools](#tested-tools)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-# Some initial experiments with bspwm (before going to Qtile)
+# Tested tools
 
-# Some ansible tasks (not finished) for debian12 using qtile too
+1. Some initial experiments with bspwm (before going to Qtile)
+2. Some ansible tasks (not finished) for debian12 using qtile too
+3. Fish shell configurations
+4. Polybar
+5. Other files

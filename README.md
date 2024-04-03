@@ -2,6 +2,9 @@
 
 My dotfiles using Arch Linux. Just for the time it takes to document this repository and configurations, **this repo deserves one star!**
 
+> [!WARNING]
+> The documentation is not yet well finished. There are still things to document and configure. However, I hope the configuration files can help you.
+
 ![demo](./assets/demo.gif)
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
