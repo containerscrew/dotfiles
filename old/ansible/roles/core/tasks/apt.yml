@@ -71,7 +71,7 @@
 #     - packages
 
 # - name: Import Hashicorp GPG key
-#   ansible.builtin.shell: 
+#   ansible.builtin.shell:
 #     cmd: "sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg /tmp/hashicorp-archive-keyring.gpg"
 #     creates: /usr/share/keyrings/hashicorp-archive-keyring.gpg
 #   tags:

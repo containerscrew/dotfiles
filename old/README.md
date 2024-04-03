@@ -3,6 +3,7 @@
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
 - [Some initial experiments with bspwm (before going to Qtile)](#some-initial-experiments-with-bspwm-before-going-to-qtile)
+- [Some ansible tasks (not finished) for debian12 using qtile too](#some-ansible-tasks-not-finished-for-debian12-using-qtile-too)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 

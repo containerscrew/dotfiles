@@ -15,13 +15,10 @@ My dotfiles using Arch Linux. Just for the time it takes to document this reposi
     - [Considerations in archinstall](#considerations-in-archinstall)
   - [After installation](#after-installation)
     - [Connect the computer to the internet](#connect-the-computer-to-the-internet)
-    - [Install initial packages](#install-initial-packages)
     - [Option 1: Download dotfiles from git](#option-1-download-dotfiles-from-git)
-  - [Run ansible](#run-ansible)
     - [Option 2: Copy dotfiles from another computer](#option-2-copy-dotfiles-from-another-computer)
-- [DOTFILES installation](#dotfiles-installation)
-  - [Change wlan interface in QTILE config](#change-wlan-interface-in-qtile-config)
-  - [Run installer.sh](#run-installersh)
+    - [Only copy ~/.config files](#only-copy-config-files)
+- [Run setup.sh](#run-setupsh)
 - [Post install](#post-install)
 - [BIOS settings](#bios-settings)
 - [Shortcuts](#shortcuts)
@@ -130,7 +127,7 @@ rsync -avzhu config/* /home/username/.config/
 
 # Run setup.sh
 
-[setup.sh](./installer.sh) will install main packages using `pacman` and `paru`. Also, will copy all config files in user home, will set some basic configs like `firewall`, `lightdm` theme...etc. Take a look!
+[setup.sh](./setup.sh) will install main packages using `pacman` and `paru`. Also, will copy all config files in user home, will set some basic configs like `firewall`, `lightdm` theme...etc. Take a look!
 
 
 # Post install

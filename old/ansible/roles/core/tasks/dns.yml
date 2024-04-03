@@ -30,7 +30,7 @@
 
 - name: Enable/start systemd-resolved
   ansible.builtin.systemd_service:
-   state: restarted 
+   state: restarted
    daemon_reload: true
    name: systemd-resolved
    enabled: true

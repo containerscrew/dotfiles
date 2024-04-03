@@ -31,4 +31,3 @@ log_message "info" "Copy work VPN to /etc/vpnc/work.conf"
 sudo rsync -avzhu --backup --suffix="$(date +'.%F_%H-%M')" misc/work.conf /etc/vpnc/work.conf
 #sudo cp -u misc/work.conf /etc/vpnc/work.conf
 ############### WORK VPN ###############
-

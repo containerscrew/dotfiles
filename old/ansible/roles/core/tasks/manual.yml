@@ -8,7 +8,7 @@
     - packages
     - manual
 
-- name: Download slack 
+- name: Download slack
   when: slack_exists is failed
   become: true
   become_user: "{{ user_name }}"

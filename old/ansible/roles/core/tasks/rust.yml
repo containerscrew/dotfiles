@@ -44,7 +44,7 @@
 #   - core
 #   - packages
 #   - rust
-  
+
 
 ### Cargo packages
 #- name: Check if eww is installed

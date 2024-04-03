@@ -3,6 +3,8 @@
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
 - [After installation](#after-installation)
+- [Metasploit](#metasploit)
+- [Install kali sources list](#install-kali-sources-list)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -57,7 +59,7 @@ https://wiki.debian.org/NetworkManager
 openssl s_client -connect ejemplo.com:443 -showcerts </dev/null 2>/dev/null | openssl x509 -outform PEM > servidor.crt
 ```
 
-# Metasploit 
+# Metasploit
 
 ```shell
 curl -fsSL https://apt.metasploit.com/metasploit-framework.gpg.key | sudo gpg --dearmor | sudo tee /usr/share/keyrings/metasploit.gpg > /dev/null
