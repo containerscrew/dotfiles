@@ -7,7 +7,7 @@ if [ "$(id -u)" = 0 ]; then
 fi
 
 # Stop script if errors
-set -euo pipefail #x
+set -eu
 
 ############### SOURCE FILES ###############
 source installers/banner.sh
@@ -46,6 +46,12 @@ log_message "info" "Setup networking, dns, firewall"
 log_message "info" "Setup display manager"
 ./installers/display-manager.sh
 ############### DISPLAY MANAGER ###############
+
+log_message "info" "Now, if it's your first installation, reboot the system or run $ sudo systemctl restart lightdm"
+
+
+## Helm plugins
+## helm plugin install https://github.com/helm/helm-mapkubeapis
 
 ## Enable mpd service
 ##sudo systemctl enable --now mpd.service

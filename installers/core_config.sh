@@ -26,9 +26,12 @@ sudo ln -fs "$(which podman)" /usr/bin/docker
 
 ############### GRUB ###############
 #### NOT WORKING!!
-tar -xvf misc/BlackSwan.tar.gz -C /tmp/
-sudo cp -r /tmp/BlackSwan /usr/share/grub/themes/
-rm -rf /tmp/BlackSwan*
-sudo sed -i 's/^#GRUB_THEME=.*/GRUB_THEME="\/usr\/share\/grub\/themes\/BlackSwan\/theme.txt"/' /etc/default/grub
+log_message "info" "Setup grub theme"
+wget https://github.com/voidlhf/StarRailGrubThemes/raw/master/themes/RuanMei.tar.gz -P /tmp
+tar -xzf /tmp/RuanMei.tar.gz -C /tmp
+sudo cp -r /tmp/RuanMei /boot/grub/themes/
+sudo sed -i 's/^#GRUB_THEME=.*/GRUB_THEME="\/boot\/grub\/themes\/RuanMei\/theme.txt"/' /etc/default/grub
+sudo sed -i '/GRUB_CMDLINE_LINUX_DEFAULT/ s/quiet"/quiet splash"/' /etc/default/grub
 sudo grub-mkconfig -o /boot/grub/grub.cfg
+rm -rf /tmp/RuanMei*
 ############### GRUB ###############

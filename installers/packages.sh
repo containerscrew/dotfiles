@@ -56,7 +56,8 @@ sudo pacman -Syu --noconfirm --needed base-devel rustup picom \
             npm ufw nmap acpid terminator podman-docker \
             aardvark-dns netavark podman podman-compose aws-cli-v2 \
             kubectl helm go minikube xorg-server-xephyr python-netifaces \
-            chromium github-cli grub-customizer xorg-xhost lxqt-policykit
+            chromium github-cli grub-customizer xorg-xhost lxqt-policykit \
+            xorg-xinput
 
 # Paru for AUR packages
 if ! check_binary "paru"; then
@@ -72,7 +73,7 @@ log_message "info" "Installing paru packages"
 paru -S --skipreview --noconfirm --needed jetbrains-toolbox coreimage qtile-extras python-pulsectl-asyncio mkdocs \
         mkdocs-rss-plugin mkdocs-material slack-desktop gitleaks procs gosec aws-session-manager-plugin  \
         ttf-font-awesome brave-bin insomnia ttf-gentium-basic golangci-lint kubectx terraform-docs \
-        podman-dnsname tfenv web-greeter-theme-shikai kubecolor
+        podman-dnsname tfenv web-greeter-theme-shikai kubecolor calcurse todotxt playerctl
 
 # Clean paru cache
 paru -Sccd --skipreview --noconfirm

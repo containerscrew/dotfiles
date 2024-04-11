@@ -5,7 +5,7 @@
 .DS_Store
 
 # Jetbrains
-.idea
+.idea/
 
 # Vars file (sensitive credentials)
 vars.yml

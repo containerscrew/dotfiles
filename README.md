@@ -67,23 +67,23 @@ archinstall # start installation
 
 ### Considerations in archinstall
 
-| Setting                   | Configuration                 |
-|---------------------------|-------------------------------|
-| Locales/Language/Keyboard | US                            |
-| Mirrors                   | Netherlands                   |
-| Bootloader                | Grub                          |
-| Disk Encryption           | ALWAYS                        |
-| Disk Filesystem           | BTRFS                         |
-| Swap                      | True                          |
-| Profile                   | Minimal                       |
-| Root password             | Yes                           |
-| User sudoer               | Yes                           |
-| Audio                     | Pipewire                      |
-| Kernels                   | Linux                         |
-| Additional packages       | rsync,openssh,neovim,curl,git |
-| Network                   | NetworkManager                |
-| UTC                       | Europe/Amsterdam              |
-| Optional repos            | multilib                      |
+| Setting                   | Configuration                       |
+|---------------------------|-------------------------------------|
+| Locales/Language/Keyboard | US                                  |
+| Mirrors                   | Netherlands                         |
+| Bootloader                | Grub                                |
+| Disk Encryption           | ALWAYS                              |
+| Disk Filesystem           | BTRFS                               |
+| Swap                      | True                                |
+| Profile                   | Minimal                             |
+| Root password             | Yes                                 |
+| User sudoer               | Yes                                 |
+| Audio                     | Pipewire                            |
+| Kernels                   | Linux                               |
+| Additional packages       | rsync,openssh,neovim,curl,git, wget |
+| Network                   | NetworkManager                      |
+| UTC                       | Europe/Amsterdam                    |
+| Optional repos            | multilib                            |
 
 > The installer will ask if you want to chroot into the system. Type yes and enable ssh (for rsync). `systemctl enable sshd`
 

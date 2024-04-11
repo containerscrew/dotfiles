@@ -1,4 +1,4 @@
-/* Created   by https://github.com/rxyhn
+/* Created   by https://github.com/rxyhn 
    Designed  by https://github.com/rxyhn
    Maintaned by https://github.com/rxyhn
 */
@@ -9,7 +9,7 @@
 }
 
 // Variable Color's
-$background: #1A1B26;
+$background: #FF0000; //#1A1B26;
 $foreground: #A9B1D6;
 
 $black: #24283B;
@@ -40,7 +40,7 @@ $white: $foreground;
 .works {
 font-family: "Font Awesome 6 Pro";
 padding: .2rem .7rem .2rem .7rem;
-background-color: $black;
+background-color: $background;
 border-radius: 5px;
 }
 
