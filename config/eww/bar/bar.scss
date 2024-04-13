@@ -9,7 +9,7 @@
 }
 
 // Variable Color's
-$background: #FF0000; //#1A1B26;
+$background: #1A1B26;
 $foreground: #A9B1D6;
 
 $black: #24283B;
@@ -31,14 +31,14 @@ $white: $foreground;
 // Launcher
 .launcher_icon{
     color: $cyan;
-    font-family: "Font Awesome 6 Pro";
+    font-family: "FontAwesome";
     font-size: 1.7em;
     padding: 1rem 0 1rem 0;
 }
 
 // Workspaces
 .works {
-font-family: "Font Awesome 6 Pro";
+font-family: "Font Awesome";
 padding: .2rem .7rem .2rem .7rem;
 background-color: $background;
 border-radius: 5px;
@@ -112,8 +112,9 @@ font-size: 1.6em;
 background-color: $black;
 border-radius: 5px;
 }
+
 .bat{
-  font-family: JetBrainsMono Nerd Font;
+  font-family: Font Awesome;
   font-size: 1.2em;
   padding-right: .5rem;
   color: $blue;

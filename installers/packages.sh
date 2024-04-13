@@ -143,5 +143,6 @@ if ! check_binary "hadolint"; then
     sudo wget -O /usr/local/bin/hadolint https://github.com/hadolint/hadolint/releases/download/v2.12.0/hadolint-Linux-x86_64
 fi
 
-#https://github.com/aws/amazon-ec2-instance-selector/releases/tag/v2.4.1
-########## Custom tools ##########
+if ! check_binary "ec2-instance-selector"; then
+    sudo wget -O /usr/local/bin/ec2-instance-selector https://github.com/aws/amazon-ec2-instance-selector/releases/tag/v2.4.1
+fi

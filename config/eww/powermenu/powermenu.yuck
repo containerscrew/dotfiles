@@ -1,14 +1,23 @@
+;; Created   by https://github.com/containerscrew
+;; Designed  by https://github.com/containerscrew
+;; Maintaned by https://github.com/containerscrew
+
 (defwidget powermenu []
      (box :class "powermenu"
-          :orientation "v"
+          :orientation "horizontal"
           :space-evenly "false"
           (lock-power-restart)))
 
 
 (defwidget lock-power-restart []
 	(box :class "powermenu"
-		 :orientation "v"
+		 :orientation "horizontal"
 		 :spacing 10
+	(eventbox :cursor "pointer"
+		(button :class "powermenu lock"
+				:onclick "dm-tool lock"
+				:tooltip "My setup"
+				""))
     (eventbox :cursor "pointer"
 		(button :class "powermenu lock"
 				:onclick "dm-tool lock"
@@ -31,6 +40,6 @@
 (defwindow powermenu
     :geometry (geometry :x "0%"
                         :y "0%"
-                        :anchor "center right")
+                        :anchor "center")
     :wm-ignore false
     (powermenu))

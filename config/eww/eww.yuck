@@ -1,1 +1,1 @@
-(include "bar/bar.yuck")
+(include "powermenu/powermenu.yuck")

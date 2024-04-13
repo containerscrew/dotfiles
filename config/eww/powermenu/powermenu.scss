@@ -1,13 +1,26 @@
+$bg: #1a1b26;
+$bg-alt: #222330;
+$fg: #c0caf5;
+$black: #414868;
+$lightblack: #262831;
+$red: #f7768e;
+$blue: #7aa2f7;
+$cyan: #7dcfff;
+$magenta: #bb9af7;
+$green: #9ece6a;
+$yellow: #e0af68;
+$archicon: #0f94d2;
+
 window>.powermenu {
-  margin: .5rem;
+  margin: 0.5rem;
   background-color: $bg;
 }
 
 .powermenu {
   font-family: "Font Awesome 6 Free Solid";
   font-size: 1.5rem;
-  padding: .3rem;
-  border-radius: .5rem;
+  padding: 0.3rem;
+  border-radius: 0.5rem;
 
   &.shutdown {
     color: $red;
@@ -29,7 +42,7 @@ window>.powermenu {
     background-color: $bg-alt;
     padding: 1.2rem;
 
-  &:hover {
+    &:hover {
       background-color: lighten($color: $bg-alt, $amount: 4%);
     }
   }
