@@ -20,10 +20,15 @@ window>.powermenu {
   font-family: "Font Awesome 6 Free Solid";
   font-size: 1.5rem;
   padding: 0.3rem;
+  background-color: $bg;
   border-radius: 0.5rem;
 
   &.shutdown {
     color: $red;
+  }
+
+  &.rfkill {
+    color: $magenta;
   }
 
   &.reboot {

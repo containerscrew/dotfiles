@@ -1,0 +1,39 @@
+Changelog
+------------------------------
+Antares - Conky Theme
+[ Scorpio Themes Pack ] 
+
+by Closebox73
+------------------------------
+
+v1.0
+date : 26 Mar 2021
+-	Initial release
+
+
+v2.0
+date : 26 Jul 2022
+-	Add Script to change 
+-	A few changes to the script
+
+
+v2.1
+date : 30 Sep 2022
+-	Add override_utf8_locale line
+-	A few changes to the script
+-	Minimize archive size
+
+
+v2.2
+date : 04 Dec 2022
+-	Add override_utf8_locale line
+
+
+v2.8
+date : 22 Feb 2023
+-	Add License
+-	Add Changelog file
+-	A few changes to the script
+-	Add Fahrenheit Variant
+-	New Weather.sh
+-	New version Change-color.sh

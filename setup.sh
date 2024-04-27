@@ -50,9 +50,6 @@ log_message "info" "Setup display manager"
 log_message "info" "Now, if it's your first installation, reboot the system or run $ sudo systemctl restart lightdm"
 
 
-## Helm plugins
-## helm plugin install https://github.com/helm/helm-mapkubeapis
-
 ## Enable mpd service
 ##sudo systemctl enable --now mpd.service
 #

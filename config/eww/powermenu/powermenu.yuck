@@ -14,10 +14,11 @@
 		 :orientation "horizontal"
 		 :spacing 10
 	(eventbox :cursor "pointer"
-		(button :class "powermenu lock"
-				:onclick "dm-tool lock"
-				:tooltip "My setup"
-				""))
+		(button :class "powermenu rfkill"
+				:onclick "rfkill block all"
+				:onrightclick "rfkill unblock all"
+				:tooltip "Rfkill"
+				""))
     (eventbox :cursor "pointer"
 		(button :class "powermenu lock"
 				:onclick "dm-tool lock"

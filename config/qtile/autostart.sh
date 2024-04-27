@@ -29,3 +29,8 @@ pidof -q polkitd || /usr/bin/lxqt-policykit-agent &
 nm-applet &
 #volumeicon &
 #cbatticon &
+
+# Conky
+killall conky
+sleep 2s
+conky -c "$HOME"/.config/conky/Antares/Antares.conf &> /tmp/conky.log &

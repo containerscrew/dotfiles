@@ -1,15 +1,8 @@
 import netifaces as ni
 from libqtile import widget
-from configurations.colors import Colors
-from libqtile.lazy import lazy
-from qtile_extras import widget
-from qtile_extras.widget.decorations import RectDecoration
 
-decoration_group = {
-    "decorations": [
-        RectDecoration(colour="#708491", radius=10, filled=True, group=True, padding_y=4)
-    ],
-}
+from .colors import Colors
+from libqtile.lazy import lazy
 
 wlan_interface = None
 
@@ -55,7 +48,7 @@ class MyWidgets:
         return widget.TextBox(
             **widget_base(fs=18, p=10, fg=Colors.lightblue),
             mouse_callbacks={'Button1': lazy.spawn('eww open --toggle profilecard --duration 5s')},
-            text="󰣇",
+            text="",
         )
 
     def window_name(self):
@@ -64,8 +57,7 @@ class MyWidgets:
     def group_box(self):
         return widget.GroupBox(
             **widget_base(f="FontAwesome"),
-            margin_y=3,
-            # fmt="󰮯",
+            margin_y=4,
             margin_x=0,
             borderwidth=0,
             active=Colors.darkviolet,
@@ -87,6 +79,11 @@ class MyWidgets:
             text_closed="󰮯",
             text_open="󰊠",
             widgets=[
+                # widget.DoNotDisturb(
+                #     update_interval=1,
+                #     disabled_icon='O',
+                #     enabled_icon='X'
+                # ),
                 widget.Systray(),
                 widget.StatusNotifier(
                     icon_theme="Papirus-Dark"
@@ -142,11 +139,12 @@ class MyWidgets:
     def battery(self):
         return widget.Battery(
             **widget_base(bg=Colors.violet, fg=Colors.background),
-            # charge_char="",
-            # full_char="",
-            # discharge_char="",
-            # empty_char="",
-            format="󰂄 {percent:2.0%}",
+            charge_char="",
+            full_char="",
+            discharge_char="",
+            empty_char="",
+            unknown_char="?",
+            format='{percent:2.0%} {char}',
             show_short_text=False,
             low_foreground=Colors.red,
             update_interval=1,
@@ -166,14 +164,6 @@ class MyWidgets:
             text="󰍉",
         )
 
-    def rfkill_block(self):
-        return widget.TextBox(
-            **widget_base(bg=Colors.blue, fg=Colors.red),
-            mouse_callbacks={'Button1': lazy.spawn('alacritty --class FloaTerm,Alacritty -o window.dimensions.lines=22 window.dimensions.columns=90 -e sudo rfkill block all'),
-                             'Button3': lazy.spawn('alacritty --class FloaTerm,Alacritty -o window.dimensions.lines=22 window.dimensions.columns=90 -e sudo rfkill unblock all')},
-            text="",
-        )
-
     def clock(self):
         return widget.Clock(
             **widget_base(fs=11, bg=Colors.blue, fg=Colors.background),
@@ -185,7 +175,7 @@ class MyWidgets:
     def power(self):
         return widget.TextBox(
             **widget_base(bg=Colors.background, fg=Colors.red, p=10),
-            mouse_callbacks={'Button1': lazy.spawn('eww open --toggle powermenu --duration 3s')},
+            mouse_callbacks={'Button1': lazy.spawn('eww open --toggle powermenu --duration 5s')},
             text="󰐥",
         )
 

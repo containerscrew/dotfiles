@@ -3,12 +3,11 @@
 
 import os
 import subprocess
-from libqtile import bar, layout, widget, hook
+from libqtile import bar, layout, hook, widget
 from libqtile.config import Click, Drag, Match, Screen
 from libqtile.lazy import lazy
 from configurations.colors import Colors
-from configurations.keys import keys, mod
-from configurations.groups import groups
+from configurations.keys import mod
 from configurations.widgets import MyWidgets, sep
 
 layouts = [
@@ -20,7 +19,7 @@ my_widgets = MyWidgets()
 
 screens = [
     Screen(
-        top=bar.Bar(
+        bottom=bar.Bar(
             [
                 my_widgets.system_logo(),
                 widget.Sep(
@@ -28,9 +27,12 @@ screens = [
                     foreground=Colors.white,
                     padding=10,
                 ),
-                my_widgets.window_name(),
-                widget.Spacer(),
                 my_widgets.group_box(),
+                widget.Sep(
+                    size_percent=60,
+                    foreground=Colors.white,
+                    padding=10,
+                ),
                 widget.Spacer(),
                 my_widgets.notifications(),
                 my_widgets.vpns(),
@@ -40,14 +42,12 @@ screens = [
                 my_widgets.battery(),
                 my_widgets.bluetooth(),
                 sep(fg=Colors.blue, bg=Colors.violet),
-                my_widgets.rfkill_block(),
                 my_widgets.launcher(),
                 my_widgets.clock(),
                 my_widgets.power(),
             ],
             25,
             background=Colors.background,
-            #margin=[8, 20, 0, 20],
             margin=[0, 0, 0, 0],
         ),
     ),
