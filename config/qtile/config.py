@@ -36,8 +36,6 @@ screens = [
                 ),
                 *my_widgets.create_image_widgets(),
                 widget.Spacer(),
-                decoration(),
-                widget.Spacer(),
                 my_widgets.notifications(),
                 my_widgets.vpns(),
                 sep(fg=Colors.violet, bg=Colors.background),

@@ -40,11 +40,14 @@ widget_defaults = dict(
 
 
 apps_data = [
+    # Add your logo img and command here
     ('~/.config/qtile/icon-apps/firefox-logo.png', 'firefox'),
     ('~/.config/qtile/icon-apps/signal-logo.png', 'signal-desktop'),
     ('~/.config/qtile/icon-apps/chrome-logo.png', 'chromium'),
     ('~/.config/qtile/icon-apps/slack-logo.png', 'slack'),
     ('~/.config/qtile/icon-apps/spotify-logo.png', 'spotify-launcher'),
+    ('~/.config/qtile/icon-apps/pycharm-logo.png', 'jetbrains-toolbox'),
+    ('~/.config/qtile/icon-apps/alacritty-logo.png', 'alacritty'),
 ]
 
 class MyWidgets:
