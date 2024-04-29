@@ -64,22 +64,23 @@ class MyWidgets:
 
     def group_box(self):
         return widget.GroupBox(
-            **widget_base(f="FontAwesome", bg=Colors.white),
-            margin_y=4,
+            **widget_base(f="FontAwesome"),
+            margin_y=3,
+            # fmt="󰮯",
             margin_x=0,
             borderwidth=0,
             active=Colors.darkviolet,
-            inactive=Colors.darkblue,
+            inactive=Colors.lightblue,
             rounded=False,
             highlight_method='block',
             urgent_alert_method='block',
             urgent_border=Colors.background,
-            this_current_screen_border=Colors.white,
-            this_screen_border=Colors.white,
+            this_current_screen_border=Colors.background,
+            this_screen_border=Colors.background,
             other_current_screen_border=Colors.background,
             other_screen_border=Colors.background,
             disable_drag=True
-        )
+    )
 
     def notifications(self):
         return widget.WidgetBox(

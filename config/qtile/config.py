@@ -9,6 +9,8 @@ from libqtile.lazy import lazy
 from configurations.colors import Colors
 from configurations.keys import keys, mod
 from configurations.widgets import MyWidgets, sep
+from configurations.groups import groups
+from configurations.extras import decoration
 
 # Layout
 layouts = [
@@ -24,7 +26,7 @@ keys = keys
 # My screens
 screens = [
     Screen(
-        bottom=bar.Bar(
+        top=bar.Bar(
             [
                 my_widgets.system_logo(),
                 widget.Sep(
@@ -32,8 +34,9 @@ screens = [
                     foreground=Colors.white,
                     padding=10,
                 ),
-                widget.Spacer(),
                 *my_widgets.create_image_widgets(),
+                widget.Spacer(),
+                decoration(),
                 widget.Spacer(),
                 my_widgets.notifications(),
                 my_widgets.vpns(),
