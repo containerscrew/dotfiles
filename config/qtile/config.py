@@ -7,9 +7,10 @@ from libqtile import bar, layout, hook, widget
 from libqtile.config import Click, Drag, Match, Screen
 from libqtile.lazy import lazy
 from configurations.colors import Colors
-from configurations.keys import mod
+from configurations.keys import keys, mod
 from configurations.widgets import MyWidgets, sep
 
+# Layout
 layouts = [
     layout.MonadTall(border_width=3, border_focus=Colors.violet, margin=8, border_normal=Colors.white),
 ]
@@ -17,6 +18,10 @@ layouts = [
 # Custom widget class
 my_widgets = MyWidgets()
 
+# Import custom keys
+keys = keys
+
+# My screens
 screens = [
     Screen(
         bottom=bar.Bar(
@@ -27,12 +32,8 @@ screens = [
                     foreground=Colors.white,
                     padding=10,
                 ),
-                my_widgets.group_box(),
-                widget.Sep(
-                    size_percent=60,
-                    foreground=Colors.white,
-                    padding=10,
-                ),
+                widget.Spacer(),
+                *my_widgets.create_image_widgets(),
                 widget.Spacer(),
                 my_widgets.notifications(),
                 my_widgets.vpns(),

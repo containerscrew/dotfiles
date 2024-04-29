@@ -5,6 +5,7 @@
 - [X11 change keyboard](#x11-change-keyboard)
 - [Timezone](#timezone)
 - [DNS configuration](#dns-configuration)
+- [Wallpapers](#wallpapers)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 

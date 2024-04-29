@@ -95,6 +95,7 @@ First setps after installation. Remove the usb from your computer and restart. G
 ### Connect the computer to the internet
 
 ```shell
+$ nmcli device wifi list
 $ nmcli device wifi connect SSID_or_BSSID password SSID/BSSID-PASSWORD
 # or use
 $ nmcli device wifi connect -a

@@ -14,7 +14,7 @@ api_key=b59117c083dfa1d4e6cc3186a568fd26
 # choose between metric for Celcius or imperial for fahrenheit
 unit=metric
 
-# i'm not sure it will support all languange, 
+# i'm not sure it will support all languange,
 lang=en
 
 # Main command

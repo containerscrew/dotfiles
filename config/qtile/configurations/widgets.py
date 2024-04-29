@@ -24,13 +24,13 @@ def widget_base(fs=14, f="JetBrainsMono Nerd Font", p=6, bg=Colors.background, f
     }
 
 
-def sep(bg=Colors.background, fg=Colors.white, text=""):
+def sep(bg=Colors.background, fg=Colors.white, text="", padding=-4):
     return widget.TextBox(
         background=bg,
         foreground=fg,
-        text=text,  # nf-oct-triangle_left
+        text=text,
         fontsize=40,
-        padding=-4
+        padding=padding
     )
 
 
@@ -39,6 +39,14 @@ widget_defaults = dict(
 )
 
 
+apps_data = [
+    ('~/.config/qtile/icon-apps/firefox-logo.png', 'firefox'),
+    ('~/.config/qtile/icon-apps/signal-logo.png', 'signal-desktop'),
+    ('~/.config/qtile/icon-apps/chrome-logo.png', 'chromium'),
+    ('~/.config/qtile/icon-apps/slack-logo.png', 'slack'),
+    ('~/.config/qtile/icon-apps/spotify-logo.png', 'spotify-launcher'),
+]
+
 class MyWidgets:
     def __init__(self) -> None:
         # Declare some default values
@@ -46,8 +54,8 @@ class MyWidgets:
 
     def system_logo(self):
         return widget.TextBox(
-            **widget_base(fs=18, p=10, fg=Colors.lightblue),
-            mouse_callbacks={'Button1': lazy.spawn('eww open --toggle profilecard --duration 5s')},
+            **widget_base(fs=18, p=10, fg=Colors.darkblue, bg=Colors.background),
+            mouse_callbacks={'Button1': lazy.spawn('rofi -show drun -theme ~/.config/rofi/Launcher.rasi')},
             text="",
         )
 
@@ -56,18 +64,18 @@ class MyWidgets:
 
     def group_box(self):
         return widget.GroupBox(
-            **widget_base(f="FontAwesome"),
+            **widget_base(f="FontAwesome", bg=Colors.white),
             margin_y=4,
             margin_x=0,
             borderwidth=0,
             active=Colors.darkviolet,
-            inactive=Colors.lightblue,
+            inactive=Colors.darkblue,
             rounded=False,
             highlight_method='block',
             urgent_alert_method='block',
             urgent_border=Colors.background,
-            this_current_screen_border=Colors.background,
-            this_screen_border=Colors.background,
+            this_current_screen_border=Colors.white,
+            this_screen_border=Colors.white,
             other_current_screen_border=Colors.background,
             other_screen_border=Colors.background,
             disable_drag=True
@@ -163,6 +171,38 @@ class MyWidgets:
             mouse_callbacks={'Button1': lazy.spawn('rofi -show drun -theme ~/.config/rofi/Launcher.rasi')},
             text="󰍉",
         )
+
+    def create_image_widgets(self):
+        image_widgets = []
+        for filename, command in apps_data:
+            image_widget = widget.Image(
+                background=Colors.background,
+                filename=filename,
+                margin=2,
+                padding=10,
+                mouse_callbacks={'Button1': lazy.spawn(command)},
+            )
+            image_widgets.append(image_widget)
+
+        return image_widgets
+
+
+    # def apps(self, image_data):
+    #     def create_image_widget(filename, command):
+    #         return widget.Image(
+    #             background=Colors.background,
+    #             filename=filename,
+    #             margin=2,
+    #             mouse_callbacks={'Button1': lazy.spawn(command)},
+    #         )
+    #
+    #     # Crea una lista de widgets de imagen usando una comprensión de lista
+    #     image_widgets = [create_image_widget(filename, command) for filename, command in image_data]
+    #
+    #     # Repite la lista de widgets de imagen 10 veces
+    #     image_widgets *= 10
+    #
+    #     return image_widgets
 
     def clock(self):
         return widget.Clock(

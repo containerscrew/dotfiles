@@ -8,7 +8,7 @@ IMPORTANT: if you are using the 'cpu' function, it will cause a segmentation fau
 To call this script in Conky, use the following (assuming that you save this script to ~/scripts/rings.lua):
 	lua_load ~/scripts/rings-v1.2.1.lua
 	lua_draw_hook_pre ring_stats
-	
+
 Changelog:
 + v1.2.1 -- Fixed minor bug that caused script to crash if conky_parse() returns a nil value (20.10.2009)
 + v1.2 -- Added option for the ending angle of the rings (07.10.2009)
@@ -17,7 +17,7 @@ Changelog:
 ]]
 
 settings_table = {
-    
+
     {
         name='cpu',
         arg='cpu0',
@@ -74,7 +74,7 @@ settings_table = {
         start_angle=0,
         end_angle=360,
     },
- 
+
 
 }
 
@@ -86,7 +86,7 @@ end
 
 function draw_ring(cr,t,pt)
 	local w,h=conky_window.width,conky_window.height
-	
+
 	local xc,yc,ring_r,ring_w,sa,ea=pt['x'],pt['y'],pt['radius'],pt['thickness'],pt['start_angle'],pt['end_angle']
 	local bgc, bga, fgc, fga=pt['bg_colour'], pt['bg_alpha'], pt['fg_colour'], pt['fg_alpha']
 
@@ -100,37 +100,37 @@ function draw_ring(cr,t,pt)
 	cairo_set_source_rgba(cr,rgb_to_r_g_b(bgc,bga))
 	cairo_set_line_width(cr,ring_w)
 	cairo_stroke(cr)
-	
+
 	-- Draw indicator ring
 
 	cairo_arc(cr,xc,yc,ring_r,angle_0,angle_0+t_arc)
 	cairo_set_source_rgba(cr,rgb_to_r_g_b(fgc,fga))
-	cairo_stroke(cr)		
+	cairo_stroke(cr)
 end
 
 function conky_ring_stats()
 	local function setup_rings(cr,pt)
 		local str=''
 		local value=0
-		
+
 		str=string.format('${%s %s}',pt['name'],pt['arg'])
 		str=conky_parse(str)
-		
+
 		value=tonumber(str)
 		if value == nil then value = 0 end
 		pct=value/pt['max']
-		
+
 		draw_ring(cr,pct,pt)
 	end
 
 	if conky_window==nil then return end
 	local cs=cairo_xlib_surface_create(conky_window.display,conky_window.drawable,conky_window.visual, conky_window.width,conky_window.height)
-	
-	local cr=cairo_create(cs)	
-	
+
+	local cr=cairo_create(cs)
+
 	local updates=conky_parse('${updates}')
 	update_num=tonumber(updates)
-	
+
 	if update_num>5 then
 		for i in pairs(settings_table) do
 			setup_rings(cr,settings_table[i])
