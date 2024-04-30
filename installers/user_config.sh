@@ -15,6 +15,7 @@ user_dirs=(
 "Documents/Code/Personal"
 "Documents/Private"
 "Documents/Books"
+".my_zsh_functions"
 )
 
 log_message "info" "Adding $USER to some groups"
@@ -51,8 +52,9 @@ if [ ! -d "$HOME/.oh-my-zsh" ]; then sh -c "$(curl -fsSL https://raw.githubuserc
 if [ ! -d "$ZSH_CUSTOM/plugins/zsh-autosuggestions" ]; then git clone https://github.com/zsh-users/zsh-autosuggestions "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}"/plugins/zsh-autosuggestions; fi
 if [ ! -d "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting" ]; then git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}"/plugins/zsh-syntax-highlighting; fi
 
-log_message "info" "Copying custom .zshrc"
+log_message "info" "Copying custom .zshrc and functions"
 rsync -avzh zsh/.zshrc "$HOME"/.zshrc
+rsync -avzhu zsh/functions/* "$HOME"/.my_zsh_functions
 
 log_message "info" "Copying wallpapers to /usr/share/backgrounds..."
 sudo mkdir -p /usr/share/backgrounds
@@ -61,5 +63,15 @@ sudo cp -ar wallpapers/* /usr/share/backgrounds/
 log_message "info" "FC cache"
 fc-cache -fv
 
-log_message "info" "Mouse configurations..."
+log_message "info" "Mouse configurations"
 sudo cp ./etc/X11/xorg.conf.d/40-mouse.conf /etc/X11/xorg.conf.d/40-mouse.conf
+
+log_message "info" "Setup oh my tmux"
+if [ ! -d "$HOME/.tmux" ]; then
+  git clone https://github.com/gpakosz/.tmux.git ~/.tmux
+  ln -s "$HOME/.tmux/.tmux.conf" "$HOME/.config/tmux/tmux.conf"
+  cp config/tmux/tmux.conf.local "$HOME/.config/tmux/tmux.conf.local"
+else
+  cp config/tmux/tmux.conf.local "$HOME/.config/tmux/tmux.conf.local"
+fi
+#cp "$HOME/.tmux/.tmux.conf.local" "$HOME/.config/tmux/tmux.conf.local"

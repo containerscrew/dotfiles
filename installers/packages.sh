@@ -46,7 +46,7 @@ sudo pacman -Syu --noconfirm --needed base-devel rustup picom \
             ttf-jetbrains-mono ttf-jetbrains-mono-nerd ttf-terminus-nerd ttf-inconsolata ttf-joypixels \
             fzf brightnessctl man webp-pixbuf-loader light-locker \
             net-tools inetutils ttf-nerd-fonts-symbols htop nautilus discord openvpn veracrypt \
-            keepass pluma bitwarden pamixer python3 python-pip shutter signal-desktop qpwgraph \
+            keepass pluma pamixer python3 python-pip shutter signal-desktop qpwgraph \
             pipewire pipewire-pulse pavucontrol xbindkeys ttf-firacode-nerd wireguard-tools \
             systemd-resolvconf macchanger tcpdump imagemagick vpnc whois qemu-full virt-manager \
             qtile xorg-xwayland rsync python-dbus-next python-iwlib \
@@ -55,12 +55,12 @@ sudo pacman -Syu --noconfirm --needed base-devel rustup picom \
             gnome-calendar spotify-launcher libpwquality dnsutils cryptsetup \
             gparted gnome-disk-utility tumbler vlc ffmpeg torbrowser-launcher \
             starship unzip vi gtk4 peek vlc flameshot python-boto3 \
-            tmux xclip xfce4-power-manager pass okular geeqie websocat \
+            tmux xclip xfce4-power-manager pass geeqie websocat \
             npm ufw nmap acpid terminator podman-docker \
             aardvark-dns netavark podman podman-compose \
             kubectl helm go minikube xorg-server-xephyr python-netifaces \
             chromium github-cli grub-customizer xorg-xhost lxqt-policykit \
-            xorg-xinput conky-manager
+            xorg-xinput conky-manager bitwarden-cli
 
 # Paru for AUR packages
 if ! check_binary "paru"; then

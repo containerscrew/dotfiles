@@ -41,7 +41,7 @@ widget_defaults = dict(
 
 apps_data = [
     # Add your logo img and command here
-    ('~/.config/qtile/icon-apps/firefox-logo.png', 'firefox'),
+    ('~/.config/qtile/icon-apps/brave-logo.png', 'brave'),
     ('~/.config/qtile/icon-apps/signal-logo.png', 'signal-desktop'),
     ('~/.config/qtile/icon-apps/chrome-logo.png', 'chromium'),
     ('~/.config/qtile/icon-apps/slack-logo.png', 'slack'),
@@ -69,7 +69,7 @@ class MyWidgets:
         return widget.GroupBox(
             **widget_base(f="FontAwesome"),
             margin_y=3,
-            # fmt="󰮯",
+            #fmt="󰮯",
             margin_x=0,
             borderwidth=0,
             active=Colors.darkviolet,
@@ -151,10 +151,10 @@ class MyWidgets:
     def battery(self):
         return widget.Battery(
             **widget_base(bg=Colors.violet, fg=Colors.background),
-            charge_char="",
-            full_char="",
-            discharge_char="",
-            empty_char="",
+            charge_char="󰂄",
+            full_char="󱟢",
+            discharge_char="󰁽",
+            empty_char="󰂎",
             unknown_char="?",
             format='{percent:2.0%} {char}',
             show_short_text=False,
@@ -169,12 +169,6 @@ class MyWidgets:
             text="󰂯",
         )
 
-    def launcher(self):
-        return widget.TextBox(
-            **widget_base(bg=Colors.blue, fg=Colors.black),
-            mouse_callbacks={'Button1': lazy.spawn('rofi -show drun -theme ~/.config/rofi/Launcher.rasi')},
-            text="󰍉",
-        )
 
     def create_image_widgets(self):
         image_widgets = []
@@ -190,23 +184,6 @@ class MyWidgets:
 
         return image_widgets
 
-
-    # def apps(self, image_data):
-    #     def create_image_widget(filename, command):
-    #         return widget.Image(
-    #             background=Colors.background,
-    #             filename=filename,
-    #             margin=2,
-    #             mouse_callbacks={'Button1': lazy.spawn(command)},
-    #         )
-    #
-    #     # Crea una lista de widgets de imagen usando una comprensión de lista
-    #     image_widgets = [create_image_widget(filename, command) for filename, command in image_data]
-    #
-    #     # Repite la lista de widgets de imagen 10 veces
-    #     image_widgets *= 10
-    #
-    #     return image_widgets
 
     def clock(self):
         return widget.Clock(

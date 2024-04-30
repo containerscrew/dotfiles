@@ -5,3 +5,7 @@
 5. eww widgets
 6. plymouth theme
 7. conky theme
+8. bitwarden UI crashing
+11. okular uninstalled (problem with KDE wallet dependency)
+12. Hibernation and sleep for autolock
+13. when the laptop screen is closed, the laptop is suspended and acpid autoarrange is not working

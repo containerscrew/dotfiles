@@ -70,7 +70,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions kubectl terraform zsh-syntax-highlighting)
+plugins=(z git zsh-autosuggestions kubectl terraform zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -115,7 +115,7 @@ alias work='cd $HOME/Documents/Code/Work'
 alias personal='cd $HOME/Documents/Code/Personal'
 
 # Functions
-#autoload -Uz
+source $HOME/.my_zsh_functions/git.sh
 
 aws-profile() {
     local AWS_PROFILES

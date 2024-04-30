@@ -31,6 +31,6 @@ nm-applet &
 #cbatticon &
 
 # Conky
-killall conky
-sleep 2s
-conky -c "$HOME"/.config/conky/Antares/Antares.conf &> /tmp/conky.log &
+#killall conky
+#sleep 2s
+#conky -c "$HOME"/.config/conky/Antares/Antares.conf &> /tmp/conky.log &
