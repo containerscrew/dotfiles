@@ -29,12 +29,12 @@ screens = [
         top=bar.Bar(
             [
                 my_widgets.system_logo(),
-                widget.Sep(
-                    size_percent=60,
-                    foreground=Colors.white,
-                    padding=10,
-                ),
-                *my_widgets.create_image_widgets(),
+                # widget.Sep(
+                #     size_percent=60,
+                #     foreground=Colors.white,
+                #     padding=10,
+                # ),
+                #*my_widgets.create_image_widgets(),
                 widget.Spacer(),
                 my_widgets.group_box(),
                 widget.Spacer(),
@@ -53,7 +53,16 @@ screens = [
             ],
             25,
             background=Colors.background,
-            margin=[0, 0, 0, 0],
+            margin=[8, 20, 0, 20],
+        ),
+        bottom=bar.Bar(
+                [
+                    widget.Spacer(),
+                    *my_widgets.create_image_widgets(),
+                ],
+                45,
+                background=Colors.background,
+                margin=[0, 500, 0, 500],
         ),
     ),
 ]

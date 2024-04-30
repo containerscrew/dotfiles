@@ -186,8 +186,8 @@ class MyWidgets:
             image_widget = widget.Image(
                 background=Colors.background,
                 filename=filename,
-                margin=2,
-                padding=10,
+                margin=5,
+                padding=0,
                 mouse_callbacks={'Button1': lazy.spawn(command)},
             )
             image_widgets.append(image_widget)

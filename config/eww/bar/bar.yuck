@@ -4,25 +4,30 @@
 
 (defwidget bar []
      (box :class "bar"
-          :orientation "horizontal"
+          :orientation "v"
           :space-evenly "false"
           (lock-power-restart)))
 
 
 (defwidget lock-power-restart []
 	(box :class "bar"
-		 :orientation "horizontal"
+		 :orientation "v"
 		 :spacing 10
+	(eventbox :cursor "pointer"
+		(button :class "bar rfkill"
+				:onclick "firefox"
+				:tooltip "Open firefox browser"
+				""))
     (eventbox :cursor "pointer"
 		(button :class "bar lock"
-				:onclick "chromium"
-				:tooltip "Open chromium browser"
-				""))
+				:onclick "alacritty"
+				:tooltip "Open alacritty terminal"
+				""))
     (eventbox :cursor "pointer"
 		(button :class "bar reboot"
-				:onclick "slack"
-				:tooltip "Open slack app"
-				"))
+				:onclick "chromium"
+				:tooltip "Open chromium browser"
+				""))
     (eventbox :cursor "pointer"
 		(button :class "bar shutdown"
 				:onclick "spotify-launcher"
@@ -31,10 +36,10 @@
   )
 )
 
-;; Bar with apps ;;
+;; Power Menu ;;
 (defwindow bar
     :geometry (geometry :x "0%"
                         :y "0%"
-                        :anchor "bottom center")
+                        :anchor "left center")
     :wm-ignore false
     (bar))
