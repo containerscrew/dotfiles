@@ -14,7 +14,7 @@ from configurations.extras import decoration
 
 # Layout
 layouts = [
-    layout.MonadTall(border_width=3, border_focus=Colors.violet, margin=8, border_normal=Colors.white),
+    layout.MonadTall(border_width=3, border_focus=Colors.background, margin=8, border_normal=Colors.background),
 ]
 
 # Custom widget class
@@ -40,7 +40,9 @@ screens = [
                 widget.Spacer(),
                 my_widgets.notifications(),
                 my_widgets.vpns(),
-                sep(fg=Colors.violet, bg=Colors.background),
+                sep(fg=Colors.blue, bg=Colors.background),
+                my_widgets.updates(),
+                sep(fg=Colors.violet, bg=Colors.blue),
                 my_widgets.volume(),
                 my_widgets.wlan(),
                 my_widgets.battery(),

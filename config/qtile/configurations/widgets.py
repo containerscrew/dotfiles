@@ -38,7 +38,6 @@ widget_defaults = dict(
     **widget_base(),
 )
 
-
 apps_data = [
     # Add your logo img and command here
     ('~/.config/qtile/icon-apps/brave-logo.png', 'brave'),
@@ -49,6 +48,7 @@ apps_data = [
     ('~/.config/qtile/icon-apps/pycharm-logo.png', 'jetbrains-toolbox'),
     ('~/.config/qtile/icon-apps/alacritty-logo.png', 'alacritty'),
 ]
+
 
 class MyWidgets:
     def __init__(self) -> None:
@@ -83,7 +83,7 @@ class MyWidgets:
             other_current_screen_border=Colors.background,
             other_screen_border=Colors.background,
             disable_drag=True
-    )
+        )
 
     def notifications(self):
         return widget.WidgetBox(
@@ -126,10 +126,21 @@ class MyWidgets:
                     update_interval=2,
                     mouse_callbacks={'Button1': lazy.spawn(
                         'alacritty --class FloaTerm,Alacritty -o window.dimensions.lines=22 window.dimensions.columns=90 -e systemctl start wg-quick@protonvpn.service'),
-                                     'Button3': lazy.spawn(
-                                         'alacritty --class FloaTerm,Alacritty -o window.dimensions.lines=22 window.dimensions.columns=90 -e systemctl stop wg-quick@protonvpn.service')},
+                        'Button3': lazy.spawn(
+                            'alacritty --class FloaTerm,Alacritty -o window.dimensions.lines=22 window.dimensions.columns=90 -e systemctl stop wg-quick@protonvpn.service')},
                 ),
             ]
+        )
+
+    def updates(self):
+        return widget.CheckUpdates(
+            background=Colors.blue,
+            colour_have_updates=Colors.red,
+            colour_no_updates=Colors.black,
+            no_update_string='󰏔  0',
+            display_format='󰏔 {updates}',
+            update_interval=120,
+            mouse_callbacks={'Button1': lazy.spawn('pamac-manager')}
         )
 
     def volume(self):
@@ -169,7 +180,6 @@ class MyWidgets:
             text="󰂯",
         )
 
-
     def create_image_widgets(self):
         image_widgets = []
         for filename, command in apps_data:
@@ -183,7 +193,6 @@ class MyWidgets:
             image_widgets.append(image_widget)
 
         return image_widgets
-
 
     def clock(self):
         return widget.Clock(

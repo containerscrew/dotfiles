@@ -7,7 +7,6 @@ source installers/helpers.sh
 ############### UFW ###############
 log_message "info" "Setup firewall using ufw"
 sudo systemctl enable ufw --now
-sudo ufw allow 22/tcp
 sudo ufw --force enable
 ############### UFW ###############
 

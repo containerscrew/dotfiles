@@ -77,7 +77,7 @@ paru -S --skipreview --noconfirm --needed jetbrains-toolbox coreimage qtile-extr
         mkdocs-rss-plugin mkdocs-material slack-desktop gitleaks procs gosec aws-session-manager-plugin  \
         ttf-font-awesome brave-bin insomnia ttf-gentium-basic golangci-lint kubectx terraform-docs \
         podman-dnsname tfenv lightdm-theme-neon-git kubecolor calcurse todotxt playerctl zoom \
-        aws-cli-v2 web-greeter
+        aws-cli-v2 web-greeter pamac
 
 # Clean paru cache
 paru -Sccd --skipreview --noconfirm

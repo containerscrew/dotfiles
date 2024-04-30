@@ -10,14 +10,5 @@ doctoc: ## Create table of contents with doctoc
 gitleaks: ## Run gitleaks
 	gitleaks detect -v .
 
-ansible-playbook: ## Run ansible playbook
-	ansible-playbook -i inventory.ini playbook.yml --ask-become-pass  --ask-vault-pass -D
-
-ansible-playbook-tag: ## Run specific tag
-	ansible-playbook -i inventory.ini playbook.yml --tags ${TAGS} --ask-become-pass  --ask-vault-pass -D
-
-ansible-encrypt: ## Encrypt vars.yml
-	ansible-vault encrypt vars.yml
-
-ansible-decrypt: ## Decrypt vars.yml
-	ansible-vault decrypt vars.yml
+sync-config: ## Copy this ./config folder to your ~/.config folder
+	rsync -avzu config/* ~/.config/ 
