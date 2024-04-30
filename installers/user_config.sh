@@ -61,7 +61,7 @@ sudo mkdir -p /usr/share/backgrounds
 sudo cp -ar wallpapers/* /usr/share/backgrounds/
 
 log_message "info" "FC cache"
-fc-cache -fv
+fc-cache -f
 
 log_message "info" "Mouse configurations"
 sudo cp ./etc/X11/xorg.conf.d/40-mouse.conf /etc/X11/xorg.conf.d/40-mouse.conf

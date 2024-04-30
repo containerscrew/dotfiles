@@ -3,35 +3,35 @@
 ;; Maintaned by https://github.com/containerscrew
 
 (defwidget bar []
-     (box :class "powermenu"
+     (box :class "bar"
           :orientation "horizontal"
           :space-evenly "false"
           (lock-power-restart)))
 
 
 (defwidget lock-power-restart []
-	(box :class "powermenu"
+	(box :class "bar"
 		 :orientation "horizontal"
 		 :spacing 10
     (eventbox :cursor "pointer"
-		(button :class "powermenu lock"
+		(button :class "bar lock"
 				:onclick "chromium"
 				:tooltip "Open chromium browser"
 				""))
     (eventbox :cursor "pointer"
-		(button :class "powermenu reboot"
+		(button :class "bar reboot"
 				:onclick "slack"
 				:tooltip "Open slack app"
 				"))
     (eventbox :cursor "pointer"
-		(button :class "powermenu shutdown"
+		(button :class "bar shutdown"
 				:onclick "spotify-launcher"
 				:tooltip "Open spotify app"
 				""))
   )
 )
 
-;; Power Menu ;;
+;; Bar with apps ;;
 (defwindow bar
     :geometry (geometry :x "0%"
                         :y "0%"

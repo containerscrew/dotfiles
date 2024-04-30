@@ -60,7 +60,7 @@ sudo pacman -Syu --noconfirm --needed base-devel rustup picom \
             aardvark-dns netavark podman podman-compose \
             kubectl helm go minikube xorg-server-xephyr python-netifaces \
             chromium github-cli grub-customizer xorg-xhost lxqt-policykit \
-            xorg-xinput conky-manager bitwarden-cli
+            xorg-xinput conky-manager bitwarden-cli fuse-overlayfs
 
 # Paru for AUR packages
 if ! check_binary "paru"; then

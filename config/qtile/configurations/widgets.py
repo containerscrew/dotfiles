@@ -205,7 +205,7 @@ class MyWidgets:
     def power(self):
         return widget.TextBox(
             **widget_base(bg=Colors.background, fg=Colors.red, p=10),
-            mouse_callbacks={'Button1': lazy.spawn('eww open --toggle powermenu --duration 5s')},
+            mouse_callbacks={'Button1': lazy.spawn('eww -c /home/dcr/.config/eww/powermenu open powermenu --toggle --duration 5s')},
             text="󰐥",
         )
 
