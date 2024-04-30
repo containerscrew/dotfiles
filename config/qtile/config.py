@@ -55,15 +55,6 @@ screens = [
             background=Colors.background,
             margin=[8, 20, 0, 20],
         ),
-        bottom=bar.Bar(
-                [
-                    widget.Spacer(),
-                    *my_widgets.create_image_widgets(),
-                ],
-                45,
-                background=Colors.background,
-                margin=[0, 500, 0, 500],
-        ),
     ),
 ]
 
