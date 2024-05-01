@@ -75,3 +75,6 @@ else
   cp config/tmux/tmux.conf.local "$HOME/.config/tmux/tmux.conf.local"
 fi
 #cp "$HOME/.tmux/.tmux.conf.local" "$HOME/.config/tmux/tmux.conf.local"
+
+# TFENV permissions
+sudo usermod -aG tfenv dcr

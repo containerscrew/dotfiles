@@ -3,7 +3,7 @@
 # First stop private vpn (ProtonVPN)
 sudo systemctl stop wg-quick@protonvpn.service
 sleep 1
-sudo vpnc-disconnect 2>&1 /dev/null
+sudo vpnc-disconnect
 # Connect work vpn
 sudo vpnc work
 sleep 1

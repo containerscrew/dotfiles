@@ -9,24 +9,25 @@ copyq &
 # Notifications
 dunst &
 
-# Wallpapers
-feh -z --no-fehbg --bg-fill /usr/share/backgrounds
+# Set custom wallpaper, change the wallpaper to random wallpaper using SUPR(WIN)+ALT+P
+feh --bg-scale /usr/share/backgrounds/25.jpg
 
 # EWW widgets
 "$HOME/.config/eww/launch.sh"
 
 # Light locker
-light-locker &
+light-locker --no-lock-on-lid &
 
 # Launch polkit
-pidof -q polkitd || /usr/bin/lxqt-policykit-agent &
+#pidof -q polkitd || /usr/bin/lxqt-policykit-agent &
+/usr/bin/lxqt-policykit-agent &
 
 # Debian 12
 #lxpolkit &
 
 # Other apps for systray
 #udiskie -t &
-nm-applet &
+#nm-applet &
 #volumeicon &
 #cbatticon &
 

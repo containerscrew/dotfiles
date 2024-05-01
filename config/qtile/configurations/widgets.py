@@ -119,7 +119,7 @@ class MyWidgets:
             colour_have_updates=Colors.red,
             colour_no_updates=Colors.black,
             no_update_string='󰮯  0',
-            display_format='󰮯 {updates}',
+            display_format='󰮯  {updates}',
             update_interval=120,
             distro='Arch',
             mouse_callbacks={'Button1': lazy.spawn(
@@ -131,8 +131,8 @@ class MyWidgets:
             background=Colors.blue,
             colour_have_updates=Colors.red,
             colour_no_updates=Colors.black,
-            no_update_string='󰣇 0',
-            display_format='󰣇 {updates}',
+            no_update_string='󰣇  0',
+            display_format='󰣇  {updates}',
             update_interval=120,
             distro='Arch_paru',
             mouse_callbacks={'Button1': lazy.spawn('alacritty --hold --class FloaTerm,Alacritty -o window.dimensions.lines=22 window.dimensions.columns=90 -e paru -Qu')}
