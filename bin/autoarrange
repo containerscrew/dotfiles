@@ -6,6 +6,8 @@
 # Check if laptop screen is closed
 lid_state=$(cat /proc/acpi/button/lid/LID0/state | awk '{print $2}')
 
+echo "autoarrange executed $(date)" >> /tmp/xrandr.log
+
 echo "Laptop screen is $lid_state"
 
 case $lid_state in

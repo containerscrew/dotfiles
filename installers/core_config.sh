@@ -9,6 +9,13 @@ sudo rsync -avzhu --backup --suffix="$(date +'.%F_%H-%M')" etc/hosts /etc/hosts
 sudo chmod 644 /etc/hosts
 ############### ETC HOSTS ###############
 
+############### LOGIND ###############
+log_message "info" "Setup logind.conf"
+sudo sed -i '/^#HandleLidSwitch=/s/^#//; /^HandleLidSwitch=/s/=.*/=ignore/' /etc/systemd/logind.conf
+sudo sed -i '/^#IdleAction=/s/^#//; /^IdleAction=/s/=.*/=lock/' /etc/systemd/logind.conf
+systemctl restart systemd-logind
+
+
 ############### BLUETOOTH ###############
 log_message "info" "Enable bluetooth service"
 sudo systemctl enable bluetooth --now
