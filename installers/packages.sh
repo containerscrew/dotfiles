@@ -82,11 +82,6 @@ paru -S --skipreview --noconfirm --needed jetbrains-toolbox coreimage qtile-extr
 # Clean paru cache
 paru -Sccd --skipreview --noconfirm
 
-#log_message "info" "Setup tfenv"
-#sudo usermod -aG tfenv "${USER}"
-#sudo tfenv install 1.5.5
-#sudo tfenv use 1.5.5
-
 log_message "info" "Install terragrunt"
 paru -S --skipreview --noconfirm --needed terragrunt
 
@@ -101,6 +96,9 @@ else
     sudo ./strap.sh
     clean "$tmpdir"
 fi
+
+log_message "info" "Installing some ethical hacking tools"
+sudo pacman -Syu --noconfirm --needed whatweb
 
 # EWW for widgets
 if ! check_binary "eww"; then

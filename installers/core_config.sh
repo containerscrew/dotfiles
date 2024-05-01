@@ -13,7 +13,7 @@ sudo chmod 644 /etc/hosts
 log_message "info" "Setup logind.conf"
 sudo sed -i '/^#HandleLidSwitch=/s/^#//; /^HandleLidSwitch=/s/=.*/=ignore/' /etc/systemd/logind.conf
 sudo sed -i '/^#IdleAction=/s/^#//; /^IdleAction=/s/=.*/=lock/' /etc/systemd/logind.conf
-systemctl restart systemd-logind
+sudo systemctl restart systemd-logind
 
 
 ############### BLUETOOTH ###############
