@@ -86,30 +86,11 @@ class MyWidgets:
         )
 
     def notifications(self):
-        return widget.WidgetBox(
-            **widget_base(fg=Colors.blue),
-            text_closed="󰮯",
-            text_open="󰊠",
-            widgets=[
-                # widget.DoNotDisturb(
-                #     update_interval=1,
-                #     disabled_icon='O',
-                #     enabled_icon='X'
-                # ),
-                widget.Systray(),
-                widget.StatusNotifier(
-                    icon_theme="Papirus-Dark"
-                ),
-                widget.GenPollCommand(
-                    **widget_base(),
-                    cmd="dunstctl is-paused",
-                    shell=True,
-                    fmt="Notifications Paused: {}",
-                    update_interval=2,
-                    mouse_callbacks={'Button1': lazy.spawn('dunstctl set-paused true'),
-                                     'Button3': lazy.spawn('dunstctl set-paused false')},
-                ),
-            ]
+        return widget.DoNotDisturb(
+            disabled_icon='󱏧',
+            enabled_icon='󱇥',
+            foreground=Colors.lightblue,
+            fontsize=15,
         )
 
     def vpns(self):
@@ -132,15 +113,29 @@ class MyWidgets:
             ]
         )
 
-    def updates(self):
+    def pacman_updates(self):
         return widget.CheckUpdates(
             background=Colors.blue,
             colour_have_updates=Colors.red,
             colour_no_updates=Colors.black,
-            no_update_string='󰏔  0',
-            display_format='󰏔 {updates}',
+            no_update_string='󰮯  0',
+            display_format='󰮯 {updates}',
             update_interval=120,
-            mouse_callbacks={'Button1': lazy.spawn('pamac-manager')}
+            distro='Arch',
+            mouse_callbacks={'Button1': lazy.spawn(
+                'alacritty --hold --class FloaTerm,Alacritty -o window.dimensions.lines=22 window.dimensions.columns=90 -e pacman -Qu')}
+        )
+
+    def paru_updates(self):
+        return widget.CheckUpdates(
+            background=Colors.blue,
+            colour_have_updates=Colors.red,
+            colour_no_updates=Colors.black,
+            no_update_string='󰣇 0',
+            display_format='󰣇 {updates}',
+            update_interval=120,
+            distro='Arch_paru',
+            mouse_callbacks={'Button1': lazy.spawn('alacritty --hold --class FloaTerm,Alacritty -o window.dimensions.lines=22 window.dimensions.columns=90 -e paru -Qu')}
         )
 
     def volume(self):
