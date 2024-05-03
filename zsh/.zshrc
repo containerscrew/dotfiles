@@ -116,6 +116,7 @@ alias personal='cd $HOME/Documents/Code/Personal'
 
 # Functions
 source $HOME/.my_zsh_functions/git.sh
+source $HOME/.my_zsh_functions/bw.sh # I use bitwarden-cli. Inside the script my custom functions
 
 aws-profile() {
     local AWS_PROFILES
