@@ -5,7 +5,7 @@ My dotfiles using Arch Linux. Just for the time it takes to document this reposi
 > [!WARNING]
 > The documentation is not yet well finished. There are still things to document and configure. However, I hope the configuration files can help you.
 
-![demo](./assets/demo.gif)
+![current-desktop](./assets/example-desktop.png)
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
