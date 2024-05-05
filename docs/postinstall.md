@@ -1,3 +1,5 @@
+# DEPRECATED! I NEED TO REWRITE THIS CONFIGURATION
+
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
@@ -180,3 +182,20 @@ Setup [pass](https://wiki.archlinux.org/title/Pass) store if needed.
 https://store.kde.org/s/KDE%20Store/p/1312658
 
 cp your-theme/ `/usr/share/sddm/themes/`
+
+
+# Global gitconfig for internal git servers with self signed certificate
+
+In my case, using terraform and downloading custom terraform modules from internal git servers with self signed certificates, I need to setup this configuration to avoid SSL errors.
+
+```toml
+[http "https://gitlab.server.internal"]
+  ##################################
+  # Self Signed Server Certificate #
+  ##################################
+
+  sslCAInfo = /path/to/your/certificate.crt
+  #sslCAPath = /path/to/selfCA/
+  sslVerify = true
+
+```
