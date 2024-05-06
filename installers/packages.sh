@@ -59,7 +59,7 @@ sudo pacman -Syu --noconfirm --needed base-devel rustup picom \
             npm ufw nmap acpid terminator podman-docker \
             aardvark-dns netavark podman podman-compose \
             kubectl helm go minikube xorg-server-xephyr python-netifaces \
-            chromium github-cli grub-customizer xorg-xhost lxqt-policykit \
+            chromium github-cli grub-customizer xorg-xhost polkit-gnome \
             xorg-xinput conky-manager bitwarden-cli fuse-overlayfs
 
 # Paru for AUR packages

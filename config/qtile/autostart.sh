@@ -20,7 +20,7 @@ light-locker --no-lock-on-lid &
 
 # Launch polkit
 #pidof -q polkitd || /usr/bin/lxqt-policykit-agent &
-/usr/bin/lxqt-policykit-agent &
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
 # Debian 12
 #lxpolkit &
