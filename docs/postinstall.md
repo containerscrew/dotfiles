@@ -199,3 +199,11 @@ In my case, using terraform and downloading custom terraform modules from intern
   sslVerify = true
 
 ```
+
+# Install rustlings
+
+https://github.com/rust-lang/rustlings
+
+```console
+curl -L https://raw.githubusercontent.com/rust-lang/rustlings/main/install.sh | bash
+```

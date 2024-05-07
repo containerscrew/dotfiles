@@ -60,7 +60,8 @@ sudo pacman -Syu --noconfirm --needed base-devel rustup picom \
             aardvark-dns netavark podman podman-compose \
             kubectl helm go minikube xorg-server-xephyr python-netifaces \
             chromium github-cli grub-customizer xorg-xhost polkit-gnome \
-            xorg-xinput conky-manager bitwarden-cli fuse-overlayfs
+            xorg-xinput conky-manager bitwarden-cli fuse-overlayfs \
+            mariadb-clients oath-toolkit bitwarden
 
 # Paru for AUR packages
 if ! check_binary "paru"; then
@@ -77,7 +78,7 @@ paru -S --skipreview --noconfirm --needed jetbrains-toolbox coreimage qtile-extr
         mkdocs-rss-plugin mkdocs-material slack-desktop gitleaks procs gosec aws-session-manager-plugin  \
         ttf-font-awesome brave-bin insomnia ttf-gentium-basic golangci-lint kubectx terraform-docs \
         podman-dnsname tfenv lightdm-theme-neon-git kubecolor calcurse todotxt playerctl zoom \
-        aws-cli-v2 web-greeter pamac
+        aws-cli-v2 web-greeter pamac notion-app-electron
 
 # Clean paru cache
 paru -Sccd --skipreview --noconfirm
@@ -117,6 +118,11 @@ if ! check_binary "doctoc"; then
   sudo npm install -g doctoc
 fi
 
+if ! check_binary "renovate"; then
+  cd "$origin_dir"
+  sudo npm install -g renovate
+fi
+
 ########## Custom tools ##########
 if ! check_binary "aws-sso-auth"; then
   curl --proto '=https' --tlsv1.2 -sSfL https://raw.githubusercontent.com/containerscrew/aws-sso-auth/main/scripts/install.sh | bash
@@ -145,9 +151,15 @@ if ! check_binary "hadolint"; then
     sudo wget -O /usr/local/bin/hadolint https://github.com/hadolint/hadolint/releases/download/v2.12.0/hadolint-Linux-x86_64
 fi
 
+# Broken!
 if ! check_binary "ec2-instance-selector"; then
-    sudo wget -O /usr/local/bin/ec2-instance-selector https://github.com/aws/amazon-ec2-instance-selector/releases/tag/v2.4.1
+    sudo wget -O /usr/local/bin/ec2-instance-selector https://github.com/aws/amazon-ec2-instance-selector/releases/download/v2.4.1/ec2-instance-selector-linux-amd64
+    sudo chmod +x /usr/local/bin/ec2-instance-selector
 fi
+
+# Rust
+log_message "info" "Setup default rust stable"
+rustup default stable
 
 # Helm plugins
 log_message "info" "Install helm plugins"
