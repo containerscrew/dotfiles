@@ -1,13 +1,15 @@
 #! /bin/bash
 
 # First stop private vpn (ProtonVPN)
+echo -e "\e[32m> Stopping protonvpn service...\e[0m"
 sudo systemctl stop wg-quick@protonvpn.service
-sleep 1
+sleep 2
+echo -e "\e[32m> Stop existent vpnc connection if exists...\e[0m"
 sudo vpnc-disconnect
-# Connect work vpn
+echo -e "\e[32m> Connecting work VPN...\e[0m"
 sudo vpnc work
-sleep 1
-# Start again private VPN
+sleep 2
+echo -e "\e[32m> Connecting protonvpn...\e[0m"
 sudo systemctl start wg-quick@protonvpn.service
 # For custom domains to search using you work vpn (search internal endpoints)
 # echo "sudo resolvectl domain tun1 mydomain1.custom mycompany.internal hello.test" >> ~/.local/bin/work-vpn

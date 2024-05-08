@@ -87,8 +87,8 @@ class MyWidgets:
 
     def notifications(self):
         return widget.DoNotDisturb(
-            disabled_icon='󱏧',
-            enabled_icon='󱇥',
+            disabled_icon='󱇥',
+            enabled_icon='󱏧',
             foreground=Colors.lightblue,
             fontsize=15,
         )
