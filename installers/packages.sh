@@ -61,7 +61,7 @@ sudo pacman -Syu --noconfirm --needed base-devel rustup picom \
             kubectl helm go minikube xorg-server-xephyr python-netifaces \
             chromium github-cli grub-customizer xorg-xhost polkit-gnome \
             xorg-xinput conky-manager bitwarden-cli fuse-overlayfs \
-            mariadb-clients oath-toolkit bitwarden
+            mariadb-clients oath-toolkit bitwarden nushell
 
 # Paru for AUR packages
 if ! check_binary "paru"; then

@@ -9,3 +9,4 @@
 12. Hibernation and sleep for autolock
 13. when the laptop screen is closed, the laptop is suspended and acpid autoarrange is not working
 15. setup clipboard manager
+16. investigate nushell

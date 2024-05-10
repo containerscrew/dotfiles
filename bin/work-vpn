@@ -6,6 +6,7 @@ sudo systemctl stop wg-quick@protonvpn.service
 sleep 2
 echo -e "\e[32m> Stop existent vpnc connection if exists...\e[0m"
 sudo vpnc-disconnect
+sleep 2
 echo -e "\e[32m> Connecting work VPN...\e[0m"
 sudo vpnc work
 sleep 2
