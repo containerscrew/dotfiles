@@ -56,12 +56,14 @@ sudo pacman -Syu --noconfirm --needed base-devel rustup picom \
             gparted gnome-disk-utility tumbler vlc ffmpeg torbrowser-launcher \
             starship unzip vi gtk4 peek vlc flameshot python-boto3 \
             tmux xclip xfce4-power-manager pass geeqie websocat \
-            npm ufw nmap acpid terminator podman-docker \
+            npm ufw nmap acpid terminator \
             aardvark-dns netavark podman podman-compose \
             kubectl helm go minikube xorg-server-xephyr python-netifaces \
             chromium github-cli grub-customizer xorg-xhost polkit-gnome \
-            xorg-xinput conky-manager bitwarden-cli fuse-overlayfs \
-            mariadb-clients oath-toolkit bitwarden nushell
+            xorg-xinput conky-manager fuse-overlayfs \
+            mariadb-clients oath-toolkit nushell btop \
+            gnome-calculator docker python-kubernetes python-hatch \
+            exfat-utils evince
 
 # Paru for AUR packages
 if ! check_binary "paru"; then
@@ -78,7 +80,8 @@ paru -S --skipreview --noconfirm --needed jetbrains-toolbox coreimage qtile-extr
         mkdocs-rss-plugin mkdocs-material slack-desktop gitleaks procs gosec aws-session-manager-plugin  \
         ttf-font-awesome brave-bin insomnia ttf-gentium-basic golangci-lint kubectx terraform-docs \
         podman-dnsname tfenv lightdm-theme-neon-git kubecolor calcurse todotxt playerctl zoom \
-        aws-cli-v2 web-greeter pamac notion-app-electron
+        aws-cli-v2 web-greeter pamac notion-app-electron android-sdk-cmdline-tools-latest \
+        android-tools
 
 # Clean paru cache
 paru -Sccd --skipreview --noconfirm
@@ -164,3 +167,7 @@ rustup default stable
 # Helm plugins
 log_message "info" "Install helm plugins"
 helm plugin install https://github.com/helm/helm-mapkubeapis || true
+
+# Poetry install
+curl -sSL https://install.python-poetry.org | python3 -
+poetry completions zsh > ~/.zfunc/_poetry

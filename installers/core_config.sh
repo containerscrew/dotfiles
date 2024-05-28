@@ -21,9 +21,11 @@ log_message "info" "Enable bluetooth service"
 sudo systemctl enable bluetooth --now
 ############### BLUETOOTH ###############
 
-############### PODMAN CONTAINER RUNTIME ###############
+############### PODMAN/DOCKER CONTAINER RUNTIME ###############
 log_message "info" "Setup podman container runtime"
 sudo cp -a misc/podman-config.conf /etc/containers/registries.conf.d/podman-config.conf
+sudo systemctl enable docker --now
+sudo usermod -aG docker dcr
 #sudo systemctl enable podman
 #sudo systemctl restart podman
 # Symlinks for docker, better than creating an alias (in scripting alias will not work)

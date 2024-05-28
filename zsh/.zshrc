@@ -113,6 +113,8 @@ alias pbcopy='xclip -sel clip'
 alias mycode='cd $HOME/Documents/Code'
 alias work='cd $HOME/Documents/Code/Work'
 alias personal='cd $HOME/Documents/Code/Personal'
+alias top='btop'
+alias restart-all-deploy-namespace='for deploy in $(kubectl get deployment | tail -n +2 | awk '{print $1}'); do kubectl rollout restart deployment/$deploy; done'
 
 # Functions
 source $HOME/.my_zsh_functions/git.sh
