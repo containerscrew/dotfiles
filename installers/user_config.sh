@@ -85,7 +85,8 @@ log_message "info" "Setup vscode extensions"
 extensions=(rust-lang.rust-analyzer mvllow.rose-pine naumovs.color-highlight \
             PKief.material-icon-theme golang.Go christian-kohler.path-intellisense \
             ionutvmi.path-autocomplete HashiCorp.terraform ms-python.python bungcip.better-toml \
-            Equinusocio.vsc-community-material-theme dracula-theme.theme-dracula)
+            Equinusocio.vsc-community-material-theme dracula-theme.theme-dracula \
+            Catppuccin.catppuccin-vsc-icons Catppuccin.catppuccin-vsc gitlab.gitlab-workflow)
 
 #AykutSarac.jsoncrack-vscode 
 

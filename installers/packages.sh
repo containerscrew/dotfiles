@@ -63,7 +63,7 @@ sudo pacman -Syu --noconfirm --needed base-devel rustup picom \
             xorg-xinput conky-manager fuse-overlayfs \
             mariadb-clients oath-toolkit nushell btop \
             gnome-calculator docker python-kubernetes python-hatch \
-            exfat-utils evince
+            exfat-utils evince python-pipx
 
 # Paru for AUR packages
 if ! check_binary "paru"; then
