@@ -39,7 +39,7 @@ log_message "info" "Installing pacman packages"
 sudo pacman -Syu --noconfirm --needed base-devel rustup picom \
             dunst feh alacritty jq git papirus-icon-theme rofi \
             xorg-xprop xorg-xkill xorg-xsetroot xorg-xwininfo xorg-xrandr \
-            xdg-user-dirs plymouth neovim vscode mlocate \
+            xdg-user-dirs plymouth neovim mlocate \
             bluez bluez-utils zsh arandr xorg-server xorg-xinit \
             curl wget neofetch lightdm \
             blueman firefox conky mlocate ngrep lsd bat \
@@ -63,7 +63,7 @@ sudo pacman -Syu --noconfirm --needed base-devel rustup picom \
             xorg-xinput conky-manager fuse-overlayfs \
             mariadb-clients oath-toolkit nushell btop \
             gnome-calculator docker python-kubernetes python-hatch \
-            exfat-utils evince python-pipx lxappearance qt5ct
+            exfat-utils evince python-pipx lxappearance kvantum-qt5
 
 # Paru for AUR packages
 if ! check_binary "paru"; then
@@ -81,7 +81,7 @@ paru -S --skipreview --noconfirm --needed jetbrains-toolbox coreimage qtile-extr
         ttf-font-awesome brave-bin insomnia ttf-gentium-basic golangci-lint kubectx terraform-docs \
         podman-dnsname tfenv lightdm-theme-neon-git kubecolor calcurse todotxt playerctl zoom \
         aws-cli-v2 web-greeter pamac notion-app-electron android-sdk-cmdline-tools-latest \
-        android-tools dracula-gtk-theme
+        android-tools dracula-gtk-theme visual-studio-code-bin
 
 # Clean paru cache
 paru -Sccd --skipreview --noconfirm
