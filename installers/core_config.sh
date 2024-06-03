@@ -11,7 +11,7 @@ sudo chmod 644 /etc/hosts
 
 ############### LOGIND ###############
 log_message "info" "Setup logind.conf"
-sudo sed -i '/^#HandleLidSwitch=/s/^#//; /^HandleLidSwitch=/s/=.*/=ignore/' /etc/systemd/logind.conf
+sudo sed -i '/^#HandleLidSwitch=/s/^#//; /^HandleLidSwitch=/s/=.*/=suspend/' /etc/systemd/logind.conf
 sudo sed -i '/^#IdleAction=/s/^#//; /^IdleAction=/s/=.*/=lock/' /etc/systemd/logind.conf
 sudo systemctl restart systemd-logind
 

@@ -170,4 +170,4 @@ helm plugin install https://github.com/helm/helm-mapkubeapis || true
 
 # Poetry install
 curl -sSL https://install.python-poetry.org | python3 -
-poetry completions zsh > ~/.zfunc/_poetry
+#poetry completions zsh > ~/.zfunc/_poetry
