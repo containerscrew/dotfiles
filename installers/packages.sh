@@ -63,7 +63,7 @@ sudo pacman -Syu --noconfirm --needed base-devel rustup picom \
             xorg-xinput conky-manager fuse-overlayfs \
             mariadb-clients oath-toolkit nushell btop \
             gnome-calculator docker python-kubernetes python-hatch \
-            exfat-utils evince python-pipx
+            exfat-utils evince python-pipx lxappearance qt5ct
 
 # Paru for AUR packages
 if ! check_binary "paru"; then
@@ -81,7 +81,7 @@ paru -S --skipreview --noconfirm --needed jetbrains-toolbox coreimage qtile-extr
         ttf-font-awesome brave-bin insomnia ttf-gentium-basic golangci-lint kubectx terraform-docs \
         podman-dnsname tfenv lightdm-theme-neon-git kubecolor calcurse todotxt playerctl zoom \
         aws-cli-v2 web-greeter pamac notion-app-electron android-sdk-cmdline-tools-latest \
-        android-tools
+        android-tools dracula-gtk-theme
 
 # Clean paru cache
 paru -Sccd --skipreview --noconfirm
