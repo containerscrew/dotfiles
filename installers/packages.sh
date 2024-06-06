@@ -63,7 +63,8 @@ sudo pacman -Syu --noconfirm --needed base-devel rustup picom \
             xorg-xinput conky-manager fuse-overlayfs \
             mariadb-clients oath-toolkit nushell btop \
             gnome-calculator docker python-kubernetes python-hatch \
-            exfat-utils evince python-pipx lxappearance kvantum-qt5
+            exfat-utils evince python-pipx lxappearance kvantum-qt5 \
+            bitwarden
 
 # Paru for AUR packages
 if ! check_binary "paru"; then
@@ -169,5 +170,10 @@ log_message "info" "Install helm plugins"
 helm plugin install https://github.com/helm/helm-mapkubeapis || true
 
 # Poetry install
+log_message "info" "Installing poetry"
 curl -sSL https://install.python-poetry.org | python3 -
 #poetry completions zsh > ~/.zfunc/_poetry
+
+# Packages with pipx
+log_message "info" "Installing pipx packages"
+pipx install pytest

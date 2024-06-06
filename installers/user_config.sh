@@ -88,6 +88,24 @@ extensions=(rust-lang.rust-analyzer mvllow.rose-pine naumovs.color-highlight \
             Equinusocio.vsc-community-material-theme dracula-theme.theme-dracula \
             Catppuccin.catppuccin-vsc-icons Catppuccin.catppuccin-vsc gitlab.gitlab-workflow)
 
+
+# catppuccin.catppuccin-vsc-icons
+# christian-kohler.path-intellisense
+# dracula-theme.theme-dracula
+# eamodio.gitlens
+# hashicorp.hcl
+# hashicorp.terraform
+# ms-azuretools.vscode-docker
+# ms-kubernetes-tools.vscode-kubernetes-tools
+# ms-python.debugpy
+# ms-python.python
+# ms-python.vscode-pylance
+# ms-vscode.makefile-tools
+# oderwat.indent-rainbow
+# pkief.material-icon-theme
+# redhat.vscode-yaml
+# vscode-icons-team.vscode-icons
+# zeshuaro.vscode-python-poetry
 #AykutSarac.jsoncrack-vscode 
 
 for extension in "${extensions[@]}"

@@ -10,7 +10,7 @@ copyq &
 dunst &
 
 # Set custom wallpaper, change the wallpaper to random wallpaper using SUPR(WIN)+ALT+P
-feh --bg-scale /usr/share/backgrounds/25.jpg
+feh --bg-scale /usr/share/backgrounds/26.jpg
 
 # EWW widgets
 "$HOME/.config/eww/launch.sh"
