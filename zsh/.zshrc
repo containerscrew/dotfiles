@@ -119,6 +119,7 @@ alias mfacode='oathtool --totp --base32'
 # Functions
 source $HOME/.my_zsh_functions/git.sh
 source $HOME/.my_zsh_functions/bw.sh # I use bitwarden-cli. Inside the script my custom functions
+source $HOME/.my_zsh_functions/tfsum.sh
 
 aws-profile() {
     local AWS_PROFILES

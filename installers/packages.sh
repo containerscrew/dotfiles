@@ -64,7 +64,7 @@ sudo pacman -Syu --noconfirm --needed base-devel rustup picom \
             mariadb-clients oath-toolkit nushell btop \
             gnome-calculator docker python-kubernetes python-hatch \
             exfat-utils evince python-pipx lxappearance kvantum-qt5 \
-            bitwarden
+            bitwarden hugo bcc bcc-tools python-bcc vim
 
 # Paru for AUR packages
 if ! check_binary "paru"; then
