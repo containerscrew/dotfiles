@@ -127,6 +127,11 @@ if ! check_binary "renovate"; then
   sudo npm install -g renovate
 fi
 
+if ! check_binary "gitmoji-cli"; then
+  cd "$origin_dir"
+  sudo npm install -g gitmoji-cli
+fi
+
 ########## Custom tools ##########
 if ! check_binary "aws-sso-auth"; then
   curl --proto '=https' --tlsv1.2 -sSfL https://raw.githubusercontent.com/containerscrew/aws-sso-auth/main/scripts/install.sh | bash
