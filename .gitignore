@@ -9,3 +9,8 @@
 
 # Vars file (sensitive credentials)
 vars.yml
+
+# Sensitive files
+*.pem
+*.key
+*.crt
