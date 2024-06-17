@@ -22,6 +22,8 @@
 - [/etc/systemd/logind.conf](#etcsystemdlogindconf)
 - [Pass store](#pass-store)
 - [Install your SDDM theme](#install-your-sddm-theme)
+- [Global gitconfig for internal git servers with self signed certificate](#global-gitconfig-for-internal-git-servers-with-self-signed-certificate)
+- [Install rustlings](#install-rustlings)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 

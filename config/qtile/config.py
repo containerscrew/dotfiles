@@ -34,7 +34,7 @@ screens = [
                     foreground=Colors.white,
                     padding=10,
                 ),
-                *my_widgets.create_image_widgets(),
+                widget.WindowName(),
                 widget.Spacer(),
                 my_widgets.group_box(),
                 widget.Spacer(),

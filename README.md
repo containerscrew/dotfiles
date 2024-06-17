@@ -117,6 +117,9 @@ $ bash setup.sh
 $ cd /tmp
 $ git clone https://github.com/containerscrew/dotfiles.git
 $ rsync -avzh --exclude='.git/' dotfiles/ username@192.168.X.X:/tmp/dotfiles/
+# Then login to the server and execute the script setup.sh
+ssh username@ip
+bash /tmp/dotfiles/setup.sh
 ```
 > openssh must be enabled
 
@@ -133,6 +136,7 @@ rsync -avzhu config/* /home/username/.config/
 
 [setup.sh](./setup.sh) will install main packages using `pacman` and `paru`. Also, will copy all config files in user home, will set some basic configs like `firewall`, `lightdm` theme...etc. Take a look!
 
+> All installation scripts are in the `installers` folder
 
 # Post install
 
