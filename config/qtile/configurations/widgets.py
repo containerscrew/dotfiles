@@ -57,7 +57,7 @@ class MyWidgets:
 
     def system_logo(self):
         return widget.TextBox(
-            **widget_base(fs=18, p=10, fg=Colors.darkblue, bg=Colors.background),
+            **widget_base(fs=18, p=10, fg=Colors.blue, bg=Colors.background),
             mouse_callbacks={'Button1': lazy.spawn('rofi -show drun -theme ~/.config/rofi/Launcher.rasi')},
             text="",
         )

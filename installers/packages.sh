@@ -65,7 +65,7 @@ sudo pacman -Syu --noconfirm --needed base-devel rustup picom \
             gnome-calculator docker python-kubernetes python-hatch \
             exfat-utils evince python-pipx lxappearance kvantum-qt5 \
             bitwarden hugo bcc bcc-tools python-bcc vim \
-            kwallet kwalletmanager buildah sqlitebrowser
+            kwallet kwalletmanager buildah sqlitebrowser exfatprogs
 
 # Paru for AUR packages
 if ! check_binary "paru"; then
