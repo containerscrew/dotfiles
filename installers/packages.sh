@@ -65,7 +65,8 @@ sudo pacman -Syu --noconfirm --needed base-devel rustup picom \
             gnome-calculator docker python-kubernetes python-hatch \
             exfat-utils evince python-pipx lxappearance kvantum-qt5 \
             bitwarden hugo bcc bcc-tools python-bcc vim \
-            kwallet kwalletmanager buildah sqlitebrowser exfatprogs
+            kwallet kwalletmanager buildah sqlitebrowser exfatprogs \
+            docker-compose
 
 # Paru for AUR packages
 if ! check_binary "paru"; then
@@ -183,3 +184,9 @@ curl -sSL https://install.python-poetry.org | python3 -
 # Packages with pipx
 log_message "info" "Installing pipx packages"
 pipx install pytest
+
+# Exercism: exercism.org
+log_message "info" "Installing exercism cli"
+wget -O /tmp https://github.com/exercism/cli/releases/download/v3.4.0/exercism-3.4.0-linux-x86_64.tar.gz
+tar -xvf /tmp/exercism-3.4.0-linux-x86_64.tar.gz -C /tmp
+sudo install -m 755 /tmp/exercism /usr/local/bin/exercism
