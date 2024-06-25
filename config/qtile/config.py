@@ -38,6 +38,7 @@ screens = [
                 widget.Spacer(),
                 my_widgets.group_box(),
                 widget.Spacer(),
+                my_widgets.pomodoro(),
                 my_widgets.notifications(),
                 my_widgets.vpns(),
                 sep(fg=Colors.blue, bg=Colors.background),

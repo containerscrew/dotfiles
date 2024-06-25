@@ -84,6 +84,15 @@ class MyWidgets:
             other_screen_border=Colors.background,
             disable_drag=True
         )
+    
+    def pomodoro(self):
+        return widget.Pomodoro(
+            color_inactive=Colors.orange,
+            prefix_inactive="Pomodoro 󱫠",
+            prefix_paused="Paused 󱫞",
+            prefix_active="󱤥  ",
+            foreground=Colors.violet,
+        )
 
     def notifications(self):
         return widget.DoNotDisturb(
