@@ -66,7 +66,7 @@ sudo pacman -Syu --noconfirm --needed base-devel rustup picom \
             exfat-utils evince python-pipx lxappearance kvantum-qt5 \
             bitwarden hugo bcc bcc-tools python-bcc vim \
             kwallet kwalletmanager buildah sqlitebrowser exfatprogs \
-            docker-compose
+            docker-compose telegram-desktop glow
 
 # Paru for AUR packages
 if ! check_binary "paru"; then

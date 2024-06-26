@@ -88,8 +88,8 @@ class MyWidgets:
     def pomodoro(self):
         return widget.Pomodoro(
             color_inactive=Colors.orange,
-            prefix_inactive="Pomodoro 󱫠",
-            prefix_paused="Paused 󱫞",
+            prefix_inactive="󱫠",
+            prefix_paused="󱫞",
             prefix_active="󱤥  ",
             foreground=Colors.violet,
         )
