@@ -81,12 +81,14 @@ sudo usermod -aG tfenv dcr
 
 # Vscode extensions
 # https://marketplace.visualstudio.com/vscode
-log_message "info" "Setup vscode extensions"
-extensions=(rust-lang.rust-analyzer mvllow.rose-pine naumovs.color-highlight \
-            PKief.material-icon-theme golang.Go christian-kohler.path-intellisense \
-            ionutvmi.path-autocomplete HashiCorp.terraform ms-python.python bungcip.better-toml \
-            Equinusocio.vsc-community-material-theme dracula-theme.theme-dracula \
-            Catppuccin.catppuccin-vsc-icons Catppuccin.catppuccin-vsc gitlab.gitlab-workflow)
+# $ code --list-extensions
+
+# log_message "info" "Setup vscode extensions"
+# extensions=(rust-lang.rust-analyzer mvllow.rose-pine naumovs.color-highlight \
+#             PKief.material-icon-theme golang.Go christian-kohler.path-intellisense \
+#             ionutvmi.path-autocomplete HashiCorp.terraform ms-python.python bungcip.better-toml \
+#             dracula-theme.theme-dracula \
+#             Catppuccin.catppuccin-vsc-icons Catppuccin.catppuccin-vsc gitlab.gitlab-workflow)
 
 
 # catppuccin.catppuccin-vsc-icons
@@ -108,7 +110,7 @@ extensions=(rust-lang.rust-analyzer mvllow.rose-pine naumovs.color-highlight \
 # zeshuaro.vscode-python-poetry
 #AykutSarac.jsoncrack-vscode 
 
-for extension in "${extensions[@]}"
-do
-  code --install-extension "$extension" --force
-done
+# for extension in "${extensions[@]}"
+# do
+#   code --install-extension "$extension" --force
+# done
