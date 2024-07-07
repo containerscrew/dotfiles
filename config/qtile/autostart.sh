@@ -22,6 +22,9 @@ light-locker --no-lock-on-lid &
 #pidof -q polkitd || /usr/bin/lxqt-policykit-agent &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
+# Script for autoarrange
+~/.local/bin/autoarrange
+
 # Debian 12
 #lxpolkit &
 

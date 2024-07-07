@@ -115,6 +115,7 @@ alias work='cd $HOME/Documents/Code/Work'
 alias personal='cd $HOME/Documents/Code/Personal'
 alias top='btop'
 alias mfacode='oathtool --totp --base32'
+alias open='xdg-open'
 
 # Functions
 source $HOME/.my_zsh_functions/git.sh

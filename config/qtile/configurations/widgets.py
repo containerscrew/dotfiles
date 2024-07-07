@@ -54,6 +54,12 @@ class MyWidgets:
     def __init__(self) -> None:
         # Declare some default values
         pass
+    
+    def space(self):
+        return widget.TextBox(
+            **widget_base(fs=12),
+            text="",
+        )
 
     def system_logo(self):
         return widget.TextBox(
@@ -67,21 +73,17 @@ class MyWidgets:
 
     def group_box(self):
         return widget.GroupBox(
-            **widget_base(f="FontAwesome"),
-            margin_y=3,
-            #fmt="󰮯",
+            **widget_base(f="FontAwesome", p=4),
             margin_x=0,
-            borderwidth=0,
-            active=Colors.darkviolet,
-            inactive=Colors.lightblue,
+            borderwidth=2,
+            active=Colors.grey,
+            inactive=Colors.foreground,
             rounded=False,
-            highlight_method='block',
-            urgent_alert_method='block',
+            highlight_method='line',
+            urgent_alert_method='line',
             urgent_border=Colors.background,
-            this_current_screen_border=Colors.background,
-            this_screen_border=Colors.background,
-            other_current_screen_border=Colors.background,
-            other_screen_border=Colors.background,
+            this_current_screen_border=Colors.green,
+            this_screen_border=Colors.green,
             disable_drag=True
         )
     
@@ -122,26 +124,13 @@ class MyWidgets:
             ]
         )
 
-    def pacman_updates(self):
+    def package_updates(self):
         return widget.CheckUpdates(
             background=Colors.blue,
-            colour_have_updates=Colors.red,
-            colour_no_updates=Colors.black,
-            no_update_string='󰮯  0',
-            display_format='󰮯  {updates}',
-            update_interval=120,
-            distro='Arch',
-            mouse_callbacks={'Button1': lazy.spawn(
-                'alacritty --hold --class FloaTerm,Alacritty -o window.dimensions.lines=22 window.dimensions.columns=90 -e pacman -Qu')}
-        )
-
-    def paru_updates(self):
-        return widget.CheckUpdates(
-            background=Colors.blue,
-            colour_have_updates=Colors.red,
-            colour_no_updates=Colors.black,
-            no_update_string='󰣇  0',
-            display_format='󰣇  {updates}',
+            colour_have_updates=Colors.green,
+            colour_no_updates=Colors.background,
+            no_update_string='  0',
+            display_format='  {updates}',
             update_interval=120,
             distro='Arch_paru',
             mouse_callbacks={'Button1': lazy.spawn('alacritty --hold --class FloaTerm,Alacritty -o window.dimensions.lines=22 window.dimensions.columns=90 -e paru -Qu')}

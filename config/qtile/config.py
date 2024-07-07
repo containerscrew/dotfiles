@@ -9,8 +9,7 @@ from libqtile.lazy import lazy
 from configurations.colors import Colors
 from configurations.keys import keys, mod
 from configurations.widgets import MyWidgets, sep
-from configurations.groups import groups
-from configurations.extras import decoration
+
 
 # Layout
 layouts = [
@@ -42,8 +41,7 @@ screens = [
                 my_widgets.notifications(),
                 my_widgets.vpns(),
                 sep(fg=Colors.blue, bg=Colors.background),
-                my_widgets.paru_updates(),
-                my_widgets.pacman_updates(),
+                my_widgets.package_updates(),
                 sep(fg=Colors.violet, bg=Colors.blue),
                 my_widgets.volume(),
                 my_widgets.wlan(),

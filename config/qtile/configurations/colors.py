@@ -4,6 +4,7 @@
 #https://www.rapidtables.com/web/color/RGB_Color.html
 class Colors:
     background = "#000000"
+    foreground = "#abb2bf"
     black = "#000000"
     grey = "#707880"
     blue = "#66B2FF"
@@ -24,3 +25,4 @@ class Colors:
     brown = "#663300"
     yellow = "#FFFF00"
     lightgrey = "#E0E0E0"
+    green = "#4c9141"
