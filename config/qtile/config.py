@@ -9,6 +9,7 @@ from libqtile.lazy import lazy
 from configurations.colors import Colors
 from configurations.keys import keys, mod
 from configurations.widgets import MyWidgets, sep
+from configurations.groups import groups
 
 
 # Layout
