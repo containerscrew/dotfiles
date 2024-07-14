@@ -66,7 +66,8 @@ sudo pacman -Syu --noconfirm --needed base-devel rustup picom \
             exfat-utils evince python-pipx lxappearance kvantum-qt5 \
             hugo bcc bcc-tools python-bcc vim \
             buildah sqlitebrowser \
-            docker-compose telegram-desktop glow obs-studio hwinfo eog
+            docker-compose telegram-desktop glow obs-studio hwinfo eog \
+            ansible
 
 # Paru for AUR packages
 if ! check_binary "paru"; then
