@@ -1,0 +1,5 @@
+Host gitlab.com
+  HostName gitlab.com
+  User containerscrew
+  Port 22
+  IdentityFile ~/.ssh/gitlab-containerscrew/containerscrew.pem

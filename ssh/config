@@ -3,4 +3,6 @@ Host *
     HostKeyAlgorithms=+ssh-rsa
 
 Include ~/.ssh/github-containerscrew/config
+Include ~/.ssh/gitlab-containerscrew/config
 Include ~/.ssh/work/config
+

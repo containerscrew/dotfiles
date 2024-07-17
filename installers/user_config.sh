@@ -43,6 +43,9 @@ sudo cp etc/profile.d/custom-path.sh /etc/profile.d/custom-path.sh
 log_message "info" "Copying ~/.config files"
 rsync -avzhu --backup --suffix="$(date +'.%F_%H-%M')" config/* "$HOME"/.config/
 
+log_message "info" "Copying ~/.ssh files"
+rsync -avzhu ssh/* "$HOME"/.ssh/
+
 log_message "info" "Setup zsh shell as a default shell for user $USER"
 sudo chsh -s "$(which zsh)" "$USER"
 
