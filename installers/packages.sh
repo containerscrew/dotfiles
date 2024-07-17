@@ -67,7 +67,7 @@ sudo pacman -Syu --noconfirm --needed base-devel rustup picom \
             hugo bcc bcc-tools python-bcc vim \
             buildah sqlitebrowser \
             docker-compose telegram-desktop glow obs-studio hwinfo eog \
-            ansible
+            ansible buildkit docker-buildx
 
 # Paru for AUR packages
 if ! check_binary "paru"; then
