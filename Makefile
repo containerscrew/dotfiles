@@ -12,3 +12,21 @@ gitleaks: ## Run gitleaks
 
 sync-config: ## Copy this ./config folder to your ~/.config folder
 	rsync -avzu config/* ~/.config/ 
+
+ansible-ping: ## Check connectivity
+	ansible all -i inventory.ini -m ping
+
+ansible-playbook-dry-run: ## Run ansible playbook in dry-run mode
+	ansible-playbook -i inventory.ini playbook.yml --check --diff --ask-become-pass
+
+ansible-playbook: ## Run ansible playbook
+	ansible-playbook -i inventory.ini playbook.yml --ask-become-pass --ask-vault-pass -D
+
+ansible-playbook-tag: ## Run specific tag
+	ansible-playbook -i inventory.ini playbook.yml --tags ${TAGS} --ask-become-pass  --ask-vault-pass -D
+
+ansible-encrypt: ## Encrypt vars.yml
+	ansible-vault encrypt vars.yml
+
+ansible-decrypt: ## Decrypt vars.yml
+	ansible-vault decrypt vars.yml

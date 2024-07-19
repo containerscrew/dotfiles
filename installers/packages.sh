@@ -65,9 +65,9 @@ sudo pacman -Syu --noconfirm --needed base-devel rustup picom \
             gnome-calculator docker python-kubernetes python-hatch \
             exfat-utils evince python-pipx lxappearance kvantum-qt5 \
             hugo bcc bcc-tools python-bcc vim \
-            buildah sqlitebrowser \
+            buildah sqlitebrowser kwallet kwalletmanager \
             docker-compose telegram-desktop glow obs-studio hwinfo eog \
-            ansible buildkit docker-buildx
+            ansible buildkit docker-buildx mkcert
 
 # Paru for AUR packages
 if ! check_binary "paru"; then
