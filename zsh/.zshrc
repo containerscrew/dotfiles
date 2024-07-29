@@ -146,3 +146,6 @@ colorscript -e elfman
 # Starship
 export STARSHIP_CONFIG=$HOME/.config/starship/starship.toml
 eval "$(starship init zsh)"
+
+# Kubectl krew plugin
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"

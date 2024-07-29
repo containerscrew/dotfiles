@@ -80,7 +80,7 @@ archinstall # start installation
 | User sudoer               | Yes                                 |
 | Audio                     | Pipewire                            |
 | Kernels                   | Linux                               |
-| Additional packages       | rsync,openssh,neovim,curl,git, wget |
+| Additional packages       | rsync,python3,openssh,neovim,curl,git, wget |
 | Network                   | NetworkManager                      |
 | UTC                       | Europe/Amsterdam                    |
 | Optional repos            | multilib                            |

@@ -82,6 +82,13 @@ fi
 # TFENV permissions
 sudo usermod -aG tfenv dcr
 
+
+log_message "info" "Setup apple magickeyboard conf"
+sudo cp misc/hid_apple.conf /etc/modprobe.d/hid_apple.conf
+sudo chmod 644 /etc/modprobe.d/hid_apple.conf
+sudo modprobe -r hid_apple
+sudo modprobe hid_apple
+
 # Vscode extensions
 # https://marketplace.visualstudio.com/vscode
 # $ code --list-extensions

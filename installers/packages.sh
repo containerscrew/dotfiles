@@ -67,7 +67,8 @@ sudo pacman -Syu --noconfirm --needed base-devel rustup picom \
             hugo bcc bcc-tools python-bcc vim \
             buildah sqlitebrowser kwallet kwalletmanager \
             docker-compose telegram-desktop glow obs-studio hwinfo eog \
-            ansible buildkit docker-buildx mkcert mingw-w64
+            ansible buildkit docker-buildx mkcert mingw-w64 \
+            sshpass python-pyopenssl python-kubernetes
 
 # Paru for AUR packages
 if ! check_binary "paru"; then
@@ -85,7 +86,8 @@ paru -S --skipreview --noconfirm --needed jetbrains-toolbox coreimage qtile-extr
         ttf-font-awesome insomnia ttf-gentium-basic golangci-lint kubectx terraform-docs \
         podman-dnsname tfenv lightdm-theme-neon-git kubecolor calcurse todotxt playerctl zoom \
         aws-cli-v2 web-greeter pamac notion-app-electron android-sdk-cmdline-tools-latest \
-        android-tools dracula-gtk-theme visual-studio-code-bin rustscan balena-etcher
+        android-tools dracula-gtk-theme visual-studio-code-bin rustscan balena-etcher krew \
+        logiops
 
 # Clean paru cache
 paru -Sccd --skipreview --noconfirm
