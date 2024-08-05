@@ -42,7 +42,7 @@ sudo pacman -Syu --noconfirm --needed base-devel rustup picom \
             xdg-user-dirs plymouth neovim mlocate \
             bluez bluez-utils zsh arandr xorg-server xorg-xinit \
             curl wget neofetch lightdm \
-            blueman firefox conky mlocate ngrep lsd bat \
+            blueman bluez bluez-utils firefox conky mlocate ngrep lsd bat \
             ttf-jetbrains-mono ttf-jetbrains-mono-nerd ttf-terminus-nerd ttf-inconsolata ttf-joypixels \
             fzf brightnessctl man webp-pixbuf-loader light-locker \
             net-tools inetutils ttf-nerd-fonts-symbols htop nautilus discord openvpn veracrypt \
@@ -68,7 +68,8 @@ sudo pacman -Syu --noconfirm --needed base-devel rustup picom \
             buildah sqlitebrowser kwallet kwalletmanager \
             docker-compose telegram-desktop glow obs-studio hwinfo eog \
             ansible buildkit docker-buildx mkcert mingw-w64 \
-            sshpass python-pyopenssl python-kubernetes
+            sshpass python-pyopenssl python-kubernetes steam \
+            kompose accountsservice
 
 # Paru for AUR packages
 if ! check_binary "paru"; then

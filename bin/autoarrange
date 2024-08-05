@@ -1,5 +1,8 @@
 #!/bin/bash
 
+
+# Will be replaced by: https://github.com/phillipberndt/autorandr
+
 ## Script of autoarange displays with my custom logic
 ## My logic is: at home I always close laptop screen. I only use 1 horizontal monitor
 
