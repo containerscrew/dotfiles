@@ -185,6 +185,7 @@ Some tips about archlinux configurations.
 * https://github.com/newmanls/rofi-themes-collection
 * [Grub theme](https://www.gnome-look.org/p/2076542)
 * [Conky theme](https://www.gnome-look.org/p/1831404)
+* [Anime wallpapers](https://alphacoders.com/anime-4k-wallpapers)
 
 # License
 

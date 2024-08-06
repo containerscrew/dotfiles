@@ -1,0 +1,7 @@
+{
+    "insecure-registries" : [ "test.example.com" ],
+    "dns": [ "1.1.1.1", "8.8.8.8" ],
+    "features": {
+    "buildkit": true
+    }
+}

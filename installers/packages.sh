@@ -69,7 +69,7 @@ sudo pacman -Syu --noconfirm --needed base-devel rustup picom \
             docker-compose telegram-desktop glow obs-studio hwinfo eog \
             ansible buildkit docker-buildx mkcert mingw-w64 \
             sshpass python-pyopenssl python-kubernetes steam \
-            kompose accountsservice
+            kompose accountsservice autorandr 
 
 # Paru for AUR packages
 if ! check_binary "paru"; then
@@ -86,9 +86,8 @@ paru -S --skipreview --noconfirm --needed jetbrains-toolbox coreimage qtile-extr
         mkdocs-rss-plugin mkdocs-material slack-desktop gitleaks procs gosec aws-session-manager-plugin  \
         ttf-font-awesome insomnia ttf-gentium-basic golangci-lint kubectx terraform-docs \
         podman-dnsname tfenv lightdm-theme-neon-git kubecolor calcurse todotxt playerctl zoom \
-        aws-cli-v2 web-greeter pamac notion-app-electron android-sdk-cmdline-tools-latest \
-        android-tools dracula-gtk-theme visual-studio-code-bin rustscan balena-etcher krew \
-        logiops
+        aws-cli-v2 web-greeter notion-app-electron android-sdk-cmdline-tools-latest \
+        android-tools dracula-gtk-theme visual-studio-code-bin rustscan balena-etcher krew rofi-autorandr
 
 # Clean paru cache
 paru -Sccd --skipreview --noconfirm
@@ -174,7 +173,7 @@ fi
 
 # Rust
 log_message "info" "Setup default rust stable"
-rustup default stable
+# rustup default stable
 
 # Helm plugins
 log_message "info" "Install helm plugins"
