@@ -69,7 +69,7 @@ sudo pacman -Syu --noconfirm --needed base-devel rustup picom \
             docker-compose telegram-desktop glow obs-studio hwinfo eog \
             ansible buildkit docker-buildx mkcert mingw-w64 \
             sshpass python-pyopenssl python-kubernetes steam \
-            kompose accountsservice autorandr 
+            kompose accountsservice autorandr jupyterlab
 
 # Paru for AUR packages
 if ! check_binary "paru"; then

@@ -17,7 +17,7 @@ groups= [
 
     Group("2",
           label="",
-          spawn="brave-bin",
+          spawn="firefox",
           matches=[Match(wm_class=["Vivaldi-stable"]),
                    Match(wm_class=["Icecat"]),
                    Match(wm_class=["Brave-browser"]),

@@ -2,6 +2,7 @@
 import os
 from libqtile.config import Screen 
 from libqtile import layout, bar, widget, hook
+from libqtile.lazy import lazy
 
 colors =  [
         ["#292d3e", "#292d3e"], # color 0
@@ -14,26 +15,34 @@ colors =  [
         ["#F9A9BC", "#F9A9BC"], # color 7
         ["#b79feb", "#b79feb"], # color 8
         ["#bbebca", "#bbebca"], # color 9
-        ["#DCDEFC"]] # color 10
+        ["#DCDEFC"], # color 10
+        ["#66B2FF"]] # color 11 
 
 
 xx=15
 xf="space mono for powerline bold"
 default=[
     widget.Sep(
-        padding=4,
+        padding=5,
         linewidth=0,
         background=colors[0],
     ),
-    widget.CurrentLayoutIcon(
-        custom_icon_paths=[os.path.expanduser("~/.config/qtile/icons")],
-        scale=0.45,
-        padding=0,
-        background=colors[0],
+    # widget.CurrentLayoutIcon(
+    #     custom_icon_paths=[os.path.expanduser("~/.config/qtile/icons")],
+    #     scale=0.45,
+    #     padding=0,
+    #     background=colors[0],
+    # ),
+    widget.TextBox(
+        mouse_callbacks={'Button1': lazy.spawn('rofi -show drun -theme ~/.config/rofi/Launcher.rasi')},
+        foreground=colors[11],
+        fontsize=18,
+        padding=10,
+        text="",
     ),
     widget.TextBox(
         text='|',
-        padding=0,
+        padding=5,
         background=colors[0],
         foreground=colors[5],
     ),
@@ -307,8 +316,8 @@ else:
             background=colors[4],
             low_foreground=colors[0],
             update_interval=1,
-            charge_char='',
-            discharge_char='',
+            charge_char='',
+            discharge_char='',
             format=' {char} {percent:2.0%} ',
         ),
     )
