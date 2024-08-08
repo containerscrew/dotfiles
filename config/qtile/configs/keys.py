@@ -303,3 +303,14 @@ mouse = [
     Click([mod], "Button2", lazy.window.bring_to_front())
 ]
 
+# keys.extend([
+#     Key([mod, 'shift'], "v", lazy.group['Scratchpad'].dropdown_toggle('sig')),
+#     Key([mod], "p", lazy.group['Scratchpad'].dropdown_toggle('term')),
+#     Key([mod], "o", lazy.group['Scratchpad'].dropdown_toggle('editor')),
+#     Key([mod, "shift"], "s", lazy.group['Scratchpad'].dropdown_toggle("spotify")),
+#     Key([mod, "shift"], "d", lazy.group['Scratchpad'].dropdown_toggle("dc")),
+#     Key(['control'], 'space', lazy.group['Scratchpad'].dropdown_toggle('fm')),
+#     Key([alt], 'space', lazy.group['Scratchpad'].dropdown_toggle('top')),
+#     Key([alt, 'shift'], 'space', lazy.group['Scratchpad'].dropdown_toggle('hitop')),
+#     Key([mod, 'shift'], 'space', lazy.group['Scratchpad'].dropdown_toggle('fmger')),
+# ])

@@ -1,5 +1,5 @@
 class Colors:
-    background = "#000000"
+    background = "#292d3e"
     foreground = "#abb2bf"
     black = "#000000"
     grey = "#707880"
