@@ -54,6 +54,43 @@ default=[
         max_chars=40,
         fontshadow=Colors.darkviolet
     ),
+    widget.Sep(
+        padding=6,
+        linewidth=0,
+        background=Colors.background,
+    ),
+    widget.TextBox(
+        text='\ue0be',
+        fontsize='43',
+        font='space mono for powerline',
+        padding=0,
+        background=Colors.background,
+        foreground=Colors.pink,
+    ),
+    widget.DoNotDisturb(
+        disabled_icon='',
+        enabled_icon='',
+        background=Colors.pink,
+        foreground=Colors.black,
+        font=xf,
+        fontsize=xx,
+    ),
+    widget.TextBox(
+        text='\ue0be',
+        fontsize='43',
+        font='space mono for powerline',
+        padding=0,
+        background=Colors.pink,
+        foreground=Colors.lightgreen,
+    ),
+    widget.Memory(
+        background=Colors.lightgreen,
+        foreground=Colors.black,
+        font=xf,
+        fontsize=xx,
+        measure_mem='G',
+        format=' {MemFree: .2f} GB'
+    )
 ]
 #     widget.Spacer(),
 
