@@ -1,6 +1,5 @@
 import os
-from libqtile import layout
-from libqtile.config import Group, Key, ScratchPad, DropDown
+from libqtile.config import Group, Key
 from libqtile.lazy import lazy
 from .keys import keys
 
@@ -49,17 +48,26 @@ groups= [
     )
 ]
 
-for i in groups:
+for i, group in enumerate(groups):
+    actual_key = str(i + 1)
     keys.extend([
-        Key([mod], i.name, lazy.group[i.name].toscreen(),
-            desc="Switch to group {}".format(i.name)),
-        Key([mod, "shift"], i.name, lazy.window.togroup(i.name, switch_group=False),
-            desc="Switch to & move focused window to group {}".format(i.name)),
-        Key([alt, "shift"], i.name, lazy.window.togroup(i.name, switch_group=True),
-            desc="Switch to & move focused window to group {}".format(i.name)),
-        Key([mod], "[", lazy.screen.prev_group(skip_empty=False)), # cycle left
-        Key([mod], "]", lazy.screen.next_group(skip_empty=False)), #cycle right
+        # Switch to workspace N
+        Key([mod], actual_key, lazy.group[group.name].toscreen()),
+        # Send window to workspace N
+        Key([mod, "shift"], actual_key, lazy.window.togroup(group.name))
     ])
+
+# for i in groups:
+#     keys.extend([
+#         Key([mod], i.name, lazy.group[i.name].toscreen(),
+#             desc="Switch to group {}".format(i.name)),
+#         Key([mod, "shift"], i.name, lazy.window.togroup(i.name, switch_group=False),
+#             desc="Switch to & move focused window to group {}".format(i.name)),
+#         Key([alt, "shift"], i.name, lazy.window.togroup(i.name, switch_group=True),
+#             desc="Switch to & move focused window to group {}".format(i.name)),
+#         Key([mod], "[", lazy.screen.prev_group(skip_empty=False)), # cycle left
+#         Key([mod], "]", lazy.screen.next_group(skip_empty=False)), #cycle right
+#     ])
 
 ### ScratchPad
 # groups.append(ScratchPad('Scratchpad',[

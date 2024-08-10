@@ -7,8 +7,10 @@ from typing import List  # noqa: F401
 from configs.groups import groups
 from configs.screens import screens
 from configs.layouts  import layouts
-# from configs.keys import keys
+from configs.keys import keys
 
+
+keys = keys
 
 border=dict(
     border_focus="#aaeedd",

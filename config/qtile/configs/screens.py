@@ -144,7 +144,7 @@ default=[
     widget.Battery(
             background=Colors.violet,
             foreground=Colors.black,
-            padding=15,
+            padding=10,
             font=xf,
             fontsize=xx,
             charge_char="󰂄",
