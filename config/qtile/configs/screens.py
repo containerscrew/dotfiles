@@ -58,6 +58,7 @@ default=[
         inactive=Colors.lightblue,
         active=Colors.darkviolet,
         rounded=True,
+        center_aligned=True,
         highlight_color=Colors.white,
         highlight_method="line",
         this_current_screen_border=Colors.hotpink,
@@ -88,8 +89,8 @@ default=[
     widget.Spacer(),
     diagonal_sep(fg=Colors.pink, bg=Colors.background),
     widget.DoNotDisturb(
-        disabled_icon='',
-        enabled_icon='',
+        disabled_icon='󰂚',
+        enabled_icon='󰂛',
         background=Colors.pink,
         foreground=Colors.black,
         font=xf,
@@ -172,7 +173,7 @@ screens = [
     Screen(
         top=bar.Bar(
             default,
-            40,
+            30,
             background=Colors.background,
             foreground=Colors.foreground,
             margin=[5, 10, 0, 10],
