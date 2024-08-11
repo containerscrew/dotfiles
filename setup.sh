@@ -24,7 +24,7 @@ log_message "info" "Installing packages"
 ############### SYSTEM PACKAGES ###############
 
 ############### CORE CONFIG ###############
-log_message "info" "Installing packages"
+log_message "info" "Core configurations"
 ./installers/core_config.sh
 ############### CORE CONFIG ###############
 
@@ -48,34 +48,3 @@ log_message "info" "Setup display manager"
 ############### DISPLAY MANAGER ###############
 
 log_message "info" "Now, if it's your first installation, reboot the system or run $ sudo systemctl restart lightdm"
-
-
-## Enable mpd service
-##sudo systemctl enable --now mpd.service
-#
-## Cockpit
-#sudo systemctl enable libvirtd.socket --now
-#sudo usermod -aG libvirt "$USERNAME"
-#sudo virsh net-autostart default
-#sudo systemctl restart libvirtd
-#
-
-## Installing DevOps tooling
-#log_message "info" "Installing DevOps tooling..."
-#./scripts/devops_tooling_installer.sh
-#
-## Enable TOR
-#sudo systemctl enable tor.service --now
-#
-
-## Hibernation and sleep for autolock
-## /etc/systemd/logind.conf
-## change --> IdleAction
-
-
-## SSH agent
-##systemctl --user enable ssh-agent.service --now
-
-## Fish ssh-agent
-#if [ ! -f "$HOME/.config/fish/functions/fish_ssh_agent.fish" ]; then wget https://gitlab.com/kyb/fish_ssh_agent/raw/master/functions/fish_ssh_agent.fish -P ~/.config/fish/functions/; fi
-#

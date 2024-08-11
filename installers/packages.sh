@@ -32,9 +32,6 @@ clean(){
   sudo rm -rf "$1"
 }
 
-#log_message "info" "Upgrading system..."
-#sudo pacman -Syu --noconfirm
-
 log_message "info" "Installing pacman packages"
 sudo pacman -Syu --noconfirm --needed base-devel rustup picom \
             dunst feh alacritty jq git papirus-icon-theme rofi \
@@ -91,6 +88,7 @@ paru -S --skipreview --noconfirm --needed jetbrains-toolbox coreimage qtile-extr
 	insomnia mongodb-compass
 
 # Clean paru cache
+log_message "info" "Cleaning paru cache"
 paru -Sccd --skipreview --noconfirm
 
 log_message "info" "Install terragrunt"
@@ -108,10 +106,11 @@ else
     clean "$tmpdir"
 fi
 
+# Once blackarch repo is installed...
 log_message "info" "Installing some ethical hacking tools"
 sudo pacman -Syu --noconfirm --needed whatweb
 
-# EWW for widgets
+# eww for widgets
 if ! check_binary "eww"; then
     tmpdir=$(mktemp -d)
     cd "$tmpdir"
@@ -166,14 +165,14 @@ if ! check_binary "hadolint"; then
     sudo wget -O /usr/local/bin/hadolint https://github.com/hadolint/hadolint/releases/download/v2.12.0/hadolint-Linux-x86_64
 fi
 
-# Broken!
+# ec2-instance-selector
 if ! check_binary "ec2-instance-selector"; then
     sudo wget -O /usr/local/bin/ec2-instance-selector https://github.com/aws/amazon-ec2-instance-selector/releases/download/v2.4.1/ec2-instance-selector-linux-amd64
     sudo chmod +x /usr/local/bin/ec2-instance-selector
 fi
 
 # Rust
-log_message "info" "Setup default rust stable"
+# log_message "info" "Setup default rust stable"
 # rustup default stable
 
 # Helm plugins

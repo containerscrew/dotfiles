@@ -103,6 +103,7 @@ alias cat="bat --style=plain --theme='Solarized (dark)'"
 alias kubectl="kubecolor"
 alias purge="sudo pacman -Rns $(pacman -Qtdq) ; sudo fstrim -av"
 alias paru-update="paru -Syu --nocombinedupgrade"
+alias pacman-update="sudo pacman -Syu"
 alias maintenance="paru -Sc && sudo pacman -Scc"
 alias git-scan="gitleaks detect --source . -v"
 alias kns="kubens"
@@ -119,9 +120,9 @@ alias open='xdg-open'
 
 # Functions
 source $HOME/.my_zsh_functions/git.sh
-source $HOME/.my_zsh_functions/bw.sh # I use bitwarden-cli. Inside the script my custom functions
 source $HOME/.my_zsh_functions/tfsum.sh
 
+# Custom functions
 aws-profile() {
     local AWS_PROFILES
     AWS_PROFILES=$(cat ~/.aws/credentials | sed -n -e 's/^\[\(.*\)\]/\1/p' | fzf)

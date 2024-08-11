@@ -10,10 +10,10 @@ sudo chmod 644 /etc/hosts
 ############### ETC HOSTS ###############
 
 ############### LOGIND ###############
-log_message "info" "Setup logind.conf"
-sudo sed -i '/^#HandleLidSwitch=/s/^#//; /^HandleLidSwitch=/s/=.*/=suspend/' /etc/systemd/logind.conf
-sudo sed -i '/^#IdleAction=/s/^#//; /^IdleAction=/s/=.*/=lock/' /etc/systemd/logind.conf
-sudo systemctl restart systemd-logind
+# log_message "info" "Setup logind.conf"
+# sudo sed -i '/^#HandleLidSwitch=/s/^#//; /^HandleLidSwitch=/s/=.*/=suspend/' /etc/systemd/logind.conf
+# sudo sed -i '/^#IdleAction=/s/^#//; /^IdleAction=/s/=.*/=lock/' /etc/systemd/logind.conf
+# sudo systemctl restart systemd-logind
 
 
 ############### BLUETOOTH ###############
@@ -24,20 +24,18 @@ sudo systemctl enable bluetooth --now
 ############### PODMAN/DOCKER CONTAINER RUNTIME ###############
 log_message "info" "Setup podman container runtime"
 sudo cp -a misc/podman-config.conf /etc/containers/registries.conf.d/podman-config.conf
-# sudo mkdir /etc/docker
-# sudo cp -a etc/docker/daemon.json /etc/docker/daemon.json
-# sudo systemctl restart docker
-# sudo systemctl enable docker --now
-# sudo usermod -aG docker dcr
-#sudo systemctl enable podman
-#sudo systemctl restart podman
+sudo mkdir /etc/docker
+sudo cp -a etc/docker/daemon.json /etc/docker/daemon.json
+sudo systemctl enable docker --now
+sudo usermod -aG docker dcr
+sudo systemctl enable podman --now
+
 # Symlinks for docker, better than creating an alias (in scripting alias will not work)
 #sudo ln -fs "$(which podman-compose)" /usr/bin/docker-compose
 #sudo ln -fs "$(which podman)" /usr/bin/docker
-############### PODMAN CONTAINER RUNTIME ###############
+############### PODMAN/DOCKER CONTAINER RUNTIME ###############
 
 ############### GRUB ###############
-#### NOT WORKING!!
 log_message "info" "Setup grub theme"
 wget https://github.com/voidlhf/StarRailGrubThemes/raw/master/themes/RuanMei.tar.gz -P /tmp
 tar -xzf /tmp/RuanMei.tar.gz -C /tmp
