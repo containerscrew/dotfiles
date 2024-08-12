@@ -1,2 +1,2 @@
 event=button/lid LID open
-action=/etc/acpi/lid_open.sh
+action=/etc/acpi/autorandr.sh

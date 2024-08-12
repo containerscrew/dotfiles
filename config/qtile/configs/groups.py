@@ -14,35 +14,27 @@ groups= [
     Group("1", # firefox
           label="",
           ),
-
     Group("2",
           label="", # chromium
           ),
-
     Group("3",# slack
           label="",
           ),
-
     Group("4",
           label="", # alacritty
           ),
-
     Group("5", # code
           label="",
           ),
-
     Group("6", # spotify
           label="",
           ),
-
     Group("7", # nautilus
           label="",
           ),
-
-    Group("8", # free
-          label="",
+    Group("8", # discord
+          label="",
           ),
-
     Group("9", # free
           label="",
     )

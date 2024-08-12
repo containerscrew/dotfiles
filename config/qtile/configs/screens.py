@@ -79,11 +79,12 @@ default=[
     widget.Spacer(),
     diagonal_sep(fg=Colors.blue, bg=Colors.background),
     widget.Clock(
-        font=xf,
+        font="Arial",
         fontsize=xx,
         foreground=Colors.background,
         background=Colors.blue,
-        format='%I:%M %p %d %b, %A'
+        # format='%I:%M %p %d %b, %A'
+        format='%H:%M %A, %d %b'
     ),
     diagonal_sep(fg=Colors.background, bg=Colors.blue),
     widget.Spacer(),

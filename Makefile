@@ -30,3 +30,6 @@ ansible-encrypt: ## Encrypt vars.yml
 
 ansible-decrypt: ## Decrypt vars.yml
 	ansible-vault decrypt vars.yml
+
+vscode-extension-list: ## Generate vscode extension list
+	code --list-extensions > misc/vscode-extensions.txt

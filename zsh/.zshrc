@@ -118,25 +118,8 @@ alias top='btop'
 alias mfacode='oathtool --totp --base32'
 alias open='xdg-open'
 
-# Functions
-source $HOME/.my_zsh_functions/git.sh
-source $HOME/.my_zsh_functions/tfsum.sh
-
-# Custom functions
-aws-profile() {
-    local AWS_PROFILES
-    AWS_PROFILES=$(cat ~/.aws/credentials | sed -n -e 's/^\[\(.*\)\]/\1/p' | fzf)
-    if [[ -n "$AWS_PROFILES" ]]; then
-        export AWS_PROFILE=$AWS_PROFILES
-        echo "Selected profile: $AWS_PROFILES"
-    else
-        echo "No profile selected"
-    fi
-}
-
-batdiff() {
-    git diff --name-only --relative --diff-filter=d | xargs bat --diff
-}
+# Load custom functions
+source $HOME/.my_zsh_functions/custom.sh
 
 # FZF
 eval "$(fzf --zsh)"

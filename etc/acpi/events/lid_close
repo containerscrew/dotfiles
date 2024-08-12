@@ -1,2 +1,2 @@
 event=button/lid LID close
-action=/etc/acpi/lid_close.sh
+action=/etc/acpi/autorandr.sh
