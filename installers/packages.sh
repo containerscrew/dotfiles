@@ -85,7 +85,7 @@ paru -S --skipreview --noconfirm --needed jetbrains-toolbox coreimage qtile-extr
         podman-dnsname tfenv lightdm-theme-neon-git kubecolor calcurse todotxt playerctl zoom \
         aws-cli-v2 web-greeter notion-app-electron android-sdk-cmdline-tools-latest \
         android-tools dracula-gtk-theme visual-studio-code-bin rustscan balena-etcher krew rofi-autorandr \
-	insomnia mongodb-compass
+	      insomnia mongodb-compass proton-vpn-gtk-app youtube-dl
 
 # Clean paru cache
 log_message "info" "Cleaning paru cache"

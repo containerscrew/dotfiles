@@ -6,7 +6,7 @@ from libqtile.lazy import lazy
 from .colors import Colors
 
 
-xx=18
+xx=15
 xf="space mono for powerline bold"
 
 
@@ -79,7 +79,7 @@ default=[
     widget.Spacer(),
     diagonal_sep(fg=Colors.blue, bg=Colors.background),
     widget.Clock(
-        font="Arial",
+        font=xf,
         fontsize=xx,
         foreground=Colors.background,
         background=Colors.blue,
