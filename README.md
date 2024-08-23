@@ -2,6 +2,8 @@
 
 My dotfiles using Arch Linux. Just for the time it takes to document this repository and configurations, **this repo deserves one star!**
 
+![Arch](https://img.shields.io/badge/Arch_Linux-1793D1?style=flat&logo=arch-linux&logoColor=white)
+
 > [!WARNING]
 > The documentation is not yet well finished. There are still things to document and configure. However, I hope the configuration files can help you.
 
