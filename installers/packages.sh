@@ -67,7 +67,7 @@ sudo pacman -Syu --noconfirm --needed base-devel rustup picom \
             ansible buildkit docker-buildx mkcert mingw-w64 \
             sshpass python-pyopenssl python-kubernetes steam \
             kompose accountsservice autorandr jupyterlab xorg-xbacklight \
-	    musl musl-aarch64
+	    musl musl-aarch64 transmission-gtk
 
 # Paru for AUR packages
 if ! check_binary "paru"; then
@@ -86,7 +86,7 @@ paru -S --skipreview --noconfirm --needed jetbrains-toolbox coreimage qtile-extr
         podman-dnsname tfenv lightdm-theme-neon-git kubecolor calcurse todotxt playerctl zoom \
         aws-cli-v2 web-greeter notion-app-electron android-sdk-cmdline-tools-latest \
         android-tools dracula-gtk-theme visual-studio-code-bin rustscan balena-etcher krew rofi-autorandr \
-	      insomnia mongodb-compass proton-vpn-gtk-app youtube-dl
+	      insomnia mongodb-compass proton-vpn-gtk-app youtube-dl helm-docs
 
 # Clean paru cache
 log_message "info" "Cleaning paru cache"
