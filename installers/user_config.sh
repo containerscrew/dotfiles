@@ -89,8 +89,10 @@ sudo chmod 644 /etc/modprobe.d/hid_apple.conf
 # sudo modprobe -r hid_apple
 # sudo modprobe hid_apple
 
-# log_message "info" "Setup vscode extensions"
-# for extension in "${extensions[@]}"
-# do
-#   code --install-extension "$extension" --force
-# done
+log_message "info" "Setup vscode extensions"
+file="misc/vscode-extensions.txt"
+while IFS= read -r extension; do
+    if [ ! -z "$extension" ]; then
+        code --install-extension "$extension"
+    fi
+done < "$file"
