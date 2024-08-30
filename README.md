@@ -1,3 +1,16 @@
+# containerscrew dotfiles
+
+My dotfiles using Arch Linux. Just for the time it takes to document this repository and configurations, **this repo deserves one star!**
+
+![Arch](https://img.shields.io/badge/Arch_Linux-1793D1?style=flat&logo=arch-linux&logoColor=white)
+
+> [!WARNING]
+> The documentation is not yet well finished. There are still things to document and configure. However, I hope the configuration files can help you.
+
+![current-desktop](./assets/example-desktop.png)
+
+![current-desktop2](./assets/example-desktop2.png)
+
 <!-- START OF TOC !DO NOT EDIT THIS CONTENT MANUALLY-->
 **Table of Contents**  *generated with [mtoc](https://github.com/containerscrew/mtoc)*
 - [containerscrew dotfiles](#containerscrew-dotfiles)
@@ -24,18 +37,6 @@
 - [Links & Credits](#links-&-credits)
 - [License](#license)
 <!-- END OF TOC -->
-# containerscrew dotfiles
-
-My dotfiles using Arch Linux. Just for the time it takes to document this repository and configurations, **this repo deserves one star!**
-
-![Arch](https://img.shields.io/badge/Arch_Linux-1793D1?style=flat&logo=arch-linux&logoColor=white)
-
-> [!WARNING]
-> The documentation is not yet well finished. There are still things to document and configure. However, I hope the configuration files can help you.
-
-![current-desktop](./assets/example-desktop.png)
-
-![current-desktop2](./assets/example-desktop2.png)
 
 # Disclaimer ⚠️
 
