@@ -23,8 +23,8 @@ My dotfiles using Arch Linux. Just for the time it takes to document this reposi
   - [After installation](#after-installation)
     - [Connect the computer to the internet](#connect-the-computer-to-the-internet)
     - [Download dotfiles](#download-dotfiles)
-    - [Option 1: Download dotfiles from git](#option-1:-download-dotfiles-from-git)
-    - [Option 2: Copy dotfiles from another computer](#option-2:-copy-dotfiles-from-another-computer)
+    - [Option 1 Download dotfiles from git](#option-1-download-dotfiles-from-git)
+    - [Option 2 Copy dotfiles from another computer](#option-2-copy-dotfiles-from-another-computer)
 - [Run setup.sh](#run-setup.sh)
 - [dotfiles installation](#dotfiles-installation)
   - [Packages](#packages)
@@ -133,14 +133,14 @@ $ exit
 
 ### Download dotfiles
 
-### Option 1: Download dotfiles from git
+### Option 1 Download dotfiles from git
 
 ```shell
 $ cd /tmp
 $ git clone https://github.com/containerscrew/dotfiles.git
 ```
 
-### Option 2: Copy dotfiles from another computer
+### Option 2 Copy dotfiles from another computer
 
 In the origin computer:
 
