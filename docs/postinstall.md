@@ -24,34 +24,6 @@
 <!-- END OF TOC -->
 # DEPRECATED! I NEED TO REWRITE THIS DOCUMENTATION
 
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
-
-- [Personal VPN (ProtonVPN using wireguard)](#personal-vpn-protonvpn-using-wireguard)
-- [Work VPN](#work-vpn)
-  - [Start connection](#start-connection)
-    - [Only once](#only-once)
-    - [Automatic start when boot](#automatic-start-when-boot)
-    - [Add dommains to search using systemd-resolved](#add-dommains-to-search-using-systemd-resolved)
-    - [Make it permanent](#make-it-permanent)
-  - [Stop connection](#stop-connection)
-- [Certificates](#certificates)
-- [SSH KEYS AND CONFIGS](#ssh-keys-and-configs)
-- [Browsers](#browsers)
-- [Custom git configs](#custom-git-configs)
-- [Oh my fish and plugins](#oh-my-fish-and-plugins)
-- [Sign in](#sign-in)
-- [Create some work scripts or binaries in ~/.local/bin/](#create-some-work-scripts-or-binaries-in-localbin)
-- [/etc/systemd/logind.conf](#etcsystemdlogindconf)
-- [Pass store](#pass-store)
-- [Install your SDDM theme](#install-your-sddm-theme)
-- [Global gitconfig for internal git servers with self signed certificate](#global-gitconfig-for-internal-git-servers-with-self-signed-certificate)
-- [Install rustlings](#install-rustlings)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
-
 # Personal VPN (ProtonVPN using wireguard)
 
 Privacy first. I don't really like protonvpn client (gui or cli). I prefer to download wireguard conf file.
