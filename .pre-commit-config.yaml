@@ -6,11 +6,12 @@ repos:
       - id: end-of-file-fixer
       - id: trailing-whitespace
       - id: check-yaml
-  - repo: https://github.com/thlorenz/doctoc
-    rev: v2.2.0
-    hooks:
-      - id: doctoc
   - repo: https://github.com/gitleaks/gitleaks
     rev: v8.16.1
     hooks:
       - id: gitleaks
+  - repo: https://github.com/containerscrew/mtoc
+    rev: v0.3.1
+    hooks:
+      - id: mtoc
+        args: [ "-e", "./target" ]

@@ -1,6 +1,6 @@
 import os
 import subprocess
-from libqtile import layout, hook 
+from libqtile import layout, hook
 from libqtile.config import Match
 from typing import List  # noqa: F401
 # Custom configuration imported from configs folder

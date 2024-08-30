@@ -1,9 +1,10 @@
 #! /bin/bash
 
 set -euo pipefail
-source installers/logger.sh
+source ./installers/logger.sh
 
 origin_dir="$PWD"
+
 
 check_binary() {
     binary="$1"
@@ -31,6 +32,19 @@ clean(){
   log_message "warning" "Cleaning $1"
   sudo rm -rf "$1"
 }
+
+## Install additional repositories
+log_message "info" "Installing blackarch repository"
+if pacman -Slq | grep -q blackarch; then
+    log_message "info" "Blackarch repository already installed. Skipping installation"
+else
+    tmpdir=$(mktemp -d)
+    cd "$tmpdir"
+    curl -O https://blackarch.org/strap.sh
+    chmod +x strap.sh
+    sudo ./strap.sh
+    clean "$tmpdir"
+fi
 
 log_message "info" "Installing pacman packages"
 sudo pacman -Syu --noconfirm --needed base-devel rustup picom \
@@ -67,26 +81,17 @@ sudo pacman -Syu --noconfirm --needed base-devel rustup picom \
             ansible buildkit docker-buildx mkcert mingw-w64 \
             sshpass python-pyopenssl python-kubernetes steam \
             kompose accountsservice autorandr jupyterlab xorg-xbacklight \
-	    musl musl-aarch64 transmission-gtk
-
-# Paru for AUR packages
-if ! check_binary "paru"; then
-    tmpdir=$(mktemp -d)
-    cd "$tmpdir"
-    git clone https://aur.archlinux.org/paru-bin.git
-    cd paru-bin || exit
-    makepkg -si --noconfirm
-    clean "$tmpdir"
-fi
+            musl musl-aarch64 transmission-gtk paru whatweb python-poetry
 
 log_message "info" "Installing paru packages"
 paru -S --skipreview --noconfirm --needed jetbrains-toolbox coreimage qtile-extras python-pulsectl-asyncio mkdocs \
         mkdocs-rss-plugin mkdocs-material slack-desktop gitleaks procs gosec aws-session-manager-plugin  \
         ttf-font-awesome insomnia ttf-gentium-basic golangci-lint kubectx terraform-docs \
-        podman-dnsname tfenv lightdm-theme-neon-git kubecolor calcurse todotxt playerctl zoom \
+        podman-dnsname tfenv kubecolor calcurse todotxt playerctl zoom \
         aws-cli-v2 web-greeter notion-app-electron android-sdk-cmdline-tools-latest \
         android-tools dracula-gtk-theme visual-studio-code-bin rustscan balena-etcher krew rofi-autorandr \
-	      insomnia mongodb-compass proton-vpn-gtk-app youtube-dl helm-docs
+	      insomnia mongodb-compass proton-vpn-gtk-app youtube-dl helm-docs eww shell-color-scripts-git \
+        hadolint-bin python-pytest exercism-bin web-greeter lightdm-theme-neon-git
 
 # Clean paru cache
 log_message "info" "Cleaning paru cache"
@@ -95,102 +100,16 @@ paru -Sccd --skipreview --noconfirm
 log_message "info" "Install terragrunt"
 paru -S --skipreview --noconfirm --needed terragrunt
 
-log_message "info" "Installing blackarch repository"
-if pacman -Slq | grep -q blackarch; then
-    log_message "info" "Blackarch repository already installed. Skipping installation"
-else
-    tmpdir=$(mktemp -d)
-    cd "$tmpdir"
-    curl -O https://blackarch.org/strap.sh
-    chmod +x strap.sh
-    sudo ./strap.sh
-    clean "$tmpdir"
-fi
 
-# Once blackarch repo is installed...
-log_message "info" "Installing some ethical hacking tools"
-sudo pacman -Syu --noconfirm --needed whatweb
+# ########## Custom tools ##########
+log_message "info" "Install custom tools"
+command -v tftools >/dev/null 2>&1 || curl --proto '=https' --tlsv1.2 -sSfL https://raw.githubusercontent.com/containerscrew/tftools/main/scripts/install.sh | bash
 
-# eww for widgets
-if ! check_binary "eww"; then
-    tmpdir=$(mktemp -d)
-    cd "$tmpdir"
-    git clone https://github.com/elkowar/eww
-    cd eww
-    cargo build --release --no-default-features --features x11
-    sudo install -m 755 "target/release/eww" -t /usr/bin/
-    clean "$tmpdir"
-fi
 
-# NPM packages
-if ! check_binary "doctoc"; then
-  cd "$origin_dir"
-  sudo npm install -g doctoc
-fi
+# # Rust
+log_message "info" "Setup default rust stable"
+rustup default stable
 
-if ! check_binary "renovate"; then
-  cd "$origin_dir"
-  sudo npm install -g renovate
-fi
-
-if ! check_binary "gitmoji"; then
-  cd "$origin_dir"
-  sudo npm install -g gitmoji-cli
-fi
-
-########## Custom tools ##########
-if ! check_binary "aws-sso-auth"; then
-  curl --proto '=https' --tlsv1.2 -sSfL https://raw.githubusercontent.com/containerscrew/aws-sso-auth/main/scripts/install.sh | bash
-fi
-
-if ! check_binary "tftools"; then
-  curl --proto '=https' --tlsv1.2 -sSfL https://raw.githubusercontent.com/containerscrew/tftools/main/scripts/install.sh | bash
-fi
-
-if ! check_binary "hey"; then
-  sudo wget https://hey-release.s3.us-east-2.amazonaws.com/hey_linux_amd64 -O /usr/local/bin/hey
-  sudo chmod +x /usr/local/bin/hey
-fi
-
-if ! check_binary "colorscript"; then
-    tmpdir=$(mktemp -d)
-    cd "$tmpdir"
-    git clone https://gitlab.com/dwt1/shell-color-scripts.git
-    cd shell-color-scripts
-    sudo make install
-    clean "$tmpdir"
-    cd "$origin_dir"
-fi
-
-if ! check_binary "hadolint"; then
-    sudo wget -O /usr/local/bin/hadolint https://github.com/hadolint/hadolint/releases/download/v2.12.0/hadolint-Linux-x86_64
-fi
-
-# ec2-instance-selector
-if ! check_binary "ec2-instance-selector"; then
-    sudo wget -O /usr/local/bin/ec2-instance-selector https://github.com/aws/amazon-ec2-instance-selector/releases/download/v2.4.1/ec2-instance-selector-linux-amd64
-    sudo chmod +x /usr/local/bin/ec2-instance-selector
-fi
-
-# Rust
-# log_message "info" "Setup default rust stable"
-# rustup default stable
-
-# Helm plugins
+# # Helm plugins
 log_message "info" "Install helm plugins"
 helm plugin install https://github.com/helm/helm-mapkubeapis || true
-
-# Poetry install
-log_message "info" "Installing poetry"
-curl -sSL https://install.python-poetry.org | python3 -
-#poetry completions zsh > ~/.zfunc/_poetry
-
-# Packages with pipx
-log_message "info" "Installing pipx packages"
-pipx install pytest
-
-# Exercism: exercism.org
-log_message "info" "Installing exercism cli"
-wget -O /tmp/exercism-3.4.0-linux-x86_64.tar.gz https://github.com/exercism/cli/releases/download/v3.4.0/exercism-3.4.0-linux-x86_64.tar.gz
-tar -xvf /tmp/exercism-3.4.0-linux-x86_64.tar.gz -C /tmp
-sudo install -m 755 /tmp/exercism /usr/local/bin/exercism

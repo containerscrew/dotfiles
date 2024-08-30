@@ -4,3 +4,15 @@ Host XXXXX XXXXXX
   Port 22
   AddKeysToAgent yes
   IdentityFile ~/.ssh/work/work.pem
+
+Host gitlab.com-test
+  HostName gitlab.com
+  User git
+  Port 22
+  AddKeysToAgent yes
+  IdentityFile ~/.ssh/work/work.pem
+
+Host 192.168.1.* 192.168.1.* *.test.test.com
+  User bob.marley
+  AddKeysToAgent yes
+  IdentityFile ~/.ssh/work/work.pem

@@ -54,7 +54,7 @@ class MyWidgets:
     def __init__(self) -> None:
         # Declare some default values
         pass
-    
+
     def space(self):
         return widget.TextBox(
             **widget_base(fs=12),
@@ -86,7 +86,7 @@ class MyWidgets:
             this_screen_border=Colors.green,
             disable_drag=True
         )
-    
+
     def pomodoro(self):
         return widget.Pomodoro(
             color_inactive=Colors.orange,

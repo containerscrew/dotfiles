@@ -10,7 +10,7 @@ copyq &
 dunst &
 
 # Set custom wallpaper, change the wallpaper to random wallpaper using SUPR(WIN)+ALT+P
-feh --bg-scale /usr/share/backgrounds/27.jpeg
+feh --bg-scale /usr/share/backgrounds/34.jpg
 
 # EWW widgets
 "$HOME/.config/eww/launch.sh"
@@ -24,9 +24,6 @@ light-locker --no-lock-on-lid &
 
 # autorandr for display position
 autorandr --change
-
-# Debian 12
-#lxpolkit &
 
 # Other apps for systray
 #udiskie -t &

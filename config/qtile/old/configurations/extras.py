@@ -29,7 +29,7 @@ decoration_group = {
 
 def window_name():
     return widget.WindowName(
-        background=Colors.background, 
+        background=Colors.background,
         **border_decoration,
     )
 

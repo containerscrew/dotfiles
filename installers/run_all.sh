@@ -10,8 +10,8 @@ fi
 set -eu
 
 ############### SOURCE FILES ###############
-source installers/banner.sh
-source installers/logger.sh
+source ./installers/banner.sh
+source ./installers/logger.sh
 ############### SOURCE FILES ###############
 
 ############### BANNER ###############
@@ -33,18 +33,5 @@ log_message "info" "User configurations"
 ./installers/user_config.sh
 ############### USER CONFIG ###############
 
-############### POWER CONFIG ###############
-./installers/power_config.sh
-############### POWER CONFIG ###############
-
-############### NETWORKING, DNS, FIREWALL ###############
-log_message "info" "Setup networking, dns, firewall"
-./installers/networking.sh
-############### NETWORKING, DNS, FIREWALL ###############
-
-############### DISPLAY MANAGER ###############
-log_message "info" "Setup display manager"
-./installers/display-manager.sh
-############### DISPLAY MANAGER ###############
 
 log_message "info" "Now, if it's your first installation, reboot the system or run $ sudo systemctl restart lightdm"

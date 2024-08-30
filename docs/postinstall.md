@@ -1,4 +1,28 @@
-# DEPRECATED! I NEED TO REWRITE THIS CONFIGURATION
+<!-- START OF TOC !DO NOT EDIT THIS CONTENT MANUALLY-->
+**Table of Contents**  *generated with [mtoc](https://github.com/containerscrew/mtoc)*
+- [DEPRECATED! I NEED TO REWRITE THIS DOCUMENTATION](#deprecated!-i-need-to-rewrite-this-documentation)
+- [Personal VPN (ProtonVPN using wireguard)](#personal-vpn-(protonvpn-using-wireguard))
+- [Work VPN](#work-vpn)
+  - [Start connection](#start-connection)
+    - [Only once](#only-once)
+    - [Automatic start when boot](#automatic-start-when-boot)
+    - [Add dommains to search using systemd-resolved](#add-dommains-to-search-using-systemd-resolved)
+    - [Make it permanent](#make-it-permanent)
+  - [Stop connection](#stop-connection)
+- [Certificates](#certificates)
+- [SSH KEYS AND CONFIGS](#ssh-keys-and-configs)
+- [Browsers](#browsers)
+- [Custom git configs](#custom-git-configs)
+- [Oh my fish and plugins](#oh-my-fish-and-plugins)
+- [Sign in](#sign-in)
+- [Create some work scripts or binaries in ~/.local/bin/](#create-some-work-scripts-or-binaries-in-~/.local/bin/)
+- [/etc/systemd/logind.conf](#/etc/systemd/logind.conf)
+- [Pass store](#pass-store)
+- [Install your SDDM theme](#install-your-sddm-theme)
+- [Global gitconfig for internal git servers with self signed certificate](#global-gitconfig-for-internal-git-servers-with-self-signed-certificate)
+- [Install rustlings](#install-rustlings)
+<!-- END OF TOC -->
+# DEPRECATED! I NEED TO REWRITE THIS DOCUMENTATION
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->

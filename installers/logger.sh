@@ -1,7 +1,7 @@
 #! /bin/bash
 
 set -euo pipefail
-source installers/colors.sh
+source ./installers/colors.sh
 
 function log_message() {
     local color=""

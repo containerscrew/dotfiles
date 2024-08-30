@@ -1,6 +1,7 @@
 import netifaces as ni
 import os
-from libqtile.config import Screen 
+import requests
+from libqtile.config import Screen
 from libqtile import layout, bar, widget, hook
 from libqtile.lazy import lazy
 from .colors import Colors
@@ -29,6 +30,15 @@ for iface in interfaces:
     if iface.startswith('wl'):
         wlan_interface = iface
         break
+
+# Get public ipv4
+def get_public_ip_and_country():
+    try:
+        ip = requests.get('https://ifconfig.co/ip').text.strip()
+        country = requests.get('https://ifconfig.co/country').text.strip()
+        return f"{ip} ({country})"
+    except Exception as e:
+        return "Error"
 
 default=[
     widget.Sep(
@@ -114,35 +124,79 @@ default=[
         fontsize=xx,
         format='   {load_percent} %',
     ),
-    diagonal_sep(fg=Colors.lightblue, bg=Colors.violet),
-    widget.Wlan(
-            foreground=Colors.black,
-            background=Colors.lightblue,
-            format=" ",
-            interface=wlan_interface,
-            font=xf,
-            fontsize=xx,
-            mouse_callbacks={'Button1': lazy.spawn(
-                'alacritty --class FloaTerm,Alacritty -o window.dimensions.lines=22 window.dimensions.columns=90 -e nmcli device wifi list')},
+    diagonal_sep(fg=Colors.background, bg=Colors.violet),
+    widget.WidgetBox(
+        font=xf,
+        fontsize=xx,
+        text_closed='',
+        text_open='',
+        foreground=Colors.white,
+        background=Colors.background,
+        padding=10,
+        widgets=[
+            widget.GenPollText(
+                    func=get_public_ip_and_country,
+                    update_interval=300,
+                    font=xf,
+                    fontsize=xx,
+                    fmt='{}',
+                    foreground=Colors.white,
+                    background=Colors.background,
+            ),
+        ]
     ),
-    widget.Bluetooth(
-            foreground=Colors.black,
-            background=Colors.lightblue,
-            font=xf,
-            fontsize=xx,
-            default_text=' {connected_devices}',
-            mouse_callbacks={'Button1': lazy.spawn('blueman-manager')},
-            text="󰂯",
+    diagonal_sep(fg=Colors.white, bg=Colors.background),
+    widget.WidgetBox(
+        font=xf,
+        fontsize=xx,
+        text_closed='',
+        text_open='',
+        foreground=Colors.background,
+        background=Colors.white,
+        padding=10,
+        widgets=[
+            widget.Wlan(
+                foreground=Colors.background,
+                background=Colors.white,
+                format='{essid} {percent:2.0%}',
+                interface=wlan_interface,
+                font=xf,
+                fontsize=xx,
+            ),
+        ]
     ),
+    diagonal_sep(fg=Colors.background, bg=Colors.white),
+        widget.WidgetBox(
+        font=xf,
+        fontsize=xx,
+        text_closed='',
+        text_open='',
+        foreground=Colors.white,
+        background=Colors.background,
+        padding=10,
+        widgets=[
+            widget.Bluetooth(
+                foreground=Colors.white,
+                background=Colors.background,
+                font=xf,
+                fontsize=xx,
+                default_text='{connected_devices}',
+                mouse_callbacks={'Button1': lazy.spawn('blueman-manager')},
+                text="󰂯",
+            ),
+        ]
+    ),
+    diagonal_sep(fg=Colors.white, bg=Colors.background),
     widget.PulseVolume(
-            background=Colors.lightblue,
-            foreground=Colors.black,
+            background=Colors.white,
+            foreground=Colors.background,
             emoji=True,
             font=xf,
             fontsize=xx,
             emoji_list=['', '', '', ''],
+            # mouse_callbacks={'Button1': lazy.spawn('pavucontrol')},
     ),
-    diagonal_sep(fg=Colors.violet, bg=Colors.lightblue),
+    diagonal_sep(fg=Colors.violet, bg=Colors.white),
     widget.Battery(
             background=Colors.violet,
             foreground=Colors.black,

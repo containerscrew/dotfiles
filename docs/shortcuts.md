@@ -1,12 +1,8 @@
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
-
+<!-- START OF TOC !DO NOT EDIT THIS CONTENT MANUALLY-->
+**Table of Contents**  *generated with [mtoc](https://github.com/containerscrew/mtoc)*
 - [QTILE main shortcuts](#qtile-main-shortcuts)
 - [CopyQ clipboard manager](#copyq-clipboard-manager)
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
+<!-- END OF TOC -->
 # QTILE main shortcuts
 
 > The mod key is the "typical windows Super key"
