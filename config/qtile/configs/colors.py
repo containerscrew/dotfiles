@@ -24,3 +24,4 @@ class Colors:
     yellow = "#FFFF00"
     lightgrey = "#E0E0E0"
     green = "#4c9141"
+    lightyellow = "#FFFF5C"

@@ -145,19 +145,19 @@ default=[
             ),
         ]
     ),
-    diagonal_sep(fg=Colors.white, bg=Colors.background),
+    diagonal_sep(fg=Colors.lightblue, bg=Colors.background),
     widget.WidgetBox(
         font=xf,
         fontsize=xx,
         text_closed='',
         text_open='',
         foreground=Colors.background,
-        background=Colors.white,
+        background=Colors.lightblue,
         padding=10,
         widgets=[
             widget.Wlan(
                 foreground=Colors.background,
-                background=Colors.white,
+                background=Colors.lightblue,
                 format='{essid} {percent:2.0%}',
                 interface=wlan_interface,
                 font=xf,
@@ -165,7 +165,7 @@ default=[
             ),
         ]
     ),
-    diagonal_sep(fg=Colors.background, bg=Colors.white),
+    diagonal_sep(fg=Colors.background, bg=Colors.lightblue),
         widget.WidgetBox(
         font=xf,
         fontsize=xx,
@@ -186,9 +186,9 @@ default=[
             ),
         ]
     ),
-    diagonal_sep(fg=Colors.white, bg=Colors.background),
+    diagonal_sep(fg=Colors.lightblue, bg=Colors.background),
     widget.PulseVolume(
-            background=Colors.white,
+            background=Colors.lightblue,
             foreground=Colors.background,
             emoji=True,
             font=xf,
@@ -196,7 +196,7 @@ default=[
             emoji_list=['', '', '', ''],
             # mouse_callbacks={'Button1': lazy.spawn('pavucontrol')},
     ),
-    diagonal_sep(fg=Colors.violet, bg=Colors.white),
+    diagonal_sep(fg=Colors.violet, bg=Colors.lightblue),
     widget.Battery(
             background=Colors.violet,
             foreground=Colors.black,
