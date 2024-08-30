@@ -1,4 +1,4 @@
-# containerscrew dotfiles
+# containerscrew dotfiles (documentation in-progress)
 
 My dotfiles using Arch Linux. Just for the time it takes to document this repository and configurations, **this repo deserves one star!**
 
@@ -13,7 +13,7 @@ My dotfiles using Arch Linux. Just for the time it takes to document this reposi
 
 <!-- START OF TOC !DO NOT EDIT THIS CONTENT MANUALLY-->
 **Table of Contents**  *generated with [mtoc](https://github.com/containerscrew/mtoc)*
-- [containerscrew dotfiles](#containerscrew-dotfiles)
+- [containerscrew dotfiles (documentation in-progress)](#containerscrew-dotfiles-(documentation-in-progress))
 - [Disclaimer ⚠️](#disclaimer-⚠️)
 - [Arch Linux installation](#arch-linux-installation)
   - [Before installation using archinstall](#before-installation-using-archinstall)
@@ -22,16 +22,12 @@ My dotfiles using Arch Linux. Just for the time it takes to document this reposi
     - [Considerations in archinstall](#considerations-in-archinstall)
   - [After installation](#after-installation)
     - [Connect the computer to the internet](#connect-the-computer-to-the-internet)
-    - [Download dotfiles](#download-dotfiles)
-    - [Option 1 Download dotfiles from git](#option-1-download-dotfiles-from-git)
-    - [Option 2 Copy dotfiles from another computer](#option-2-copy-dotfiles-from-another-computer)
-- [Run setup.sh](#run-setup.sh)
+    - [Download dotfiles from git](#download-dotfiles-from-git)
 - [dotfiles installation](#dotfiles-installation)
   - [Packages](#packages)
   - [Core config](#core-config)
-- [User config](#user-config)
-- [Run all](#run-all)
-- [Post install](#post-install)
+  - [User config](#user-config)
+  - [Run all](#run-all)
 - [Shortcuts](#shortcuts)
 - [Tips](#tips)
 - [Links & Credits](#links-&-credits)
@@ -42,8 +38,6 @@ My dotfiles using Arch Linux. Just for the time it takes to document this reposi
 
 It is my personal setup, the way I like it, with configurations, applications that are comfortable for me. Use it if you want as a template, as a guide. I will update it as I need to add new packages, configs...etc.
 
-> [!IMPORTANT]
-> There are still many things to configure, I will do it as I go. Mouse, trackpad, eww widgets... etc
 
 And yes... all my commits in this repo you will see that they are called **Wip** 😀
 
@@ -131,16 +125,14 @@ $ history -c
 $ exit
 ```
 
-### Download dotfiles
-
-### Option 1 Download dotfiles from git
+### Download dotfiles from git
 
 ```shell
 $ cd /tmp
 $ git clone https://github.com/containerscrew/dotfiles.git
 ```
 
-### Option 2 Copy dotfiles from another computer
+<!-- ### Option 2 Copy dotfiles from another computer
 
 In the origin computer:
 
@@ -154,7 +146,7 @@ Replace the ip and the user. Both values are those of the target computer, where
 $ ip a
 ```
 
-> This should work, as you should have enabled openssh in the archinstall step. If not, on the target machine, run `sudo systemctl enable sshd --now`
+> This should work, as you should have enabled openssh in the archinstall step. If not, on the target machine, run `sudo systemctl enable sshd --now` -->
 
 <!-- ### Only copy ~/.config files
 
@@ -164,13 +156,6 @@ rsync -avzhu config/* username@192.168.X.X:/home/username/.config/
 # Or locally
 rsync -avzhu config/* /home/username/.config/
 ``` -->
-
-# Run setup.sh
-
-[setup.sh](./setup.sh) will install main packages using `pacman` and `paru`. Also, will copy all config files in user home, will set some basic configs like `firewall`, `lightdm` theme...etc. Take a look!
-
-> All installation scripts are in the `installers` folder
-
 
 # dotfiles installation
 
@@ -201,7 +186,7 @@ Run:
 $ ./installers/core_config.sh
 ```
 
-# User config
+## User config
 
 Configurations about `~/.config/`, `user permissions`, `mouse`, `shell` and more. Here is probably where you will need to change and adapt the configuration to your personal tools, configs... as you like.
 
@@ -212,21 +197,13 @@ Run:
 $ ./installers/user_config.sh
 ```
 
-# Run all
+## Run all
 
 All in one:
 
 ```bash
 ./installers/run_all.sh
 ```
-
-# Post install
-
-
-
-Post intallation setps. Some work settings, and other stuff.
-
-See [postinstall.md](./docs/postinstall.md)
 
 
 # Shortcuts
