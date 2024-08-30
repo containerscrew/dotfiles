@@ -18,8 +18,8 @@ sudo ufw --force enable
 
 log_message "info" "Setup macspoof"
 sudo cp etc/systemd/system/macspoof@.service /etc/systemd/system/macspoof@.service
-interface_name=$(ip link show | grep wl | awk '{print $2}' | sed 's/.$//')
-sudo systemctl enable macspoof@"$interface_name".service
+interface=$(ip link show | grep wl | awk '{print $2}' | sed 's/.$//' | awk 'NR==1')
+sudo systemctl enable macspoof@"$interface".service
 
 log_message "info" "Setup systemd-resolved"
 sudo ln -sf ../run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
