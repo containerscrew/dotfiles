@@ -178,7 +178,7 @@ $ ./installers/packages.sh
 
 ## Core config
 
-Configurations about `networking`, `display managers` and more.
+Configurations about `networking`, `display managers` and more. Please take a look to [installers/core_config.sh](./installers/core_config.sh).
 
 Run:
 
@@ -188,7 +188,7 @@ $ ./installers/core_config.sh
 
 ## User config
 
-Configurations about `~/.config/`, `user permissions`, `mouse`, `shell` and more. Here is probably where you will need to change and adapt the configuration to your personal tools, configs... as you like.
+Configurations about `~/.config/`, `user permissions`, `mouse`, `shell` and more. Here is probably where you will need to change and adapt the configuration to your personal tools, configs... as you like. Please take a look to [installers/user_config.sh](./installers/user_config.sh).
 
 
 Run:
