@@ -14,4 +14,4 @@ repos:
     rev: v0.3.1
     hooks:
       - id: mtoc
-        args: [ "-e", ".old/" ]
+        # args: [ "-e", ".old/" ]
