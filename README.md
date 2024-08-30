@@ -202,7 +202,7 @@ $ ./installers/user_config.sh
 All in one:
 
 ```bash
-./installers/run_all.sh
+$ ./installers/run_all.sh
 ```
 
 
