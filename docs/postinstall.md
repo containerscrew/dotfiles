@@ -14,12 +14,35 @@ Almost all this steps are optional and very personal.
 
 # Setup nvidia drivers
 
-If you have gpu in your laptop/pc, follow this steps:
+If you have gpu in your laptop/pc, follow this steps. Packages already installed when you executed `installers/packages.sh`.
 
 - https://github.com/korvahannu/arch-nvidia-drivers-installation-guide
 - https://wiki.archlinux.org/title/NVIDIA
 
+1. Add MODULES to `mkinitcpio.conf`
+
+```conf
+MODULES=(nvidia nvidia_modeset nvidia_uvm nvidia_drm)
+sudo mkinitcpio -P
+```
+
+2. Edit `/etc/default/grub`
+
+```bash
+sudo nvim /etc/default/grub
+GRUB_CMDLINE_LINUX_DEFAULT="quiet splash nvidia-drm.modeset=1"
+sudo grub-mkconfig -o /boot/grub/grub.cfg
+```
+
 # Setup plymouth theme
+
+```bash
+sudo nvim /etc/mkinitcpio.conf
+HOOKS=(base plymouth udev XXXX XXXX ) # add plymouth
+sudo mkinitcpio -p linux
+sudo plymouth-set-default-theme --list
+sudo plymouth-set-default-theme -R theme_name
+```
 
 # Display positions using autorandr
 

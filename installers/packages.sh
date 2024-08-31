@@ -57,7 +57,7 @@ log_message "info" "Installing pacman packages"
 sudo pacman -Syu --noconfirm --needed base-devel rustup picom \
             dunst feh alacritty jq git papirus-icon-theme rofi \
             xorg-xprop xorg-xkill xorg-xsetroot xorg-xwininfo xorg-xrandr \
-            xdg-user-dirs plymouth neovim mlocate \
+            xdg-user-dirs plymouth plymouth-themes neovim mlocate \
             bluez bluez-utils zsh arandr xorg-server xorg-xinit \
             curl wget neofetch lightdm \
             blueman bluez bluez-utils firefox conky mlocate ngrep lsd bat \
