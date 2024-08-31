@@ -1,4 +1,4 @@
-# containerscrew dotfiles (documentation in-progress)
+# containerscrew dotfiles
 
 My dotfiles using Arch Linux. Just for the time it takes to document this repository and configurations, **this repo deserves one star!**
 
