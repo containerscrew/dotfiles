@@ -1,3 +1,4 @@
+import subprocess
 import netifaces as ni
 import requests
 from libqtile.config import Screen
@@ -37,9 +38,14 @@ def get_public_ip_and_country():
     try:
         ip = requests.get("https://ifconfig.co/ip").text.strip()
         country = requests.get("https://ifconfig.co/country").text.strip()
-        return f"{ip} ({country})"
+        return f"Connected to {ip} ({country})"
     except Exception:
         return "Error"
+
+
+def send_notification(message):
+    icon_path = "/usr/share/icons/Papirus-Dark/16x16/actions/network-disconnect.svg"
+    subprocess.run(["dunstify", "-i", icon_path, "Public IP", message])
 
 
 default = [
@@ -129,28 +135,7 @@ default = [
         fontsize=xx,
         format="   {load_percent} %",
     ),
-    diagonal_sep(fg=Colors.background, bg=Colors.violet),
-    widget.WidgetBox(
-        font=xf,
-        fontsize=xx,
-        text_closed="",
-        text_open="",
-        foreground=Colors.white,
-        background=Colors.background,
-        padding=10,
-        widgets=[
-            widget.GenPollText(
-                func=get_public_ip_and_country,
-                update_interval=300,
-                font=xf,
-                fontsize=xx,
-                fmt="{}",
-                foreground=Colors.white,
-                background=Colors.background,
-            ),
-        ],
-    ),
-    diagonal_sep(fg=Colors.lightblue, bg=Colors.background),
+    diagonal_sep(fg=Colors.lightblue, bg=Colors.violet),
     widget.WidgetBox(
         font=xf,
         fontsize=xx,
@@ -160,6 +145,18 @@ default = [
         background=Colors.lightblue,
         padding=10,
         widgets=[
+            widget.TextBox(
+                foreground=Colors.background,
+                background=Colors.lightblue,
+                text="🌐",
+                font=xf,
+                fontsize=xx,
+                mouse_callbacks={
+                    "Button1": lazy.function(
+                        lambda qtile: send_notification(get_public_ip_and_country())
+                    )
+                },
+            ),
             widget.Wlan(
                 foreground=Colors.background,
                 background=Colors.lightblue,

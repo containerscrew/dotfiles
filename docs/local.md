@@ -20,6 +20,7 @@ $ ip a
 
 * You need to start sshd in the target computer `sudo systemctl enable sshd --now`
 * You need to install `rsync` in the origin and target computer. `sudo pacman -Sy rsync`
+* UFW is installed by default and all the incoming traffic will be denied. Open the port 22 `sudo ufw allow ssh`. After the changes, delete this rule. `sudo ufw status verbose` + `sudo ufw delete [NUMBER OF THE RULE]`
 
 # Only copy ~/.config files
 

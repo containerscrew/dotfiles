@@ -62,7 +62,6 @@ rm -rf /tmp/RuanMei*
 
 log_message "info" "Setup lightdm"
 sudo systemctl enable lightdm.service
-# log_message "info" "Configure lightdm webkit2 theme"
 sudo sed -i 's/.*greeter-session=.*/greeter-session=web-greeter/g' /etc/lightdm/lightdm.conf
 # sudo cp -ar assets/arch-logo.png /usr/share/icons/arch-logo.png
 sudo sed -i 's/theme: .*/theme: shikai/' /etc/lightdm/web-greeter.yml
