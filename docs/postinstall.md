@@ -61,7 +61,6 @@ autorandr --save office
 Privacy first. I don't really like protonvpn client (gui or cli). I prefer to download wireguard conf file.
 
 * [Official manual](https://protonvpn.com/support/wireguard-manual-linux/)
-* Download wireguard conf file from [here](https://account.protonvpn.com/downloads)
 
 After download wireguard config:
 
@@ -166,3 +165,10 @@ $ timedatectl set-timezone Europe/Amsterdam
 ```bash
 $ rustup default stable
 ```
+
+# Personal reminders (private content can't be public)
+
+* Setup pass
+* Export chrome/firefox tabs/config
+* Sync ssh keys and configs
+* Rsync other files
