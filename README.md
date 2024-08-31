@@ -88,7 +88,7 @@ Example of my configurations. Modify those you consider necessary.
 | Archinstall language      | English (100%)                      |
 | Mirrors                   | Netherlands                         |
 | Keyboard/Language/Encoding| en/en_US/UTF-8                      |
-| Disk Configuration        | Use best effort/BTRFS/Default partitioning|
+| Disk Configuration        | Use best effort/ext4/Default partitioning|
 | Disk Encryption           | **ALWAYS**                          |
 | Bootloader                | Grub                                |
 | Swap                      | True                                |
@@ -190,7 +190,6 @@ $ ./installers/core_config.sh
 
 Configurations about `~/.config/`, `user permissions`, `mouse`, `shell` and more. Here is probably where you will need to change and adapt the configuration to your personal tools, configs... as you like. Please take a look to [installers/user_config.sh](./installers/user_config.sh).
 
-
 Run:
 
 ```bash
@@ -204,7 +203,6 @@ All in one:
 ```bash
 $ ./installers/run_all.sh
 ```
-
 
 # Shortcuts
 

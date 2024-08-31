@@ -52,7 +52,7 @@ sudo pacman -Syu --noconfirm --needed base-devel rustup picom \
             xorg-xprop xorg-xkill xorg-xsetroot xorg-xwininfo xorg-xrandr \
             xdg-user-dirs plymouth neovim mlocate \
             bluez bluez-utils zsh arandr xorg-server xorg-xinit \
-            curl wget neofetch lightdm \
+            curl wget neofetch lightdm lightdm-gtk-greeter \
             blueman bluez bluez-utils firefox conky mlocate ngrep lsd bat \
             ttf-jetbrains-mono ttf-jetbrains-mono-nerd ttf-terminus-nerd ttf-inconsolata ttf-joypixels \
             fzf brightnessctl man webp-pixbuf-loader light-locker \
@@ -81,7 +81,9 @@ sudo pacman -Syu --noconfirm --needed base-devel rustup picom \
             ansible buildkit docker-buildx mkcert mingw-w64 \
             sshpass python-pyopenssl python-kubernetes steam \
             kompose accountsservice autorandr jupyterlab xorg-xbacklight \
-            musl musl-aarch64 transmission-gtk paru whatweb python-poetry
+            musl musl-aarch64 transmission-gtk paru whatweb python-poetry \
+            nvidia nvidia-utils nvidia-settings
+
 
 log_message "info" "Installing paru packages"
 paru -S --skipreview --noconfirm --needed jetbrains-toolbox coreimage qtile-extras python-pulsectl-asyncio mkdocs \
@@ -91,7 +93,7 @@ paru -S --skipreview --noconfirm --needed jetbrains-toolbox coreimage qtile-extr
         aws-cli-v2 web-greeter notion-app-electron android-sdk-cmdline-tools-latest \
         android-tools dracula-gtk-theme visual-studio-code-bin rustscan balena-etcher krew rofi-autorandr \
 	      insomnia mongodb-compass proton-vpn-gtk-app youtube-dl helm-docs eww shell-color-scripts-git \
-        hadolint-bin python-pytest exercism-bin web-greeter lightdm-theme-neon-git
+        hadolint-bin python-pytest exercism-bin
 
 # Clean paru cache
 log_message "info" "Cleaning paru cache"
