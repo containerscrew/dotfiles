@@ -7,47 +7,58 @@ mod = "mod4"
 alt = "mod1"
 terminal = "alacritty"
 mod2 = "control"
-mod3  = "shift"
-home = os.path.expanduser('~')
+mod3 = "shift"
+home = os.path.expanduser("~")
 
-groups= [
-    Group("1", # firefox
-          label="",
-          ),
-    Group("2",
-          label="", # chromium
-          ),
-    Group("3",# slack
-          label="",
-          ),
-    Group("4",
-          label="", # alacritty
-          ),
-    Group("5", # code
-          label="",
-          ),
-    Group("6", # spotify
-          label="",
-          ),
-    Group("7", # nautilus
-          label="",
-          ),
-    Group("8", # discord
-          label="",
-          ),
-    Group("9", # free
-          label="",
-    )
+groups = [
+    Group(
+        "1",  # firefox
+        label="",
+    ),
+    Group(
+        "2",
+        label="",  # chromium
+    ),
+    Group(
+        "3",  # slack
+        label="",
+    ),
+    Group(
+        "4",
+        label="",  # alacritty
+    ),
+    Group(
+        "5",  # code
+        label="",
+    ),
+    Group(
+        "6",  # spotify
+        label="",
+    ),
+    Group(
+        "7",  # nautilus
+        label="",
+    ),
+    Group(
+        "8",  # discord
+        label="",
+    ),
+    Group(
+        "9",  # free
+        label="",
+    ),
 ]
 
 for i, group in enumerate(groups):
     actual_key = str(i + 1)
-    keys.extend([
-        # Switch to workspace N
-        Key([mod], actual_key, lazy.group[group.name].toscreen()),
-        # Send window to workspace N
-        Key([mod, "shift"], actual_key, lazy.window.togroup(group.name))
-    ])
+    keys.extend(
+        [
+            # Switch to workspace N
+            Key([mod], actual_key, lazy.group[group.name].toscreen()),
+            # Send window to workspace N
+            Key([mod, "shift"], actual_key, lazy.window.togroup(group.name)),
+        ]
+    )
 
 # for i in groups:
 #     keys.extend([

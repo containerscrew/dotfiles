@@ -28,8 +28,8 @@ My dotfiles using Arch Linux. Just for the time it takes to document this reposi
   - [Core config](#core-config)
   - [User config](#user-config)
   - [Run all](#run-all)
+- [Post install](#post-install)
 - [Shortcuts](#shortcuts)
-- [Tips](#tips)
 - [Links & Credits](#links-&-credits)
 - [License](#license)
 <!-- END OF TOC -->
@@ -131,31 +131,6 @@ $ cd /tmp
 $ git clone https://github.com/containerscrew/dotfiles.git
 ```
 
-<!-- ### Option 2 Copy dotfiles from another computer
-
-In the origin computer:
-
-```shell
-make remote-sync IP=192.168.X.X USER=bob
-```
-
-Replace the ip and the user. Both values are those of the target computer, where you are installing these settings. To know the ip run on the target pc:
-
-```bash
-$ ip a
-```
-
-> This should work, as you should have enabled openssh in the archinstall step. If not, on the target machine, run `sudo systemctl enable sshd --now` -->
-
-<!-- ### Only copy ~/.config files
-
-```shell
-cd dotfiles/
-rsync -avzhu config/* username@192.168.X.X:/home/username/.config/
-# Or locally
-rsync -avzhu config/* /home/username/.config/
-``` -->
-
 # dotfiles installation
 
 Now, is time to install all the necessary `dotfiles/packages/configurations`. I have decided to separate each part into a `.sh` file inside the `installers/` folder. There is also [a file](./installers//run_all.sh) that executes in order all at once. **I recommend to go step by step to understand what is going on.**
@@ -203,15 +178,13 @@ All in one:
 $ ./installers/run_all.sh
 ```
 
+# Post install
+
+[Post installation steps](./docs/postinstall.md)
+
 # Shortcuts
 
 See [shortcuts](./docs/shortcuts.md) documentation.
-
-# Tips
-
-Some tips about archlinux configurations.
-
-[Tips](./docs/tips.md) documentation
 
 
 # Links & Credits

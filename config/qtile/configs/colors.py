@@ -8,7 +8,7 @@ class Colors:
     lightblue = "#99CCFF"
     violet = "#a385dc"
     darkviolet = "#B266FF"
-    lightviolet= "#CC99FF"
+    lightviolet = "#CC99FF"
     white = "#FFFFFF"
     red = "#FF0000"
     lightred = "#FF6666"

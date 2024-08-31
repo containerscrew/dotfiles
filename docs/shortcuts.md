@@ -1,7 +1,6 @@
 <!-- START OF TOC !DO NOT EDIT THIS CONTENT MANUALLY-->
 **Table of Contents**  *generated with [mtoc](https://github.com/containerscrew/mtoc)*
 - [QTILE main shortcuts](#qtile-main-shortcuts)
-- [CopyQ clipboard manager](#copyq-clipboard-manager)
 <!-- END OF TOC -->
 # QTILE main shortcuts
 
@@ -13,10 +12,8 @@
 | mod + alt + return | Open floatting terminal         |
 | mod + alt + f     | Open firefox                    |
 | mod + alt + g     | Open google chrome              |
-| mod + alt + b     | Open brave                      |
 | mod + alt + s     | Take screenshot using flameshot |
-| mod + shift + tab | Previous window                 |
-| mod + tab  | Window selector                 |
+| mod + tab         | Previous window                 |
 | mod + alt + p     | Change wallpapers               |
 | mod + alt + r     | Reload Qtile configuration      |
 | cntrol + mod + r  | Restart Qtile                   |
@@ -25,12 +22,4 @@
 | mod + space       | Open app launcher with rofi     |
 
 
-You can find more shortcuts or customize new ones [here](../config/qtile/configurations/keys.py)
-
-# CopyQ clipboard manager
-
-CopyQ is launched when Qtile starts. Btw, you need to add manually the shortcut to open all the entries.
-
-Open CopyQ and go to File > Preferences > Shortcuts
-
-![copyq preferences](../assets/copyq-prefrences.png)
+You can find more shortcuts or customize new ones [here](../config/qtile/configs/keys.py)
