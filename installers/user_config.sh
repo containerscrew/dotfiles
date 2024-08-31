@@ -51,6 +51,7 @@ sudo cp etc/profile.d/custom-path.sh /etc/profile.d/custom-path.sh
 log_message "info" "Copying ~/.config files"
 rsync -avzhu --backup --suffix="$(date +'.%F_%H-%M')" config/* "$HOME"/.config/
 rsync -avzhu misc/.gtkrc-2.0 "$HOME"/.gtkrc-2.0
+echo "export QT_STYLE_OVERRIDE=kvantum" > ~/.profile
 
 log_message "info" "Copying ~/.ssh files"
 rsync -avzhu --backup --suffix="$(date +'.%F_%H-%M')" ssh/* "$HOME"/.ssh/

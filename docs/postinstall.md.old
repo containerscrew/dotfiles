@@ -24,21 +24,6 @@
 <!-- END OF TOC -->
 # DEPRECATED! I NEED TO REWRITE THIS DOCUMENTATION
 
-# Personal VPN (ProtonVPN using wireguard)
-
-Privacy first. I don't really like protonvpn client (gui or cli). I prefer to download wireguard conf file.
-
-* [Official manual](https://protonvpn.com/support/wireguard-manual-linux/)
-* Download wireguard conf file from [here](https://account.protonvpn.com/downloads)
-
-After download wireguard config:
-
-```shell
-$ sudo mv protonvpn.conf to /etc/wireguard/protonvpn.conf
-$ sudo systemctl enable wg-quick@protonvpn.service --now
-$ curl ifconfig.me
-```
-
 # Work VPN
 
 1. Setup private VPN using VPNC (CISCO VPN)

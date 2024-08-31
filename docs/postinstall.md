@@ -46,8 +46,35 @@ sudo plymouth-set-default-theme -R theme_name
 
 # Display positions using autorandr
 
+Type `autorandr` in your terminal and organize your displays (if you have more than 1 displays connected to your pc/laptop)
+
 ```bash
-autorandr --save xxxx
+autorandr --save home
+autorandr --save office
+```
+
+* [Visit the official webpage](https://github.com/phillipberndt/autorandr) for more information.
+
+
+# Personal VPN (ProtonVPN using wireguard)
+
+Privacy first. I don't really like protonvpn client (gui or cli). I prefer to download wireguard conf file.
+
+* [Official manual](https://protonvpn.com/support/wireguard-manual-linux/)
+* Download wireguard conf file from [here](https://account.protonvpn.com/downloads)
+
+After download wireguard config:
+
+```shell
+$ sudo mv protonvpn.conf to /etc/wireguard/protonvpn.conf
+$ sudo systemctl enable wg-quick@protonvpn.service --now
+$ curl ifconfig.me
+```
+
+# Edit custom zsh functions
+
+```bash
+nvim .my_zsh_functions/custom.sh # for example, change the email address of your company
 ```
 
 # X11 change keyboard
