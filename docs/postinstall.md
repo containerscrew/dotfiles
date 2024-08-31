@@ -6,6 +6,7 @@
 - [Display positions using autorandr](#display-positions-using-autorandr)
 - [X11 change keyboard](#x11-change-keyboard)
 - [Timezone](#timezone)
+- [Setup rustup](#setup-rustup)
 <!-- END OF TOC -->
 # Post Installation
 
@@ -22,6 +23,9 @@ If you have gpu in your laptop/pc, follow this steps:
 
 # Display positions using autorandr
 
+```bash
+autorandr --save xxxx
+```
 
 # X11 change keyboard
 
@@ -35,4 +39,10 @@ $ localectl set-x11-keymap us default intl
 ```shell
 $ timedatectl list-timezones | grep -I "Europe"
 $ timedatectl set-timezone Europe/Amsterdam
+```
+
+# Setup rustup
+
+```bash
+$ rustup default stable
 ```
