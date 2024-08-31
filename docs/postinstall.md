@@ -3,7 +3,9 @@
 - [Post Installation](#post-installation)
 - [Setup nvidia drivers](#setup-nvidia-drivers)
 - [Setup plymouth theme](#setup-plymouth-theme)
-- [](#)
+- [Display positions using autorandr](#display-positions-using-autorandr)
+- [X11 change keyboard](#x11-change-keyboard)
+- [Timezone](#timezone)
 <!-- END OF TOC -->
 # Post Installation
 
@@ -18,4 +20,19 @@ If you have gpu in your laptop/pc, follow this steps:
 
 # Setup plymouth theme
 
-#
+# Display positions using autorandr
+
+
+# X11 change keyboard
+
+```shell
+$ sudo nvim /etc/X11/xorg.conf.d/00-keyboard.conf
+$ localectl set-x11-keymap us default intl
+```
+
+# Timezone
+
+```shell
+$ timedatectl list-timezones | grep -I "Europe"
+$ timedatectl set-timezone Europe/Amsterdam
+```

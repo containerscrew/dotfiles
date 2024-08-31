@@ -14,7 +14,7 @@ function print_ascii_banner() {
              .yooooooooooooo
             .oooooooooooooooo          Welcome to my dotfiles!
            .oooooooarcoooooooo         Author: github.com/containerscrew
-          .ooooooooo-oooooooooo
+          .ooooooooo-oooooooooo        $1
          .ooooooooo-  oooooooooo
         :ooooooooo.    :ooooooooo
        :ooooooooo.      :ooooooooo

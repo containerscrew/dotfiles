@@ -2,9 +2,16 @@
 
 set -euo pipefail
 source ./installers/logger.sh
+source ./installers/banner.sh
 
 origin_dir="$PWD"
 
+print_ascii_banner "Running packages.sh"
+
+if [ "$(id -u)" = 0 ]; then
+    echo "This script MUST NOT be run as root user."
+    exit 1
+fi
 
 # check_binary() {
 #     binary="$1"
@@ -102,16 +109,11 @@ paru -Sccd --skipreview --noconfirm
 log_message "info" "Install terragrunt"
 paru -S --skipreview --noconfirm --needed terragrunt
 
-
-# ########## Custom tools ##########
 log_message "info" "Install custom tools"
 command -v tftools >/dev/null 2>&1 || curl --proto '=https' --tlsv1.2 -sSfL https://raw.githubusercontent.com/containerscrew/tftools/main/scripts/install.sh | bash
 
-
-# # Rust
 log_message "info" "Setup default rust stable"
 rustup default stable
 
-# # Helm plugins
 log_message "info" "Install helm plugins"
 helm plugin install https://github.com/helm/helm-mapkubeapis || true

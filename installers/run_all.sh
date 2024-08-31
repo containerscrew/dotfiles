@@ -10,13 +10,8 @@ fi
 set -eu
 
 ############### SOURCE FILES ###############
-source ./installers/banner.sh
 source ./installers/logger.sh
 ############### SOURCE FILES ###############
-
-############### BANNER ###############
-print_ascii_banner
-############### BANNER ###############
 
 ############### SYSTEM PACKAGES ###############
 log_message "info" "Installing packages"

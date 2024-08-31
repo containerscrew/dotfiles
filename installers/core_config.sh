@@ -3,10 +3,14 @@
 set -euo pipefail
 source ./installers/logger.sh
 source ./installers/helpers.sh
+source ./installers/banner.sh
 
-# Global variables
-GRUB_CMDLINE_LINUX_DEFAULT='GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet splash nvidia-drm.modeset=1"'
-NVIDIA_MODULES="nvidia nvidia_modeset nvidia_uvm nvidia_drm"
+print_ascii_banner "Running core_config.sh"
+
+if [ "$(id -u)" = 0 ]; then
+    echo "This script MUST NOT be run as root user."
+    exit 1
+fi
 
 log_message "info" "Setup /etc/hosts"
 sudo rsync -avzhu etc/hosts /etc/hosts
@@ -51,9 +55,8 @@ wget https://github.com/voidlhf/StarRailGrubThemes/raw/master/themes/RuanMei.tar
 tar -xzf /tmp/RuanMei.tar.gz -C /tmp
 sudo cp -r /tmp/RuanMei /boot/grub/themes/
 sudo sed -i 's/^#GRUB_THEME=.*/GRUB_THEME="\/boot\/grub\/themes\/RuanMei\/theme.txt"/' /etc/default/grub
-# Not necessary, will be added in the next step
-# sudo sed -i '/GRUB_CMDLINE_LINUX_DEFAULT/ s/quiet"/quiet splash"/' /etc/default/grub
-# sudo grub-mkconfig -o /boot/grub/grub.cfg
+sudo sed -i '/GRUB_CMDLINE_LINUX_DEFAULT/ s/quiet"/quiet splash"/' /etc/default/grub
+sudo grub-mkconfig -o /boot/grub/grub.cfg
 rm -rf /tmp/RuanMei*
 
 log_message "info" "Setup lightdm"

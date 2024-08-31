@@ -2,6 +2,14 @@
 
 set -euo pipefail
 source ./installers/logger.sh
+source ./installers/banner.sh
+
+print_ascii_banner "Running user_config.sh"
+
+if [ "$(id -u)" = 0 ]; then
+    echo "This script MUST NOT be run as root user."
+    exit 1
+fi
 
 user_dirs=(
 ".ssh"
