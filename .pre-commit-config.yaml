@@ -11,7 +11,7 @@ repos:
     rev: v0.4.5
     hooks:
       - id: ruff
-        args: [ "--fix", "--ignore", "F811"]
+        args: [ "--fix"]
       - id: ruff-format
   - repo: https://github.com/gitleaks/gitleaks
     rev: v8.16.1

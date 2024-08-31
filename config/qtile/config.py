@@ -42,12 +42,6 @@ wmname = "LG3D"
 
 # Script for displays position, always execute if you reload QTILE config
 @hook.subscribe.startup
-def start_once():
-    home = os.path.expanduser("~")
-    subprocess.call([home + "/.local/bin/autoarrange"])
-
-
-# Only start once, even if you restart QTILE config
 @hook.subscribe.startup_once
 def start_once():
     home = os.path.expanduser("~")
