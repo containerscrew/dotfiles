@@ -90,7 +90,7 @@ sudo pacman -Syu --noconfirm --needed base-devel rustup picom \
             kompose accountsservice autorandr jupyterlab xorg-xbacklight \
             musl musl-aarch64 transmission-gtk paru whatweb python-poetry \
             nvidia nvidia-utils nvidia-settings nvtop cuda cuda-tools \
-            python-tensorflow-cuda
+            python-tensorflow-cuda || true
 
 
 log_message "info" "Installing paru packages"
