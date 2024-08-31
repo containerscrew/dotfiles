@@ -35,10 +35,10 @@ fi
 #     fi
 # }
 
-clean(){
-  log_message "warning" "Cleaning $1"
-  sudo rm -rf "$1"
-}
+# clean(){
+#   log_message "warning" "Cleaning $1"
+#   sudo rm -rf "$1"
+# }
 
 ## Install additional repositories
 log_message "info" "Installing blackarch repository"
@@ -60,7 +60,7 @@ sudo pacman -Syu --noconfirm --needed base-devel rustup picom \
             xdg-user-dirs plymouth plymouth-themes neovim mlocate \
             bluez bluez-utils zsh arandr xorg-server xorg-xinit \
             curl wget neofetch lightdm \
-            blueman bluez bluez-utils firefox conky mlocate ngrep lsd bat \
+            blueman firefox conky mlocate ngrep lsd bat \
             ttf-jetbrains-mono ttf-jetbrains-mono-nerd ttf-terminus-nerd ttf-inconsolata ttf-joypixels \
             fzf brightnessctl man webp-pixbuf-loader light-locker \
             net-tools inetutils ttf-nerd-fonts-symbols htop nautilus discord openvpn veracrypt \

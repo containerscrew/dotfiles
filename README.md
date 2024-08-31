@@ -4,44 +4,42 @@ My dotfiles using Arch Linux. Just for the time it takes to document this reposi
 
 ![Arch](https://img.shields.io/badge/Arch_Linux-1793D1?style=flat&logo=arch-linux&logoColor=white)
 
-> [!WARNING]
-> The documentation is not yet well finished. There are still things to document and configure. However, I hope the configuration files can help you.
 
-![current-desktop](./assets/example-desktop.png)
+![example1](./assets/example3.png)
 
-![current-desktop2](./assets/example-desktop2.png)
+### Hello geeks!
 
-<!-- START OF TOC !DO NOT EDIT THIS CONTENT MANUALLY-->
-**Table of Contents**  *generated with [mtoc](https://github.com/containerscrew/mtoc)*
-- [containerscrew dotfiles (documentation in-progress)](#containerscrew-dotfiles-(documentation-in-progress))
-- [Disclaimer ⚠️](#disclaimer-⚠️)
-- [Arch Linux installation](#arch-linux-installation)
-  - [Before installation using archinstall](#before-installation-using-archinstall)
-    - [Connect to the internet](#connect-to-the-internet)
-    - [Start the installation](#start-the-installation)
-    - [Considerations in archinstall](#considerations-in-archinstall)
-  - [After installation](#after-installation)
-    - [Connect the computer to the internet](#connect-the-computer-to-the-internet)
-    - [Download dotfiles from git](#download-dotfiles-from-git)
-- [dotfiles installation](#dotfiles-installation)
-  - [Packages](#packages)
-  - [Core config](#core-config)
-  - [User config](#user-config)
-  - [Run all](#run-all)
-- [Post install](#post-install)
-- [Shortcuts](#shortcuts)
-- [Links & Credits](#links-&-credits)
-- [License](#license)
-<!-- END OF TOC -->
+<img src="./assets/example1.png" alt="img" align="right" width="400px">
+<img src="./assets/example2.png" alt="img" align="right" width="400px">
+
+This is my personal collection of configuration files.
+
+Here are some details about my setup:
+
+- **WM:** [qtile](https://qtile.org/)
+- **OS:** [Arch Linux](https://archlinux.org)
+- **Terminal:** [alacritty](https://alacritty.org/)
+- **Shell:** [zsh](https://wiki.archlinux.org/index.php/Zsh)
+- **Widgets:** [eww](https://github.com/elkowar/eww)
+- **Compositor:** [picom](https://github.com/ibhagwan/picom)
+- **Editor:** [neovim](https://github.com/neovim/neovim)
+- **IDE:** [vscode](https://code.visualstudio.com/)
+- **Browser:** [firefox](https://www.mozilla.org/en-US/firefox)
+- **File Manager:** [nautilus](https://github.com/GNOME/nautilus)
+- **Application Launcher:** [rofi](https://github.com/davatorium/rofi)
+- **Laptop:** [Slimbook Executive 16 Intel i7 13700H Black RTX 4060](https://slimbook.com/en/shop/product/executive-16-intel-i7-13700h-black-rtx-4060-1102?category=8)
+
+---
 
 # Disclaimer ⚠️
 
 It is my personal setup, the way I like it, with configurations, applications that are comfortable for me. Use it if you want as a template, as a guide. I will update it as I need to add new packages, configs...etc.
 
-
 And yes... all my commits in this repo you will see that they are called **Wip** 😀
 
 # Arch Linux installation
+
+Just [R.T.F.M](https://en.wikipedia.org/wiki/RTFM)
 
 The installation of Arch Linux has been carried out using [archinstall](https://wiki.archlinux.org/title/archinstall).
 The [official installation page](https://wiki.archlinux.org/title/Installation_guide) is also very complete, everything and that using archinstall is more comfortable and makes the process easier.
