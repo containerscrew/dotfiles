@@ -98,14 +98,13 @@ Example of my configurations. Modify those you consider necessary.
 | User sudoer               | Yes                                 |
 | Audio                     | Pipewire                            |
 | Kernels                   | Linux                               |
-| Additional packages       | rsync python3 openssh neovim curl git wget |
+| Additional packages       | neovim curl git                     |
 | Network                   | NetworkManager                      |
 | UTC                       | Europe/Amsterdam                    |
+| NTP                       | yes                                 |
 | Optional repos            | multilib                            |
 
-> The installer will ask if you want to chroot into the system. Type yes and enable ssh (for rsync). `systemctl enable sshd`. Will be necessary if you want to rsync files from other computer. If not necesary, do not enable this service.
-
-> Remember to disable sshd later. In fact, ufw will block all external connections.
+> In my case I use Netherlands as the closest country. Change it and use the one you need.
 
 ## After installation
 
