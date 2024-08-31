@@ -5,6 +5,9 @@ from libqtile.config import Match
 from typing import List  # noqa: F401
 
 # Custom configuration imported from configs folder
+from configs.groups import groups
+from configs.screens import screens
+from configs.layouts import layouts
 from configs.keys import keys
 
 
