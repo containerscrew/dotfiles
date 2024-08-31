@@ -83,7 +83,7 @@ sudo pacman -Syu --noconfirm --needed base-devel rustup picom \
             gnome-calculator docker python-kubernetes python-hatch \
             exfat-utils evince python-pipx lxappearance kvantum-qt5 \
             hugo bcc bcc-tools python-bcc vim \
-            buildah sqlitebrowser kwallet kwalletmanager \
+            buildah sqlitebrowser gnome-keyring \
             docker-compose telegram-desktop glow obs-studio hwinfo eog \
             ansible buildkit docker-buildx mkcert mingw-w64 \
             sshpass python-pyopenssl python-kubernetes steam \

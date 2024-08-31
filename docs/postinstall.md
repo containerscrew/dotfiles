@@ -166,6 +166,11 @@ $ timedatectl set-timezone Europe/Amsterdam
 $ rustup default stable
 ```
 
+# Set `gnome-keyring` in vscode
+
+https://code.visualstudio.com/docs/editor/settings-sync#_troubleshooting-keychain-issues
+
+
 # Personal reminders (private content can't be public)
 
 * Setup pass
