@@ -6,27 +6,27 @@ source ./installers/logger.sh
 origin_dir="$PWD"
 
 
-check_binary() {
-    binary="$1"
-    if ! command -v "$binary" &> /dev/null; then
-        log_message "warning" "$binary not found in system, will be installed!"
-        return 1
-    else
-        log_message "warning" "Binary $binary exists. Do you want to reinstall it? [y/n] (default n with 2s of timeout)"
-        read -t 2 answer
+# check_binary() {
+#     binary="$1"
+#     if ! command -v "$binary" &> /dev/null; then
+#         log_message "warning" "$binary not found in system, will be installed!"
+#         return 1
+#     else
+#         log_message "warning" "Binary $binary exists. Do you want to reinstall it? [y/n] (default n with 2s of timeout)"
+#         read -t 2 answer
 
-        if [ -z "$answer" ]; then
-          answer="n"
-        fi
+#         if [ -z "$answer" ]; then
+#           answer="n"
+#         fi
 
-        if [ "$answer" == "y" ]; then
-          return 1
-        else
-          log_message "info" "Skipping installation of $binary"
-        fi
-        return 0
-    fi
-}
+#         if [ "$answer" == "y" ]; then
+#           return 1
+#         else
+#           log_message "info" "Skipping installation of $binary"
+#         fi
+#         return 0
+#     fi
+# }
 
 clean(){
   log_message "warning" "Cleaning $1"
@@ -52,7 +52,7 @@ sudo pacman -Syu --noconfirm --needed base-devel rustup picom \
             xorg-xprop xorg-xkill xorg-xsetroot xorg-xwininfo xorg-xrandr \
             xdg-user-dirs plymouth neovim mlocate \
             bluez bluez-utils zsh arandr xorg-server xorg-xinit \
-            curl wget neofetch lightdm lightdm-gtk-greeter \
+            curl wget neofetch lightdm \
             blueman bluez bluez-utils firefox conky mlocate ngrep lsd bat \
             ttf-jetbrains-mono ttf-jetbrains-mono-nerd ttf-terminus-nerd ttf-inconsolata ttf-joypixels \
             fzf brightnessctl man webp-pixbuf-loader light-locker \
@@ -93,7 +93,7 @@ paru -S --skipreview --noconfirm --needed jetbrains-toolbox coreimage qtile-extr
         aws-cli-v2 web-greeter notion-app-electron android-sdk-cmdline-tools-latest \
         android-tools dracula-gtk-theme visual-studio-code-bin rustscan balena-etcher krew rofi-autorandr \
 	      insomnia mongodb-compass proton-vpn-gtk-app youtube-dl helm-docs eww shell-color-scripts-git \
-        hadolint-bin python-pytest exercism-bin
+        hadolint-bin python-pytest exercism-bin web-greeter web-greeter-theme-shikai
 
 # Clean paru cache
 log_message "info" "Cleaning paru cache"

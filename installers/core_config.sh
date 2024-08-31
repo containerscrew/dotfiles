@@ -59,9 +59,9 @@ rm -rf /tmp/RuanMei*
 log_message "info" "Setup lightdm"
 sudo systemctl enable lightdm.service
 # log_message "info" "Configure lightdm webkit2 theme"
-# sudo sed -i 's/.*greeter-session=.*/greeter-session=web-greeter/g' /etc/lightdm/lightdm.conf
-#sudo cp assets/arch-logo.png /usr/share/icons/arch-logo.png
-# sudo sed -i 's/theme: .*/theme: neon/' /etc/lightdm/web-greeter.yml
+sudo sed -i 's/.*greeter-session=.*/greeter-session=web-greeter/g' /etc/lightdm/lightdm.conf
+# sudo cp -ar assets/arch-logo.png /usr/share/icons/arch-logo.png
+sudo sed -i 's/theme: .*/theme: shikai/' /etc/lightdm/web-greeter.yml
 # #sudo sed -i 's/background_images_dir: .*/background_images_dir: \/usr\/share\/backgrounds/' /etc/lightdm/web-greeter.yml
 # sudo cp assets/arch-logo.png /usr/share/icons/arch-logo.png
 # sudo cp assets/daniels-archlinux.png /usr/share/icons/daniels-archlinux.png
@@ -69,10 +69,11 @@ sudo systemctl enable lightdm.service
 #sudo systemctl restart lightdm
 
 log_message "info" "Nvidia graphics configuration"
-for module in $NVIDIA_MODULES; do
-  sudo sed -i "/^MODULES=/!b; s/(\(.*\)${module}\(.*\))/(\1\2/; s/MODULES=(/&${module} /" /etc/mkinitcpio.conf
-done
-sudo mkinitcpio -P
-sudo sed -i '/^GRUB_CMDLINE_LINUX_DEFAULT=/d' /etc/default/grub
-echo "$GRUB_CMDLINE_LINUX_DEFAULT" | sudo tee -a /etc/default/grub
-sudo grub-mkconfig -o /boot/grub/grub.cfg
+# for module in $NVIDIA_MODULES; do
+#   sudo sed -i "/^MODULES=/!b; s/(\(.*\)${module}\(.*\))/(\1\2/; s/MODULES=(/&${module} /" /etc/mkinitcpio.conf
+# done
+# sudo mkinitcpio -P
+# sudo nvidia-xconfig
+# sudo sed -i '/^GRUB_CMDLINE_LINUX_DEFAULT=/d' /etc/default/grub
+# echo "$GRUB_CMDLINE_LINUX_DEFAULT" | sudo tee -a /etc/default/grub
+# sudo grub-mkconfig -o /boot/grub/grub.cfg
