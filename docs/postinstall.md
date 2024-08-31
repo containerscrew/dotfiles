@@ -71,6 +71,76 @@ $ sudo systemctl enable wg-quick@protonvpn.service --now
 $ curl ifconfig.me
 ```
 
+# Work VPN
+
+1. Setup private VPN using VPNC (CISCO VPN)
+
+`/etc/vpnc/work.conf`
+
+```
+IPSec gateway XXX
+IPSec ID XXX
+IPSec secret XXXX
+Xauth username XXXX
+Xauth password XXXX
+Local Port 5050
+Interface name tun1
+```
+
+## Start connection
+
+### Only once
+
+```shell
+$ sudo chmod 700 /etc/vpnc/work.conf
+$ sudo vpnc work
+```
+
+### Automatic start when boot
+
+```shell
+$ sudo systemctl enable vpnc@work.service --now
+```
+
+### Add dommains to search using systemd-resolved
+
+```shell
+sudo resolvectl domain tun1 mydomain1.custom mycompany.internal hello.test # change interface name if needed
+```
+
+## Stop connection
+
+```shell
+sudo vpnc-disconnect
+```
+# Certificates
+
+```shell
+openssl s_client -showcerts -connect example.com:443 -servername example.com < /dev/null 2>/dev/null | openssl x509 -outform PEM > /tmp/certificate.crt
+```
+
+```shell
+# Download first certificates
+sudo cp /tmp/certificate.crt /etc/ca-certificates/trust-source/anchors/
+sudo update-ca-trust
+# Close browser to reload certs
+```
+# Global gitconfig for internal git servers with self signed certificate
+
+In my case, using terraform and downloading custom terraform modules from internal git servers with self signed certificates, I need to setup this configuration to avoid SSL errors.
+
+```toml
+[http "https://gitlab.server.internal"]
+  ##################################
+  # Self Signed Server Certificate #
+  ##################################
+
+  sslCAInfo = /path/to/your/certificate.crt
+  #sslCAPath = /path/to/selfCA/
+  sslVerify = true
+
+```
+
 # Edit custom zsh functions
 
 ```bash

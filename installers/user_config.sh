@@ -67,7 +67,7 @@ if [ ! -d "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting" ]; then git clone https:
 
 log_message "info" "Copying custom .zshrc and functions"
 rsync -avzh zsh/.zshrc "$HOME"/.zshrc
-rsync -avzhu zsh/functions/* "$HOME"/.my_zsh_functions
+rsync -avzhu --backup --suffix="$(date +'.%F_%H-%M')" zsh/functions/* "$HOME"/.my_zsh_functions
 
 log_message "info" "Copying wallpapers to /usr/share/backgrounds..."
 sudo mkdir -p /usr/share/backgrounds
