@@ -10,7 +10,6 @@ from configs.screens import screens
 from configs.layouts import layouts
 from configs.keys import keys
 
-
 keys = keys
 
 border = dict(border_focus="#aaeedd", border_normal="#4c566a")

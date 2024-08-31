@@ -112,8 +112,5 @@ paru -S --skipreview --noconfirm --needed terragrunt
 log_message "info" "Install custom tools"
 command -v tftools >/dev/null 2>&1 || curl --proto '=https' --tlsv1.2 -sSfL https://raw.githubusercontent.com/containerscrew/tftools/main/scripts/install.sh | bash
 
-log_message "info" "Setup default rust stable"
-rustup default stable
-
 log_message "info" "Install helm plugins"
 helm plugin install https://github.com/helm/helm-mapkubeapis || true
