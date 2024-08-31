@@ -98,6 +98,12 @@ default=[
     ),
     diagonal_sep(fg=Colors.background, bg=Colors.blue),
     widget.Spacer(),
+    widget.NvidiaSensors(
+        format="GPU {temp} °C",
+        font=xf,
+        fontsize=xx,
+        foreground=Colors.nvidia_green,
+    ),
     diagonal_sep(fg=Colors.pink, bg=Colors.background),
     widget.DoNotDisturb(
         disabled_icon='󰂚',
