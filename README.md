@@ -27,6 +27,7 @@ Here are some details about my setup:
 - **Browser:** [firefox](https://www.mozilla.org/en-US/firefox)
 - **File Manager:** [nautilus](https://github.com/GNOME/nautilus)
 - **Application Launcher:** [rofi](https://github.com/davatorium/rofi)
+- **Display manager:** [lightdm](https://wiki.archlinux.org/title/LightDM)
 - **Laptop:** [Slimbook Executive 16 Intel i7 13700H Black RTX 4060](https://slimbook.com/en/shop/product/executive-16-intel-i7-13700h-black-rtx-4060-1102?category=8)
 
 ---
