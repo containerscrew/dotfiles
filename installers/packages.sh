@@ -59,10 +59,10 @@ sudo pacman -Syu --noconfirm --needed base-devel rustup picom \
             xorg-xprop xorg-xkill xorg-xsetroot xorg-xwininfo xorg-xrandr \
             xdg-user-dirs plymouth plymouth-themes neovim mlocate \
             bluez bluez-utils zsh arandr xorg-server xorg-xinit \
-            curl wget neofetch lightdm \
-            blueman firefox conky mlocate ngrep lsd bat \
+            curl wget neofetch lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings \
+            blueman firefox conky mlocate ngrep lsd bat light-locker \
             ttf-jetbrains-mono ttf-jetbrains-mono-nerd ttf-terminus-nerd ttf-inconsolata ttf-joypixels \
-            fzf brightnessctl man webp-pixbuf-loader light-locker \
+            fzf brightnessctl man webp-pixbuf-loader \
             net-tools inetutils ttf-nerd-fonts-symbols htop nautilus discord openvpn veracrypt \
             keepass pluma pamixer python3 python-pip shutter signal-desktop qpwgraph \
             pipewire pipewire-pulse pavucontrol xbindkeys ttf-firacode-nerd wireguard-tools \
@@ -100,8 +100,8 @@ paru -S --skipreview --noconfirm --needed jetbrains-toolbox coreimage qtile-extr
         podman-dnsname tfenv kubecolor calcurse todotxt playerctl zoom \
         aws-cli-v2 web-greeter notion-app-electron android-sdk-cmdline-tools-latest \
         android-tools dracula-gtk-theme visual-studio-code-bin rustscan balena-etcher krew rofi-autorandr \
-	      insomnia mongodb-compass proton-vpn-gtk-app youtube-dl helm-docs eww shell-color-scripts-git \
-        hadolint-bin python-pytest exercism-bin web-greeter web-greeter-theme-shikai
+	    insomnia mongodb-compass proton-vpn-gtk-app youtube-dl helm-docs eww shell-color-scripts-git \
+        hadolint-bin python-pytest exercism-bin 
 
 # Clean paru cache
 log_message "info" "Cleaning paru cache"

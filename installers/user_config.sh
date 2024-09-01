@@ -51,6 +51,8 @@ sudo cp etc/profile.d/custom-path.sh /etc/profile.d/custom-path.sh
 log_message "info" "Copying ~/.config files"
 rsync -avzhu --backup --suffix="$(date +'.%F_%H-%M')" config/* "$HOME"/.config/
 rsync -avzhu misc/.gtkrc-2.0 "$HOME"/.gtkrc-2.0
+rsync -avzhu misc/.dmrc "$HOME"/.dmrc
+sudo cp assets/arch-logo.png /usr/share/icons/arch-logo.png
 echo "export QT_STYLE_OVERRIDE=kvantum" > ~/.profile
 
 log_message "info" "Copying ~/.ssh files"
