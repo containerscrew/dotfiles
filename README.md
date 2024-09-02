@@ -4,6 +4,8 @@ My dotfiles using Arch Linux. Just for the time it takes to document this reposi
 
 ![Arch](https://img.shields.io/badge/Arch_Linux-1793D1?style=flat&logo=arch-linux&logoColor=white)
 
+[![Discord](https://img.shields.io/badge/Discord-%235865F2.svg?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/KCUwVvcQTk)
+
 
 ![example1](./assets/example3.png)
 

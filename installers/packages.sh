@@ -62,7 +62,7 @@ sudo pacman -Syu --noconfirm --needed base-devel rustup picom \
             curl wget neofetch lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings \
             blueman firefox conky mlocate ngrep lsd bat light-locker \
             ttf-jetbrains-mono ttf-jetbrains-mono-nerd ttf-terminus-nerd ttf-inconsolata ttf-joypixels \
-            fzf brightnessctl man webp-pixbuf-loader \
+            fzf brightnessctl man webp-pixbuf-loader dmidecode \
             net-tools inetutils ttf-nerd-fonts-symbols htop nautilus discord openvpn veracrypt \
             keepass pluma pamixer python3 python-pip shutter signal-desktop qpwgraph \
             pipewire pipewire-pulse pavucontrol xbindkeys ttf-firacode-nerd wireguard-tools \
@@ -90,7 +90,7 @@ sudo pacman -Syu --noconfirm --needed base-devel rustup picom \
             kompose accountsservice autorandr jupyterlab xorg-xbacklight \
             musl musl-aarch64 transmission-gtk paru whatweb python-poetry \
             nvidia nvidia-utils nvidia-settings nvtop cuda cuda-tools \
-            python-tensorflow-cuda || true
+            python-tensorflow-cuda nvidia-container-toolkit || true
 
 
 log_message "info" "Installing paru packages"
@@ -101,7 +101,7 @@ paru -S --skipreview --noconfirm --needed jetbrains-toolbox coreimage qtile-extr
         aws-cli-v2 web-greeter notion-app-electron android-sdk-cmdline-tools-latest \
         android-tools dracula-gtk-theme visual-studio-code-bin rustscan balena-etcher krew rofi-autorandr \
 	    insomnia mongodb-compass proton-vpn-gtk-app youtube-dl helm-docs eww shell-color-scripts-git \
-        hadolint-bin python-pytest exercism-bin 
+        hadolint-bin python-pytest exercism-bin
 
 # Clean paru cache
 log_message "info" "Cleaning paru cache"

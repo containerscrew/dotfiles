@@ -24,3 +24,4 @@
 * https://github.com/ivakyb/fish_ssh_agent
 * https://github.com/korvahannu/arch-nvidia-drivers-installation-guide
 * https://www.uhdpaper.com/
+* https://github.com/bayasdev/envycontrol

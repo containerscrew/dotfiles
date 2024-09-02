@@ -48,6 +48,8 @@ log_message "info" "Setup podman container runtime"
 sudo cp -a etc/containers/registries.conf.d/podman-config.conf /etc/containers/registries.conf.d/podman-config.conf
 sudo mkdir -p /etc/docker
 sudo cp -a etc/docker/daemon.json /etc/docker/daemon.json
+log_message "info" "Nvidia container toolkit"
+sudo nvidia-ctk runtime configure --runtime=docker
 sudo systemctl enable docker --now
 sudo usermod -aG docker dcr
 
