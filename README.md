@@ -34,6 +34,32 @@ Here are some details about my setup:
 
 ---
 
+<!-- START OF TOC !DO NOT EDIT THIS CONTENT MANUALLY-->
+**Table of Contents**  *generated with [mtoc](https://github.com/containerscrew/mtoc)*
+- [containerscrew dotfiles](#containerscrew-dotfiles)
+    - [Hello geeks!](#hello-geeks!)
+- [Disclaimer ⚠️](#disclaimer-⚠️)
+- [Arch Linux installation](#arch-linux-installation)
+  - [Before installation using archinstall](#before-installation-using-archinstall)
+    - [Connect to the internet](#connect-to-the-internet)
+    - [Start the installation](#start-the-installation)
+    - [Considerations in archinstall](#considerations-in-archinstall)
+  - [After installation](#after-installation)
+    - [Connect the computer to the internet](#connect-the-computer-to-the-internet)
+    - [Download dotfiles from git](#download-dotfiles-from-git)
+- [dotfiles installation](#dotfiles-installation)
+  - [Packages](#packages)
+  - [Core config](#core-config)
+  - [User config](#user-config)
+  - [Run all](#run-all)
+- [Post install](#post-install)
+- [Shortcuts](#shortcuts)
+- [Links & Credits](#links-&-credits)
+- [License](#license)
+<!-- END OF TOC -->
+
+---
+
 # Disclaimer ⚠️
 
 It is my personal setup, the way I like it, with configurations, applications that are comfortable for me. Use it if you want as a template, as a guide. I will update it as I need to add new packages, configs...etc.

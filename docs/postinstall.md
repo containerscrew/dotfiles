@@ -4,9 +4,21 @@
 - [Setup nvidia drivers](#setup-nvidia-drivers)
 - [Setup plymouth theme](#setup-plymouth-theme)
 - [Display positions using autorandr](#display-positions-using-autorandr)
+- [Personal VPN (ProtonVPN using wireguard)](#personal-vpn-(protonvpn-using-wireguard))
+- [Work VPN](#work-vpn)
+  - [Start connection](#start-connection)
+    - [Only once](#only-once)
+    - [Automatic start when boot](#automatic-start-when-boot)
+    - [Add dommains to search using systemd-resolved](#add-dommains-to-search-using-systemd-resolved)
+  - [Stop connection](#stop-connection)
+- [Certificates](#certificates)
+- [Global gitconfig for internal git servers with self signed certificate](#global-gitconfig-for-internal-git-servers-with-self-signed-certificate)
+- [Edit custom zsh functions](#edit-custom-zsh-functions)
 - [X11 change keyboard](#x11-change-keyboard)
 - [Timezone](#timezone)
 - [Setup rustup](#setup-rustup)
+- [Set `gnome-keyring` in vscode](#set-`gnome-keyring`-in-vscode)
+- [Personal reminders (private content can't be public)](#personal-reminders-(private-content-can't-be-public))
 <!-- END OF TOC -->
 # Post Installation
 
