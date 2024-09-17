@@ -71,6 +71,7 @@ keys = [
     ),  # Floatting terminal
     # Key([mod, alt], "n", lazy.spawn(""), desc="Launch floatterminal"), #Floatting terminal
     # https://docs.qtile.org/en/latest/manual/config/lazy.html
+
     # Windows
     Key(
         [mod, "shift"],
@@ -112,7 +113,7 @@ keys = [
         lazy.spawn("rofi -show window"),
         desc="Switch opened windows",
     ),
-    Key(["control", alt], "h", lazy.spawn("diodon"), desc="Open clipboard manager"),
+    Key(["control", alt], "h", lazy.spawn("clipcat-menu"), desc="clipcat menu"),
     # Organize windows using zrandr
     Key(
         ["control", alt],

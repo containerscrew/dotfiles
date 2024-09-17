@@ -13,4 +13,4 @@ sleep 2
 echo -e "\e[32m> Connecting protonvpn...\e[0m"
 sudo systemctl start wg-quick@protonvpn.service
 # For custom domains to search using you work vpn (search internal endpoints)
-# echo "sudo resolvectl domain tun1 mydomain1.custom mycompany.internal hello.test" >> ~/.local/bin/work-vpn
+#sudo resolvectl domain tun1 mydomain1.custom mycompany.internal hello.test

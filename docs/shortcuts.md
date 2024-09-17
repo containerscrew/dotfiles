@@ -18,6 +18,7 @@
 | mod + alt + r     | Reload Qtile configuration      |
 | cntrol + mod + r  | Restart Qtile                   |
 | cntrol + alt + l  | Lock screen using lightdm       |
+| cntrol + alt + h  | Clipboard manager with rofi     |
 | cntrol + t        | Make the actual window floating |
 | mod + space       | Open app launcher with rofi     |
 

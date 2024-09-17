@@ -25,6 +25,9 @@ light-locker --no-lock-on-lid &
 # autorandr for display position
 autorandr --change
 
+# clipcat (clipboard manager)
+clipcatd
+
 # Other apps for systray
 #udiskie -t &
 #nm-applet &
