@@ -82,7 +82,7 @@ sudo pacman -Syu --noconfirm --needed base-devel rustup picom \
             mariadb-clients oath-toolkit nushell btop \
             gnome-calculator docker python-kubernetes python-hatch \
             exfat-utils evince python-pipx lxappearance kvantum-qt5 \
-            hugo bcc bcc-tools python-bcc vim \
+            hugo bcc bcc-tools python-bcc bpf bpf-linker vim cmake clang llvm flex bison linux-api-headers \
             buildah sqlitebrowser gnome-keyring \
             docker-compose telegram-desktop glow obs-studio hwinfo eog \
             ansible buildkit docker-buildx mkcert mingw-w64 \
@@ -90,7 +90,8 @@ sudo pacman -Syu --noconfirm --needed base-devel rustup picom \
             kompose accountsservice autorandr jupyterlab xorg-xbacklight \
             musl musl-aarch64 transmission-gtk paru whatweb python-poetry \
             nvidia nvidia-utils nvidia-settings nvtop cuda cuda-tools \
-            python-tensorflow-cuda nvidia-container-toolkit clipcat || true
+            linux-headers python-pyroute2 solaar \
+            python-tensorflow-cuda nvidia-container-toolkit clipcat python-notify2 python-daemon || true
 
 
 log_message "info" "Installing paru packages"
@@ -100,8 +101,8 @@ paru -S --skipreview --noconfirm --needed jetbrains-toolbox coreimage qtile-extr
         podman-dnsname tfenv kubecolor calcurse todotxt playerctl zoom \
         aws-cli-v2 web-greeter notion-app-electron android-sdk-cmdline-tools-latest \
         android-tools dracula-gtk-theme visual-studio-code-bin rustscan balena-etcher krew rofi-autorandr \
-	    insomnia mongodb-compass proton-vpn-gtk-app youtube-dl helm-docs eww shell-color-scripts-git \
-        hadolint-bin python-pytest exercism-bin
+	insomnia mongodb-compass youtube-dl helm-docs eww shell-color-scripts-git \
+        hadolint-bin python-pytest exercism-bin bpftool-bin
 
 # Clean paru cache
 log_message "info" "Cleaning paru cache"

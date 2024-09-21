@@ -16,9 +16,8 @@ log_message "info" "Setup /etc/hosts"
 sudo rsync -avzhu etc/hosts /etc/hosts
 sudo chmod 644 /etc/hosts
 
-
 log_message "info" "Setup firewall using ufw"
-sudo ufw allow ssh
+log_message "info" "If you want to enable, for example, ssh, run 'sudo ufw allow ssh'"
 sudo systemctl enable ufw --now
 sudo ufw default deny incoming
 sudo ufw --force enable
