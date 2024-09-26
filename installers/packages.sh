@@ -102,7 +102,7 @@ paru -S --skipreview --noconfirm --needed jetbrains-toolbox coreimage qtile-extr
         aws-cli-v2 web-greeter notion-app-electron android-sdk-cmdline-tools-latest \
         android-tools dracula-gtk-theme visual-studio-code-bin rustscan balena-etcher krew rofi-autorandr \
 	insomnia mongodb-compass youtube-dl helm-docs eww shell-color-scripts-git \
-        hadolint-bin python-pytest exercism-bin bpftool-bin
+        hadolint-bin python-pytest exercism-bin bpftool-bin bpftrace teams
 
 # Clean paru cache
 log_message "info" "Cleaning paru cache"
