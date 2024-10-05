@@ -90,7 +90,7 @@ sudo pacman -Syu --noconfirm --needed base-devel rustup picom \
             kompose accountsservice autorandr jupyterlab xorg-xbacklight \
             musl musl-aarch64 transmission-gtk paru whatweb python-poetry \
             nvidia nvidia-utils nvidia-settings nvtop cuda cuda-tools \
-            linux-headers python-pyroute2 solaar \
+            linux-headers python-pyroute2 solaar strace hdparm \
             python-tensorflow-cuda nvidia-container-toolkit clipcat python-notify2 python-daemon || true
 
 

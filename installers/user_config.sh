@@ -24,6 +24,11 @@ user_dirs=(
 "Documents/Private"
 "Documents/Books"
 ".my_zsh_functions"
+"Documents/DockerData"
+)
+
+core_dirs=(
+  "/mnt/ssd"
 )
 
 log_message "info" "Adding $USER to some groups"
@@ -39,6 +44,11 @@ fi
 log_message "info" "Creating custom user directories"
 for dir in "${user_dirs[@]}"; do
   mkdir -p "$HOME/$dir"
+done
+
+log_message "info" "Creating core directories"
+for dir in "${core_dirs[@]}"; do
+  sudo mkdir -p "$dir"
 done
 
 log_message "info" "Copying custom binaries to ~/.local/bin"

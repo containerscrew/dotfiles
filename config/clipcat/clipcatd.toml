@@ -2,7 +2,7 @@ daemonize = true
 pid_file = "/run/user/1000/clipcatd.pid"
 primary_threshold_ms = 5000
 max_history = 50
-synchronize_selection_with_clipboard = true
+synchronize_selection_with_clipboard = false
 history_file_path = "/home/dcr/.cache/clipcat/clipcatd-history"
 snippets = []
 
@@ -39,7 +39,7 @@ host = "127.0.0.1"
 port = 45047
 
 [desktop_notification]
-enable = true
+enable = false
 icon = "accessories-clipboard"
 timeout_ms = 2000
 long_plaintext_length = 2000
