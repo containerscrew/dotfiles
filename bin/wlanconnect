@@ -1,17 +1,27 @@
 #! /bin/bash
 
 # First, list endpoints
-echo -en "Listing available endpoints. Wait...\n"
-nmcli device wifi list
-echo -en "\n"
+echo -en "Listing available endpoints. Please wait...\n"
 
-# read -ep "Endpoint SSID or BSSID: " endpoint_name
-# read -s -p "Endpoint password: " endpoint_password
+# Select the SSID with fzf, and trim leading/trailing spaces
+SSID=$(nmcli -f SSID device wifi list | tail -n +2 | grep -v "^--" | sort | uniq | fzf --prompt="Select the WLAN SSID you want to connect: " | sed 's/^[ \t]*//;s/[ \t]*$//')
 
-# Connect
-nmcli device wifi connect -a
-echo -en "\nConnecting to $endpoint_name...\n"
+# If no SSID is selected, exit
+if [ -z "$SSID" ]; then
+    echo "No network was selected."
+    exit 1
+fi
 
-# Since I'm always using a daemon with my custom vpn (protonvpn)
-# Maybe I will need to restart
-echo -en "Check custom vpn daemon if needed. $ systemctl restart wg-quick@protonvpn.service"
+# Select the password for the SSID
+read -s -p "Enter the password for the network '$SSID': " PASSWORD
+echo ""
+
+# Attempt to connect to the SSID
+if nmcli device wifi connect "$SSID " password "$PASSWORD"; then
+    echo "Successfully connected to '$SSID'."
+else
+    echo "Failed to connect to '$SSID'. Please check the password and try again."
+fi
+
+# Clear the password variable
+unset PASSWORD
