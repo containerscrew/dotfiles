@@ -90,7 +90,7 @@ sudo pacman -Syu --noconfirm --needed base-devel rustup picom \
             kompose accountsservice autorandr jupyterlab xorg-xbacklight \
             musl musl-aarch64 transmission-gtk paru whatweb python-poetry \
             nvidia nvidia-utils nvidia-settings nvtop cuda cuda-tools \
-            linux-headers python-pyroute2 solaar strace hdparm \
+            linux-headers python-pyroute2 solaar strace hdparm libreoffice \
             python-tensorflow-cuda nvidia-container-toolkit clipcat python-notify2 python-daemon || true
 
 
@@ -102,7 +102,7 @@ paru -S --skipreview --noconfirm --needed jetbrains-toolbox coreimage qtile-extr
         aws-cli-v2 web-greeter notion-app-electron android-sdk-cmdline-tools-latest \
         android-tools dracula-gtk-theme visual-studio-code-bin rustscan balena-etcher krew rofi-autorandr \
 	insomnia mongodb-compass youtube-dl helm-docs eww shell-color-scripts-git \
-        hadolint-bin python-pytest exercism-bin bpftool-bin bpftrace teams
+        hadolint-bin python-pytest exercism-bin bpftool-bin bpftrace teams renovate pdftk
 
 # Clean paru cache
 log_message "info" "Cleaning paru cache"

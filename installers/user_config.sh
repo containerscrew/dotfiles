@@ -24,7 +24,6 @@ user_dirs=(
 "Documents/Private"
 "Documents/Books"
 ".my_zsh_functions"
-"Documents/DockerData"
 )
 
 core_dirs=(
