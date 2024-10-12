@@ -35,6 +35,7 @@ If you have gpu in your laptop/pc, follow this steps. Packages already installed
 
 ```conf
 MODULES=(nvidia nvidia_modeset nvidia_uvm nvidia_drm)
+# On the HOOKS=() line, find the word kms inside the parenthesis and remove it
 sudo mkinitcpio -P
 ```
 

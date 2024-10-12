@@ -67,7 +67,7 @@ sudo pacman -Syu --noconfirm --needed base-devel rustup picom \
             keepass pluma pamixer python3 python-pip shutter signal-desktop qpwgraph \
             pipewire pipewire-pulse pavucontrol xbindkeys ttf-firacode-nerd wireguard-tools \
             systemd-resolvconf macchanger tcpdump imagemagick vpnc whois qemu-full virt-manager \
-            qtile xorg-xwayland rsync python-dbus-next python-iwlib \
+            qtile python-pywlroots xorg-xwayland rsync python-dbus-next python-iwlib \
             traceroute pre-commit goreleaser noto-fonts-emoji noto-fonts-extra \
             nyx udiskie ntfs-3g network-manager-applet volumeicon cbatticon \
             gnome-calendar spotify-launcher libpwquality dnsutils cryptsetup \
