@@ -13,6 +13,7 @@ My dotfiles using Arch Linux. Just for the time it takes to document this reposi
 
 <img src="./assets/example1.png" alt="img" align="right" width="400px">
 <img src="./assets/example2.png" alt="img" align="right" width="400px">
+<img src="./assets/nvim.png" alt="img" align="right" width="400px">
 
 This is my personal collection of configuration files.
 

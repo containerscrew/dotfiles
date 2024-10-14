@@ -140,3 +140,6 @@ map('v', '<leader>sw', '<esc><cmd>lua require("spectre").open_visual()<CR>', { d
 -- Spectre search in current file
 -- Press: Space + sp
 map('n', '<leader>sp', '<cmd>lua require("spectre").open_file_search({select_word=true})<CR>', { desc = "Search on current file", noremap = true })
+
+-- Keybinding to toggle Markdown Preview in browser with Space + mk
+map('n', '<leader>mk', ':MarkdownPreviewToggle<CR>', { desc = "Markdown preview in browser", noremap = true, silent = true })
