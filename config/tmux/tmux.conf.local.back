@@ -412,20 +412,6 @@ tmux_conf_uninstall_plugins_on_reload=true
 # to enable a plugin, use the 'set -g @plugin' syntax:
 # visit https://github.com/tmux-plugins for available plugins
 set -g @plugin 'tmux-plugins/tmux-copycat'
-set -g @plugin 'dracula/tmux'
-
-# Info https://draculatheme.com/tmux
-# available plugins: battery, cpu-usage, git, gpu-usage, ram-usage, tmux-ram-usage, network, network-bandwidth, network-ping, ssh-session, attached-clients, network-vpn, weather, time, mpc, spotify-tui, playerctl, kubernetes-context, synchronize-panes
-set -g @dracula-plugins "time network-ping network-bandwith network-vpn"
-
-# available colors: white, gray, dark_gray, light_purple, dark_purple, cyan, green, orange, red, pink, yellow
-# set -g @dracula-[plugin-name]-colors "[background] [foreground]"
-set -g @dracula-network-vpn-colors "pink white"
-
-# the default is 5, it can accept any number
-set -g @dracula-refresh-rate 5
-set -g @dracula-show-left-icon 🦀
- 
 #set -g @plugin 'tmux-plugins/tmux-cpu'
 #set -g @plugin 'tmux-plugins/tmux-resurrect'
 #set -g @plugin 'tmux-plugins/tmux-continuum'

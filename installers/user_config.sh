@@ -103,6 +103,10 @@ fi
 # TFENV permissions
 sudo usermod -aG tfenv dcr
 
+log_message "info" "Setup git config"
+sudo usermod -aG libvirt $(whoami)
+sudo systemctl enable libvirtd.socket --now
+
 log_message "info" "Setup apple magickeyboard conf"
 sudo cp etc/modprobe.d/hid_apple.conf /etc/modprobe.d/hid_apple.conf
 sudo chmod 644 /etc/modprobe.d/hid_apple.conf

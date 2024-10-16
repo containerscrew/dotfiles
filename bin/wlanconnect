@@ -17,7 +17,7 @@ read -s -p "Enter the password for the network '$SSID': " PASSWORD
 echo ""
 
 # Attempt to connect to the SSID
-if nmcli device wifi connect "$SSID " password "$PASSWORD"; then
+if nmcli device wifi connect "$SSID" password "$PASSWORD"; then
     echo "Successfully connected to '$SSID'."
 else
     echo "Failed to connect to '$SSID'. Please check the password and try again."

@@ -93,11 +93,15 @@ require("lazy").setup({
 
     -- File explorer
     {
-        "kyazdani42/nvim-tree.lua",
+        "nvim-tree/nvim-tree.lua",
+        lazy = false,
+        requires = {
+            "nvim-tree/nvim-web-devicons"
+        },
         config = function()
             require("nvim-tree").setup {}
             -- Keybinding to toggle the file tree
-            vim.api.nvim_set_keymap('n', '<C-t>', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
+            vim.api.nvim_set_keymap('n', '<leader>t', ':NvimTreeOpen<CR>', { noremap = true, silent = true })
         end,
     },
 

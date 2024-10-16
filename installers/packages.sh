@@ -74,7 +74,7 @@ sudo pacman -Syu --noconfirm --needed base-devel rustup picom \
             gparted gnome-disk-utility tumbler vlc ffmpeg torbrowser-launcher \
             starship unzip vi gtk4 peek vlc flameshot python-boto3 \
             tmux xclip xfce4-power-manager pass geeqie websocat \
-            npm ufw nmap acpid terminator \
+            npm ufw nmap acpid terminator cilium-cli \
             aardvark-dns netavark podman podman-compose \
             kubectl helm go minikube xorg-server-xephyr python-netifaces \
             chromium github-cli grub-customizer xorg-xhost polkit-gnome \
@@ -85,8 +85,8 @@ sudo pacman -Syu --noconfirm --needed base-devel rustup picom \
             hugo bcc bcc-tools python-bcc bpf bpf-linker vim cmake clang llvm flex bison linux-api-headers \
             buildah sqlitebrowser gnome-keyring \
             docker-compose telegram-desktop glow obs-studio hwinfo eog \
-            ansible buildkit docker-buildx mkcert mingw-w64 \
-            sshpass python-pyopenssl python-kubernetes steam \
+            ansible buildkit docker-buildx mkcert mingw-w64 virtualbox virtualbox-guest-utils virtualbox-host-modules-arch \
+            sshpass python-pyopenssl python-kubernetes steam virt-manager \
             kompose accountsservice autorandr jupyterlab xorg-xbacklight \
             musl musl-aarch64 transmission-gtk paru whatweb python-poetry \
             nvidia nvidia-utils nvidia-settings nvtop cuda cuda-tools vulkan-tools \
@@ -101,7 +101,7 @@ paru -S --skipreview --noconfirm --needed jetbrains-toolbox coreimage qtile-extr
         podman-dnsname tfenv kubecolor calcurse todotxt playerctl zoom \
         aws-cli-v2 web-greeter notion-app-electron android-sdk-cmdline-tools-latest \
         android-tools dracula-gtk-theme visual-studio-code-bin rustscan balena-etcher krew rofi-autorandr \
-	insomnia mongodb-compass youtube-dl helm-docs eww shell-color-scripts-git \
+	insomnia mongodb-compass youtube-dl helm-docs eww shell-color-scripts-git hubble-bin \
         hadolint-bin python-pytest exercism-bin bpftool-bin bpftrace teams renovate pdftk terraform-ls tflint terraform-lsp
 
 # Clean paru cache
