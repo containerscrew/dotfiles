@@ -113,6 +113,13 @@ sudo chmod 644 /etc/modprobe.d/hid_apple.conf
 # sudo modprobe -r hid_apple
 # sudo modprobe hid_apple
 
+# This will uncomment the line if it's commented, or change it if already set to something else
+sudo sed -i 's/^#\?\(HandleLidSwitch=\).*/\1suspend/' /etc/systemd/logind.conf
+
+# Restart systemd-logind to apply the changes
+sudo systemctl restart systemd-logind
+
+
 log_message "info" "Setup vscode extensions"
 file="misc/vscode-extensions.txt"
 while IFS= read -r extension; do

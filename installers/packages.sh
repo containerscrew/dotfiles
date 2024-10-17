@@ -89,10 +89,16 @@ sudo pacman -Syu --noconfirm --needed base-devel rustup picom \
             sshpass python-pyopenssl python-kubernetes steam virt-manager \
             kompose accountsservice autorandr jupyterlab xorg-xbacklight \
             musl musl-aarch64 transmission-gtk paru whatweb python-poetry \
-            nvidia nvidia-utils nvidia-settings nvtop cuda cuda-tools vulkan-tools \
+            nvtop cuda cuda-tools vulkan-tools \
             linux-headers python-pyroute2 solaar strace hdparm libreoffice ripgrep \
             python-tensorflow-cuda nvidia-container-toolkit clipcat python-notify2 python-daemon || true
 
+
+# Keep this by the moment for nvidia drivers
+# https://github.com/lutris/docs/blob/master/InstallingDrivers.md
+sudo pacman -S --noconfirm --needed nvidia nvidia-dkms nvidia-utils lib32-nvidia-utils nvidia-settings vulkan-icd-loader lib32-vulkan-icd-loader
+
+sudo pacman -S --noconfirm --needed lib32-mesa vulkan-intel lib32-vulkan-intel vulkan-icd-loader lib32-vulkan-icd-loader
 
 log_message "info" "Installing paru packages"
 paru -S --skipreview --noconfirm --needed jetbrains-toolbox coreimage qtile-extras python-pulsectl-asyncio mkdocs \

@@ -20,23 +20,26 @@ require("lazy").setup({
     {
         "github/copilot.vim",
         config = function()
+            -- Disable default tab mapping for Copilot
             vim.g.copilot_no_tab_map = true
+            
+            -- Map <C-J> to accept the current Copilot suggestion
             vim.api.nvim_set_keymap("i", "<C-J>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
         end,
     },
 
     -- Telescope configuration
-{
-    "nvim-telescope/telescope.nvim",
-    requires = { {"nvim-lua/plenary.nvim"} },  -- Dependency
-    config = function()
-        require('telescope').setup{
-            defaults = {
-                -- Configuración general (opcional)
+    {
+        "nvim-telescope/telescope.nvim",
+        requires = { {"nvim-lua/plenary.nvim"} },  -- Dependency
+        config = function()
+            require('telescope').setup{
+                defaults = {
+                    -- Configuración general (opcional)
+                }
             }
-        }
-    end
-},
+        end
+    },
     -- LSP Support (for Rust, Go, Python, Terraform, etc.)
     {
         "neovim/nvim-lspconfig",
