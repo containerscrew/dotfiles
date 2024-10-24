@@ -78,8 +78,8 @@ sudo pacman -Syu --noconfirm --needed base-devel rustup picom \
             aardvark-dns netavark podman podman-compose \
             kubectl helm go minikube xorg-server-xephyr python-netifaces \
             chromium github-cli grub-customizer xorg-xhost polkit-gnome \
-            xorg-xinput conky-manager fuse-overlayfs \
-            mariadb-clients oath-toolkit nushell btop \
+            xorg-xinput conky-manager fuse-overlayfs onefetch \
+            mariadb-clients oath-toolkit nushell btop scrcpy \
             gnome-calculator docker python-kubernetes python-hatch \
             exfat-utils evince python-pipx lxappearance kvantum-qt5 \
             hugo bcc bcc-tools python-bcc bpf bpf-linker vim cmake clang llvm flex bison linux-api-headers \
@@ -90,7 +90,7 @@ sudo pacman -Syu --noconfirm --needed base-devel rustup picom \
             kompose accountsservice autorandr jupyterlab xorg-xbacklight \
             musl musl-aarch64 transmission-gtk paru whatweb python-poetry \
             nvtop cuda cuda-tools vulkan-tools \
-            linux-headers python-pyroute2 solaar strace hdparm libreoffice ripgrep \
+            linux-headers python-pyroute2 solaar strace hdparm libreoffice ripgrep impala \
             python-tensorflow-cuda nvidia-container-toolkit clipcat python-notify2 python-daemon || true
 
 
@@ -107,7 +107,7 @@ paru -S --skipreview --noconfirm --needed jetbrains-toolbox coreimage qtile-extr
         podman-dnsname tfenv kubecolor calcurse todotxt playerctl zoom \
         aws-cli-v2 web-greeter notion-app-electron android-sdk-cmdline-tools-latest \
         android-tools dracula-gtk-theme visual-studio-code-bin rustscan balena-etcher krew rofi-autorandr \
-	insomnia mongodb-compass youtube-dl helm-docs eww shell-color-scripts-git hubble-bin \
+	insomnia mongodb-compass youtube-dl helm-docs eww shell-color-scripts-git hubble-bin oryx\
         hadolint-bin python-pytest exercism-bin bpftool-bin bpftrace teams renovate pdftk terraform-ls tflint terraform-lsp
 
 # Clean paru cache

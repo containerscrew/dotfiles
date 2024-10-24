@@ -22,7 +22,7 @@ style = "Italic"
 family = "monospace"
 style = "Regular"
 
-[shell]
+[terminal.shell]
 program = "/usr/bin/zsh"
 
 [window]

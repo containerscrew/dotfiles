@@ -117,6 +117,7 @@ alias personal='cd $HOME/Documents/Code/Personal'
 alias top='btop'
 alias mfacode='oathtool --totp --base32'
 alias open='xdg-open'
+alias autorandr='rofi-autorandr'
 
 # Load custom functions
 source $HOME/.my_zsh_functions/custom.sh
