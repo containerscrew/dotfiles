@@ -105,9 +105,9 @@ paru -S --skipreview --noconfirm --needed jetbrains-toolbox coreimage qtile-extr
         mkdocs-rss-plugin mkdocs-material slack-desktop gitleaks procs gosec aws-session-manager-plugin  \
         ttf-font-awesome insomnia ttf-gentium-basic golangci-lint kubectx terraform-docs \
         podman-dnsname tfenv kubecolor calcurse todotxt playerctl zoom \
-        aws-cli-v2 web-greeter notion-app-electron android-sdk-cmdline-tools-latest \
+        aws-cli-v2 web-greeter notion-app-electron android-sdk-cmdline-tools-latest hey \
         android-tools dracula-gtk-theme visual-studio-code-bin rustscan balena-etcher krew rofi-autorandr \
-	insomnia mongodb-compass youtube-dl helm-docs eww shell-color-scripts-git hubble-bin oryx\
+	insomnia mongodb-compass youtube-dl helm-docs eww shell-color-scripts-git hubble-bin oryx protonvpn-cli-community\
         hadolint-bin python-pytest exercism-bin bpftool-bin bpftrace teams renovate pdftk terraform-ls tflint terraform-lsp
 
 # Clean paru cache
