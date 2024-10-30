@@ -108,7 +108,7 @@ paru -S --skipreview --noconfirm --needed jetbrains-toolbox coreimage qtile-extr
         aws-cli-v2 web-greeter notion-app-electron android-sdk-cmdline-tools-latest hey \
         android-tools dracula-gtk-theme visual-studio-code-bin rustscan balena-etcher krew rofi-autorandr \
         insomnia mongodb-compass youtube-dl helm-docs eww shell-color-scripts-git hubble-bin oryx\
-        hadolint-bin python-pytest exercism-bin bpftool-bin bpftrace teams renovate pdftk terraform-ls tflint terraform-lsp
+        hadolint-bin python-pytest exercism-bin bpftool-bin bpftrace teams pdftk terraform-ls tflint terraform-lsp
 
 # Clean paru cache
 log_message "info" "Cleaning paru cache"
