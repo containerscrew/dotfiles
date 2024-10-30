@@ -71,7 +71,6 @@ keys = [
     ),  # Floatting terminal
     # Key([mod, alt], "n", lazy.spawn(""), desc="Launch floatterminal"), #Floatting terminal
     # https://docs.qtile.org/en/latest/manual/config/lazy.html
-
     # Windows
     Key(
         [mod, "shift"],

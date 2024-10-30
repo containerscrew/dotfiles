@@ -79,7 +79,7 @@ sudo pacman -Syu --noconfirm --needed base-devel rustup picom \
             kubectl helm go minikube xorg-server-xephyr python-netifaces \
             chromium github-cli grub-customizer xorg-xhost polkit-gnome \
             xorg-xinput conky-manager fuse-overlayfs onefetch \
-            mariadb-clients oath-toolkit nushell btop scrcpy \
+            mariadb-clients oath-toolkit nushell btop scrcpy xfce4 xfce4-goodies \
             gnome-calculator docker python-kubernetes python-hatch \
             exfat-utils evince python-pipx lxappearance kvantum-qt5 \
             hugo bcc bcc-tools python-bcc bpf bpf-linker vim cmake clang llvm flex bison linux-api-headers \
@@ -104,10 +104,10 @@ log_message "info" "Installing paru packages"
 paru -S --skipreview --noconfirm --needed jetbrains-toolbox coreimage qtile-extras python-pulsectl-asyncio mkdocs \
         mkdocs-rss-plugin mkdocs-material slack-desktop gitleaks procs gosec aws-session-manager-plugin  \
         ttf-font-awesome insomnia ttf-gentium-basic golangci-lint kubectx terraform-docs \
-        podman-dnsname tfenv kubecolor calcurse todotxt playerctl zoom \
+        podman-dnsname tfenv kubecolor calcurse todotxt playerctl zoom usbimager \
         aws-cli-v2 web-greeter notion-app-electron android-sdk-cmdline-tools-latest hey \
         android-tools dracula-gtk-theme visual-studio-code-bin rustscan balena-etcher krew rofi-autorandr \
-	insomnia mongodb-compass youtube-dl helm-docs eww shell-color-scripts-git hubble-bin oryx protonvpn-cli-community\
+        insomnia mongodb-compass youtube-dl helm-docs eww shell-color-scripts-git hubble-bin oryx\
         hadolint-bin python-pytest exercism-bin bpftool-bin bpftrace teams renovate pdftk terraform-ls tflint terraform-lsp
 
 # Clean paru cache

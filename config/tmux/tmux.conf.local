@@ -426,7 +426,7 @@ set -g @dracula-spotify-tui-colors "green white"
 # the default is 5, it can accept any number
 set -g @dracula-refresh-rate 5
 set -g @dracula-show-left-icon 🦀
- 
+
 #set -g @plugin 'tmux-plugins/tmux-cpu'
 #set -g @plugin 'tmux-plugins/tmux-resurrect'
 #set -g @plugin 'tmux-plugins/tmux-continuum'

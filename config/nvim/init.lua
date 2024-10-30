@@ -22,7 +22,7 @@ require("lazy").setup({
         config = function()
             -- Disable default tab mapping for Copilot
             vim.g.copilot_no_tab_map = true
-            
+
             -- Map <C-J> to accept the current Copilot suggestion
             vim.api.nvim_set_keymap("i", "<C-J>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
         end,

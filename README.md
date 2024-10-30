@@ -34,6 +34,8 @@ Here are some details about my setup:
 - **Clipboard manager** [clipcat](https://github.com/xrelkd/clipcat)
 - **Laptop:** [Slimbook Executive 16 Intel i7 13700H Black RTX 4060](https://slimbook.com/en/shop/product/executive-16-intel-i7-13700h-black-rtx-4060-1102?category=8)
 
+> I don't use Qtile for steam games. I use xfce4 for that.
+
 ---
 
 <!-- START OF TOC !DO NOT EDIT THIS CONTENT MANUALLY-->
