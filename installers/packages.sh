@@ -77,20 +77,20 @@ fi
 
 # Keep this by the moment for nvidia drivers
 # https://github.com/lutris/docs/blob/master/InstallingDrivers.md
-#sudo pacman -S --noconfirm --needed nvidia-dkms nvidia-utils lib32-nvidia-utils nvidia-settings vulkan-icd-loader lib32-vulkan-icd-loader
-#
-#sudo pacman -S --noconfirm --needed lib32-mesa vulkan-intel lib32-vulkan-intel vulkan-icd-loader lib32-vulkan-icd-loader
+sudo pacman -S --noconfirm --needed nvidia-dkms nvidia-utils lib32-nvidia-utils nvidia-settings
+
+sudo pacman -S --noconfirm --needed lib32-mesa vulkan-intel lib32-vulkan-intel vulkan-icd-loader lib32-vulkan-icd-loader
 #
 #log_message "info" "Installing paru packages"
-#paru -S --skipreview --noconfirm --needed jetbrains-toolbox coreimage qtile-extras python-pulsectl-asyncio mkdocs \
-#        mkdocs-rss-plugin mkdocs-material slack-desktop gitleaks procs gosec aws-session-manager-plugin  \
-#        ttf-font-awesome insomnia ttf-gentium-basic golangci-lint kubectx terraform-docs \
-#        podman-dnsname tfenv kubecolor calcurse todotxt playerctl zoom usbimager \
-#        aws-cli-v2 notion-app-electron android-sdk-cmdline-tools-latest hey \
-#        android-tools dracula-gtk-theme visual-studio-code-bin rustscan balena-etcher krew rofi-autorandr \
-#        insomnia mongodb-compass youtube-dl helm-docs eww shell-color-scripts-git hubble-bin oryx \
-#        hadolint-bin python-pytest exercism-bin bpftool-bin bpftrace teams pdftk terraform-ls tflint terraform-lsp
-#
+paru -S --skipreview --noconfirm --needed jetbrains-toolbox coreimage qtile-extras python-pulsectl-asyncio mkdocs \
+        mkdocs-rss-plugin mkdocs-material slack-desktop gitleaks procs gosec aws-session-manager-plugin  \
+        ttf-font-awesome insomnia ttf-gentium-basic golangci-lint kubectx terraform-docs \
+        podman-dnsname tfenv kubecolor calcurse todotxt playerctl zoom usbimager \
+        aws-cli-v2 notion-app-electron android-sdk-cmdline-tools-latest hey orchis-theme\
+        android-tools dracula-gtk-theme visual-studio-code-bin rustscan balena-etcher krew rofi-autorandr \
+        insomnia mongodb-compass youtube-dl helm-docs eww shell-color-scripts-git hubble-bin oryx \
+        hadolint-bin python-pytest exercism-bin bpftrace teams pdftk terraform-ls tflint terraform-lsp
+
 ## Clean paru cache
 #log_message "info" "Cleaning paru cache"
 #paru -Sccd --skipreview --noconfirm

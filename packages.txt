@@ -218,5 +218,8 @@ clipcat
 python-notify2
 python-daemon
 lightdm
-lightdm-slick-greeter
+lightdm-gtk-greeter
 lightdm-gtk-greeter-settings
+arc-gtk-theme
+gamemode
+cpupower

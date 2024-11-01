@@ -7,7 +7,7 @@ from libqtile.lazy import lazy
 from .colors import Colors
 
 
-xx = 15
+xx = 16
 xf = "space mono for powerline bold"
 
 
@@ -59,7 +59,7 @@ default = [
             "Button1": lazy.spawn("rofi -show drun -theme ~/.config/rofi/Launcher.rasi")
         },
         foreground=Colors.blue,
-        fontsize=18,
+        fontsize=20,
         padding=10,
         text="",
     ),
@@ -234,7 +234,7 @@ screens = [
     Screen(
         top=bar.Bar(
             default,
-            30,
+            40,
             background=Colors.background,
             foreground=Colors.foreground,
             margin=[5, 10, 0, 10],

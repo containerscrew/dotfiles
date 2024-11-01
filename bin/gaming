@@ -1,0 +1,35 @@
+#! /bin/bash
+
+echo "Entering Gaming Mode..."
+
+# Set CPU to performance mode
+echo "Setting CPU governor to performance mode..."
+sudo cpupower frequency-set -g performance
+
+# Stop unnecessary services
+#echo "Stopping unnecessary services..."
+#sudo systemctl stop cups         # Print service
+#sudo systemctl stop bluetooth     # Bluetooth service
+
+# Disable Picom temporarily to reduce latency (uncomment if preferred)
+echo "Disabling Picom for gaming session..."
+killall picom
+
+# Check if gamemode is installed and set it up
+if command -v gamemoderun &> /dev/null; then
+    echo "GameMode detected. Set it in your game's launch options as: gamemoderun %command%"
+else
+    echo "GameMode not detected. Install GameMode for better performance in games."
+fi
+
+# Check GPU and set NVIDIA-specific optimizations (uncomment if using NVIDIA)
+if lspci | grep -i "nvidia" &> /dev/null; then
+ echo "Setting NVIDIA to performance mode..."
+ nvidia-settings -a '[gpu:0]/GPUPowerMizerMode=1'
+fi
+
+echo "Gaming mode setup complete! Launch your game with GameMode or the custom settings."
+
+# Note: This script stops certain services; you may need to restart them after gaming.
+# To revert the CPU governor to a balanced mode after gaming, run the command below:
+# sudo cpupower frequency-set -g ondemand

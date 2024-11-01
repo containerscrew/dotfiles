@@ -73,6 +73,5 @@ fi
 #rm -rf /tmp/RuanMei*
 
 log_message "info" "Setup ligthdm"
-sudo sed -i '/^\[Seat:\*\]/,/^$/ s/^#\?greeter-session=.*/greeter-session=lightdm-slick-greeter/' /etc/lightdm/lightdm.conf
-sudo cp etc/lightdm/slick-greeter.conf /etc/lightdm/slick-greeter.conf
+sudo cp etc/lightdm/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf
 sudo systemctl enable lightdm.service
