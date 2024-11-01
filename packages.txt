@@ -219,6 +219,4 @@ python-notify2
 python-daemon
 lightdm
 lightdm-slick-greeter
-lightdm-gtk-greeter
-xfce4
-xfce4-goodies
+lightdm-gtk-greeter-settings

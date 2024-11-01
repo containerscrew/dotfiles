@@ -53,11 +53,15 @@ sudo systemctl enable docker --now
 sudo usermod -aG docker dcr
 
 log_message "info" "Setup grub theme"
-unzip -o wrench-1080p.zip -d /tmp/
-sudo cp -r /tmp/dedsec /boot/grub/themes
-sudo sed -i 's/^#GRUB_THEME=.*/GRUB_THEME="\/boot\/grub\/themes\/dedsec\/theme.txt"/' /etc/default/grub
-sudo sed -i '/GRUB_CMDLINE_LINUX_DEFAULT/ s/quiet"/quiet splash"/' /etc/default/grub
-sudo grub-mkconfig -o /boot/grub/grub.cfg
+if [ -e /boot/grub/themes/dedsec/theme.txt ]; then
+    log_message "warning" "DedSec theme already installed. Skipping..."
+else
+    unzip -o wrench-1080p.zip -d /tmp/
+    sudo cp -r /tmp/dedsec /boot/grub/themes
+    sudo sed -i 's/^#GRUB_THEME=.*/GRUB_THEME="\/boot\/grub\/themes\/dedsec\/theme.txt"/' /etc/default/grub
+    sudo sed -i '/GRUB_CMDLINE_LINUX_DEFAULT/ s/quiet"/quiet splash"/' /etc/default/grub
+    sudo grub-mkconfig -o /boot/grub/grub.cfg
+fi
 
 #### OLD THEME ####
 #wget https://github.com/voidlhf/StarRailGrubThemes/raw/master/themes/RuanMei.tar.gz -P /tmp
