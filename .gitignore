@@ -14,3 +14,6 @@ vars.yml
 *.pem
 *.key
 *.crt
+
+# Package installation errors
+install_errors.log

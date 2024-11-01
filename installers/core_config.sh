@@ -53,13 +53,22 @@ sudo systemctl enable docker --now
 sudo usermod -aG docker dcr
 
 log_message "info" "Setup grub theme"
-wget https://github.com/voidlhf/StarRailGrubThemes/raw/master/themes/RuanMei.tar.gz -P /tmp
-tar -xzf /tmp/RuanMei.tar.gz -C /tmp
-sudo cp -r /tmp/RuanMei /boot/grub/themes/
-sudo sed -i 's/^#GRUB_THEME=.*/GRUB_THEME="\/boot\/grub\/themes\/RuanMei\/theme.txt"/' /etc/default/grub
+unzip -o wrench-1080p.zip -d /tmp/
+sudo cp -r /tmp/dedsec /boot/grub/themes
+sudo sed -i 's/^#GRUB_THEME=.*/GRUB_THEME="\/boot\/grub\/themes\/dedsec\/theme.txt"/' /etc/default/grub
 sudo sed -i '/GRUB_CMDLINE_LINUX_DEFAULT/ s/quiet"/quiet splash"/' /etc/default/grub
 sudo grub-mkconfig -o /boot/grub/grub.cfg
-rm -rf /tmp/RuanMei*
 
-log_message "info" "Setup lightdm"
+#### OLD THEME ####
+#wget https://github.com/voidlhf/StarRailGrubThemes/raw/master/themes/RuanMei.tar.gz -P /tmp
+#tar -xzf /tmp/RuanMei.tar.gz -C /tmp
+#sudo cp -r /tmp/RuanMei /boot/grub/themes/
+#sudo sed -i 's/^#GRUB_THEME=.*/GRUB_THEME="\/boot\/grub\/themes\/RuanMei\/theme.txt"/' /etc/default/grub
+#sudo sed -i '/GRUB_CMDLINE_LINUX_DEFAULT/ s/quiet"/quiet splash"/' /etc/default/grub
+#sudo grub-mkconfig -o /boot/grub/grub.cfg
+#rm -rf /tmp/RuanMei*
+
+log_message "info" "Setup ligthdm"
+sudo sed -i '/^\[Seat:\*\]/,/^$/ s/^#\?greeter-session=.*/greeter-session=lightdm-slick-greeter/' /etc/lightdm/lightdm.conf
+sudo cp etc/lightdm/slick-greeter.conf /etc/lightdm/slick-greeter.conf
 sudo systemctl enable lightdm.service

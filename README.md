@@ -33,6 +33,7 @@ Here are some details about my setup:
 - **Display manager:** [lightdm](https://wiki.archlinux.org/title/LightDM)
 - **Clipboard manager** [clipcat](https://github.com/xrelkd/clipcat)
 - **Laptop:** [Slimbook Executive 16 Intel i7 13700H Black RTX 4060](https://slimbook.com/en/shop/product/executive-16-intel-i7-13700h-black-rtx-4060-1102?category=8)
+- **Grub theme:** [DedSec](https://gitlab.com/VandalByte/dedsec-grub-theme)
 
 > I don't use Qtile for steam games. I use xfce4 for that.
 
