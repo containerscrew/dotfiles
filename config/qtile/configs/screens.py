@@ -234,7 +234,7 @@ screens = [
     Screen(
         top=bar.Bar(
             default,
-            40,
+            30,
             background=Colors.background,
             foreground=Colors.foreground,
             margin=[5, 10, 0, 10],
