@@ -2,14 +2,12 @@
 
 echo "Entering Gaming Mode..."
 
+echo "Stopping protonvpn"
+sudo systemctl stop wg-quick@protonvpn.service
+
 # Set CPU to performance mode
 echo "Setting CPU governor to performance mode..."
 sudo cpupower frequency-set -g performance
-
-# Stop unnecessary services
-#echo "Stopping unnecessary services..."
-#sudo systemctl stop cups         # Print service
-#sudo systemctl stop bluetooth     # Bluetooth service
 
 # Disable Picom temporarily to reduce latency (uncomment if preferred)
 echo "Disabling Picom for gaming session..."
