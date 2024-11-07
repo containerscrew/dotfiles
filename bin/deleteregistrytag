@@ -1,0 +1,60 @@
+#! /bin/bash
+
+# This script deletes a tag from a Docker registry by using the digest of the tag.
+# Assumes you don't need authentication
+# Also skips SSL verification
+
+# Function to display usage information
+usage() {
+  echo "Usage: $0 -u <registry-url> -r <repository> -t <tag-name>"
+  echo "Example: $0 -u https://core-registry.dev:443 -r docker-templates/docker-dind -t latest"
+  exit 1
+}
+
+# Parse command-line options using getopts
+while getopts ":u:r:t:" opt; do
+  case ${opt} in
+    u )
+      REGISTRY_URL=$OPTARG
+      ;;
+    r )
+      REPO=$OPTARG
+      ;;
+    t )
+      TAG_NAME=$OPTARG
+      ;;
+    \? )
+      echo "Invalid option: -$OPTARG" >&2
+      usage
+      ;;
+    : )
+      echo "Option -$OPTARG requires an argument." >&2
+      usage
+      ;;
+  esac
+done
+
+# Check if all required arguments are provided
+if [ -z "$REGISTRY_URL" ] || [ -z "$REPO" ] || [ -z "$TAG_NAME" ]; then
+  echo "Error: Missing required arguments."
+  usage
+fi
+
+# Fetch the digest for the specified tag
+echo "Fetching digest for tag '$TAG_NAME' in repository '$REPO' on registry '$REGISTRY_URL'..."
+DIGEST=$(curl -s -k -H "Accept: application/vnd.oci.image.manifest.v1+json, application/vnd.docker.distribution.manifest.v2+json" \
+  -I "$REGISTRY_URL/v2/$REPO/manifests/$TAG_NAME" | grep -i 'Docker-Content-Digest' | awk '{print $2}' | tr -d $'\r')
+
+# Check if digest was found
+if [ -z "$DIGEST" ]; then
+  echo "Error: Tag '$TAG_NAME' not found in repository '$REPO' or digest not returned."
+  exit 1
+else
+  echo "Digest found: $DIGEST"
+fi
+
+# Delete the tag using the digest
+echo "Deleting tag '$TAG_NAME' with digest $DIGEST..."
+curl -k -X DELETE "$REGISTRY_URL/v2/$REPO/manifests/$DIGEST"
+
+echo "Tag '$TAG_NAME' deleted successfully."

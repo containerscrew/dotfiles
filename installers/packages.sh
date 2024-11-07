@@ -88,7 +88,7 @@ paru -S --skipreview --noconfirm --needed jetbrains-toolbox coreimage qtile-extr
         podman-dnsname tfenv kubecolor calcurse todotxt playerctl zoom usbimager \
         aws-cli-v2 notion-app-electron android-sdk-cmdline-tools-latest hey orchis-theme\
         android-tools dracula-gtk-theme visual-studio-code-bin rustscan balena-etcher krew rofi-autorandr \
-        insomnia mongodb-compass youtube-dl helm-docs eww shell-color-scripts-git hubble-bin oryx \
+        insomnia mongodb-compass youtube-dl helm-docs eww shell-color-scripts-git hubble-bin oryx regctl\
         hadolint-bin python-pytest exercism-bin bpftrace teams pdftk terraform-ls tflint terraform-lsp
 
 ## Clean paru cache
