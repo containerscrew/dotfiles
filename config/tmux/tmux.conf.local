@@ -344,7 +344,7 @@ tmux_conf_theme_clock_style="24"
 #   - false (default)
 #   - disabled
 # on Linux, this requires xsel, xclip or wl-copy
-tmux_conf_copy_to_os_clipboard=false
+tmux_conf_copy_to_os_clipboard=true
 
 
 # -- user customizations -------------------------------------------------------
@@ -429,6 +429,7 @@ set -g @dracula-time-format "%A %d - %H:%M"
 # the default is 5, it can accept any number
 set -g @dracula-refresh-rate 5
 set -g @dracula-show-left-icon 🦀
+set -g @dracula-left-icon-colors "light_purple white"
 
 #set -g @plugin 'tmux-plugins/tmux-cpu'
 #set -g @plugin 'tmux-plugins/tmux-resurrect'

@@ -12,6 +12,7 @@ add_newline = false
 # [└─>]($character) '''
 
 right_format = """
+$kubernetes\
 $aws\
 $helm \
 $golang\
@@ -97,9 +98,15 @@ format = "[$symbol($version )]($style)"
 format = "helm [⎈ $version](bold blue) "
 
 [kubernetes]
-symbol = "☸️  "
-style = "green"
+symbol = "󱃾️ "
+style = "blue"
+format = '[$symbol$context]($style) in [$namespace]($style) '
 disabled = false
+# Shorten EKS clusters to only the important part of their name
+[[kubernetes.contexts]]
+context_pattern = 'arn.*\/(?P<cluster>[\w\/-]+)'
+context_alias = "$cluster"
+style = 'blue'
 
 [terraform]
 symbol = '󱁢'
