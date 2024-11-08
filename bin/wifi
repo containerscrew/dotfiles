@@ -1,0 +1,14 @@
+#! /bin/bash
+
+if [ -z "$1" ];then
+  echo "Usage: wifi [on|off]"
+  exit 1
+fi
+
+if [ "$1" != "on" ] && [ "$1" != "off" ];then
+  echo "Usage: wifi [on|off]"
+  exit 1
+else
+  echo "Changing wifi status to $1"
+  nmcli radio wifi "$1"
+fi

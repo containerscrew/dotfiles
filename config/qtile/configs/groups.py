@@ -44,8 +44,8 @@ groups = [
         label="",
     ),
     Group(
-        "9",  # free
-        label="",
+        "9",  # Rust or die
+        label="",
     ),
 ]
 

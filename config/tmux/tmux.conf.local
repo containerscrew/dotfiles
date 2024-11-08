@@ -416,12 +416,15 @@ set -g @plugin 'dracula/tmux'
 
 # Info https://draculatheme.com/tmux
 # available plugins: battery, cpu-usage, git, gpu-usage, ram-usage, tmux-ram-usage, network, network-bandwidth, network-ping, ssh-session, attached-clients, network-vpn, weather, time, mpc, spotify-tui, playerctl, kubernetes-context, synchronize-panes
-set -g @dracula-plugins "spotify-tui"
+set -g @dracula-plugins "time ssh-session"
+set -g @dracula-ssh-session-colors "pink dark_gray"
+set -g @dracula-powerline-bg-transparent true
 
 # available colors: white, gray, dark_gray, light_purple, dark_purple, cyan, green, orange, red, pink, yellow
 # set -g @dracula-[plugin-name]-colors "[background] [foreground]"
 #set -g @dracula-network-vpn-colors "pink white"
-set -g @dracula-spotify-tui-colors "green white"
+set -g @dracula-time-colors "light_purple white"
+set -g @dracula-time-format "%A %d - %H:%M"
 
 # the default is 5, it can accept any number
 set -g @dracula-refresh-rate 5
