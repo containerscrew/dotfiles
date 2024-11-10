@@ -35,8 +35,6 @@ Here are some details about my setup:
 - **Laptop:** [Slimbook Executive 16 Intel i7 13700H Black RTX 4060](https://slimbook.com/en/shop/product/executive-16-intel-i7-13700h-black-rtx-4060-1102?category=8)
 - **Grub theme:** [DedSec](https://gitlab.com/VandalByte/dedsec-grub-theme)
 
-> I don't use Qtile for steam games. I use xfce4 for that.
-
 ---
 
 <!-- START OF TOC !DO NOT EDIT THIS CONTENT MANUALLY-->
@@ -65,7 +63,7 @@ Here are some details about my setup:
 
 ---
 
-# Disclaimer ⚠️
+# Disclaimer
 
 It is my personal setup, the way I like it, with configurations, applications that are comfortable for me. Use it if you want as a template, as a guide. I will update it as I need to add new packages, configs...etc.
 

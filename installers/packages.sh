@@ -92,14 +92,14 @@ paru -S --skipreview --noconfirm --needed jetbrains-toolbox coreimage qtile-extr
         hadolint-bin python-pytest exercism-bin bpftrace teams pdftk terraform-ls tflint terraform-lsp
 
 ## Clean paru cache
-#log_message "info" "Cleaning paru cache"
-#paru -Sccd --skipreview --noconfirm
-#
+log_message "info" "Cleaning paru cache"
+paru -Sccd --skipreview --noconfirm
+
 #log_message "info" "Install terragrunt"
-#paru -S --skipreview --noconfirm --needed terragrunt
-#
-#log_message "info" "Install custom tools"
-#command -v tftools >/dev/null 2>&1 || curl --proto '=https' --tlsv1.2 -sSfL https://raw.githubusercontent.com/containerscrew/tftools/main/scripts/install.sh | bash
+paru -S --skipreview --noconfirm --needed terragrunt
+
+log_message "info" "Install custom tools"
+command -v tftools >/dev/null 2>&1 || curl --proto '=https' --tlsv1.2 -sSfL https://raw.githubusercontent.com/containerscrew/tftools/main/scripts/install.sh | bash
 
 #log_message "info" "Install helm plugins"
 #helm plugin install https://github.com/helm/helm-mapkubeapis || true
