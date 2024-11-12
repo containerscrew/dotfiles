@@ -1,0 +1,3 @@
+# List devices
+idevice_id -l
+idevicebackup2 backup /mnt/ssd/backup-iphone/iPhoneBackup

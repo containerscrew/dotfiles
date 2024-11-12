@@ -129,3 +129,6 @@ done < "$file"
 
 # Vbox
 sudo usermod -aG vboxusers dcr
+
+# For kooha screen recording
+#systemctl --user restart xdg-desktop-portal

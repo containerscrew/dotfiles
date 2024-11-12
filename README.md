@@ -41,7 +41,7 @@ Here are some details about my setup:
 **Table of Contents**  *generated with [mtoc](https://github.com/containerscrew/mtoc)*
 - [containerscrew dotfiles](#containerscrew-dotfiles)
     - [Hello geeks!](#hello-geeks!)
-- [Disclaimer ⚠️](#disclaimer-⚠️)
+- [Disclaimer](#disclaimer)
 - [Arch Linux installation](#arch-linux-installation)
   - [Before installation using archinstall](#before-installation-using-archinstall)
     - [Connect to the internet](#connect-to-the-internet)

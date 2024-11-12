@@ -223,3 +223,9 @@ lightdm-gtk-greeter-settings
 arc-gtk-theme
 gamemode
 cpupower
+kooha
+xdg-desktop-portal
+xdg-desktop-portal-gtk
+ilibimobiledevice
+ifuse
+usbmuxd
