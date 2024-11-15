@@ -229,3 +229,4 @@ xdg-desktop-portal-gtk
 ilibimobiledevice
 ifuse
 usbmuxd
+gimp

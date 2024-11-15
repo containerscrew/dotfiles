@@ -1,6 +1,6 @@
 import os
 import subprocess
-from libqtile import layout, hook
+from libqtile import layout, hook, qtile
 from libqtile.config import Match
 from typing import List  # noqa: F401
 
@@ -32,6 +32,7 @@ floating_layout = layout.Floating(
         Match(wm_class="Signal Beta"),  # ssh-askpass
         Match(title="branchdialog"),  # gitk
         Match(title="pinentry"),  # GPG key password entry
+        Match(wm_class="chromium", role="pop-up"), # Google Chrome picture-in-picture
     ],
 )
 auto_fullscreen = True
@@ -40,7 +41,6 @@ reconfigure_screens = True
 auto_minimize = True
 wl_input_rules = None
 wmname = "LG3D"
-
 
 # Script for displays position, always execute if you reload QTILE config
 @hook.subscribe.startup
