@@ -226,7 +226,7 @@ cpupower
 kooha
 xdg-desktop-portal
 xdg-desktop-portal-gtk
-ilibimobiledevice
+libimobiledevice
 ifuse
 usbmuxd
 gimp

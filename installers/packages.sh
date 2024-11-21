@@ -86,9 +86,9 @@ paru -S --skipreview --noconfirm --needed jetbrains-toolbox coreimage qtile-extr
         mkdocs-rss-plugin mkdocs-material slack-desktop gitleaks procs gosec aws-session-manager-plugin  \
         ttf-font-awesome insomnia ttf-gentium-basic golangci-lint kubectx terraform-docs \
         podman-dnsname tfenv kubecolor calcurse todotxt playerctl zoom usbimager brave-bin \
-        aws-cli-v2 notion-app-electron android-sdk-cmdline-tools-latest hey orchis-theme\
+        aws-cli-v2 notion-app-electron android-sdk-cmdline-tools-latest hey-bin orchis-theme-git\
         android-tools dracula-gtk-theme visual-studio-code-bin rustscan balena-etcher krew rofi-autorandr \
-        insomnia mongodb-compass youtube-dl helm-docs eww shell-color-scripts-git hubble-bin oryx regctl\
+        insomnia mongodb-compass youtube-dl helm-docs eww shell-color-scripts-git hubble-bin oryx regclient-regctl\
         hadolint-bin python-pytest exercism-bin bpftrace teams pdftk terraform-ls tflint terraform-lsp
 
 ## Clean paru cache
@@ -103,3 +103,8 @@ command -v tftools >/dev/null 2>&1 || curl --proto '=https' --tlsv1.2 -sSfL http
 
 #log_message "info" "Install helm plugins"
 #helm plugin install https://github.com/helm/helm-mapkubeapis || true
+
+# Blockchain tools
+#cargo install --git https://github.com/coral-xyz/anchor avm --locked --force
+#sh -c "$(curl -sSfL https://release.anza.xyz/stable/install)"
+#sudo npm install -g @web3-storage/w3cli
