@@ -1,11 +1,15 @@
+4ops.terraform
 amazonwebservices.aws-toolkit-vscode
+astro-build.astro-vscode
 benjaminbenais.copilot-theme
+betajob.modulestf
 boto3typed.boto3-ide
-bungcip.better-toml
 catppuccin.catppuccin-vsc
 catppuccin.catppuccin-vsc-icons
 charliermarsh.ruff
 christian-kohler.path-intellisense
+davidanson.vscode-markdownlint
+donjayamanne.githistory
 dracula-theme.theme-dracula
 eamodio.gitlens
 equinusocio.vsc-material-theme
@@ -15,6 +19,7 @@ github.copilot-chat
 github.vscode-github-actions
 gitlab.gitlab-workflow
 golang.go
+hangxingliu.vscode-systemd-support
 hashicorp.hcl
 hashicorp.terraform
 ionutvmi.path-autocomplete
@@ -36,6 +41,7 @@ pkief.material-icon-theme
 redhat.vscode-yaml
 rust-lang.rust-analyzer
 tamasfe.even-better-toml
+timonwong.shellcheck
 twxs.cmake
 vscode-icons-team.vscode-icons
 zeshuaro.vscode-python-poetry
