@@ -26,7 +26,7 @@ light-locker --no-lock-on-lid &
 autorandr --change
 
 # clipcat (clipboard manager)
-clipcatd
+/usr/bin/clipcatd
 
 # Other apps for systray
 #udiskie -t &
