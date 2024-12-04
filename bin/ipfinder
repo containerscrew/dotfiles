@@ -1,0 +1,12 @@
+#! /bin/bash
+
+# I have a custom API to index ip addresses (Geolocation)
+# Is running in an internal network
+# https://github.com/containerscrew/iproxy
+
+if [ -z "$1" ]; then
+  echo "Usage: $0 <ip>"
+  exit 1
+fi
+
+curl -s http://myserver.local:8000/api/v1/"$1" | jq

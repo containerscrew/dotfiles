@@ -89,7 +89,7 @@ paru -S --skipreview --noconfirm --needed jetbrains-toolbox coreimage qtile-extr
         aws-cli-v2 notion-app-electron android-sdk-cmdline-tools-latest hey-bin orchis-theme-git\
         android-tools dracula-gtk-theme visual-studio-code-bin rustscan balena-etcher krew rofi-autorandr \
         insomnia mongodb-compass youtube-dl helm-docs eww shell-color-scripts-git hubble-bin oryx regclient-regctl\
-        hadolint-bin python-pytest exercism-bin bpftrace teams pdftk terraform-ls tflint terraform-lsp
+        hadolint-bin python-pytest exercism-bin bpftrace teams pdftk terraform-ls tflint terraform-lsp mongodb-tools
 
 ## Clean paru cache
 log_message "info" "Cleaning paru cache"
