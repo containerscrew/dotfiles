@@ -23,7 +23,7 @@ light-locker --no-lock-on-lid &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
 # autorandr for display position
-autorandr --change
+#autorandr --change
 
 # clipcat (clipboard manager)
 /usr/bin/clipcatd

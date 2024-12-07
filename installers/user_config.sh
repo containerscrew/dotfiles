@@ -119,13 +119,13 @@ sudo sed -i 's/^#\?\(HandleLidSwitch=\).*/\1suspend/' /etc/systemd/logind.conf
 # Restart systemd-logind to apply the changes
 sudo systemctl restart systemd-logind
 
-log_message "info" "Setup vscode extensions"
-file="misc/vscode-extensions.txt"
-while IFS= read -r extension; do
-    if [ ! -z "$extension" ]; then
-        code --install-extension "$extension"
-    fi
-done < "$file"
+# log_message "info" "Setup vscode extensions"
+# file="misc/vscode-extensions.txt"
+# while IFS= read -r extension; do
+#     if [ ! -z "$extension" ]; then
+#         code --install-extension "$extension"
+#     fi
+# done < "$file"
 
 # Vbox
 sudo usermod -aG vboxusers dcr

@@ -1,0 +1,50 @@
+#! /bin/bash
+
+# This script lists all tags for a Docker registry repository.
+# Assumes no authentication is needed and skips SSL verification.
+
+# Function to display usage information
+usage() {
+  echo "Usage: $0 -u <registry-url> -r <repository>"
+  echo "Example: $0 -u https://core-registry.dev:443 -r docker-templates/docker-dind"
+  exit 1
+}
+
+# Parse command-line options using getopts
+while getopts ":u:r:" opt; do
+  case ${opt} in
+    u )
+      REGISTRY_URL=$OPTARG
+      ;;
+    r )
+      REPO=$OPTARG
+      ;;
+    \? )
+      echo "Invalid option: -$OPTARG" >&2
+      usage
+      ;;
+    : )
+      echo "Option -$OPTARG requires an argument." >&2
+      usage
+      ;;
+  esac
+done
+
+# Check if all required arguments are provided
+if [ -z "$REGISTRY_URL" ] || [ -z "$REPO" ]; then
+  echo "Error: Missing required arguments."
+  usage
+fi
+
+# List all tags in the repository
+echo "Fetching list of tags for repository '$REPO' on registry '$REGISTRY_URL'..."
+TAGS=$(curl -s -k "$REGISTRY_URL/v2/$REPO/tags/list" | jq -r '.tags[]')
+
+# Check if tags were retrieved
+if [ -z "$TAGS" ]; then
+  echo "Error: No tags found for repository '$REPO' or unable to fetch tags."
+  exit 1
+else
+  echo "Available tags:"
+  echo "$TAGS"
+fi

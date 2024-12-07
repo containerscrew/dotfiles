@@ -43,7 +43,7 @@ fi
 # Fetch the digest for the specified tag
 echo "Fetching digest for tag '$TAG_NAME' in repository '$REPO' on registry '$REGISTRY_URL'..."
 DIGEST=$(curl -s -k -H "Accept: application/vnd.oci.image.manifest.v1+json, application/vnd.docker.distribution.manifest.v2+json" \
-  -I "$REGISTRY_URL/v2/$REPO/manifests/$TAG_NAME" | grep -i 'Docker-Content-Digest' | awk '{print $2}' | tr -d $'\r')
+  -I "$REGISTRY_URL/v2/$REPO/manifests/$TAG_NAME" | grep -i 'Docker-Content-Digest:' | awk -F ': ' '{print $2}' | tr -d $'\r')
 
 # Check if digest was found
 if [ -z "$DIGEST" ]; then
@@ -55,6 +55,11 @@ fi
 
 # Delete the tag using the digest
 echo "Deleting tag '$TAG_NAME' with digest $DIGEST..."
-curl -k -X DELETE "$REGISTRY_URL/v2/$REPO/manifests/$DIGEST"
+DELETE_RESPONSE=$(curl -k -s -o /dev/null -w "%{http_code}" -X DELETE "$REGISTRY_URL/v2/$REPO/manifests/$DIGEST")
 
-echo "Tag '$TAG_NAME' deleted successfully."
+if [ "$DELETE_RESPONSE" -eq 202 ]; then
+  echo "Tag '$TAG_NAME' deleted successfully."
+else
+  echo "Error: Failed to delete tag '$TAG_NAME'. HTTP response code: $DELETE_RESPONSE"
+  exit 1
+fi
