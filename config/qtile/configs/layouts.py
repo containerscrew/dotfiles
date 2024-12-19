@@ -5,7 +5,7 @@ from .colors import Colors
 from configs.keys import mod
 
 layouts = [
-    layout.MonadTall(
+    layout.Bsp(
         border_width=3,
         border_focus=Colors.background,
         margin=8,

@@ -10,7 +10,7 @@ copyq &
 dunst &
 
 # Set custom wallpaper, change the wallpaper to random wallpaper using SUPR(WIN)+ALT+P
-feh --bg-fill /usr/share/backgrounds/15.webp
+feh --bg-fill /usr/share/backgrounds/34.jpg
 
 # EWW widgets
 "$HOME/.config/eww/launch.sh"
@@ -23,7 +23,7 @@ light-locker --no-lock-on-lid &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
 # autorandr for display position
-#autorandr --change
+autorandr --change
 
 # clipcat (clipboard manager)
 /usr/bin/clipcatd

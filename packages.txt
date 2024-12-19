@@ -230,3 +230,5 @@ libimobiledevice
 ifuse
 usbmuxd
 gimp
+thunar
+lxappearance

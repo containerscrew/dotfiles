@@ -1,8 +1,7 @@
-4ops.terraform
+ahmadawais.shades-of-purple
 amazonwebservices.aws-toolkit-vscode
 astro-build.astro-vscode
 benjaminbenais.copilot-theme
-betajob.modulestf
 boto3typed.boto3-ide
 catppuccin.catppuccin-vsc
 catppuccin.catppuccin-vsc-icons
@@ -14,6 +13,7 @@ dracula-theme.theme-dracula
 eamodio.gitlens
 equinusocio.vsc-material-theme
 equinusocio.vsc-material-theme-icons
+felipe-mendes.slack-theme
 github.copilot
 github.copilot-chat
 github.vscode-github-actions
