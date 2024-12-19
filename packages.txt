@@ -232,3 +232,4 @@ usbmuxd
 gimp
 thunar
 lxappearance
+opentofu

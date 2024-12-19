@@ -212,6 +212,7 @@ default = [
         unknown_char="?",
         format="{char}  {percent:2.0%}",
         show_short_text=False,
+        hide_crash=True,
         low_foreground=Colors.red,
         update_interval=1,
     ),
