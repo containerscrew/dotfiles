@@ -75,6 +75,7 @@ fi
 #sudo grub-mkconfig -o /boot/grub/grub.cfg
 #rm -rf /tmp/RuanMei*
 
-log_message "info" "Setup ligthdm"
-sudo cp etc/lightdm/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf
-sudo systemctl enable lightdm.service
+sudo systemctl enable gdm.service
+#log_message "info" "Setup ligthdm"
+#sudo cp etc/lightdm/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf
+#sudo systemctl enable lightdm.service

@@ -233,3 +233,6 @@ gimp
 thunar
 lxappearance
 opentofu
+gnome
+gnome-extra
+gdm
