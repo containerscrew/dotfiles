@@ -236,3 +236,6 @@ opentofu
 gnome
 gnome-extra
 gdm
+gnome-browser-connector
+git-lfs
+git-filter-repo

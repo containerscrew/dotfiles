@@ -130,5 +130,15 @@ sudo systemctl restart systemd-logind
 # Vbox
 sudo usermod -aG vboxusers dcr
 
+log_message "info" "Some gnome settings"
+gsettings set org.gnome.mutter dynamic-workspaces false
+gsettings set org.gnome.desktop.wm.preferences num-workspaces 6
+gsettings set org.gnome.desktop.wm.preferences workspace-names "['Browse', 'Terminal', 'Vscode', 'Slack', 'Social', 'Other']"
+
+for i in {1..6}; do
+    gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-$i "['<Super>$i']"
+    gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-$i "['<Super><Shift>$i']"
+done
+
 # For kooha screen recording
 #systemctl --user restart xdg-desktop-portal
