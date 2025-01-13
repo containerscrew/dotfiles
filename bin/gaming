@@ -31,3 +31,4 @@ echo "Gaming mode setup complete! Launch your game with GameMode or the custom s
 # Note: This script stops certain services; you may need to restart them after gaming.
 # To revert the CPU governor to a balanced mode after gaming, run the command below:
 # sudo cpupower frequency-set -g ondemand
+# steam settings: gamemoderun %command% -novid -nojoy -high -windowed -fullscreen -threads 8 +fps_max 0
