@@ -239,3 +239,4 @@ gdm
 gnome-browser-connector
 git-lfs
 git-filter-repo
+proton-vpn-gtk-app
